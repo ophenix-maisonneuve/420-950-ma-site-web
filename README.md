@@ -1,4 +1,4 @@
 
-# Algorithmes et modèles de programmation - 420-930-MA
+# Cybersécurité - 420-950-MA
 
-Ce dépôt contient le site du cours Algorithmes et modèles de programmation.
+Ce dépôt contient le site du cours de Cybersécurité.
