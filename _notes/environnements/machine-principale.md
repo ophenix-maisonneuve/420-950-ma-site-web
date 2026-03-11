@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Machine principale"
+nav_order: 1
+published: true
+has_toc: false
+---
 
 # Machine principale
 

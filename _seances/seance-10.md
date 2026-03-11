@@ -2,7 +2,7 @@
 layout: default
 title: "Séance 10"
 nav_order: 10
-published: true
+published: false
 ---
 
 # Séance 10 : Structures de données - Listes (suite)
