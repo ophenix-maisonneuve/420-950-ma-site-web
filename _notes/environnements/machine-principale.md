@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Machine principale"
+parent: "Environnements de travail"
 nav_order: 1
 published: true
 has_toc: false

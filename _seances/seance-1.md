@@ -25,10 +25,8 @@ published: true
    * [Machine virtuelle](../notes/machine-principale) fonctionnant sous VirtualBox ou VMware Workstation
 1. Cycle de développement sécurisé
    * Qu'est-ce qu'un cycle de développement sécurisé (*SDLC - Secure Development Lifecycle*) ?
-   * Exemples de cadriciels (*frameworks*) de SDLC
-      * [Microsoft SDL](https://www.microsoft.com/en-us/securityengineering/sdl/)
-      * [OWASP SAMM](https://owaspsamm.org/about/)
+   * [OWASP SAMM](../notes/)
 
 ### Exercice(s) complémentaire(s)
 
-* Configurer / personnaliser votre environnement principal à votre goût
+* Lectures additionnelles sur [OWASP SAMM](https://owaspsamm.org/model/)

@@ -1,9 +1,9 @@
 ---
 layout: default
 title: "OWASP SAMM"
+parent: "Cycle de développement sécurisé (SDLC)"
 nav_order: 1
-published: true
-has_toc: true
+published: false
 ---
 
 # OWASP SAMM
@@ -31,13 +31,6 @@ L’organisation oeuvre pour que chaque développeur et chaque organisation puis
 > Pour chaque pratique, les activités de sécurité sont groupées dans le *stream* A ou les *stream* B. Les *streams* servent à définir des sous-objectifs distincts pour un groupe d'activités à l'intérieur d'une même pratique.
 
 ![OWASP SAMM](assets/images/SAMM_v2_diagram.svg)
-
----
-
-## Lien avec Microsoft SDL
-
-- Le **Microsoft SDL** regroupe **10 pratiques** transverses (p. ex. gouvernance, modélisation des menaces, tests, chaîne d’approvisionnement, opérations). Dans les tableaux ci‑dessous, la colonne « **Équivalent SDL** » indique le **meilleur rapprochement** (parfois plusieurs) entre une pratique SAMM et une ou plusieurs pratiques SDL.  
-  *Sources : Microsoft SDL Practices; OWASP SAMM blog – comparaison SDL vs SAMM.*
 
 ---
 
