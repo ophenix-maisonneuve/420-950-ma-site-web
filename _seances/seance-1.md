@@ -24,7 +24,7 @@ published: true
 1. Exploration de l'environnement de travail proposé
    * [Machine virtuelle](../notes/machine-principale) fonctionnant sous VirtualBox ou VMware Workstation
 1. Cycle de développement sécurisé
-   * Qu'est-ce qu'un cycle de développement sécurisé (*SDLC - Secure Development Lifecycle*) ?
+   * Qu'est-ce qu'un [cycle de développement sécurisé](../notes/cycle-developpement-securise) (*SDLC - Secure Development Lifecycle*) ?
    * [OWASP SAMM](../notes/)
 
 ### Exercice(s) complémentaire(s)
