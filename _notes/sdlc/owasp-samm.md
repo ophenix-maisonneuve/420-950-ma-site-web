@@ -41,13 +41,13 @@ La **gouvernance** se concentre sur les processus et les activités liés à la 
 Le but de la pratique **Stratégie et Métriques (*SM*)** est de construire un plan efficace et concret pour réaliser vos objectifs de sécurité logicielle au sein de votre organisation.
 
 - **Stream A — Créer et promouvoir**  
-  **N1** : Identifier les motivations de l'organisation en ce qui concerne la tolérance au risque.  
-  **N2** : Publier une stratégie unifiée pour la sécurité des applications.
-  **N3** : Aligner le programme de sécurité des applications pour soutenir la croissance de l’entreprise.
+  - **N1** : Identifier les motivations de l'organisation en ce qui concerne la tolérance au risque.
+  - **N2** : Publier une stratégie unifiée pour la sécurité des applications.
+  - **N3** : Aligner le programme de sécurité des applications pour soutenir la croissance de l’entreprise.
 - **Stream B — Mesurer et améliorer**  
-  **N1** : Définir des métriques donnant des informations sur l'efficacité et la mise en œuvre du Programme de Sécurité Applicative.
-  **N2** : Fixer des objectifs et des indicateurs clés de performance pour mesurer l’efficacité du programme.
-  **N3** : Influencer la stratégie en fonction des métriques et des besoins organisationnels.
+  - **N1** : Définir des métriques donnant des informations sur l'efficacité et la mise en œuvre du Programme de Sécurité Applicative.
+  - **N2** : Fixer des objectifs et des indicateurs clés de performance pour mesurer l’efficacité du programme.
+  - **N3** : Influencer la stratégie en fonction des métriques et des besoins organisationnels.
 
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à *1. Establish security standards, metrics, and governance*
