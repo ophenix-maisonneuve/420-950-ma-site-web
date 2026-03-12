@@ -23,16 +23,17 @@ Pour mettre en place la machine principale, les deux options suivantes peuvent �
 ## Cas d’usage
 - **TP1** : Nginx, HTTPS/TLS
 - **TP2** : Modélisation STRIDE
-- **TP3** : ZAP + UFW + fail2ban + logs
+- **TP3** : ZAP, UFW, fail2ban et journalisation (*logs*)
+- **Projet** : Développement de l'application vulnérable et correctifs
 - **Ateliers** : SAST, SCA, SBOM, OWASP Top 10
-- **Mini‑pentest** : re‑tests + scoring CVSS
+- **Test d'intrusion** : re‑tests et scores CVSS
 
 
 ## Outils utilisés
 
 ### Développement & IDE
 - **Visual Studio Code** : IDE principal pour les exercices demandant l'écriture ou l'analyse de code
-- **Python 3 / venv / pip** : un des langages de programmation utilisés dans le cours
+- **Python 3 / pip** : un des langages de programmation utilisés dans le cours
 - **Java 25 (JDK et JRE)** : un des langages de programmation utilisés dans le cours, et nécessaire pour WebGoat
 
 ### Cryptographie / Sécurité réseau
@@ -62,16 +63,3 @@ Pour mettre en place la machine principale, les deux options suivantes peuvent �
 ### 6) Outils réseau & utilitaires
 - **nmap**, **netcat**, **dnsutils**, **traceroute**, **whois**
 - **jq**, **tree**, **vim/nano**
-
-### Vérifications rapides
-```bash
-code --version
-python3 --version
-java -version
-ufw status
-systemctl status fail2ban
-semgrep --version
-trivy --version
-syft version
-zap -h
-```
