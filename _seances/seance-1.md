@@ -20,12 +20,12 @@ published: true
    * [Site web du cours](https://ophenix-maisonneuve.github.io/420-950-ma-site-web/)
    * [Omnivox / Léa](https://cmaisonneuve-lea.omnivox.ca/)
    * [GitHub](https://github.com/ophenix-420-950-ma-24636)
-   * [Environnement de travail](../notes/machine-principale) pour la première partie du cours
-1. Exploration de l'environnement de travail proposé
-   * [Machine virtuelle](../notes/machine-principale) fonctionnant sous VirtualBox ou VMware Workstation
+1. Exploration des environnements de travail
+   * [Environnement applicatif](../notes/environnement-applicatif) pour le développement et la sécurité passive ou défensive
+   * [Environnement de tests d'intrusion](../notes/environnement-pentest) pour la sécurité offensive et les tests d'intrusion
 1. Cycle de développement sécurisé
    * Qu'est-ce qu'un [cycle de développement sécurisé](../notes/cycle-developpement-securise) (*SDLC - Secure Development Lifecycle*) ?
-   * [OWASP SAMM](../notes/)
+   * [OWASP SAMM](../notes/owasp-samm)
 
 ### Exercice(s) complémentaire(s)
 
