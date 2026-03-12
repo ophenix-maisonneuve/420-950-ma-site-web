@@ -11,11 +11,11 @@ has_toc: true
 Historiquement, le développement logiciel se déroulait sur deux voies séparées :
 
 - **Les fonctionnalités** : les *product owners* définissent les besoins fonctionnels, puis les développeurs implémentent les fonctionnalités.
-- **La sécurité** : les équipes de sécurité interviennent tardivement, souvent en fin de développement.
+- **La sécurité** : les équipes de sécurité interviennent éventuellement, souvent en fin de développement.
 
-Ce fonctionnement en parallèle amène un problème majeur : la sécurité arrive **trop tard**. Les analyses réalisées en fin de cycle révèlent parfois des vulnérabilités structurelles, ce qui impose des **correctifs coûteux** ou des retards de livraison.
+Ce fonctionnement en parallèle amène un problème majeur : la sécurité arrive **trop tard**. Les analyses réalisées en fin de cycle révèlent parfois des vulnérabilités structurelles nécessitant des **correctifs coûteux** ou impliquant des **retards de livraison**.
 
-Le **cycle de développement sécurisé** (en anglais *Secure Development Lifecycle* ou *SDLC)* est une approche qui consiste à intégrer la sécurité dans **toutes les étapes** du cycle de développement logiciel, plutôt que de la traiter comme une vérification finale. Cela réduit les retours en arrière, les coûts de correction et améliore la qualité globale du logiciel. Cette approche est soutenue par des cadres reconnus comme le **Microsoft SDL**, le **NIST SSDF**, ou encore le **OWASP SAMM**. 
+Le cycle de développement sécurisé (en anglais *Secure Development Lifecycle* ou *SDLC)* est une approche qui consiste à intégrer la sécurité dans **toutes les étapes** du cycle de développement logiciel, plutôt que de la traiter comme une vérification finale. Cela réduit les retours en arrière, les coûts de correction et améliore la qualité globale du logiciel. Cette approche est soutenue par des cadres reconnus comme le **Microsoft SDL**, le **NIST SSDF**, ou encore le **OWASP SAMM**. 
 
 Il n'existe pas *SDLC* unique ou universel. En pratique, les entreprises partent généralement d'une base reconnue (**NIST SSDF**, **OWASP SAMM**, ou même **Microsoft SDL**) puis l’adaptent à leur réalité : leurs risques, leurs outils, leur culture et leur maturité. Un *SDLC* est donc un processus vivant, appelé à évoluer et à s’améliorer continuellement au fil des projets et des apprentissages.
 
