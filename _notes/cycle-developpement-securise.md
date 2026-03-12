@@ -38,13 +38,13 @@ Le Microsoft SDL illustre cette intégration via ses pratiques couvrant formatio
 ---
 
 ## Étapes-clés
-Dans presque tous les 
+Dans presque toutes les implémentations de *SDLC* en entreprise, la sécurité est appliquée à des phases de projet similaires à celles-ci :
 
 ### 1. **Requis**
 Définition des exigences de sécurité et de confidentialité dès le début.
 
 ### 2. **Design**
-Conception sécurisée, modélisation STRIDE, revue d'architecture.
+Conception sécurisée, modélisation de la menace, revue d'architecture.
 
 ### 3. **Implémentation**
 Usage de frameworks sûrs, revues de code, gestion des fournisseurs (librairies, logiciels tiers, etc)
