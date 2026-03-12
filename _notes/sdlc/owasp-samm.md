@@ -30,7 +30,7 @@ SAMM (*Software Assurance Maturity Model*) est un modèle de maturité d’OWASP
 ![OWASP SAMM](../assets/images/samm-v2-diagram.png)
 
 {: .highlight}
-> Pour chaque pratique, les activités de sécurité sont groupées dans le *stream* A ou les *stream* B. Les *streams* servent à définir des sous-objectifs distincts pour un groupe d'activités à l'intérieur d'une même pratique.
+> Pour chaque pratique, les activités de sécurité sont groupées dans le *stream* A ou le *stream* B. Les *streams* servent à définir des sous-objectifs distincts pour un groupe d'activités à l'intérieur d'une même pratique.
 
 ---
 
