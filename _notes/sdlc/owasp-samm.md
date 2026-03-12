@@ -129,45 +129,49 @@ Concevoir une architecture applicative et de données avec des contrôles défen
 ---
 
 ## 3. Implémentation
+L’implémentation se focalise sur les processus et les activités liés à la façon dont une organisation construit et déploie des composants logiciels et les défauts associés. Les activités au sein de la fonction Implémentation ont le plus d’impact sur la vie quotidienne des développeurs. L’objectif commun est de livrer un logiciel fonctionnant de manière fiable avec un minimum de défauts.
 
 ### 3.1 Génération sécurisée (I‑SB)
-- **Stream A — Chaîne de build**  
-Sécuriser la chaîne de compilation/intégration (builds reproductibles, signatures, contrôles d’intégrité, SBOM, durcissement des artefacts).
-  **N1** : Builds reproductibles, durcissement de base.  
-  **N2** : Signatures, artefacts attestés, séparation des rôles.  
-  **N3** : Chaîne CI/CD attestée bout‑en‑bout (politiques, contrôles).  
-- **Stream B — Supply chain & SBOM**  
-  **N1** : SBOM minimal, scan de dépendances.  
-  **N2** : Règles de provenance, validation d’intégrité.  
-  **N3** : Surveillance continue, réponses coordonnées (revocation/rollback).
+La pratique Génération Sécurisée (GS) souligne l’importance de construire des logiciels d’une façon standardisée et reproductible, et de le faire en utilisant des composants sécurisés, y compris les dépendances de logiciels tiers.
+
+- **Stream A — Processus de génération**  
+  **N1** : Créer une définition formelle du processus de génération afin qu'il devienne cohérent et répétable. 
+  **N2** : Automatiser la chaîne de génération et sécuriser l'outillage utilisé. Ajouter des vérifications de sécurité dans la chaîne de génération.
+  **N3** : Définir des vérifications de sécurité obligatoires dans le processus de génération et s'assurer que la construction des artefacts non conformes échoue. 
+- **Stream B — Dépendances du logiciel**  
+  **N1** : Créer des enregistrements avec la nomenclature de vos applications et analysez-les opportunément. 
+  **N2** : Évaluer les dépendances utilisées et s'assurer d'une réaction rapide aux situations présentant un risque pour vos applications.
+  **N3** : Analyser les dépendances utilisées quant aux problèmes de sécurité d'une manière comparable à votre propre code.
 
   {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à une combinaison *5. Secure the software supply chain*, *6. Secure the engineering environment* et de quelques éléments de *8. Ensure operational platform security* pour les baselines des environnements de build.
 
 ### 3.2 Déploiement sécurisé (I‑SD)
-Sécuriser les pipelines CI/CD, l’attestation et la promotion des artefacts, la configuration par défaut (*secure by default*), et l’activation des contrôles en production.
-- **Stream A — Pipelines & contrôles**  
-  **N1** : Gates sécurité de base dans CI/CD.  
-  **N2** : Politiques de promotion, environnement immuable.  
-  **N3** : Contrôles *policy‑as‑code* et attestations automatiques.  
-- **Stream B — Configuration & durcissement**  
-  **N1** : Baselines de déploiement, secrets gérés.  
-  **N2** : Durcissement systématique, *config drift* surveillé.  
-  **N3** : Conformité continue, remédiation automatique.
+L’une des dernières étapes de la fourniture de logiciels sécurisés est de garantir que la sécurité et l’intégrité des applications développées ne sont pas compromises lors du déploiement. La pratique du Déploiement Sécurisé (DS) se focalise sur ce point
+
+- **Stream A — Processus de déploiement**  
+  **N1** : Formaliser le processus de déploiement et sécuriser les outils et les processus utilisés.
+  **N2** : Automatiser le processus de déploiement à toutes les étapes et introduire des tests de vérification de la sécurité raisonnables.  
+  **N3** : Vérifier automatiquement l'intégrité de tous les logiciels déployés, indépendamment du fait qu'ils ont été développés en interne ou en externe.
+- **Stream B — Gestion des secrets**  
+  **N1** : Introduire des mesures de protection de base pour limiter l'accès à vos secrets de production.
+  **N2** : Injecter dynamiquement les secrets lors du processus de déploiement à partir de stockages durcis et auditer tout accès humain à ceux-ci.
+  **N3** : Améliorer le cycle de vie des secrets d'application en les générant régulièrement et en en garantissant une utilisation appropriée.
 
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à une combinaison de *5. Secure the software supply chain* et *8. Ensure operational platform security*.
 
 ### 3.3 Gestion des défauts (I‑DM)
-Enregistrer, prioriser et corriger les vulnérabilités et non‑conformités, avec validation de la correction et traçabilité.
-- **Stream A — Découverte & triage**  
-  **N1** : Registre centralisé des vulnérabilités.  
-  **N2** : Triage par gravité (CVSS / risque), SLA de correction.  
-  **N3** : Mesure de vélocité de remédiation et de ré‑ouverture.
-- **Stream B — Remédiation & validation**  
-  **N1** : Boucle de correction standard (PR, revue).  
-  **N2** : Re‑tests automatiques post‑correctif (SAST/DAST).  
-  **N3** : Vérifications indépendantes et capitalisation (*RCA - root-cause analysis*).
+La pratique de la Gestion des Défauts (GD) se concentre sur la collecte, l’enregistrement et l’analyse des défauts de sécurité des logiciels et leur enrichissement en informations afin de pouvoir prendre des décisions basées sur des métriques.
+
+- **Stream A — Suivi des défauts**  
+  **N1** : Mettre en place un suivi structuré des défauts de sécurité et prendre des décisions éclairées sur la base de ces informations.
+  **N2** : Évaluer de façon cohérente tous les défauts de sécurité sur l'ensemble de l'organisation et définir les SLA pour des classes de gravité particulière. 
+  **N3** : Faire respecter les SLA prédéfinis et intégrer le système de gestion des défauts aux autres outils pertinents.
+- **Stream B — Métriques et commentaires**  
+  **N1** : Revoir périodiquement les défauts de sécurité précédemment enregistrés et en dériver des victoires rapides à partir des métriques de base.
+  **N2** : Recueillir des métriques de gestion des défauts normalisées et les utiliser également pour établir les priorités des initiatives centralisées.
+  **N3** : Améliorez continuellement vos métriques de gestion des défauts de sécurité et corrélez-les à d'autres sources.
 
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à une combinaison de *5. Secure the software supply chain*, *6. Secure the engineering environment* et de quelques éléments de *8. Ensure operational platform security* pour les baselines des environnements de build.
