@@ -238,45 +238,50 @@ La pratique des Tests de Sécurité (TS) tire parti du fait que, bien que les te
 
 ## 5. Opérations
 
+La fonction métier Opérations englobe les activités nécessaires pour garantir que la confidentialité, l’intégrité, et la disponibilité sont maintenues tout au long de la durée de vie opérationnelle d’une application et des données qui y sont associées. L’augmentation de la maturité de cette fonction métier donne une plus grande garantie que l’organisation est résiliente face aux perturbations opérationnelles et réactive aux changements dans l’environnement opérationnel.
+
 ### 5.1 Gestion des incidents (O‑IM)
-Détecter, répondre et apprendre des incidents (détection, triage, communication, post‑mortem, amélioration continue).
-- **Stream A — Détection & triage**  
-  **N1** : Journalisation et alertes minimales.  
-  **N2** : Playbooks de triage, classification des incidents.  
-  **N3** : Détection enrichie (corrélation), métriques MTTA/MTTR.
-- **Stream B — Réponse & *lessons learned***  
-  **N1** : Processus de réponse basique (qui fait quoi, quand).  
-  **N2** : Communications, escalades, rétention d’artefacts.  
-  **N3** : Post‑mortems systématiques, boucles d’amélioration.
+La pratique de la Gestion des Incidents (GI) vise à définir la réaction à adopter face à un incident de sécurité pour limiter les dommages et revenir à une situation normale aussi efficacement que possible.
+
+- **Stream A — Détection d'incident**  
+  **N1** : Utiliser les données de log disponibles pour effectuer la détection de tous les incidents de sécurité possibles au meilleur de vos capacités.
+  **N2** : Suivre un processus établi et bien documenté de détection d'incident, en mettant l'accent sur l'évaluation automatique des journaux. 
+  **N3** : Utiliser un processus géré de façon proactive pour la détection des incidents.
+- **Stream B — Réponse à l'incident**  
+  **N1** : Identifier les rôles et responsabilités pour la réponse à incident.
+  **N2** : Établir un processus formel de réponse à incident et veiller à ce que le personnel soit bien formé à l'exercice de leurs fonctions.
+  **N3** : Employer une équipe de réponse à incident impliquée et bien formée.
 
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à *9. Implement security monitoring and response*.
 
 ### 5.2 Gestion de l'environnement (O‑EM)
-Gérer et surveiller les environnements (journalisation, télémétrie, *monitoring*, séparation des environnements, secrets, accès machine/service).
-- **Stream A — Environnements & secrets**  
-  **N1** : Séparation dev/test/prod, gestion de secrets.  
-  **N2** : Baselines durcies, accès machine/service minimaux.  
-  **N3** : Politique de rotation/attestation, revues périodiques.
-- **Stream B — Observabilité & monitoring**  
-  **N1** : Journaux essentiels centralisés.  
-  **N2** : Détection d’anomalies, tableaux de bord opérationnels.  
-  **N3** : Télémétrie avancée, détection comportementale et réponse auto.  
+La pratique de la Gestion de l’Environnement (GE) met l’accent sur la sécurité et la transparence de l'environnement de façon à procéder à des correctifs de façon ordonnée et rapide pour tous les systèmes concernés.
+
+- **Stream A — Durcissement de la configuration**  
+  **N1** : Effectuez un durcissement des configurations au maximum de vos possibilités, basé sur des informations facilement disponibles.
+  **N2** : Effectuer un durcissement cohérent des configurations, en suivant les exigences minimales et les directives en place.
+  **N3** : Surveiller activement les configurations pour détecter les non-conformités aux exigences minimales, et gérer toute déviation comme un défaut de sécurité.
+- **Stream B — Mise à jour et correctifs**  
+  **N1** : Effectuer un effort de déploiement des correctifs des composants du système et de l'application au mieux de vos capacités.
+  **N2** : Effectuer des correctifs réguliers des composants du système et de l'application, à travers toute la pile. S'assurer que les correctifs sont livrés aux clients rapidement.
+  **N3** : Surveiller activement le statut des mises à jour et gérer l'absence de mise à jour comme un défaut de sécurité. Obtenir de façon proactive des informations sur les vulnérabilités et les mises à jour pour les composants.
 
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à une combinaison de 
 *6. Secure the engineering environment*, *8. Ensure operational platform security* et *9. Implement security monitoring and response*.
 
 ### 5.3 Gestion opérationnelle (O‑OM)
-Exploiter les applications de façon sécurisée (durcissement, configuration, sauvegardes, gestion des accès, etc).
-- **Stream A — Exploitation sécurisée**  
-  **N1** : Procédures et guides d'exploitation (*runbooks*), sauvegardes, accès minimaux.  
-  **N2** : Revue périodique des privilèges et des configurations.  
-  **N3** : Gestion de configuration centralisée et contrôles préventifs.  
-- **Stream B — Continuité & résilience**  
-  **N1** : Plan basique de continuité (restauration, DR).  
-  **N2** : Exercices réguliers, *chaos days* limités.  
-  **N3** : Résilience mesurée (RTO/RPO), tests à l’échelle.
+La pratique de la Gestion Opérationnelle (GO) se concentre sur les activités visant à assurer que la sécurité est maintenue tout au long des fonctions de soutien opérationnel. 
+
+- **Stream A — Protection des données**  
+  **N1** : Implémenter des pratiques de base en matière de protection des données
+  **N2** : Élaborer un catalogue de données et établir une politique de protection des données.
+  **N3** : Automatiser la détection des non-conformités aux politiques et vérifier la conformité périodiquement. Réviser et mettre à jour régulièrement le catalogue de données et la politique de protection des données.
+- **Stream B — Démantèlement des systèmes / gestion de l'existant**  
+  **N1** : Décommissionner les applications et services inutilisés tels qu'identifiés. Gérer individuellement les mises à jour/migrations clients.
+  **N2** : Développer des processus de démantèlement répétables pour les systèmes / services inutilisés et pour la migration des dépendances obsolètes. Gérer les feuilles de route de migration pour les clients. 
+  **N3** : Gérer de façon proactive les feuilles de route des migrations, tant pour les dépendances en fin de vie sans support que pour les anciennes versions des logiciels fournis.
 
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à *8. Ensure operational platform security*.
