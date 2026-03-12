@@ -13,7 +13,7 @@ L’OWASP (*Open Worldwide Application Security Project*) est une fondation à b
 
 - des projets open source (outils, standards, documentation)
 - des conférences et formations internationales
-- des guides de référence comme l’OWASP Top 10, l’ASVS et SAMM
+- des guides de référence comme l’**OWASP Top 10**, l’**ASVS** et **SAMM**
 
 L’organisation oeuvre pour que chaque développeur et chaque organisation puissent concevoir et maintenir des applications de confiance. Sa mission est de “faire disparaître les logiciels non sécurisés” grâce à l’éducation, aux outils et à la collaboration.
 
