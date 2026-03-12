@@ -27,10 +27,10 @@ SAMM (*Software Assurance Maturity Model*) est un modèle de maturité d’OWASP
 - **3 niveaux de maturité** : pour chaque pratique, de sécurité, une entreprise peut viser le niveau de maturité 1 (moins mature), 2 (modérément mature), 3 (très mature)
 - **des activités de sécurité** : pour une pratique de sécurité donnée à un niveau de maturité donné, un certain nombre d'activités de sécurité sont définies.
 
+![OWASP SAMM](../assets/images/samm-v2-diagram.png)
+
 {: .highlight}
 > Pour chaque pratique, les activités de sécurité sont groupées dans le *stream* A ou les *stream* B. Les *streams* servent à définir des sous-objectifs distincts pour un groupe d'activités à l'intérieur d'une même pratique.
-
-![OWASP SAMM](../assets/images/samm-v2-diagram.png)
 
 ---
 
