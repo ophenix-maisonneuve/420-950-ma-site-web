@@ -272,7 +272,7 @@ Gérer et surveiller les environnements (journalisation, télémétrie, *monitor
   [https://owasp.org/about/](https://owasp.org/about/)
 - **OWASP SAMM — Quick Start Guide (v2)** : structure (5 fonctions, 15 pratiques, 2 streams, maturité).  
   [https://owaspsamm.org/guidance/quick-start-guide/](https://owaspsamm.org/guidance/quick-start-guide/)
-- **OWASP SAMM V2** ([PDF](assets/files/SAMM-v2-PDF.pdf))
+- **OWASP SAMM V2** ([PDF](../assets/files/SAMM-v2-PDF.pdf))
 - **Microsoft — SDL Practices (10 pratiques)** : liste des pratiques et positionnement SDL.
   [https://www.microsoft.com/en-us/securityengineering/sdl/practices](https://www.microsoft.com/en-us/securityengineering/sdl/practices)
 - **OWASP SAMM Blog — Comparing Microsoft SDL and SAMM (2025)** : cadrage des rapprochements et étendue de couverture.  
