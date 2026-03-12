@@ -8,7 +8,7 @@ published: true
 
 # OWASP SAMM
 
-## Qui est OWASP ?
+## OWASP
 L’OWASP (*Open Worldwide Application Security Project*) est une fondation à but non lucratif dédiée à l’amélioration de la sécurité des logiciels. Elle fonctionne comme une communauté mondiale ouverte, soutenue par des milliers de bénévoles, plus de 250 chapitres locaux et de nombreux projets libres. Ses actions incluent :
 
 - des projets open source (outils, standards, documentation)
@@ -19,7 +19,7 @@ L’organisation oeuvre pour que chaque développeur et chaque organisation puis
 
 ---
 
-## OWASP SAMM
+## SAMM
 
 - SAMM (*Software Assurance Maturity Model*) est un modèle de maturité d’OWASP servant à évaluer, planifier et améliorer la sécurité applicative, de façon agnostique aux technologies et méthodes. Il couvre l’ensemble du **Secure Development Lifecycle**. Il définit :
 - **5 fonctions métier (*business functions*)** : catégories d'activités devant être réalisées par toute entreprise oeuvrant dans le domaine du logiciel
