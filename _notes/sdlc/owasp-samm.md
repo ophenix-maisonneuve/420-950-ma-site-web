@@ -3,7 +3,7 @@ layout: default
 title: "OWASP SAMM"
 parent: "Cycle de développement sécurisé (SDLC)"
 nav_order: 1
-published: false
+published: true
 ---
 
 # OWASP SAMM
