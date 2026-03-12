@@ -35,10 +35,10 @@ SAMM (*Software Assurance Maturity Model*) est un modèle de maturité d’OWASP
 ---
 
 ## 1. Gouvernance
-La gouvernance se concentre sur les processus et les activités liés à la façon dont une organisation gère l’ensemble des activités de développement de logiciels. Plus précisément, cela comprend les sujets d’attention ayant un impact sur les groupes interfonctionnels impliqués dans le développement, ainsi que sur les processus opérationnels établis au niveau de l’organisation.
+La **gouvernance** se concentre sur les processus et les activités liés à la façon dont une organisation gère l’ensemble des activités de développement de logiciels. Plus précisément, cela comprend les sujets d’attention ayant un impact sur les groupes interfonctionnels impliqués dans le développement, ainsi que sur les processus opérationnels établis au niveau de l’organisation.
 
-### 1.1 Stratégie & Métriques (G‑SM)
-Le but de la pratique Stratégie et Métriques (SM) est de construire un plan efficace et concret pour réaliser vos objectifs de sécurité logicielle au sein de votre organisation.
+### 1.1 Stratégie & Métriques (*G‑SM*)
+Le but de la pratique **Stratégie et Métriques (*SM*)** est de construire un plan efficace et concret pour réaliser vos objectifs de sécurité logicielle au sein de votre organisation.
 
 - **Stream A — Créer et promouvoir**  
   **N1** : Identifier les motivations de l'organisation en ce qui concerne la tolérance au risque.  
@@ -52,8 +52,8 @@ Le but de la pratique Stratégie et Métriques (SM) est de construire un plan ef
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à *1. Establish security standards, metrics, and governance*
 
-### 1.2 Politiques & Conformité (G‑PC)
-La pratique de la Politique et Conformité (PC) vise à comprendre et à satisfaire aux exigences juridiques et réglementaires externes tout en respectant les normes de sécurité internes dans le but de garantir que la conformité est en phase avec les objectifs commerciaux de l’organisation.
+### 1.2 Politiques & Conformité (*G‑PC*)
+La pratique de la **Politique et Conformité (*PC*)** vise à comprendre et à satisfaire aux exigences juridiques et réglementaires externes tout en respectant les normes de sécurité internes dans le but de garantir que la conformité est en phase avec les objectifs commerciaux de l’organisation.
 
 - **Stream A — Politiques et normes**  
   **N1** : Déterminer une ligne de base de sécurité représentant les politiques et les normes de l’organisation.
@@ -67,8 +67,8 @@ La pratique de la Politique et Conformité (PC) vise à comprendre et à satisfa
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à *1. Establish security standards, metrics, and governance*
 
-### 1.3 Éducation & Orientation (G‑EG)
-La pratique de l’Education et Orientation (EG) vise à fournir au personnel impliqué dans le cycle de vie du logiciel des connaissances et des ressources pour concevoir, développer et déployer des logiciels sécurisés. 
+### 1.3 Éducation & Orientation (*G‑EG*)
+La pratique de l’**Éducation et Orientation (*EG*)** vise à fournir au personnel impliqué dans le cycle de vie du logiciel des connaissances et des ressources pour concevoir, développer et déployer des logiciels sécurisés. 
 
 - **Stream A — Formation et sensibilisation**  
   **N1** : Fournir une formation de sensibilisation à la sécurité à tous les employés impliqués dans le développement de logiciels
@@ -85,10 +85,10 @@ La pratique de l’Education et Orientation (EG) vise à fournir au personnel im
 ---
 
 ## 2. Conception
-La conception concerne les processus et les activités liés à la façon dont une organisation définit les objectifs et crée les logiciels dans les projets de développement. En général, cela comprendra la collecte des exigences, la spécification de haut niveau de l’architecture et la conception détaillée.
+La **conception** concerne les processus et les activités liés à la façon dont une organisation définit les objectifs et crée les logiciels dans les projets de développement. En général, cela comprendra la collecte des exigences, la spécification de haut niveau de l’architecture et la conception détaillée.
 
-### 2.1 Évaluation des menaces (D‑TA)
-La pratique d’évaluation des menaces (TA) se concentre sur l’identification et la compréhension des risques au niveau du projet en fonction de la fonctionnalité du logiciel en cours de développement et des caractéristiques de l’environnement d’exécution.
+### 2.1 Évaluation des menaces (*D‑TA*)
+La pratique d’**évaluation des menaces (*TA*)** se concentre sur l’identification et la compréhension des risques au niveau du projet en fonction de la fonctionnalité du logiciel en cours de développement et des caractéristiques de l’environnement d’exécution.
 
 - **Stream A — Profil de risque de l'application**  
   **N1** : Une évaluation basique du niveau de risque de l'application est effectuée afin de comprendre la probabilité et l'impact d'une attaque.
@@ -102,8 +102,8 @@ La pratique d’évaluation des menaces (TA) se concentre sur l’identification
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à *3. Perform security design review and threat modeling*
 
-### 2.2 Exigences de sécurité (D‑SR)
-La pratique des exigences de sécurité (SR) se concentre sur les exigences de sécurité qui sont importantes dans le contexte des logiciels sécurisés.
+### 2.2 Exigences de sécurité (*D‑SR*)
+La pratique des **exigences de sécurité (*SR*)** se concentre sur les exigences de sécurité qui sont importantes dans le contexte des logiciels sécurisés.
 
 - **Stream A — Exigences logicielles**
 Capturer des exigences de sécurité non fonctionnelles et spécifiques au risque (authentification/autorisation, journalisation, résilience, confidentialité, etc.).
@@ -119,8 +119,8 @@ Capturer des exigences de sécurité non fonctionnelles et spécifiques au risqu
 > Dans Microsoft SDL, correspond aproximativement à une combinaison *3. Perform security design review and threat modeling* (couvre la dérivation d’exigences), *2. Require use of proven security features, languages, and frameworks* et *4. Define and use cryptography standards*
 
 
-### 2.3 Architecture de sécurité (D‑SA)
-La pratique Architecture de Sécurité (SA) se concentre sur la sécurité liée aux composants et à la technologie que vous utilisez pendant la conception architecturale de votre logiciel.
+### 2.3 Architecture de sécurité (*D‑SA*)
+La pratique **Architecture de Sécurité (*SA*)** se concentre sur la sécurité liée aux composants et à la technologie que vous utilisez pendant la conception architecturale de votre logiciel.
 
 - **Stream A — Conception d’architecture**  
   **N1** : Les équipes sont formées sur l'utilisation des principes de base de la sécurité durant la phase de conception
@@ -137,10 +137,10 @@ La pratique Architecture de Sécurité (SA) se concentre sur la sécurité liée
 ---
 
 ## 3. Implémentation
-L’implémentation se focalise sur les processus et les activités liés à la façon dont une organisation construit et déploie des composants logiciels et les défauts associés. Les activités au sein de la fonction Implémentation ont le plus d’impact sur la vie quotidienne des développeurs. L’objectif commun est de livrer un logiciel fonctionnant de manière fiable avec un minimum de défauts.
+L’**implémentation** se focalise sur les processus et les activités liés à la façon dont une organisation construit et déploie des composants logiciels et les défauts associés. Les activités au sein de la fonction **Implémentation** ont le plus d’impact sur la vie quotidienne des développeurs. L’objectif commun est de livrer un logiciel fonctionnant de manière fiable avec un minimum de défauts.
 
-### 3.1 Génération sécurisée (I‑SB)
-La pratique Génération Sécurisée (GS) souligne l’importance de construire des logiciels d’une façon standardisée et reproductible, et de le faire en utilisant des composants sécurisés, y compris les dépendances de logiciels tiers.
+### 3.1 Génération sécurisée (*I‑SB*)
+La pratique **Génération Sécurisée (*SB*)** souligne l’importance de construire des logiciels d’une façon standardisée et reproductible, et de le faire en utilisant des composants sécurisés, y compris les dépendances de logiciels tiers.
 
 - **Stream A — Processus de génération**  
   **N1** : Créer une définition formelle du processus de génération afin qu'il devienne cohérent et répétable. 
@@ -154,8 +154,8 @@ La pratique Génération Sécurisée (GS) souligne l’importance de construire 
   {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à une combinaison *5. Secure the software supply chain*, *6. Secure the engineering environment* et de quelques éléments de *8. Ensure operational platform security* pour les baselines des environnements de build.
 
-### 3.2 Déploiement sécurisé (I‑SD)
-L’une des dernières étapes de la fourniture de logiciels sécurisés est de garantir que la sécurité et l’intégrité des applications développées ne sont pas compromises lors du déploiement. La pratique du Déploiement Sécurisé (DS) se focalise sur ce point
+### 3.2 Déploiement sécurisé (*I‑SD*)
+L’une des dernières étapes de la fourniture de logiciels sécurisés est de garantir que la sécurité et l’intégrité des applications développées ne sont pas compromises lors du déploiement. La pratique du **Déploiement Sécurisé (*SD*)** se focalise sur ce point
 
 - **Stream A — Processus de déploiement**  
   **N1** : Formaliser le processus de déploiement et sécuriser les outils et les processus utilisés.
@@ -169,8 +169,8 @@ L’une des dernières étapes de la fourniture de logiciels sécurisés est de 
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à une combinaison de *5. Secure the software supply chain* et *8. Ensure operational platform security*.
 
-### 3.3 Gestion des défauts (I‑DM)
-La pratique de la Gestion des Défauts (GD) se concentre sur la collecte, l’enregistrement et l’analyse des défauts de sécurité des logiciels et leur enrichissement en informations afin de pouvoir prendre des décisions basées sur des métriques.
+### 3.3 Gestion des défauts (*I‑DM*)
+La pratique de la **Gestion des Défauts (*DM*)** se concentre sur la collecte, l’enregistrement et l’analyse des défauts de sécurité des logiciels et leur enrichissement en informations afin de pouvoir prendre des décisions basées sur des métriques.
 
 - **Stream A — Suivi des défauts**  
   **N1** : Mettre en place un suivi structuré des défauts de sécurité et prendre des décisions éclairées sur la base de ces informations.
@@ -188,10 +188,10 @@ La pratique de la Gestion des Défauts (GD) se concentre sur la collecte, l’en
 ---
 
 ## 4. Vérification
-La vérification se concentre sur les processus et les activités liés à la façon dont une organisation vérifie et teste les artefacts produits tout au long du développement de logiciels. Cela inclut généralement les activités d’assurance qualité telles que les tests, mais peut également inclure d’autres activités de revue et d’évaluation.
+La **vérification** se concentre sur les processus et les activités liés à la façon dont une organisation vérifie et teste les artefacts produits tout au long du développement de logiciels. Cela inclut généralement les activités d’assurance qualité telles que les tests, mais peut également inclure d’autres activités de revue et d’évaluation.
 
-### 4.1 Évaluation de l'architecture (V‑AA)
-La pratique de l’Évaluation de l’Architecture (AA) veille à ce que les architectures de l’application et de l’infrastructure répondent de façon adéquate à toutes les exigences de sécurité et de conformité pertinentes et atténuent suffisamment les menaces de sécurité identifiées. 
+### 4.1 Évaluation de l'architecture (*V‑AA*)
+La pratique de l’**Évaluation de l’Architecture (*AA*)** veille à ce que les architectures de l’application et de l’infrastructure répondent de façon adéquate à toutes les exigences de sécurité et de conformité pertinentes et atténuent suffisamment les menaces de sécurité identifiées. 
 
 - **Stream A — Validation de l'architecture**  
   **N1** : Identifier les composants de l'architecture applicative et d'infrastructure et les passer en revue pour garantir un niveau de sécurité basique de l'approvisionnement  
@@ -205,8 +205,8 @@ La pratique de l’Évaluation de l’Architecture (AA) veille à ce que les arc
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à *3. Perform security design review and threat modeling*.
 
-### 4.2 Tests axés sur les exigences (V‑RT)
-L’objectif de la pratique de Tests axés sur les Exigences (RT) est de s’assurer que les contrôles de sécurité implémentés fonctionnent comme prévu et répondent aux exigences de sécurité élicités dans le projet. Un ensemble de cas de test de sécurité et de régression est progressivement construit et régulièrement exécuté.
+### 4.2 Tests axés sur les exigences (*V‑RT*)
+L’objectif de la pratique de **Tests axés sur les Exigences (*RT*)** est de s’assurer que les contrôles de sécurité implémentés fonctionnent comme prévu et répondent aux exigences de sécurité élicités dans le projet. Un ensemble de cas de test de sécurité et de régression est progressivement construit et régulièrement exécuté.
 - **Stream A — Vérification des contrôles**  
   **N1** : Tester les contrôles de sécurité logiciels
   **N2** : Dériver les cas de tests à partir des exigences de sécurité connues
@@ -219,8 +219,8 @@ L’objectif de la pratique de Tests axés sur les Exigences (RT) est de s’ass
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à une combinaison de *7. Perform security testing* et *4. Define and use cryptography standards* (si crypto)
 
-### 4.3 Tests de sécurité (V‑ST)
-La pratique des Tests de Sécurité (TS) tire parti du fait que, bien que les tests de sécurité automatisés soient rapides et adaptés à de nombreuses applications, des tests approfondis basés sur une bonne connaissance d’une application et de sa logique métier n’est souvent possible que par des tests de sécurité plus lents et manuels réalisés par un expert.
+### 4.3 Tests de sécurité (*V‑ST*)
+La pratique des **Tests de Sécurité (*ST*)** tire parti du fait que, bien que les tests de sécurité automatisés soient rapides et adaptés à de nombreuses applications, des tests approfondis basés sur une bonne connaissance d’une application et de sa logique métier n’est souvent possible que par des tests de sécurité plus lents et manuels réalisés par un expert.
 
 - **Stream A — Base de référence à l'échelle**  
   **N1** : Utiliser des outils de test de sécurité automatisés
@@ -238,10 +238,10 @@ La pratique des Tests de Sécurité (TS) tire parti du fait que, bien que les te
 
 ## 5. Opérations
 
-La fonction métier Opérations englobe les activités nécessaires pour garantir que la confidentialité, l’intégrité, et la disponibilité sont maintenues tout au long de la durée de vie opérationnelle d’une application et des données qui y sont associées. L’augmentation de la maturité de cette fonction métier donne une plus grande garantie que l’organisation est résiliente face aux perturbations opérationnelles et réactive aux changements dans l’environnement opérationnel.
+La fonction métier **Opérations** englobe les activités nécessaires pour garantir que la confidentialité, l’intégrité, et la disponibilité sont maintenues tout au long de la durée de vie opérationnelle d’une application et des données qui y sont associées. L’augmentation de la maturité de cette fonction métier donne une plus grande garantie que l’organisation est résiliente face aux perturbations opérationnelles et réactive aux changements dans l’environnement opérationnel.
 
-### 5.1 Gestion des incidents (O‑IM)
-La pratique de la Gestion des Incidents (GI) vise à définir la réaction à adopter face à un incident de sécurité pour limiter les dommages et revenir à une situation normale aussi efficacement que possible.
+### 5.1 Gestion des incidents (*O‑IM*)
+La pratique de la **Gestion des Incidents (*IM*)** vise à définir la réaction à adopter face à un incident de sécurité pour limiter les dommages et revenir à une situation normale aussi efficacement que possible.
 
 - **Stream A — Détection d'incident**  
   **N1** : Utiliser les données de log disponibles pour effectuer la détection de tous les incidents de sécurité possibles au meilleur de vos capacités.
@@ -255,8 +255,8 @@ La pratique de la Gestion des Incidents (GI) vise à définir la réaction à ad
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à *9. Implement security monitoring and response*.
 
-### 5.2 Gestion de l'environnement (O‑EM)
-La pratique de la Gestion de l’Environnement (GE) met l’accent sur la sécurité et la transparence de l'environnement de façon à procéder à des correctifs de façon ordonnée et rapide pour tous les systèmes concernés.
+### 5.2 Gestion de l'environnement (*O‑EM*)
+La pratique de la **Gestion de l’Environnement (*EM*)** met l’accent sur la sécurité et la transparence de l'environnement de façon à procéder à des correctifs de façon ordonnée et rapide pour tous les systèmes concernés.
 
 - **Stream A — Durcissement de la configuration**  
   **N1** : Effectuez un durcissement des configurations au maximum de vos possibilités, basé sur des informations facilement disponibles.
@@ -271,8 +271,8 @@ La pratique de la Gestion de l’Environnement (GE) met l’accent sur la sécur
 > Dans Microsoft SDL, correspond aproximativement à une combinaison de 
 *6. Secure the engineering environment*, *8. Ensure operational platform security* et *9. Implement security monitoring and response*.
 
-### 5.3 Gestion opérationnelle (O‑OM)
-La pratique de la Gestion Opérationnelle (GO) se concentre sur les activités visant à assurer que la sécurité est maintenue tout au long des fonctions de soutien opérationnel. 
+### 5.3 Gestion opérationnelle (*O‑OM*)
+La pratique de la **Gestion Opérationnelle (*OM*)** se concentre sur les activités visant à assurer que la sécurité est maintenue tout au long des fonctions de soutien opérationnel. 
 
 - **Stream A — Protection des données**  
   **N1** : Implémenter des pratiques de base en matière de protection des données
