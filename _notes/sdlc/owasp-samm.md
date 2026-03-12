@@ -39,42 +39,42 @@ SAMM (*Software Assurance Maturity Model*) est un modèle de maturité d’OWASP
 ### 1.1 Stratégie & Métriques (G‑SM)
 Établir la vision, les objectifs mesurables et les indicateurs pour le programme de sécurité logicielle, piloter l’amélioration continue.
 
-- **Stream A — Stratégie du programme**  
-  **N1** : Définir la vision, le périmètre applicatif et les objectifs sécurité du programme.  
-  **N2** : Aligner feuille de route sécurité et risques métier ; assigner rôles et budgets.  
-  **N3** : Piloter le programme (revues trimestrielles), arbitrer en fonction de la valeur/risque.
-- **Stream B — Mesure & amélioration**  
-  **N1** : Sélectionner quelques indicateurs de base (ex. vulnérabilités ouvertes, couverture tests).  
-  **N2** : Déployer un tableau de bord, seuils/SLAs et cadence de rapport.  
-  **N3** : Mesures intégrées dans la gouvernance (OKR/KPI), amélioration continue outillée.
+- **Stream A — Créer et promouvoir**  
+  **N1** : Identifier les motivations de l'organisation en ce qui concerne la tolérance au risque.  
+  **N2** : Publier une stratégie unifiée pour la sécurité des applications.
+  **N3** : Aligner le programme de sécurité des applications pour soutenir la croissance de l’entreprise.
+- **Stream B — Mesurer et améliorer**  
+  **N1** : Définir des métriques donnant des informations sur l'efficacité et la mise en œuvre du Programme de Sécurité Applicative.
+  **N2** : Fixer des objectifs et des indicateurs clés de performance pour mesurer l’efficacité du programme.
+  **N3** : Influencer la stratégie en fonction des métriques et des besoins organisationnels.
 
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à *1. Establish security standards, metrics, and governance*
 
 ### 1.2 Politiques & Conformité (G‑PC)
 Définir, publier et faire respecter les politiques de développement sécurisé et s’aligner sur les exigences externes (standards, réglementations, clients).
-- **Stream A — Politiques internes**  
-  **N1** : Rédiger politiques de dev sécurisé (revues de code, secrets, branches, etc.).  
-  **N2** : Diffuser, former, auditer l’application des politiques.  
-  **N3** : Réviser périodiquement, intégrer retours incidents/audits. 
-- **Stream B — Conformité externe**  
-  **N1** : Identifier obligations (réglementaires, contractuelles).  
-  **N2** : Mettre en place contrôles/évidences ; préparer audits.  
-  **N3** : Harmoniser contrôles avec le SDLC et automatiser la preuve. 
+- **Stream A — Politiques et normes**  
+  **N1** : Déterminer une ligne de base de sécurité représentant les politiques et les normes de l’organisation.
+  **N2** : Développer des exigences de sécurité applicables à toutes les applications.
+  **N3** : Mesurer et rendre compte du degré d'adhésion d'une application donnée aux politiques et normes.
+- **Stream B — Gestion de la confirmité**  
+  **N1** : Identifier les facteurs et les exigences de conformité tiers et les faire correspondre aux politiques et aux normes existantes.
+  **N2** : Publier les exigences propres à la conformité d'une application et les conseils de test.
+  **N3** : Mesurer et rendre compte de la conformité d'une application donnée avec les exigences des tierces parties.
 
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à *1. Establish security standards, metrics, and governance*
 
 ### 1.3 Éducation & Orientation (G‑EG)
 Former les équipes (dev, ops, produit) et fournir des guides, *cheat sheets* et modèles décisionnels pour intégrer la sécurité au quotidien.
-- **Stream A — Formation**  
-  **N1** : Formation de base pour dev/ops/produit.  
-  **N2** : Parcours par rôle (ex. secure coding pour dev back/front).  
-  **N3** : Programme mesuré (quiz, labs), couverture > x % et recyclage annuel.  
-- **Stream B — Guides & accompagnement**  
-  **N1** : Guides pratiques (cheat sheets, checklists).  
-  **N2** : Modèles de décisions (crypto, secrets, journalisation).  
-  **N3** : Coaching/office hours, référents sécurité dans les squads.  
+- **Stream A — Formation et sensibilisation**  
+  **N1** : Fournir une formation de sensibilisation à la sécurité à tous les employés impliqués dans le développement de logiciels
+  **N2** : Offrir une technologie et des conseils spécifiques aux rôles, y compris des nuances de sécurité pour chaque langue et plate-forme
+  **N3** : Des conseils internes standardisés sur les normes de développement de sécurité logicielle de l’entreprise.
+- **Stream B — Organisation et culture**  
+  **N1** : Identifier un "Champion de la Sécurité" au sein de chaque équipe de développement.
+  **N2** : Développer un centre d'excellence en matière de sécurité logicielle qui favorise le leadership par la pensée parmi les développeurs et les architectes.
+  **N3** : Construire une communauté de sécurité logicielle incluant toutes les personnes de l'organisation impliquées dans la sécurité des logiciels.
 
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à *10. Provide security training*
@@ -141,6 +141,9 @@ Sécuriser la chaîne de compilation/intégration (builds reproductibles, signat
   **N2** : Règles de provenance, validation d’intégrité.  
   **N3** : Surveillance continue, réponses coordonnées (revocation/rollback).
 
+  {: .highlight}
+> Dans Microsoft SDL, correspond aproximativement à une combinaison *5. Secure the software supply chain*, *6. Secure the engineering environment* et de quelques éléments de *8. Ensure operational platform security* pour les baselines des environnements de build.
+
 ### 3.2 Déploiement sécurisé (I‑SD)
 Sécuriser les pipelines CI/CD, l’attestation et la promotion des artefacts, la configuration par défaut (*secure by default*), et l’activation des contrôles en production.
 - **Stream A — Pipelines & contrôles**  
@@ -155,9 +158,6 @@ Sécuriser les pipelines CI/CD, l’attestation et la promotion des artefacts, l
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à une combinaison de *5. Secure the software supply chain* et *8. Ensure operational platform security*.
 
-{: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à une combinaison *5. Secure the software supply chain*, *6. Secure the engineering environment* et de quelques éléments de *8. Ensure operational platform security* pour les baselines des environnements de build.
-
 ### 3.3 Gestion des défauts (I‑DM)
 Enregistrer, prioriser et corriger les vulnérabilités et non‑conformités, avec validation de la correction et traçabilité.
 - **Stream A — Découverte & triage**  
@@ -170,7 +170,7 @@ Enregistrer, prioriser et corriger les vulnérabilités et non‑conformités, a
   **N3** : Vérifications indépendantes et capitalisation (*RCA - root-cause analysis*).
 
 {: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à une combinaison *5. Secure the software supply chain*, *6. Secure the engineering environment* et de quelques éléments de *8. Ensure operational platform security* pour les baselines des environnements de build.
+> Dans Microsoft SDL, correspond aproximativement à une combinaison de *5. Secure the software supply chain*, *6. Secure the engineering environment* et de quelques éléments de *8. Ensure operational platform security* pour les baselines des environnements de build.
 
 
 ---
