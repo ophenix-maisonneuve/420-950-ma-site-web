@@ -154,7 +154,7 @@ La pratique de la **Gestion des Défauts (*DM*)** se concentre sur la collecte, 
 | N3 | Faire respecter les SLA prédéfinis et intégrer le système de gestion des défauts aux autres outils pertinents. | Améliorer continuellement les métriques de gestion des défauts de sécurité et corrélation d'autres sources. |
 
 {: .highlight}
-> Dans Microsoft SDL, cette pratique correspond aproximativement à une combinaison de *5. Secure the software supply chain*, *6. Secure the engineering environment* et de quelques éléments de *8. Ensure operational platform security* pour les baselines des environnements de build.
+> Dans Microsoft SDL, il n'existe pas vraiment d'équivalent direct à cette pratique.
 
 
 ---
@@ -239,7 +239,7 @@ La pratique de la **Gestion Opérationnelle (*OM*)** se concentre sur les activi
 | N3 | Automatiser la détection des non-conformités aux politiques et vérifier la conformité périodiquement. Réviser et mettre à jour régulièrement le catalogue de données et la politique de protection des données. | Gérer de façon proactive les feuilles de route des migrations, tant pour les dépendances en fin de vie sans support que pour les anciennes versions des logiciels fournis. |
 
 {: .highlight}
-> Dans Microsoft SDL, cette pratique correspond aproximativement à *8. Ensure operational platform security*.
+> Dans Microsoft SDL, cette pratique correspond aproximativement à *8. Ensure operational platform security*, bien que cet alignement soit partiel.
 
 ---
 
