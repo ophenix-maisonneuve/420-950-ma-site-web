@@ -47,7 +47,7 @@ Le but de la pratique **Stratégie et Métriques (*SM*)** est de construire un p
 | N3 | Aligner le programme de sécurité des applications pour soutenir la croissance de l’entreprise. | Influencer la stratégie en fonction des métriques et des besoins organisationnels. |
 
 {: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à *1. Establish security standards, metrics, and governance*
+> Dans Microsoft SDL, cette pratique correspond aproximativement à *1. Establish security standards, metrics, and governance*
 
 ### 1.2 Politiques & Conformité (*G‑PC*)
 La pratique de la **Politique et Conformité (*PC*)** vise à comprendre et à satisfaire aux exigences juridiques et réglementaires externes tout en respectant les normes de sécurité internes dans le but de garantir que la conformité est en phase avec les objectifs commerciaux de l’organisation.
@@ -59,7 +59,7 @@ La pratique de la **Politique et Conformité (*PC*)** vise à comprendre et à s
 | N3 | Mesurer et rendre compte du degré d'adhésion d'une application donnée aux politiques et normes. | Mesurer et rendre compte de la conformité d'une application donnée avec les exigences des tierces parties. |
 
 {: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à *1. Establish security standards, metrics, and governance*
+> Dans Microsoft SDL, cette pratique correspond aproximativement à *1. Establish security standards, metrics, and governance*
 
 ### 1.3 Éducation & Orientation (*G‑EG*)
 La pratique de l’**Éducation et Orientation (*EG*)** vise à fournir au personnel impliqué dans le cycle de vie du logiciel des connaissances et des ressources pour concevoir, développer et déployer des logiciels sécurisés.
@@ -71,7 +71,7 @@ La pratique de l’**Éducation et Orientation (*EG*)** vise à fournir au perso
 | N3 | Des conseils internes standardisés sur les normes de développement de sécurité logicielle de l’entreprise. | Construire une communauté de sécurité logicielle incluant toutes les personnes de l'organisation impliquées dans la sécurité des logiciels. |
 
 {: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à *10. Provide security training*
+> Dans Microsoft SDL, cette pratique correspond aproximativement à *10. Provide security training*
 
 ---
 
@@ -88,7 +88,7 @@ La pratique d’**évaluation des menaces (*TA*)** se concentre sur l’identifi
 | N3 | Examiner périodiquement les profils de risque des applications à intervalles réguliers afin de s'assurer de l'exactitude et de la pertinence de l'état actuel. | Optimisation et automatisation continue de votre méthodologie de modélisation des menaces. |
 
 {: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à *3. Perform security design review and threat modeling*
+> Dans Microsoft SDL, cette pratique correspond aproximativement à *3. Perform security design review and threat modeling*
 
 ### 2.2 Exigences de sécurité (*D‑SR*)
 La pratique des **exigences de sécurité (*SR*)** se concentre sur les exigences de sécurité qui sont importantes dans le contexte des logiciels sécurisés.
@@ -100,7 +100,7 @@ La pratique des **exigences de sécurité (*SR*)** se concentre sur les exigence
 | N3 | Construire un ensemble d'exigences pour utilisation par les équipes produits. | Assurer une couverture de sécurité adéquate pour les fournisseurs externes en fournissant des objectifs clairs. |
 
 {: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à une combinaison *3. Perform security design review and threat modeling* (couvre la dérivation d’exigences), *2. Require use of proven security features, languages, and frameworks* et *4. Define and use cryptography standards*
+> Dans Microsoft SDL, cette pratique correspond aproximativement à une combinaison *3. Perform security design review and threat modeling* (couvre la dérivation d’exigences), *2. Require use of proven security features, languages, and frameworks* et *4. Define and use cryptography standards*
 
 
 ### 2.3 Architecture de sécurité (*D‑SA*)
@@ -113,7 +113,7 @@ La pratique **Architecture de Sécurité (*SA*)** se concentre sur la sécurité
 | N3 | Les architectures de référence sont utilisées et évaluées continuellement en vue de leur adoption et par rapport à leur pertinence. | Imposer l’utilisation de technologies standards sur tous les développements logiciels. |
 
 {: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à une combinaison *3. Perform security design review and threat modeling*, *2. Require use of proven security features, languages, and frameworks* et *5. Secure the software supply chain* (choix et validation des composants).
+> Dans Microsoft SDL, cette pratique correspond aproximativement à une combinaison *3. Perform security design review and threat modeling*, *2. Require use of proven security features, languages, and frameworks* et *5. Secure the software supply chain* (choix et validation des composants).
 
 ---
 
@@ -130,7 +130,7 @@ La pratique **Génération Sécurisée (*SB*)** souligne l’importance de const
 | N3 | Définir des vérifications de sécurité obligatoires dans le processus de génération et s'assurer que la construction des artefacts non conformes échoue. | Analyser les dépendances utilisées quant aux problèmes de sécurité d'une manière comparable à votre propre code. |
 
   {: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à une combinaison *5. Secure the software supply chain*, *6. Secure the engineering environment* et de quelques éléments de *8. Ensure operational platform security* pour les baselines des environnements de build.
+> Dans Microsoft SDL, cette pratique correspond aproximativement à une combinaison *5. Secure the software supply chain*, *6. Secure the engineering environment* et de quelques éléments de *8. Ensure operational platform security* pour les baselines des environnements de build.
 
 ### 3.2 Déploiement sécurisé (*I‑SD*)
 L’une des dernières étapes de la fourniture de logiciels sécurisés est de garantir que la sécurité et l’intégrité des applications développées ne sont pas compromises lors du déploiement. La pratique du **Déploiement Sécurisé (*SD*)** se focalise sur ce point
@@ -142,7 +142,7 @@ L’une des dernières étapes de la fourniture de logiciels sécurisés est de 
 | N3 | Vérifier automatiquement l'intégrité de tous les logiciels déployés, indépendamment du fait qu'ils ont été développés en interne ou en externe. | Améliorer le cycle de vie des secrets d'application en les générant régulièrement et en en garantissant une utilisation appropriée. |
 
 {: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à une combinaison de *5. Secure the software supply chain* et *8. Ensure operational platform security*.
+> Dans Microsoft SDL, cette pratique correspond aproximativement à une combinaison de *5. Secure the software supply chain* et *8. Ensure operational platform security*.
 
 ### 3.3 Gestion des défauts (*I‑DM*)
 La pratique de la **Gestion des Défauts (*DM*)** se concentre sur la collecte, l’enregistrement et l’analyse des défauts de sécurité des logiciels et leur enrichissement en informations afin de pouvoir prendre des décisions basées sur des métriques.
@@ -154,7 +154,7 @@ La pratique de la **Gestion des Défauts (*DM*)** se concentre sur la collecte, 
 | N3 | Faire respecter les SLA prédéfinis et intégrer le système de gestion des défauts aux autres outils pertinents. | Améliorer continuellement les métriques de gestion des défauts de sécurité et corrélation d'autres sources. |
 
 {: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à une combinaison de *5. Secure the software supply chain*, *6. Secure the engineering environment* et de quelques éléments de *8. Ensure operational platform security* pour les baselines des environnements de build.
+> Dans Microsoft SDL, cette pratique correspond aproximativement à une combinaison de *5. Secure the software supply chain*, *6. Secure the engineering environment* et de quelques éléments de *8. Ensure operational platform security* pour les baselines des environnements de build.
 
 
 ---
@@ -172,7 +172,7 @@ La pratique de l’**Évaluation de l’Architecture (*AA*)** veille à ce que l
 | N3 | Passage en revue de l'efficacité des composants d'architecture | Mettre en place une boucle de rétroaction pour les résultats de revue d'architecture vers l'architecture d'entreprise, les principes & les modèles de conception d'organisation, les solutions de sécurité et les architectures de référence. |
 
 {: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à *3. Perform security design review and threat modeling*.
+> Dans Microsoft SDL, cette pratique correspond aproximativement à *3. Perform security design review and threat modeling*.
 
 ### 4.2 Tests axés sur les exigences (*V‑RT*)
 L’objectif de la pratique de **Tests axés sur les Exigences (*RT*)** est de s’assurer que les contrôles de sécurité implémentés fonctionnent comme prévu et répondent aux exigences de sécurité élicités dans le projet. Un ensemble de cas de test de sécurité et de régression est progressivement construit et régulièrement exécuté.
@@ -184,7 +184,7 @@ L’objectif de la pratique de **Tests axés sur les Exigences (*RT*)** est de s
 | N3 | Effectuer des tests de régression (avec des tests unitaires de sécurité) | Tests des dénis de service et de la sécurité aux limites |
 
 {: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à une combinaison de *7. Perform security testing* et *4. Define and use cryptography standards* (si crypto)
+> Dans Microsoft SDL, cette pratique correspond aproximativement à une combinaison de *7. Perform security testing* et *4. Define and use cryptography standards* (si crypto)
 
 ### 4.3 Tests de sécurité (*V‑ST*)
 La pratique des **Tests de Sécurité (*ST*)** tire parti du fait que, bien que les tests de sécurité automatisés soient rapides et adaptés à de nombreuses applications, des tests approfondis basés sur une bonne connaissance d’une application et de sa logique métier n’est souvent possible que par des tests de sécurité plus lents et manuels réalisés par un expert.
@@ -196,7 +196,7 @@ La pratique des **Tests de Sécurité (*ST*)** tire parti du fait que, bien que 
 | N3 | Intégrer les tests de sécurité automatisés dans le processus de génération et de déploiement | Intégrer les tests de sécurité dans le processus de développement |
 
 {: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à *7. Perform security testing*.
+> Dans Microsoft SDL, cette pratique correspond aproximativement à *7. Perform security testing*.
 
 ---
 
@@ -214,7 +214,7 @@ La pratique de la **Gestion des Incidents (*IM*)** vise à définir la réaction
 | N3 | Utiliser un processus géré de façon proactive pour la détection des incidents. | Employer une équipe de réponse à incident impliquée et bien formée. |
 
 {: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à *9. Implement security monitoring and response*.
+> Dans Microsoft SDL, cette pratique correspond aproximativement à *9. Implement security monitoring and response*.
 
 ### 5.2 Gestion de l'environnement (*O‑EM*)
 La pratique de la **Gestion de l’Environnement (*EM*)** met l’accent sur la sécurité et la transparence de l'environnement de façon à procéder à des correctifs de façon ordonnée et rapide pour tous les systèmes concernés.
@@ -226,7 +226,7 @@ La pratique de la **Gestion de l’Environnement (*EM*)** met l’accent sur la 
 | N3 | Surveiller activement les configurations pour détecter les non-conformités aux exigences minimales, et gérer toute déviation comme un défaut de sécurité. | Surveiller activement le statut des mises à jour et gérer l'absence de mise à jour comme un défaut de sécurité. Obtenir de façon proactive des informations sur les vulnérabilités et les mises à jour pour les composants. |
 
 {: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à une combinaison de 
+> Dans Microsoft SDL, cette pratique correspond aproximativement à une combinaison de 
 *6. Secure the engineering environment*, *8. Ensure operational platform security* et *9. Implement security monitoring and response*.
 
 ### 5.3 Gestion opérationnelle (*O‑OM*)
@@ -239,7 +239,7 @@ La pratique de la **Gestion Opérationnelle (*OM*)** se concentre sur les activi
 | N3 | Automatiser la détection des non-conformités aux politiques et vérifier la conformité périodiquement. Réviser et mettre à jour régulièrement le catalogue de données et la politique de protection des données. | Gérer de façon proactive les feuilles de route des migrations, tant pour les dépendances en fin de vie sans support que pour les anciennes versions des logiciels fournis. |
 
 {: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à *8. Ensure operational platform security*.
+> Dans Microsoft SDL, cette pratique correspond aproximativement à *8. Ensure operational platform security*.
 
 ---
 
