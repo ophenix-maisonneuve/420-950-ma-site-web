@@ -17,7 +17,7 @@ La machine principale est l'environnement utilisé pour développement et les op
 
 Pour mettre en place la machine principale, les deux options suivantes peuvent être utilisées :
 - Utiliser la machine virtuelle Linux (Linux Mint Debian Edition 7) pré-configurée (recommandé)
-   - *Cette machine virtuelle est fournie en format .ova et peut donc être importée directement sous `VMware Workstation` ou `Virtualbox`.
+   - *Cette machine virtuelle est fournie en format .ova et peut donc être importée directement sous **VMware Workstation** ou **Virtualbox**.*
 - Installer tous les outils directement sur la machine Windows (possiblement avec une dépendance à WSL) ou Mac
 
 ## Cas d’usage
@@ -26,15 +26,15 @@ Pour mettre en place la machine principale, les deux options suivantes peuvent �
 - **TP3** : ZAP, UFW, fail2ban et journalisation (*logs*)
 - **Projet** : Développement de l'application vulnérable et correctifs
 - **Ateliers** : SAST, SCA, SBOM, OWASP Top 10
-- **Test d'intrusion** : re‑tests et scores CVSS
+- **Test d'intrusion** : Re‑tests et scores CVSS
 
 
 ## Outils utilisés
 
 ### Développement & IDE
 - **Visual Studio Code** : IDE principal pour les exercices demandant l'écriture ou l'analyse de code
-- **Python 3 / pip** : un des langages de programmation utilisés dans le cours
-- **Java 25 (JDK et JRE)** : un des langages de programmation utilisés dans le cours, et nécessaire pour WebGoat
+- **Python 3 / pip** : l'un des langages de programmation utilisés dans le cours
+- **Java 25 (JDK et JRE)** : l'un des langages de programmation utilisés dans le cours, et nécessaire pour WebGoat
 
 ### Cryptographie / Sécurité réseau
 - **OpenSSL** : génération de matériel cryptographique (clés, certificats, etc)
@@ -47,19 +47,19 @@ Pour mettre en place la machine principale, les deux options suivantes peuvent �
 - **Syft** *(SBOM)* : génération de la nomenclature logicielle (*SBOM - software build of material*)
 - **Dependency‑Check**.
 
-### 3) DAST / Fuzzing
+### DAST / Fuzzing
 - **OWASP ZAP** : proxy, spider, scans actifs/passifs, fuzzing.
 
-### 4) Durcissement & Opérations
-- **UFW** — pare‑feu simple, réduction surface d’attaque.
-- **fail2ban** — détection/réponse basée sur journaux.
-- **rsyslog** — logs système.
-- **tcpdump** — analyse réseau bas niveau.
+### Durcissement & Opérations
+- **UFW** : pare‑feu simple, réduction surface d’attaque.
+- **fail2ban** : détection d'intrusions et réponse basée sur les journaux.
+- **rsyslog** : logs système.
+- **tcpdump** : analyse réseau bas niveau.
 
-### 5) Applications vulnérables
-- **Juice Shop** — vulnérabilités modernes (DAST, OWASP Top 10).
-- **WebGoat** — exercices guidés OWASP (Java/JAR).
+### Applications vulnérables
+- **Juice Shop** : vulnérabilités modernes (DAST, OWASP Top 10).
+- **WebGoat** : exercices guidés OWASP (Java/JAR).
 
-### 6) Outils réseau & utilitaires
+### Outils réseau & utilitaires
 - **nmap**, **netcat**, **dnsutils**, **traceroute**, **whois**
 - **jq**, **tree**, **vim/nano**
