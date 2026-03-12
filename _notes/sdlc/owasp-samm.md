@@ -81,32 +81,32 @@ Former les équipes (dev, ops, produit) et fournir des guides, *cheat sheets* et
 
 ---
 
-## 2. Design
+## 2. Conception
 
 ### 2.1 Évaluation des menaces (D‑TA)
 Identifier systématiquement les menaces, estimer le risque et choisir les mitigations.
-- **Stream A — Méthode & ateliers**  
-  **N1** : Introduire STRIDE/DFD et ateliers minimum viables.  
-  **N2** : Menaces intégrées au design (critères, validations).  
-  **N3** : Ateliers systématiques, mesures et ré‑évaluation périodique.  
-- **Stream B — Risques & mitigations**  
-  **N1** : Journal des menaces et contre‑mesures basiques.  
-  **N2** : Modèles d’attaque/abus cases ; priorisation par risque.  
-  **N3** : Cartographie des risques produit/portfolio, arbitrage budgétaire.  
+- **Stream A — Profil de risque de l'application**  
+  **N1** : Une évaluation basique du niveau de risque de l'application est effectuée afin de comprendre la probabilité et l'impact d'une attaque.
+  **N2** : Comprendre le risque pour toutes les applications au sein de l'organisation en centralisant l'inventaire des profils de risque pour les intervenants.
+  **N3** : Examiner périodiquement les profils de risque des applications à intervalles réguliers afin de s'assurer de l'exactitude et de la pertinence de l'état actuel.
+- **Stream B — Modélisation des menaces**  
+  **N1** : Effectuez une modélisation des menaces adaptée à vos moyens et avec une approche par les risques en utilisant le remue-méninges et les diagrammes existants via de simples listes de contrôle des menaces.
+  **N2** : Normaliser la formation, les processus et les outils de modélisation des menaces à l'échelle de l'entreprise.
+  **N3** : Optimisation et automatisation continue de votre méthodologie de modélisation des menaces.
 
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à *3. Perform security design review and threat modeling*
 
 ### 2.2 Exigences de sécurité (D‑SR)
-- **Stream A — Exigences internes**
+- **Stream A — Exigences logicielles**
 Capturer des exigences de sécurité non fonctionnelles et spécifiques au risque (authentification/autorisation, journalisation, résilience, confidentialité, etc.).
-  **N1** : Lister exigences sécurité de base (authN/Z, logs, erreurs).  
-  **N2** : Traçabilité exigences - user stories - tests.  
-  **N3** : Bibliothèque vivante d’exigences et critères d’acceptation.
-- **Stream B — Exigences fournisseurs/tiers**  
-  **N1** : Attentes minimales (licences, vulnérabilités, SBOM).  
-  **N2** : Processus d’évaluation et clauses contractuelles.  
-  **N3** : Suivi continu risques tiers, revues régulières.
+  **N1** : Les objectifs de sécurité applicatifs de haut niveau sont associés aux exigences fonctionnelles.
+  **N2** : Des exigences de sécurité structurées sont disponibles et utilisées par les équipes de développeurs.
+  **N3** : Construire un ensemble d'exigences pour utilisation par les équipes produits.
+- **Stream B — Sécurité du fournisseur**  
+  **N1** : Évaluer le fournisseur selon des exigences de sécurité organisationnelles.
+  **N2** : Intégrer la sécurité dans les contrats avec les fournisseurs afin de garantir la conformité avec les exigences de l'organisation.
+  **N3** : Assurer une couverture de sécurité adéquate pour les fournisseurs externes en fournissant des objectifs clairs.
 
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à une combinaison *3. Perform security design review and threat modeling* (couvre la dérivation d’exigences), *2. Require use of proven security features, languages, and frameworks* et *4. Define and use cryptography standards*
@@ -115,13 +115,13 @@ Capturer des exigences de sécurité non fonctionnelles et spécifiques au risqu
 ### 2.3 Architecture de sécurité (D‑SA)
 Concevoir une architecture applicative et de données avec des contrôles défensifs, des frontières de confiance et des dépendances maîtrisées.
 - **Stream A — Conception d’architecture**  
-  **N1** : Schémas, *trust boundaries*, contrôles fondamentaux.  
-  **N2** : Patterns de référence (auth, secrets, crypto, journaux).  
-  **N3** : Architecture réutilisable (référentiel), revues indépendantes.  
-- **Stream B — Technologie & dépendances**  
-  **N1** : Liste approuvée de composants/versions.  
-  **N2** : Politique SBOM, évaluations SCA.  
-  **N3** : Gouvernance des dépendances, remplacement proactif.
+  **N1** : Les équipes sont formées sur l'utilisation des principes de base de la sécurité durant la phase de conception
+  **N2** : Etablir des modèles de conception et des solutions de sécurité communs.
+  **N3** : Les architectures de référence sont utilisées et évaluées continuellement en vue de leur adoption et par rapport à leur pertinence.
+- **Stream B — Gestion de la technologie**  
+  **N1** : Enumérer les technologies, les cadres et les outils d'intégration de la solution globale pour identifier les risques.
+  **N2** : Standardiser les technologies et les frameworks à utiliser pour les différentes applications
+  **N3** : Imposer l’utilisation de technologies standards sur tous les développements logiciels.
 
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à une combinaison *3. Perform security design review and threat modeling*, *2. Require use of proven security features, languages, and frameworks* et *5. Secure the software supply chain* (choix et validation des composants).
