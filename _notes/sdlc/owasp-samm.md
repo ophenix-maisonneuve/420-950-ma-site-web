@@ -65,7 +65,7 @@ Définir, publier et faire respecter les politiques de développement sécurisé
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à *1. Establish security standards, metrics, and governance*
 
-### 1.3 Éducation & Guidance (G‑EG)
+### 1.3 Éducation & Orientation (G‑EG)
 Former les équipes (dev, ops, produit) et fournir des guides, *cheat sheets* et modèles décisionnels pour intégrer la sécurité au quotidien.
 - **Stream A — Formation**  
   **N1** : Formation de base pour dev/ops/produit.  
@@ -83,21 +83,7 @@ Former les équipes (dev, ops, produit) et fournir des guides, *cheat sheets* et
 
 ## 2. Design
 
-### 2.1 Exigences de sécurité (D‑SR)
-- **Stream A — Exigences internes**
-Capturer des exigences de sécurité non fonctionnelles et spécifiques au risque (authentification/autorisation, journalisation, résilience, confidentialité, etc.).
-  **N1** : Lister exigences sécurité de base (authN/Z, logs, erreurs).  
-  **N2** : Traçabilité exigences - user stories - tests.  
-  **N3** : Bibliothèque vivante d’exigences et critères d’acceptation.
-- **Stream B — Exigences fournisseurs/tiers**  
-  **N1** : Attentes minimales (licences, vulnérabilités, SBOM).  
-  **N2** : Processus d’évaluation et clauses contractuelles.  
-  **N3** : Suivi continu risques tiers, revues régulières.
-
-{: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à une combinaison *3. Perform security design review and threat modeling* (couvre la dérivation d’exigences), *2. Require use of proven security features, languages, and frameworks* et *4. Define and use cryptography standards*
-
-### 2.2 Modélisation des menaces (D‑TA)
+### 2.1 Évaluation des menaces (D‑TA)
 Identifier systématiquement les menaces, estimer le risque et choisir les mitigations.
 - **Stream A — Méthode & ateliers**  
   **N1** : Introduire STRIDE/DFD et ateliers minimum viables.  
@@ -111,7 +97,22 @@ Identifier systématiquement les menaces, estimer le risque et choisir les mitig
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à *3. Perform security design review and threat modeling*
 
-### 2.3 Architecture sécurisée (D‑SA)
+### 2.2 Exigences de sécurité (D‑SR)
+- **Stream A — Exigences internes**
+Capturer des exigences de sécurité non fonctionnelles et spécifiques au risque (authentification/autorisation, journalisation, résilience, confidentialité, etc.).
+  **N1** : Lister exigences sécurité de base (authN/Z, logs, erreurs).  
+  **N2** : Traçabilité exigences - user stories - tests.  
+  **N3** : Bibliothèque vivante d’exigences et critères d’acceptation.
+- **Stream B — Exigences fournisseurs/tiers**  
+  **N1** : Attentes minimales (licences, vulnérabilités, SBOM).  
+  **N2** : Processus d’évaluation et clauses contractuelles.  
+  **N3** : Suivi continu risques tiers, revues régulières.
+
+{: .highlight}
+> Dans Microsoft SDL, correspond aproximativement à une combinaison *3. Perform security design review and threat modeling* (couvre la dérivation d’exigences), *2. Require use of proven security features, languages, and frameworks* et *4. Define and use cryptography standards*
+
+
+### 2.3 Architecture de sécurité (D‑SA)
 Concevoir une architecture applicative et de données avec des contrôles défensifs, des frontières de confiance et des dépendances maîtrisées.
 - **Stream A — Conception d’architecture**  
   **N1** : Schémas, *trust boundaries*, contrôles fondamentaux.  
@@ -129,7 +130,7 @@ Concevoir une architecture applicative et de données avec des contrôles défen
 
 ## 3. Implémentation
 
-### 3.1 Secure Build (I‑SB)
+### 3.1 Génération sécurisée (I‑SB)
 - **Stream A — Chaîne de build**  
 Sécuriser la chaîne de compilation/intégration (builds reproductibles, signatures, contrôles d’intégrité, SBOM, durcissement des artefacts).
   **N1** : Builds reproductibles, durcissement de base.  
@@ -140,24 +141,7 @@ Sécuriser la chaîne de compilation/intégration (builds reproductibles, signat
   **N2** : Règles de provenance, validation d’intégrité.  
   **N3** : Surveillance continue, réponses coordonnées (revocation/rollback).
 
-{: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à une combinaison *5. Secure the software supply chain*, *6. Secure the engineering environment* et de quelques éléments de *8. Ensure operational platform security* pour les baselines des environnements de build.
-
-### 3.2 Defect Management (I‑DM)
-Enregistrer, prioriser et corriger les vulnérabilités et non‑conformités, avec validation de la correction et traçabilité.
-- **Stream A — Découverte & triage**  
-  **N1** : Registre centralisé des vulnérabilités.  
-  **N2** : Triage par gravité (CVSS / risque), SLA de correction.  
-  **N3** : Mesure de vélocité de remédiation et de ré‑ouverture.
-- **Stream B — Remédiation & validation**  
-  **N1** : Boucle de correction standard (PR, revue).  
-  **N2** : Re‑tests automatiques post‑correctif (SAST/DAST).  
-  **N3** : Vérifications indépendantes et capitalisation (*RCA - root-cause analysis*).
-
-{: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à une combinaison *5. Secure the software supply chain*, *6. Secure the engineering environment* et de quelques éléments de *8. Ensure operational platform security* pour les baselines des environnements de build.
-
-### 3.3 Secure Deployment (I‑SD)
+### 3.2 Déploiement sécurisé (I‑SD)
 Sécuriser les pipelines CI/CD, l’attestation et la promotion des artefacts, la configuration par défaut (*secure by default*), et l’activation des contrôles en production.
 - **Stream A — Pipelines & contrôles**  
   **N1** : Gates sécurité de base dans CI/CD.  
@@ -171,25 +155,29 @@ Sécuriser les pipelines CI/CD, l’attestation et la promotion des artefacts, l
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à une combinaison de *5. Secure the software supply chain* et *8. Ensure operational platform security*.
 
+{: .highlight}
+> Dans Microsoft SDL, correspond aproximativement à une combinaison *5. Secure the software supply chain*, *6. Secure the engineering environment* et de quelques éléments de *8. Ensure operational platform security* pour les baselines des environnements de build.
+
+### 3.3 Gestion des défauts (I‑DM)
+Enregistrer, prioriser et corriger les vulnérabilités et non‑conformités, avec validation de la correction et traçabilité.
+- **Stream A — Découverte & triage**  
+  **N1** : Registre centralisé des vulnérabilités.  
+  **N2** : Triage par gravité (CVSS / risque), SLA de correction.  
+  **N3** : Mesure de vélocité de remédiation et de ré‑ouverture.
+- **Stream B — Remédiation & validation**  
+  **N1** : Boucle de correction standard (PR, revue).  
+  **N2** : Re‑tests automatiques post‑correctif (SAST/DAST).  
+  **N3** : Vérifications indépendantes et capitalisation (*RCA - root-cause analysis*).
+
+{: .highlight}
+> Dans Microsoft SDL, correspond aproximativement à une combinaison *5. Secure the software supply chain*, *6. Secure the engineering environment* et de quelques éléments de *8. Ensure operational platform security* pour les baselines des environnements de build.
+
+
 ---
 
 ## 4. Vérification
 
-### 4.1 Security Testing (V‑ST)
-Automatiser SAST, SCA, DAST et fuzzing, avec critères d’acceptation et intégration pipeline.
-- **Stream A — Baseline scalable (auto)**  
-  **N1** : SAST/SCA de base intégrés au pipeline.  
-  **N2** : Couverture étendue, gestion des faux positifs, seuils.  
-  **N3** : Orchestration multi‑outils, corrélation des résultats.
-- **Stream B — Profondeur (dyn./manuel)**  
-  **N1** : DAST simple et scans ciblés.  
-  **N2** : Fuzzing, tests manuels ciblés.  
-  **N3** : Tests avancés (IAST/RASP/pentest coordonné).
-
-{: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à *7. Perform security testing*.
-
-### 4.2 Architecture Assessment (V‑AA)
+### 4.1 Évaluation de l'architecture (V‑AA)
 
 - **Stream A — Revue d’architecture**  
   **N1** : Revue légère des schémas/DFD.  
@@ -203,7 +191,7 @@ Automatiser SAST, SCA, DAST et fuzzing, avec critères d’acceptation et intég
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à *3. Perform security design review and threat modeling*.
 
-### 4.3 Requirements‑Driven Testing (V‑RT)
+### 4.2 Tests axés sur les exigences (V‑RT)
 Définir des cas de tests sécurité dérivés des exigences (ASVS, politiques de cryptographie, exigences internes) et vérifier la conformité.
 - **Stream A — Couverture par exigences**  
   **N1** : Lier cas de test aux exigences (ex. ASVS).  
@@ -217,25 +205,25 @@ Définir des cas de tests sécurité dérivés des exigences (ASVS, politiques d
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à une combinaison de *7. Perform security testing* et *4. Define and use cryptography standards* (si crypto)
 
+### 4.3 Tests de sécurité (V‑ST)
+Automatiser SAST, SCA, DAST et fuzzing, avec critères d’acceptation et intégration pipeline.
+- **Stream A — Baseline scalable (auto)**  
+  **N1** : SAST/SCA de base intégrés au pipeline.  
+  **N2** : Couverture étendue, gestion des faux positifs, seuils.  
+  **N3** : Orchestration multi‑outils, corrélation des résultats.
+- **Stream B — Profondeur (dyn./manuel)**  
+  **N1** : DAST simple et scans ciblés.  
+  **N2** : Fuzzing, tests manuels ciblés.  
+  **N3** : Tests avancés (IAST/RASP/pentest coordonné).
+
+{: .highlight}
+> Dans Microsoft SDL, correspond aproximativement à *7. Perform security testing*.
+
 ---
 
 ## 5. Opérations
 
-### 5.1 Operational Management (O‑OM)
-Exploiter les applications de façon sécurisée (durcissement, configuration, sauvegardes, gestion des accès, etc).
-- **Stream A — Exploitation sécurisée**  
-  **N1** : Procédures et guides d'exploitation (*runbooks*), sauvegardes, accès minimaux.  
-  **N2** : Revue périodique des privilèges et des configurations.  
-  **N3** : Gestion de configuration centralisée et contrôles préventifs.  
-- **Stream B — Continuité & résilience**  
-  **N1** : Plan basique de continuité (restauration, DR).  
-  **N2** : Exercices réguliers, *chaos days* limités.  
-  **N3** : Résilience mesurée (RTO/RPO), tests à l’échelle.
-
-{: .highlight}
-> Dans Microsoft SDL, correspond aproximativement à *8. Ensure operational platform security*.
-
-### 5.2 Incident Management (O‑IM)
+### 5.1 Gestion des incidents (O‑IM)
 Détecter, répondre et apprendre des incidents (détection, triage, communication, post‑mortem, amélioration continue).
 - **Stream A — Détection & triage**  
   **N1** : Journalisation et alertes minimales.  
@@ -249,7 +237,7 @@ Détecter, répondre et apprendre des incidents (détection, triage, communicati
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à *9. Implement security monitoring and response*.
 
-### 5.3 Environment Management (O‑EM)
+### 5.2 Gestion de l'environnement (O‑EM)
 Gérer et surveiller les environnements (journalisation, télémétrie, *monitoring*, séparation des environnements, secrets, accès machine/service).
 - **Stream A — Environnements & secrets**  
   **N1** : Séparation dev/test/prod, gestion de secrets.  
@@ -264,17 +252,35 @@ Gérer et surveiller les environnements (journalisation, télémétrie, *monitor
 > Dans Microsoft SDL, correspond aproximativement à une combinaison de 
 *6. Secure the engineering environment*, *8. Ensure operational platform security* et *9. Implement security monitoring and response*.
 
+### 5.3 Gestion opérationnelle (O‑OM)
+Exploiter les applications de façon sécurisée (durcissement, configuration, sauvegardes, gestion des accès, etc).
+- **Stream A — Exploitation sécurisée**  
+  **N1** : Procédures et guides d'exploitation (*runbooks*), sauvegardes, accès minimaux.  
+  **N2** : Revue périodique des privilèges et des configurations.  
+  **N3** : Gestion de configuration centralisée et contrôles préventifs.  
+- **Stream B — Continuité & résilience**  
+  **N1** : Plan basique de continuité (restauration, DR).  
+  **N2** : Exercices réguliers, *chaos days* limités.  
+  **N3** : Résilience mesurée (RTO/RPO), tests à l’échelle.
+
+{: .highlight}
+> Dans Microsoft SDL, correspond aproximativement à *8. Ensure operational platform security*.
+
+
+
 ---
 
 ## Liens utiles
 
 - **OWASP — About** : mission, activités, communauté
   [https://owasp.org/about/](https://owasp.org/about/)
-- **OWASP SAMM — Quick Start Guide (v2)** : structure 
-  [https://owaspsamm.org/guidance/quick-start-guide/](https://owaspsamm.org/guidance/quick-start-guide/)
+- **OWASP SAMM - Le modèle** : détails du modèle SAMM
+  [https://owaspsamm.org/model/](https://owaspsamm.org/model/)
 - **OWASP SAMM V2** ([PDF](../assets/files/SAMM-v2-PDF.pdf))
-- **Microsoft — SDL Practices (10 pratiques)** : liste des pratiques et positionnement SDL
+- **OWASP SAMM - Quick Start Guide (v2)** : structure 
+  [https://owaspsamm.org/guidance/quick-start-guide/](https://owaspsamm.org/guidance/quick-start-guide/)
+- **Microsoft - SDL Practices (10 pratiques)** : liste des pratiques et positionnement SDL
   [https://www.microsoft.com/en-us/securityengineering/sdl/practices](https://www.microsoft.com/en-us/securityengineering/sdl/practices)
-- **OWASP SAMM Blog — Comparing Microsoft SDL and SAMM (2025)** : correspondance entre requis SDL et activités SAMM 
+- **OWASP SAMM Blog - Comparing Microsoft SDL and SAMM (2025)** : correspondance entre requis SDL et activités SAMM 
   [https://owaspsamm.org/blog/2025/01/20/comparing-microsoft-sdl-and-samm/](https://owaspsamm.org/blog/2025/01/20/comparing-microsoft-sdl-and-samm/)
 
