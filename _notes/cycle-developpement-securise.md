@@ -24,16 +24,16 @@ Il n'existe pas *SDLC* unique ou universel. En pratique, les entreprises partent
 ## Pourquoi un cycle de développement sécurisé ?
 
 ### Les attaques sont plus nombreuses et plus coûteuses
-IBM rapporte que les attaques contre la chaîne d'approvisionnement logicielle ont augmenté de **1300 %** en trois ans. [Source IBM](https://www.ibm.com/think/topics/secure-software-development-life-cycle)
+IBM rapporte que les attaques contre la chaîne d'approvisionnement logicielle ont augmenté de **1300 %** en trois ans. <sup>1</sup>
 
 ### Les vulnérabilités coûtent bien plus cher à corriger en production
-Corriger une vulnérabilité en production peut coûter jusqu’à **100 fois plus cher** qu’en développement. [Source Aikido Security](https://www.aikido.dev/blog/secure-sdlc)
+Corriger une vulnérabilité en production peut coûter jusqu’à **100 fois plus cher** qu’en développement. <sup>4</sup>
 
 ### La conformité réglementaire l'exige
-De nombreuses normes telles que **GDPR** ou **HIPAA** exigent l’intégration de la sécurité dès la conception. [Source IBM](https://www.ibm.com/think/topics/secure-software-development-life-cycle)
+De nombreuses normes telles que **GDPR** ou **HIPAA** exigent l’intégration de la sécurité dès la conception. <sup>1</sup>
 
 ### La sécurité fait partie d'une culture organisationnelle durable
-Le Microsoft SDL illustre cette intégration via ses pratiques couvrant formation, exigences, design sécurisé et réponse aux incidents. [Source Microsoft SDL](https://learn.microsoft.com/en-us/compliance/assurance/assurance-microsoft-security-development-lifecycle)
+Le Microsoft SDL illustre cette intégration via ses pratiques couvrant formation, exigences, design sécurisé et réponse aux incidents. <sup>3</sup>
 
 ---
 
@@ -57,10 +57,10 @@ Durcissement, monitoring, gestion des incidents.
 
 ---
 
-# Références
-- IBM — https://www.ibm.com/think/topics/secure-software-development-life-cycle
-- GeeksforGeeks — https://www.geeksforgeeks.org/ethical-hacking/what-is-secure-software-development-life-cycle-ssdlc/
-- Microsoft SDL — https://learn.microsoft.com/en-us/compliance/assurance/assurance-microsoft-security-development-lifecycle
-- Aikido Security — https://www.aikido.dev/blog/secure-sdlc
-- Codific — https://codific.com/owasp-sdlc-owasp-samm/
-- GlobalDots — https://www.globaldots.com/resources/blog/application-security-frameworks/
+# Liens utiles
+1. IBM — [https://www.ibm.com/think/topics/secure-software-development-life-cycle](https://www.ibm.com/think/topics/secure-software-development-life-cycle)
+2. GeeksforGeeks — [https://www.geeksforgeeks.org/ethical-hacking/what-is-secure-software-development-life-cycle-ssdlc/](https://www.geeksforgeeks.org/ethical-hacking/what-is-secure-software-development-life-cycle-ssdlc/)
+3. Microsoft SDL — [https://learn.microsoft.com/en-us/compliance/assurance/assurance-microsoft-security-development-lifecycle](https://learn.microsoft.com/en-us/compliance/assurance/assurance-microsoft-security-development-lifecycle)
+4. Aikido Security — [https://www.aikido.dev/blog/secure-sdlc](https://www.aikido.dev/blog/secure-sdlc)
+5. Codific — [https://codific.com/owasp-sdlc-owasp-samm/](https://codific.com/owasp-sdlc-owasp-samm/)
+6. GlobalDots — [https://www.globaldots.com/resources/blog/application-security-frameworks/](https://www.globaldots.com/resources/blog/application-security-frameworks/)
