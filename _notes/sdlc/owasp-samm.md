@@ -34,7 +34,7 @@ SAMM (*Software Assurance Maturity Model*) est un modèle de maturité d’OWASP
 
 ---
 
-## 1) Gouvernance
+## 1. Gouvernance
 
 ### 1.1 Stratégie & Métriques (G‑SM)
 Établir la vision, les objectifs mesurables et les indicateurs pour le programme de sécurité logicielle, piloter l’amélioration continue.
@@ -81,7 +81,7 @@ Former les équipes (dev, ops, produit) et fournir des guides, *cheat sheets* et
 
 ---
 
-## 2) Design
+## 2. Design
 
 ### 2.1 Exigences de sécurité (D‑SR)
 - **Stream A — Exigences internes**
@@ -125,10 +125,9 @@ Concevoir une architecture applicative et de données avec des contrôles défen
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à une combinaison *3. Perform security design review and threat modeling*, *2. Require use of proven security features, languages, and frameworks* et *5. Secure the software supply chain* (choix et validation des composants).
 
-
 ---
 
-## 3) Implémentation
+## 3. Implémentation
 
 ### 3.1 Secure Build (I‑SB)
 - **Stream A — Chaîne de build**  
@@ -174,7 +173,7 @@ Sécuriser les pipelines CI/CD, l’attestation et la promotion des artefacts, l
 
 ---
 
-## 4) Vérification
+## 4. Vérification
 
 ### 4.1 Security Testing (V‑ST)
 Automatiser SAST, SCA, DAST et fuzzing, avec critères d’acceptation et intégration pipeline.
@@ -220,7 +219,7 @@ Définir des cas de tests sécurité dérivés des exigences (ASVS, politiques d
 
 ---
 
-## 5) Opérations
+## 5. Opérations
 
 ### 5.1 Operational Management (O‑OM)
 Exploiter les applications de façon sécurisée (durcissement, configuration, sauvegardes, gestion des accès, etc).
