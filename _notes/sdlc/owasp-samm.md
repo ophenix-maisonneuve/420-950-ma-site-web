@@ -196,7 +196,7 @@ Définir des cas de tests sécurité dérivés des exigences (ASVS, politiques d
 - **Stream A — Couverture par exigences**  
   **N1** : Lier cas de test aux exigences (ex. ASVS).  
   **N2** : Mesurer la couverture et les écarts.  
-  **N3** : Exiger la conformité préalable à release (gates).  citeturn2search9
+  **N3** : Exiger la conformité préalable à release (gates).
 - **Stream B — Preuve & acceptation**  
   **N1** : Évidences de test stockées.  
   **N2** : Traçabilité V&V (req→test→résultat).  
