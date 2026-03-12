@@ -85,9 +85,9 @@ Former les équipes (dev, ops, produit) et fournir des guides, *cheat sheets* et
 
 ### 2.1 Exigences de sécurité (D‑SR)
 - **Stream A — Exigences internes**
-Capturer des exigences de sécurité non fonctionnelles et spécifiques au risque (authentification/authorisation, journalisation, résilience, confidentialité, etc.).
+Capturer des exigences de sécurité non fonctionnelles et spécifiques au risque (authentification/autorisation, journalisation, résilience, confidentialité, etc.).
   **N1** : Lister exigences sécurité de base (authN/Z, logs, erreurs).  
-  **N2** : Traçabilité exigences ↔ user stories ↔ tests.  
+  **N2** : Traçabilité exigences - user stories - tests.  
   **N3** : Bibliothèque vivante d’exigences et critères d’acceptation.
 - **Stream B — Exigences fournisseurs/tiers**  
   **N1** : Attentes minimales (licences, vulnérabilités, SBOM).  
