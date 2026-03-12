@@ -2,7 +2,7 @@
 layout: default
 title: "Travail pratique 1"
 nav_order: 1
-published: true
+published: false
 ---
 # Travail pratique 1 : Titre du TP
 
