@@ -30,7 +30,7 @@ L’organisation oeuvre pour que chaque développeur et chaque organisation puis
 {: .highlight}
 > Pour chaque pratique, les activités de sécurité sont groupées dans le *stream* A ou les *stream* B. Les *streams* servent à définir des sous-objectifs distincts pour un groupe d'activités à l'intérieur d'une même pratique.
 
-![OWASP SAMM](assets/images/samm-v2-diagram.png)
+![OWASP SAMM](../assets/images/samm-v2-diagram.png)
 
 ---
 
