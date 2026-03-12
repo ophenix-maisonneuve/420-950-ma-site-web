@@ -35,9 +35,10 @@ SAMM (*Software Assurance Maturity Model*) est un modèle de maturité d’OWASP
 ---
 
 ## 1. Gouvernance
+La gouvernance se concentre sur les processus et les activités liés à la façon dont une organisation gère l’ensemble des activités de développement de logiciels. Plus précisément, cela comprend les sujets d’attention ayant un impact sur les groupes interfonctionnels impliqués dans le développement, ainsi que sur les processus opérationnels établis au niveau de l’organisation.
 
 ### 1.1 Stratégie & Métriques (G‑SM)
-Établir la vision, les objectifs mesurables et les indicateurs pour le programme de sécurité logicielle, piloter l’amélioration continue.
+Le but de la pratique Stratégie et Métriques (SM) est de construire un plan efficace et concret pour réaliser vos objectifs de sécurité logicielle au sein de votre organisation.
 
 - **Stream A — Créer et promouvoir**  
   **N1** : Identifier les motivations de l'organisation en ce qui concerne la tolérance au risque.  
@@ -52,7 +53,8 @@ SAMM (*Software Assurance Maturity Model*) est un modèle de maturité d’OWASP
 > Dans Microsoft SDL, correspond aproximativement à *1. Establish security standards, metrics, and governance*
 
 ### 1.2 Politiques & Conformité (G‑PC)
-Définir, publier et faire respecter les politiques de développement sécurisé et s’aligner sur les exigences externes (standards, réglementations, clients).
+La pratique de la Politique et Conformité (PC) vise à comprendre et à satisfaire aux exigences juridiques et réglementaires externes tout en respectant les normes de sécurité internes dans le but de garantir que la conformité est en phase avec les objectifs commerciaux de l’organisation.
+
 - **Stream A — Politiques et normes**  
   **N1** : Déterminer une ligne de base de sécurité représentant les politiques et les normes de l’organisation.
   **N2** : Développer des exigences de sécurité applicables à toutes les applications.
@@ -66,7 +68,8 @@ Définir, publier et faire respecter les politiques de développement sécurisé
 > Dans Microsoft SDL, correspond aproximativement à *1. Establish security standards, metrics, and governance*
 
 ### 1.3 Éducation & Orientation (G‑EG)
-Former les équipes (dev, ops, produit) et fournir des guides, *cheat sheets* et modèles décisionnels pour intégrer la sécurité au quotidien.
+La pratique de l’Education et Orientation (EG) vise à fournir au personnel impliqué dans le cycle de vie du logiciel des connaissances et des ressources pour concevoir, développer et déployer des logiciels sécurisés. 
+
 - **Stream A — Formation et sensibilisation**  
   **N1** : Fournir une formation de sensibilisation à la sécurité à tous les employés impliqués dans le développement de logiciels
   **N2** : Offrir une technologie et des conseils spécifiques aux rôles, y compris des nuances de sécurité pour chaque langue et plate-forme
@@ -82,9 +85,11 @@ Former les équipes (dev, ops, produit) et fournir des guides, *cheat sheets* et
 ---
 
 ## 2. Conception
+La conception concerne les processus et les activités liés à la façon dont une organisation définit les objectifs et crée les logiciels dans les projets de développement. En général, cela comprendra la collecte des exigences, la spécification de haut niveau de l’architecture et la conception détaillée.
 
 ### 2.1 Évaluation des menaces (D‑TA)
-Identifier systématiquement les menaces, estimer le risque et choisir les mitigations.
+La pratique d’évaluation des menaces (TA) se concentre sur l’identification et la compréhension des risques au niveau du projet en fonction de la fonctionnalité du logiciel en cours de développement et des caractéristiques de l’environnement d’exécution.
+
 - **Stream A — Profil de risque de l'application**  
   **N1** : Une évaluation basique du niveau de risque de l'application est effectuée afin de comprendre la probabilité et l'impact d'une attaque.
   **N2** : Comprendre le risque pour toutes les applications au sein de l'organisation en centralisant l'inventaire des profils de risque pour les intervenants.
@@ -98,6 +103,8 @@ Identifier systématiquement les menaces, estimer le risque et choisir les mitig
 > Dans Microsoft SDL, correspond aproximativement à *3. Perform security design review and threat modeling*
 
 ### 2.2 Exigences de sécurité (D‑SR)
+La pratique des exigences de sécurité (SR) se concentre sur les exigences de sécurité qui sont importantes dans le contexte des logiciels sécurisés.
+
 - **Stream A — Exigences logicielles**
 Capturer des exigences de sécurité non fonctionnelles et spécifiques au risque (authentification/autorisation, journalisation, résilience, confidentialité, etc.).
   **N1** : Les objectifs de sécurité applicatifs de haut niveau sont associés aux exigences fonctionnelles.
@@ -113,7 +120,8 @@ Capturer des exigences de sécurité non fonctionnelles et spécifiques au risqu
 
 
 ### 2.3 Architecture de sécurité (D‑SA)
-Concevoir une architecture applicative et de données avec des contrôles défensifs, des frontières de confiance et des dépendances maîtrisées.
+La pratique Architecture de Sécurité (SA) se concentre sur la sécurité liée aux composants et à la technologie que vous utilisez pendant la conception architecturale de votre logiciel.
+
 - **Stream A — Conception d’architecture**  
   **N1** : Les équipes sont formées sur l'utilisation des principes de base de la sécurité durant la phase de conception
   **N2** : Etablir des modèles de conception et des solutions de sécurité communs.
@@ -171,7 +179,7 @@ La pratique de la Gestion des Défauts (GD) se concentre sur la collecte, l’en
 - **Stream B — Métriques et commentaires**  
   **N1** : Revoir périodiquement les défauts de sécurité précédemment enregistrés et en dériver des victoires rapides à partir des métriques de base.
   **N2** : Recueillir des métriques de gestion des défauts normalisées et les utiliser également pour établir les priorités des initiatives centralisées.
-  **N3** : Améliorez continuellement vos métriques de gestion des défauts de sécurité et corrélez-les à d'autres sources.
+  **N3** : Améliorer continuellement les métriques de gestion des défauts de sécurité et corrélation d'autres sources.
 
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à une combinaison de *5. Secure the software supply chain*, *6. Secure the engineering environment* et de quelques éléments de *8. Ensure operational platform security* pour les baselines des environnements de build.
@@ -180,45 +188,48 @@ La pratique de la Gestion des Défauts (GD) se concentre sur la collecte, l’en
 ---
 
 ## 4. Vérification
+La vérification se concentre sur les processus et les activités liés à la façon dont une organisation vérifie et teste les artefacts produits tout au long du développement de logiciels. Cela inclut généralement les activités d’assurance qualité telles que les tests, mais peut également inclure d’autres activités de revue et d’évaluation.
 
 ### 4.1 Évaluation de l'architecture (V‑AA)
+La pratique de l’Évaluation de l’Architecture (AA) veille à ce que les architectures de l’application et de l’infrastructure répondent de façon adéquate à toutes les exigences de sécurité et de conformité pertinentes et atténuent suffisamment les menaces de sécurité identifiées. 
 
-- **Stream A — Revue d’architecture**  
-  **N1** : Revue légère des schémas/DFD.  
-  **N2** : Checklists par patterns.  
-  **N3** : Revue indépendante, traçabilité complète vers exigences/menaces.  
-- **Stream B — Surface d’attaque & assurance**  
-  **N1** : Inventaire des interfaces exposées.  
-  **N2** : Scénarios d’abus et validations ciblées.  
-  **N3** : Assurance continue sur composants critiques.
+- **Stream A — Validation de l'architecture**  
+  **N1** : Identifier les composants de l'architecture applicative et d'infrastructure et les passer en revue pour garantir un niveau de sécurité basique de l'approvisionnement  
+  **N2** : Valider les mécanismes de sécurité de l'architecture 
+  **N3** : Passage en revue de l'efficacité des composants d'architecture 
+- **Stream B — Réduction de risques architecturaux**  
+  **N1** : Revue ad hoc de l'architecture pour les menaces de sécurité non atténuées.
+  **N2** : Analyser l'architecture par rapport aux menaces connues.
+  **N3** : Mettre en place une boucle de rétroaction pour les résultats de revue d'architecture vers l'architecture d'entreprise, les principes & les modèles de conception d'organisation, les solutions de sécurité et les architectures de référence.
 
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à *3. Perform security design review and threat modeling*.
 
 ### 4.2 Tests axés sur les exigences (V‑RT)
-Définir des cas de tests sécurité dérivés des exigences (ASVS, politiques de cryptographie, exigences internes) et vérifier la conformité.
-- **Stream A — Couverture par exigences**  
-  **N1** : Lier cas de test aux exigences (ex. ASVS).  
-  **N2** : Mesurer la couverture et les écarts.  
-  **N3** : Exiger la conformité préalable à release (gates).
-- **Stream B — Preuve & acceptation**  
-  **N1** : Évidences de test stockées.  
-  **N2** : Traçabilité V&V (req→test→résultat).  
-  **N3** : Audits réguliers et amélioration du référentiel de tests.
+L’objectif de la pratique de Tests axés sur les Exigences (RT) est de s’assurer que les contrôles de sécurité implémentés fonctionnent comme prévu et répondent aux exigences de sécurité élicités dans le projet. Un ensemble de cas de test de sécurité et de régression est progressivement construit et régulièrement exécuté.
+- **Stream A — Vérification des contrôles**  
+  **N1** : Tester les contrôles de sécurité logiciels
+  **N2** : Dériver les cas de tests à partir des exigences de sécurité connues
+  **N3** : Effectuer des tests de régression (avec des tests unitaires de sécurité)
+- **Stream B — Tests de mauvaise utilisation ou d'abus**  
+  **N1** : Effectuer des tests de fuzzing de sécurité
+  **N2** : Créer et tester les cas d'abus et les défauts de la logique métier.  
+  **N3** : Tests des dénis de service et de la sécurité aux limites
 
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à une combinaison de *7. Perform security testing* et *4. Define and use cryptography standards* (si crypto)
 
 ### 4.3 Tests de sécurité (V‑ST)
-Automatiser SAST, SCA, DAST et fuzzing, avec critères d’acceptation et intégration pipeline.
-- **Stream A — Baseline scalable (auto)**  
-  **N1** : SAST/SCA de base intégrés au pipeline.  
-  **N2** : Couverture étendue, gestion des faux positifs, seuils.  
-  **N3** : Orchestration multi‑outils, corrélation des résultats.
-- **Stream B — Profondeur (dyn./manuel)**  
-  **N1** : DAST simple et scans ciblés.  
-  **N2** : Fuzzing, tests manuels ciblés.  
-  **N3** : Tests avancés (IAST/RASP/pentest coordonné).
+La pratique des Tests de Sécurité (TS) tire parti du fait que, bien que les tests de sécurité automatisés soient rapides et adaptés à de nombreuses applications, des tests approfondis basés sur une bonne connaissance d’une application et de sa logique métier n’est souvent possible que par des tests de sécurité plus lents et manuels réalisés par un expert.
+
+- **Stream A — Base de référence à l'échelle**  
+  **N1** : Utiliser des outils de test de sécurité automatisés
+  **N2** : Employer l'automatisation des tests de sécurité spécifiques à l'application
+  **N3** : Intégrer les tests de sécurité automatisés dans le processus de génération et de déploiement
+- **Stream B — Compréhension approfondie**  
+  **N1** : Effectuer des tests de sécurité manuels sur les composants à haut risque 
+  **N2** : Effectuer un test de pénétration manuel
+  **N3** : Intégrer les tests de sécurité dans le processus de développement
 
 {: .highlight}
 > Dans Microsoft SDL, correspond aproximativement à *7. Perform security testing*.
