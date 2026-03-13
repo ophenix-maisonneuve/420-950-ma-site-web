@@ -67,7 +67,7 @@ La pratique de l’**Éducation et Orientation (*EG*)** vise à fournir au perso
 | Niveau | Stream A : Formation et sensibilisation | Stream B : Organisation et culture |
 |---|---|---|
 | N1 | Fournir une formation de sensibilisation à la sécurité à tous les employés impliqués dans le développement de logiciels | Identifier un "Champion de la Sécurité" au sein de chaque équipe de développement. |
-| N2 | Offrir une technologie et des conseils spécifiques aux rôles, y compris des nuances de sécurité pour chaque langue et plate-forme | Développer un centre d'excellence en matière de sécurité logicielle qui favorise le leadership par la pensée parmi les développeurs et les architectes. |
+| N2 | Offrir une technologie et des conseils spécifiques aux rôles, y compris des nuances de sécurité pour chaque langage et plate-forme | Développer un centre d'excellence en matière de sécurité logicielle qui favorise le leadership par la pensée parmi les développeurs et les architectes. |
 | N3 | Des conseils internes standardisés sur les normes de développement de sécurité logicielle de l’entreprise. | Construire une communauté de sécurité logicielle incluant toutes les personnes de l'organisation impliquées dans la sécurité des logiciels. |
 
 {: .highlight}
