@@ -15,7 +15,7 @@ Ce document regroupe, pour chaque outil utilisé dans le cours, les méthodes d�
 - **Windows (WSL)**
 - **macOS**
 
-{. :warning}
+{: .warning}
 > Pour chaque outil, il existe fort probablement des méthodes d'installation différentes. Ces étapes sont fournies exclusivement à titre informatif pour les étudiants qui veulent tenter d'installer l'environnement applicatif directement sur leur poste de travail. La méthode officiellement prise en charge pour le déroulement du cours est l'utilisation de la [machine virtuelle pré-configurée](../notes/environnement-applicatif).
 
 ---
