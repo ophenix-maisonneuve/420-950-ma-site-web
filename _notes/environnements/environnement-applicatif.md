@@ -17,7 +17,7 @@ La machine applicative est l'environnement utilisé pour développement et les o
 
 Cet environnement est fourni sous forme d'une machine virtuelle en format **.ova** pouvant être importée directement sous **VMware Workstation** ou **Virtualbox**.*
 
-{. :remarque}
+{. :highlight}
 > Un guide d'installation des divers outils sur d'autres plateformes (Windows, Mac) est disponible [ici](../notes/installation-outils). Cependant, cette configuration n'est pas officiellement supportée pour le cours et est à utiliser à ses propres risques.
 
 ## Cas d’usage
