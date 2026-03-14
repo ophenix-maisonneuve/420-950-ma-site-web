@@ -119,11 +119,27 @@ Identique à Debian.
 brew install openjdk
 ```
 
+---
+
 ## Git
 ### Linux (Debian / LMDE)
 ```bash
 sudo apt install git
 ```
+
+### Windows
+Téléchargement : [https://git-scm.com/install/windows](https://git-scm.com/install/windows)
+
+### Windows (WSL)
+```bash
+sudo apt install git
+```
+
+### macOS
+```bash
+brew install git
+```
+
 ---
 
 # Cryptographie & Réseau
@@ -234,7 +250,7 @@ pipx install cyclonedx-bom
 pipx ensurepatht
 ```
 
-### Windows (natif)
+### Windows
 ```bash
 pipx install cyclonedx
 pipx ensurepath
