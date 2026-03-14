@@ -15,7 +15,7 @@ La machine applicative est l'environnement utilisé pour développement et les o
 - **Verification** : analyse statique (*SAST*), tests basés sur les exigences.
 - **Opérations** : journalisation, gestion du pare‑feu, détection et réponse aux intrusions, durcissement.
 
-Cet environnement est fourni sous forme d'une machine virtuelle en format **.ova** pouvant être importée directement sous **VMware Workstation** ou **Virtualbox**.*
+Cet environnement est fourni sous forme d'une machine virtuelle en format **.ova** pouvant être importée directement sous **VMware Workstation** ou **Virtualbox**.
 
 {. :highlight}
 > Un guide d'installation des divers outils sur d'autres plateformes (Windows, Mac) est disponible [ici](../notes/installation-outils). Cependant, cette configuration n'est pas officiellement supportée pour le cours et est à utiliser à ses propres risques.
