@@ -11,14 +11,14 @@ has_toc: false
 
 La machine applicative est l'environnement utilisé pour développement et les opérations de sécurité *défensive*. Au fil de la session, elle servira notamment pour les fonctions de **SAMM** suivantes : 
 - **Conception** : gestion et modélisation de la menace, pratiques sécuritaires en développement (exigences).
-- **Implémentation** : analyse statique (*SAST*), analyse des composantes (*SCA*) et nomenclature logicielle (*SBOM*).
-- **Verification** : tests dynamiques (DAST, fuzzing, etc) sur des applications vulnérables locales.
+- **Implémentation** : analyse des composantes (*SCA*) et nomenclature logicielle (*SBOM*).
+- **Verification** : analyse statique (*SAST*), tests basés sur les exigences.
 - **Opérations** : journalisation, gestion du pare‑feu, détection et réponse aux intrusions, durcissement.
 
-Pour mettre en place l'environnement applicatif, les deux options suivantes peuvent être utilisées :
-- Utiliser la machine virtuelle Linux (Linux Mint Debian Edition 7) pré-configurée (recommandé)
-   - *Cette machine virtuelle est fournie en format .ova et peut donc être importée directement sous **VMware Workstation** ou **Virtualbox**.*
-- Installer tous les outils directement sur la machine Windows (possiblement avec une dépendance à WSL) ou Mac
+Cet environnement est fourni sous forme d'une machine virtuelle en format **.ova** pouvant être importée directement sous **VMware Workstation** ou **Virtualbox**.*
+
+{. :remarque}
+> Un guide d'installation des divers outils sur d'autres plateformes (Windows, Mac) est disponible [ici](../notes/installation-outils). Cependant, cette configuration n'est pas officiellement supportée pour le cours et est à utiliser à ses propres risques.
 
 ## Cas d’usage
 - **TP1** : Nginx, HTTPS/TLS
@@ -33,8 +33,9 @@ Pour mettre en place l'environnement applicatif, les deux options suivantes peuv
 
 ### Développement & IDE
 - **Visual Studio Code** : IDE principal pour les exercices demandant l'écriture ou l'analyse de code
-- **Python** : l'un des langages de programmation utilisés dans le cours
-- **Java (JDK et JRE)** : l'un des langages de programmation utilisés dans le cours, et nécessaire pour WebGoat
+- **Git** : versionnement du code
+- **Python / pip / pipx** : l'un des langages de programmation utilisés dans le cours
+- **Java (JDK et JRE) / Maven** : l'un des langages de programmation utilisés dans le cours, et nécessaire pour WebGoat
 
 ### Cryptographie / Sécurité réseau
 - **OpenSSL** : génération de matériel cryptographique (clés, certificats, etc)
@@ -49,13 +50,12 @@ Pour mettre en place l'environnement applicatif, les deux options suivantes peuv
 ### Durcissement & Opérations
 - **UFW** : pare‑feu simple, réduction surface d’attaque.
 - **fail2ban** : détection d'intrusions et réponse basée sur les journaux.
-- **rsyslog** : logs système.
-- **tcpdump** : analyse réseau bas niveau.
 
 ### Applications vulnérables
 - **Juice Shop** : vulnérabilités modernes (DAST, OWASP Top 10).
 - **WebGoat** : exercices guidés OWASP (Java/JAR).
 
 ### Outils réseau & utilitaires
-- **nmap**, **netcat**, **dnsutils**, **traceroute**, **whois**
+- **nmap**, **netcat**, **dnsutils**, **traceroute**, **whois**, **tcpdump**
 - **jq**, **tree**, **vim/nano**
+- **rsyslog**
