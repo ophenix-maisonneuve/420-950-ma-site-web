@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Installation manuelle"
-parent: "Environnements de travail"
+parent: "Environnement applicatif"
 nav_order: 1
 published: true
 has_toc: false
