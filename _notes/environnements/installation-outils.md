@@ -47,7 +47,7 @@ sudo apt install code
 ```
 
 ### Windows
-Téléchargement : https://code.visualstudio.com/
+Téléchargement : [https://code.visualstudio.com/](https://code.visualstudio.com/)
 
 ### Windows (WSL)
 Installer côté Linux :
@@ -74,7 +74,7 @@ sudo apt install python3 python3-pip python3-venv pipx
 ```
 
 ### Windows
-Téléchargement : https://www.python.org/downloads/
+Téléchargement : [https://www.python.org/downloads/](https://www.python.org/downloads/)
 
 ### Windows (WSL)
 Identique à Debian.
@@ -99,7 +99,7 @@ ln -s ~/.local/share/apache-maven-3.9.14/bin/mvn ~/.local/bin/mvn
 ```
 
 ### Windows
-Téléchargement : https://learn.microsoft.com/en-us/java/openjdk/download
+Téléchargement : [https://learn.microsoft.com/en-us/java/openjdk/download](https://learn.microsoft.com/en-us/java/openjdk/download)
 Configuration des variables d’environnement :
   - Ajoutez le chemin du dossier bin du JDK à la variable PATH
   - Créez une variable JAVA_HOME pointant vers le dossier d’installation du JDK
@@ -136,10 +136,7 @@ sudo apt install openssl
 ```
 
 ### Windows
-Via Chocolatey :
-```powershell
-choco install openssl
-```
+Téléchargement de l'une des sources de binaires ici : [https://github.com/openssl/openssl/wiki/Binaries](https://github.com/openssl/openssl/wiki/Binaries)
 
 ### Windows (WSL)
 Identique à Debian.
@@ -159,7 +156,7 @@ sudo apt install nginx
 ```
 
 ### Windows
-Suivre les étapes ici : https://nginx.org/en/docs/windows.html
+Suivre les étapes ici : [https://nginx.org/en/docs/windows.html](https://nginx.org/en/docs/windows.html)
 
 ### Windows (WSL)
 Identique à Debian.
@@ -180,7 +177,7 @@ sudo usermod -aG wireshark $USER
 ```
 
 ### Windows
-Téléchargement : https://www.wireshark.org/download.html
+Téléchargement : [https://www.wireshark.org/download.html](https://www.wireshark.org/download.html)
 
 ### macOS
 ```bash
@@ -221,7 +218,7 @@ ln -s ~/.local/share/dependency-check/bin/dependency-check.sh ~/.local/bin/depen
 ```
 
 ### Windows
-Télécharger ZIP : https://github.com/dependency-check/DependencyCheck/releases/download/v12.2.0/dependency-check-12.2.0-release.zip 
+Télécharger ZIP : [https://github.com/dependency-check/DependencyCheck/releases/download/v12.2.0/dependency-check-12.2.0-release.zip](https://github.com/dependency-check/DependencyCheck/releases/download/v12.2.0/dependency-check-12.2.0-release.zip)
 
 ### macOS
 ```bash
@@ -313,8 +310,8 @@ wget https://github.com/WebGoat/WebGoat/releases/download/v2025.3/webgoat-2025.3
 java -jar webgoat-2025.3.jar
 ```
 
-### Windows (natif)
-Téléchargement : https://github.com/WebGoat/WebGoat/releases/download/v2025.3/webgoat-2025.3.jar
+### Windows
+Téléchargement : [https://github.com/WebGoat/WebGoat/releases/download/v2025.3/webgoat-2025.3.jar](https://github.com/WebGoat/WebGoat/releases/download/v2025.3/webgoat-2025.3.jar)
 
 ```bash
 java -jar webgoat-2025.3.jar
@@ -331,7 +328,7 @@ sudo apt install nmap
 ```
 
 ### Windows
-Téléchargement : https://nmap.org/download.html
+Téléchargement : [https://nmap.org/download.html](https://nmap.org/download.html)
 
 ### macOS
 ```bash
@@ -457,7 +454,7 @@ sudo apt install tcpdump
 ```
 
 ### Windows
-Installer WinDump : https://www.winpcap.org/windump/
+Installer WinDump : [https://www.winpcap.org/windump/](https://www.winpcap.org/windump/)
 
 ### macOS
 ```bash
