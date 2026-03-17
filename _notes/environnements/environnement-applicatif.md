@@ -17,7 +17,7 @@ La machine applicative est l'environnement utilisé pour développement et les o
 
 Cet environnement est fourni sous forme d'une machine virtuelle en format **.ova** pouvant être importée directement sous **VMware Workstation** ou **Virtualbox**.
 
-[Télécharger l'environnement applicatif](https://cmaisonneuveqcca-my.sharepoint.com/:f:/g/personal/ophenix_cmaisonneuve_qc_ca/IgCWGAmfMbG7QJYllHTnNq7eAZZorr8cML-xZoUQ7ZTgpe4?e=OmtJ8q)
+[Télécharger l'environnement applicatif](https://cmaisonneuveqcca-my.sharepoint.com/:u:/r/personal/ophenix_cmaisonneuve_qc_ca/Documents/Cours/420-950-MA%20-%20Cybers%C3%A9curit%C3%A9/Mat%C3%A9riel%20de%20cours/420-950-MA-applicatif.ova?csf=1&web=1&e=9LSWNF)
 
 {: .highlight}
 > Un guide d'installation des divers outils sur d'autres plateformes (Windows, Mac) est disponible [ici](../notes/installation-outils). Cependant, cette configuration n'est pas officiellement supportée pour le cours et est à utiliser à ses propres risques.
@@ -64,4 +64,4 @@ Cet environnement est fourni sous forme d'une machine virtuelle en format **.ova
 
 ## Liens utiles
 
-[Téléchargement de l'environnement applicatif](https://cmaisonneuveqcca-my.sharepoint.com/:f:/g/personal/ophenix_cmaisonneuve_qc_ca/IgCWGAmfMbG7QJYllHTnNq7eAZZorr8cML-xZoUQ7ZTgpe4?e=OmtJ8q)
+[Téléchargement de l'environnement applicatif](https://cmaisonneuveqcca-my.sharepoint.com/:u:/r/personal/ophenix_cmaisonneuve_qc_ca/Documents/Cours/420-950-MA%20-%20Cybers%C3%A9curit%C3%A9/Mat%C3%A9riel%20de%20cours/420-950-MA-applicatif.ova?csf=1&web=1&e=9LSWNF)
