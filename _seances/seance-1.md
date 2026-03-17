@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Séance 1"
+title: "2026-03-12"
 nav_order: 1
 published: true
 ---
@@ -27,6 +27,10 @@ published: true
    * Qu'est-ce qu'un [cycle de développement sécurisé](../notes/cycle-developpement-securise) (*SDLC - Secure Development Lifecycle*) ?
    * [OWASP SAMM](../notes/owasp-samm)
 
+
+### Lectures recommandées
+* Lectures additionnelles sur [OWASP SAMM](https://owaspsamm.org/model/)
+
 ### Exercice(s) complémentaire(s)
 
-* Lectures additionnelles sur [OWASP SAMM](https://owaspsamm.org/model/)
+

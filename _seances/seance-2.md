@@ -1,32 +1,23 @@
 ---
 layout: default
-title: "Séance 2"
+title: "2026-03-19"
 nav_order: 2
 published: false
 ---
 
-# Séance 2 : Programmation orientée objet en Java (partie 1)
+# Séance 2 : Principes de cryptographie
 
-## <date>
+## 19 mars 2026
 
 ### Ordre du jour
 
-1. Retour sur l'[exercice de familiarisation](../exercices/familiarisation-vscode-java)
-2. [Maven](../notes/introduction-maven)
-   * Conventions
-   * pom.xml
-     * Dépendances
-     * Plugins
-     * Cycle de vie
-   * Exercice en groupe: modification du pom.xml du projet **hello**
-3. Éléments d'une classe Java
-   * [Organisation en paquets (*packages*)](../notes/package)
-   * [Classes, champs, méthodes](../notes/classe)
-   * [Modificateurs: *public*, *protected*, *private*, *final*, *static*](../notes/classe)
-   * [Accesseurs](../notes/accesseurs)
-   * Exercice individuel : [méthode swap(a, b)](../exercices/swap)
+1. Retour sur [OWASP SAMM](../notes/owasp-samm)
+   * Comment les entreprises l'utilisent comme base pour construire leur SDLC
+   * Résumé des différentes fonctions métier et de leurs principales pratiques
+2. 
+
+### Lectures recommandées
+
 
 
 ### Exercice(s) complémentaire(s)
-
-* Terminer l'exercice individuel : [méthode swap(a, b)](../exercices/swap)

@@ -14,5 +14,5 @@ Quelques liens importants:
 
 * [Omnivox/Léa](https://cmaisonneuve-lea.omnivox.ca/)
 * [GitHub](https://github.com/ophenix-420-950-ma-24636)
-* [Environnement de sécurité défensive]()
+* [Environnement applicatif / sécurité défensive](https://cmaisonneuveqcca-my.sharepoint.com/:f:/g/personal/ophenix_cmaisonneuve_qc_ca/IgCWGAmfMbG7QJYllHTnNq7eAZZorr8cML-xZoUQ7ZTgpe4?e=OmtJ8q)
 * [Environnement de sécurité offensive / tests d'intrusion]()

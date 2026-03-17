@@ -16,7 +16,7 @@ Ce document regroupe, pour chaque outil utilisé dans le cours, les méthodes d�
 - **macOS**
 
 {: .warning}
-> Pour chaque outil, il existe fort probablement des méthodes d'installation différentes. Ces étapes sont fournies exclusivement à titre informatif pour les étudiants qui veulent tenter d'installer l'environnement applicatif directement sur leur poste de travail. La méthode officiellement prise en charge pour le déroulement du cours est l'utilisation de la [machine virtuelle pré-configurée](../notes/environnement-applicatif).
+> Pour chaque outil, il existe plusieurs méthodes d'installation différentes selon les plateformes. Les étapes fournies sur cette page sont seulement à titre informatif pour les étudiants qui veulent tenter d'installer l'environnement applicatif directement sur leur poste de travail. La méthode officiellement prise en charge pour le déroulement du cours est l'utilisation de la [machine virtuelle pré-configurée](https://cmaisonneuveqcca-my.sharepoint.com/:f:/g/personal/ophenix_cmaisonneuve_qc_ca/IgCWGAmfMbG7QJYllHTnNq7eAZZorr8cML-xZoUQ7ZTgpe4?e=OmtJ8q).
 
 ---
 

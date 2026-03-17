@@ -17,6 +17,8 @@ La machine applicative est l'environnement utilisé pour développement et les o
 
 Cet environnement est fourni sous forme d'une machine virtuelle en format **.ova** pouvant être importée directement sous **VMware Workstation** ou **Virtualbox**.
 
+[Télécharger l'environnement applicatif](https://cmaisonneuveqcca-my.sharepoint.com/:f:/g/personal/ophenix_cmaisonneuve_qc_ca/IgCWGAmfMbG7QJYllHTnNq7eAZZorr8cML-xZoUQ7ZTgpe4?e=OmtJ8q)
+
 {: .highlight}
 > Un guide d'installation des divers outils sur d'autres plateformes (Windows, Mac) est disponible [ici](../notes/installation-outils). Cependant, cette configuration n'est pas officiellement supportée pour le cours et est à utiliser à ses propres risques.
 
@@ -59,3 +61,7 @@ Cet environnement est fourni sous forme d'une machine virtuelle en format **.ova
 - **nmap**, **netcat**, **dnsutils**, **traceroute**, **whois**, **tcpdump**
 - **jq**, **tree**, **vim/nano**
 - **rsyslog**
+
+## Liens utiles
+
+[Téléchargement de l'environnement applicatif](https://cmaisonneuveqcca-my.sharepoint.com/:f:/g/personal/ophenix_cmaisonneuve_qc_ca/IgCWGAmfMbG7QJYllHTnNq7eAZZorr8cML-xZoUQ7ZTgpe4?e=OmtJ8q)
