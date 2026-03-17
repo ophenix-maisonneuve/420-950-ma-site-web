@@ -12,13 +12,13 @@ Vous débutez un stage chez **Oups Technologies**, une petite entreprise de dév
 
 > *Développer vite. Casser souvent.*
 
-Le portail interne de l’entreprise, accessible à l’adresse  
+Le portail interne de l’entreprise, accessible à l’adresse...
 
 [https://portail.oups.tech.test](https://portail.oups.tech.test)
 
-permet aux employé(e)s de se connecter pour réserver des locaux et des salles de réunion.
+... permet aux employé(e)s de se connecter pour réserver des locaux et des salles de réunion.
 
-Un incident vient toutefois de se produire : votre collègue **Gilles Sansoucis** signale que son compte a été utilisé à son insu pour se connecter à différents serveurs de l'entreprise; on soupçonne donc que son mot de passe pourrait lui avoir été volé. Gilles mentionne que le seul endroit où il a entré son mot de passe depuis le début des incidents est sur le portail de réservation. Il n'est pas très familier avec les différences entre HTTP et HTTPS, mais il pourrait jurer avoir utilisé le site parfois en HTTP et parfois en HTTPS...
+Un incident vient toutefois de se produire : votre collègue **Gilles Sansoucis** signale que son compte a été utilisé à son insu pour se connecter à différents serveurs de l'entreprise; on soupçonne donc que son mot de passe pourrait lui avoir été volé. Gilles mentionne que le seul endroit où il a entré son mot de passe depuis le début des incidents est sur le portail de réservation. Il n'est pas très familier avec les différences entre HTTP et HTTPS, mais il est certain d'avoir utilisé le site parfois en HTTP et parfois en HTTPS...
 
 Votre rôle : **reproduire l’incident**, comprendre **pourquoi** il s’est produit, puis **corriger** entièrement la situation pour éviter qu'elle ne se reproduise.
 
@@ -35,7 +35,49 @@ Votre rôle : **reproduire l’incident**, comprendre **pourquoi** il s’est pr
 ---
 
 ## Préparation
-*Mentionner ici les étapes pour ajouter portail.oups.tech.test dans le host file (Linux et Windows)
+
+Afin de simuler une résolution DNS pour l'adresse `portail.oups.tech.test`, il est nécessaire d'y associer l'adresse IP de la machine virtuelle du TP 1. Pour ce faire, voici les étapes à effectuer dans votre environnement applicatif :
+
+### Linux
+
+Sous Linux, le fichier *hosts* se trouve dans `/etc/hosts`
+
+1. Ouvrir un terminal.
+2. Éditer le fichier avec `sudo` (utilise l’éditeur de ton choix, ici *nano*) :
+
+```bash
+sudo nano /etc/hosts
+```
+
+3. Ajouter une ligne au bas du fichier :
+
+```text
+192.168.50.10   portail.oups.tech.test  //remplacez par l'IP de votre VM
+```
+
+4. Sauvegarder et fermer l’éditeur.
+
+### Windows
+
+Sous Windows, le fichier *hosts* se trouve dans `C:\Windows\System32\drivers\etc\hosts`
+
+1. Ouvrir **Bloc‑notes** en tant qu’administrateur :
+   - Menu Démarrer → taper *Bloc‑notes* → clic droit → *Exécuter en tant qu’administrateur*
+2. Ouvrir le fichier :
+
+```
+C:\Windows\System32\drivers\etc\hosts
+```
+
+3. Ajouter la ligne suivante :
+
+```text
+192.168.50.10   portail.oups.tech.test  //remplacez par l'IP de votre VM
+```
+
+4. Enregistrer.
+
+---
 
 ## Tâches à réaliser
 
