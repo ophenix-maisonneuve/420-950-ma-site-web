@@ -65,15 +65,15 @@ Sous Windows, le fichier *hosts* se trouve dans `C:\Windows\System32\drivers\etc
    - Menu Démarrer → taper *Bloc‑notes* → clic droit → *Exécuter en tant qu’administrateur*
 2. Ouvrir le fichier :
 
-```
-C:\Windows\System32\drivers\etc\hosts
-```
+   ```
+   C:\Windows\System32\drivers\etc\hosts
+   ```
 
 3. Ajouter la ligne suivante :
 
-```text
-192.168.50.10   portail.oups.tech.test  //remplacez par l'IP de votre VM
-```
+   ```text
+   192.168.50.10   portail.oups.tech.test  //remplacez par l'IP de votre VM
+   ```
 
 4. Enregistrer.
 
