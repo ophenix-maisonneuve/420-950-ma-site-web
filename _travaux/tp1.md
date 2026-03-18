@@ -12,7 +12,7 @@ Vous débutez un stage chez **Oups Technologies**, une petite entreprise de dév
 
 > *Développer vite. Casser souvent.*
 
-Le portail interne de l’entreprise, accessible à l’adresse...
+Le portail de l’entreprise, accessible à l’adresse...
 
 [https://portail.oups.tech.test](https://portail.oups.tech.test)
 
