@@ -102,7 +102,7 @@ C:\Windows\System32\drivers\etc\hosts
 1. Récupérez le certificat utilisé par le portail de réservation :
    - [https://portail.oups.tech.test](https://portail.oups.tech.test)
 
-2. Inspectez le cerficiat X.509
+2. Inspectez le certificat X.509
 
 3. **Questions**
    1. Quelle est la période de validité du certificat ? Est-il présentement valide ?
