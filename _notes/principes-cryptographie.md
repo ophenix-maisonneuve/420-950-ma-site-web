@@ -9,7 +9,7 @@ published: true
 
 # Principes de cryptographie
 
-La cryptographie repose sur trois piliers fondamentaux : l'intégrité, l'authenticité et la confidentialité. Ces notions sont souvent combinées dans des protocoles comme TLS afin d'assurer une communication sécurisée.
+La cryptographie repose sur trois piliers fondamentaux : l'**intégrité**, l'**authenticité** et la **confidentialité**. Ces notions sont souvent combinées dans des protocoles populaires comme TLS et SSH afin d'assurer une communication sécurisée.
 
 ## Intégrité
 L'intégrité garantit que les données **n'ont pas été modifiées ou trafiquées**. On utilise pour cela des fonctions de hachage produisant une empreinte unique et de taille fixe aussi appelée **condensé**.
