@@ -43,7 +43,7 @@ Afin de simuler une résolution DNS pour l'adresse `portail.oups.tech.test`, il 
 Sous Linux, le fichier *hosts* se trouve dans `/etc/hosts`
 
 1. Ouvrir un terminal.
-2. Éditer le fichier avec `sudo` (utilise l’éditeur de ton choix, ici *nano*) :
+2. Éditer le fichier avec `sudo` (utiliser l’éditeur de votre choix, ici *nano*) :
 
 ```bash
 sudo nano /etc/hosts
