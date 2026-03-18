@@ -30,6 +30,7 @@ Pour modifier le mot de passe par défaut:
 ```bash
 passwd
 ```
+Le système vous demandera votre mot de passe courant ainsi que le nouveau mot de passe désiré.
 
 ## Usage
 - **Ateliers pendant le cours** : Cryptographie, Certificats X.509, STRIDE, SAST, SCA, SBOM, OWASP Top 10
@@ -82,8 +83,6 @@ La machine virtuelle a été créée avec une configuration minimale:
 - Aucune accélération 3D
 
 Si votre système hôte le permet, il est recommandé d'allouer plus de mémoire RAM (8 ou 16GB) et vidéo (32MB ou plus) à la machine virtuelle, ainsi que d'ajuster certains paramètres selon l'hyperviseur utilisé.
-
-Le système vous demandera votre mot de passe courant ainsi que le nouveau mot de passe désiré.
 
 ### VirtualBox
 
