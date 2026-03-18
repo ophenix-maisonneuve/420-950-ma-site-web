@@ -22,16 +22,24 @@ Cet environnement est fourni sous forme d'une machine virtuelle en format **.ova
 {: .highlight}
 > Un guide d'installation des divers outils sur d'autres plateformes (Windows, Mac) est disponible [ici](../notes/installation-outils). Cependant, cette configuration n'est pas officiellement supportée pour le cours et est à utiliser à ses propres risques.
 
-## Cas d’usage
+## Information générale
+* Nom d'utilisateur : **dev**
+* Mot de passe : **dev**
+
+Pour modifier le mot de passe par défaut:
+```bash
+passwd
+```
+
+## Usage
+- **Ateliers pendant le cours** : Cryptographie, Certificats X.509, STRIDE, SAST, SCA, SBOM, OWASP Top 10
 - **TP1** : Nginx, HTTPS/TLS
 - **TP2** : Modélisation de la menace (STRIDE)
 - **TP3** : UFW, fail2ban et journalisation (*logs*)
 - **Projet** : Développement de l'application vulnérable et correctifs
-- **Ateliers** : SAST, SCA, SBOM, OWASP Top 10
 - **Test d'intrusion** : Re‑tests et scores CVSS
 
-
-## Outils utilisés
+## Outils pré-installés
 
 ### Développement & IDE
 - **Visual Studio Code** : IDE principal pour les exercices demandant l'écriture ou l'analyse de code
@@ -61,6 +69,121 @@ Cet environnement est fourni sous forme d'une machine virtuelle en format **.ova
 - **nmap**, **netcat**, **dnsutils**, **traceroute**, **whois**, **tcpdump**
 - **jq**, **tree**, **vim/nano**
 - **rsyslog**
+
+---
+
+## Configuration
+
+La machine virtuelle a été créée avec une configuration minimale:
+
+- 1 CPU
+- 2 GB de mémoire
+- Mémoire vidéo minimale
+- Aucune accélération 3D
+
+Si votre système hôte le permet, il est recommandé d'allouer plus de mémoire RAM (8 ou 16GB) et vidéo (32MB ou plus) à la machine virtuelle, ainsi que d'ajuster certains paramètres selon l'hyperviseur utilisé.
+
+Le système vous demandera votre mot de passe courant ainsi que le nouveau mot de passe désiré.
+
+### VirtualBox
+
+1. Ouvrir les paramètres de la machine virtuelle
+
+    Dans VirtualBox :
+    - Faire un clic droit sur la machine virtuelle
+    - Sélectionner **Settings...**
+
+1. Ajuster le type de système d'exploitation 
+- Sous **General > Basic**, choisir **Debian** puis **Debian 13 (Trixie)**
+
+    ![RAM](../assets/images/vbox-os.png)
+
+1. Ajuster la mémoire vive (RAM)
+- Sous **System > Motherboard**, ajuster la mémoire RAM
+
+    ![RAM](../assets/images/vbox-memoire.png)
+    
+1. Ajuster le nombre de processeurs
+    - Sous **System > Processor**, ajuster le nombre de CPUs virtuels si besoin
+
+    ![CPU](../assets/images/vbox-cpu.png)
+
+1. Ajuster les paramètres vidéo
+    - Sous **Display > Screen**, ajuster la mémoire vidéo (32MB ou plus recommandé)
+
+    ![Vidéo](../assets/images/vbox-display.png)
+
+1. Installer les additions invités VirtualBox (*Guest Additions*)
+
+    1. Mettre à jour le système
+
+        ```bash
+        sudo apt update && sudo apt upgrade -y
+        ```
+
+    1. Installer les paquets nécessaires
+
+        ```bash
+        sudo apt install build-essential dkms linux-headers-$(uname -r) -y
+        ```
+
+    1. Insérer l’image ISO des Guest Additions
+
+        Dans le menu de VirtualBox :
+
+        - Aller dans **Périphériques > Insérer l’image CD des Additions Invité...**
+
+        Cela montera un CD dans `/media/<utilisateur>/VBox_GAs_...`
+
+    1. Exécuter le script d’installation
+
+        ```bash
+        sudo sh /media/$USER/VBox_GAs_*/VBoxLinuxAdditions.run
+        ```
+
+    1. Redémarrer la machine virtuelle
+
+        ```bash
+        sudo reboot
+        ```
+
+### VMware Workstation
+
+1. Ouvrir les paramètres de la machine virtuelle
+
+    Dans VMware Workstation :
+    - Faire un clic droit sur la machine virtuelle
+    - Sélectionner **Settings**
+
+1. Ajuster la mémoire vive (RAM)
+- Sous **System > Motherboard**, ajuster la mémoire RAM
+
+    ![RAM](../assets/images/vmware-memoire.png)
+    
+1. Ajuster le nombre de processeurs
+    - Sous **System > Processor**, ajuster le nombre de CPUs virtuels comme désiré
+
+    ![CPU](../assets/images/vmware-cpu.png)
+
+1. Installer les outils VMware (*VMware Tools*)
+
+    1. Mettre à jour le système
+
+        ```bash
+        sudo apt update && sudo apt upgrade -y
+        ```
+
+    1. Installer les paquets nécessaires
+
+        ```bash
+        sudo apt install open-vm-tools
+        ```
+
+    1. Redémarrer la machine virtuelle
+
+        ```bash
+        sudo reboot
+        ```
 
 ## Liens utiles
 
