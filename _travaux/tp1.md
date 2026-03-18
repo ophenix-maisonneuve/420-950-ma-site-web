@@ -117,7 +117,9 @@ C:\Windows\System32\drivers\etc\hosts
 
 1. Générez une **clé privée** (ECDSA ou RSA).  
 2. Générez une **requête de signature (*CSR*)** valide pour le domaine `portail.oups.tech.test`
-3. Signez le ***CSR*** avec l’**autorité de certification**.  
+3. Signez le ***CSR*** avec l’**autorité de certification**.
+   - Le certificat de l'autorité de certification de Oups Technologies est disponible [ici](../assets/files/tp1/oups_ca.crt)
+   - La clé privée de l'autorité de certification de Oups Technologies est disponible [ici](../assets/files/tp1/oups_ca.key)
 4. Créez une chaîne de certificats en concaténant le certificat signé avec le certificat de l'autorité de certification.
 5. **Questions**
    1. Quelle commande avez-vous utilisée pour **générer la clé privée** ?
@@ -127,7 +129,7 @@ C:\Windows\System32\drivers\etc\hosts
 ---
 
 ### 4. Configuration sécurisée du portail (NGINX)
-1. Copiez la **chaîne de certificats** et la **clé privée** sur le serveur web
+1. Copiez la **chaîne de certificats** et la **clé privée du serveur** sur le serveur web
 2. Corrigez la configuration du site web (`/etc/nginx/sites-available/portail.oups.tech.test.conf`) en vous assurant que...
    - Le serveur utilise votre **nouveau certificat**
    - Il est désormais **impossible de se connecter en clair (HTTP)** au portail de réservation
@@ -172,4 +174,4 @@ C:\Windows\System32\drivers\etc\hosts
 
 ---
 
-Bonne chance ! 🔐🔥
+À vous de jouer ! 🔐🔥
