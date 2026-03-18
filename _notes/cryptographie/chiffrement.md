@@ -26,10 +26,10 @@ Ce modèle garantit que seul le destinataire légitime (détenteur de la clé pr
 - **ECC / ECIES** — basé sur les courbes elliptiques, offrant une sécurité équivalente à RSA avec des clés bien plus courtes.
 
 {: .warning}
-Le chiffrement asymétrique est **lent** et inadapté pour chiffrer de gros volumes de données. Il est donc généralement utilisé pour :
-- chiffrer de petites données (clés, secrets)
-- établir une session sécurisée
-- échanger une clé symétrique
+> Le chiffrement asymétrique est **lent** et inadapté pour chiffrer de gros volumes de données. Il est donc généralement utilisé pour :
+> - chiffrer de petites données (clés, secrets)
+> - établir une session sécurisée
+> - échanger une clé symétrique
 
 ---
 
