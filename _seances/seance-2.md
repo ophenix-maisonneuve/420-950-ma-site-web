@@ -14,7 +14,7 @@ published: true
 1. Retour sur [OWASP SAMM](../notes/owasp-samm)
    - Comment les entreprises l'utilisent comme base pour construire leur SDLC
    - Résumé des différentes fonctions métier et de leurs principales pratiques
-2. Principes de cryptographie
+2. [Principes de cryptographie](../notes/principes-cryptographie)
    - [Condensé](../notes/condense) (*hash*)
    - [Signature](../notes/signature)
    - [Chiffrement](../notes/chiffrement)
