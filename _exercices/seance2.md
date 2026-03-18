@@ -3,7 +3,7 @@ layout: default
 title: "Mission : ECHO SILENCIEUX"
 nav_order: 1
 has_toc: false
-published: false
+published: true
 ---
 
 # Exercice : Mission ECHO SILENCIEUX
