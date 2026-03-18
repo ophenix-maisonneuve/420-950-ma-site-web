@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Chiffrement
 parent: Principes de cryptographie
 nav_order: 3

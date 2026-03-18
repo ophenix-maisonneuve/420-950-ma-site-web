@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Signature numérique
 parent: Principes de cryptographie
 nav_order: 2

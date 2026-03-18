@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Condensé
 parent: Principes de cryptographie
 nav_order: 1
