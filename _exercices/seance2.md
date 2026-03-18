@@ -67,8 +67,6 @@ Vous désirez répondre à Shadow, et pour une sécurité accrue, vous décidez 
 4. Modifiez légèrement le fichier de signature (un seul caractère suffit), puis refaites l'étape de la validation.
    - Décrivez et expliquez ce qui se produit.
 
----
-
 ## Étape 3 — Confidentialité (chiffrement)
 Avant de transmettre votre réponse signée à Shadow, vous vous souvenez d'un détail : le canal est compromis. Vous devez supposer que quelqu’un surveille.
 
