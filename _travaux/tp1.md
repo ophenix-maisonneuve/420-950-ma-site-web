@@ -45,15 +45,15 @@ Sous Linux, le fichier *hosts* se trouve dans `/etc/hosts`
 1. Ouvrir un terminal.
 2. Éditer le fichier avec `sudo` (utiliser l’éditeur de votre choix, ici *nano*) :
 
-```bash
-sudo nano /etc/hosts
-```
+   ```bash
+   sudo nano /etc/hosts
+   ```
 
 3. Ajouter une ligne au bas du fichier :
 
-```text
-192.168.50.10   portail.oups.tech.test  //remplacez par l'IP de votre VM
-```
+   ```text
+   192.168.50.10   portail.oups.tech.test  //remplacez par l'IP de votre VM
+   ```
 
 4. Sauvegarder et fermer l’éditeur.
 
