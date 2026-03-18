@@ -37,7 +37,7 @@ Le destin de l’opération est entre vos mains!
 ## Étape 1 : Vérification d’intégrité
 Les attaquants pourraient tenter de modifier le message original de Shadow : changer une coordonnée, altérer une date, substituer une direction… Une altération minime pourrait entraîner une opération désastreuse sur le terrain.
 
-1. Récupérez le message `shadow.txt` [ici](../assets/files/seance2/shadow.txt) et son condensé `shadow.hash` [ici](../assets/files/seance2/shadow.txt) dans le matériel du cours
+1. Récupérez le message `shadow.txt` [ici](../assets/files/seance2/shadow.txt) et son condensé `shadow.hash` [ici](../assets/files/seance2/shadow.hash) dans le matériel du cours
 1. Générez un hash SHA‑256 nommé `shadow.sha256`
    - Quelle commande avez-vous utilisée ?
 1. Consultez le fichier `shadow.sha256`
