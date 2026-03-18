@@ -61,7 +61,7 @@ Vous désirez répondre à Shadow, et pour une sécurité accrue, vous décidez 
 
 3. Effectuez une validation de votre signature
 
-   C'est cette opération que devra effectuer Shadow pour valider l'authenticité de votre réponse. *Pour les besoins de l'exercice, nous assumons que Shadow connaît déjà votre clé publique*
+   C'est cette opération que devra effectuer Shadow pour valider l'authenticité de votre réponse. *Pour les besoins de l'exercice, nous assumons que Shadow connaît déjà votre clé publique.*
 
    - Quelle commande avez-vous utilisée ?
    - Quelles opérations ont été effectuées par cette commande ?
