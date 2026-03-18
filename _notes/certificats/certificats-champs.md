@@ -37,7 +37,7 @@ Au‑delà de cette période, le certificat est considéré invalide et doit êt
 ---
 
 ## Sujet (*Subject*)
-Le champ **Subject** décrit l’entité à laquelle le certificat appartient : une personne, une entreprise ou un nom de domaine.citeturn2search2
+Le champ **Subject** décrit l’entité à laquelle le certificat appartient : une personne, une entreprise ou un nom de domaine.
 
 Il peut contenir :
 - CN (Common Name),
