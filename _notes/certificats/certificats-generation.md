@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Génération de CSR et de certificats
-parent: Certificats X.509
+parent: Certificats
 nav_order: 2
 ---
 

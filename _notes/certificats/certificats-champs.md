@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Champs d’un certificat X.509
-parent: Certificats X.509
+parent: Certificats
 nav_order: 1
 ---
 
