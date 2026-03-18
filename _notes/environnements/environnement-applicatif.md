@@ -86,47 +86,47 @@ Si votre système hôte le permet, il est recommandé d'allouer plus de mémoire
 
 ### VirtualBox
 
-**1. Ouvrir les paramètres de la machine virtuelle**
+1. Ouvrir les paramètres de la machine virtuelle
 
     Dans VirtualBox :
     - Faire un clic droit sur la machine virtuelle
     - Sélectionner **Settings...**
 
-**1. Ajuster le type de système d'exploitation**
+1. Ajuster le type de système d'exploitation
 - Sous **General > Basic**, choisir **Debian** puis **Debian 13 (Trixie)**
 
     ![RAM](../assets/images/vbox-os.png)
 
-**1. Ajuster la mémoire vive (RAM)**
+1. Ajuster la mémoire vive (RAM)
 - Sous **System > Motherboard**, ajuster la mémoire RAM
 
     ![RAM](../assets/images/vbox-memoire.png)
     
-**1. Ajuster le nombre de processeurs**
+1. Ajuster le nombre de processeurs
     - Sous **System > Processor**, ajuster le nombre de CPUs virtuels si besoin
 
     ![CPU](../assets/images/vbox-cpu.png)
 
-**1. Ajuster les paramètres vidéo**
+1. Ajuster les paramètres vidéo
     - Sous **Display > Screen**, ajuster la mémoire vidéo (32MB ou plus recommandé)
 
     ![Vidéo](../assets/images/vbox-display.png)
 
-**1. Installer les additions invités VirtualBox (*Guest Additions*)**
+1. Installer les additions invités VirtualBox (*Guest Additions*)**
 
-    **1. Mettre à jour le système**
+    1. Mettre à jour le système
 
         ```bash
         sudo apt update && sudo apt upgrade -y
         ```
 
-    **1. Installer les paquets nécessaires**
+    1. Installer les paquets nécessaires
 
         ```bash
         sudo apt install build-essential dkms linux-headers-$(uname -r) -y
         ```
 
-    **1. Insérer l’image ISO des Guest Additions**
+    1. Insérer l’image ISO des Guest Additions
 
         Dans le menu de VirtualBox :
 
@@ -134,13 +134,13 @@ Si votre système hôte le permet, il est recommandé d'allouer plus de mémoire
 
         Cela montera un CD dans `/media/<utilisateur>/VBox_GAs_...`
 
-    **1. Exécuter le script d’installation**
+    1. Exécuter le script d’installation
 
         ```bash
         sudo sh /media/$USER/VBox_GAs_*/VBoxLinuxAdditions.run
         ```
 
-    **1. Redémarrer la machine virtuelle**
+    1. Redémarrer la machine virtuelle
 
         ```bash
         sudo reboot
@@ -148,39 +148,39 @@ Si votre système hôte le permet, il est recommandé d'allouer plus de mémoire
 
 ### VMware Workstation
 
-**1. Ouvrir les paramètres de la machine virtuelle**
+1. Ouvrir les paramètres de la machine virtuelle
 
     Dans VMware Workstation :
     - Faire un clic droit sur la machine virtuelle
     - Sélectionner **Settings**
 
-**1. Ajuster la mémoire vive (RAM)**
+1. Ajuster la mémoire vive (RAM)
 
     - Sous **Hardware > Memory**, ajuster la mémoire RAM
 
     ![RAM](../assets/images/vmware-memoire.png)
     
-**1. Ajuster le nombre de processeurs**
+1. Ajuster le nombre de processeurs
 
     - Sous **Hardware > Processors**, ajuster le nombre de CPUs virtuels comme désiré
 
     ![CPU](../assets/images/vmware-cpu.png)
 
-**1. Installer les outils VMware (*VMware Tools*)**
+1. Installer les outils VMware (*VMware Tools*)
 
-    **1. Mettre à jour le système**
+    1. Mettre à jour le système
 
         ```bash
         sudo apt update && sudo apt upgrade -y
         ```
 
-    **1. Installer les paquets nécessaires**
+    1. Installer les paquets nécessaires
 
         ```bash
         sudo apt install open-vm-tools
         ```
 
-    **1. Redémarrer la machine virtuelle**
+    1. Redémarrer la machine virtuelle
 
         ```bash
         sudo reboot
