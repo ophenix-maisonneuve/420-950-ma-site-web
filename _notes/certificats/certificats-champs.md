@@ -14,14 +14,14 @@ Les certificats X.509 contiennent un ensemble de champs obligatoires et optionne
 ## Version
 Le champ **Version** indique la version du standard X.509 utilisée. La version la plus courante aujourd’hui est **v3**, qui permet l’utilisation d’extensions. Les versions 1 et 2 existent encore mais sont rarement utilisées.
 
-![version](/../assets/images/certificat-version.png)
+![version](../assets/images/certificat-version.png)
 
 ---
 
 ## Numéro de série
 Le **numéro de série** est un identifiant unique attribué par l’autorité de certification au moment de la signature du certificat. Il permet de distinguer un certificat particulier parmi tous ceux émis par la même CA.
 
-![serial](/../assets/images/certificat-serial.png)
+![serial](../assets/images/certificat-serial.png)
 
 ---
 
@@ -32,7 +32,7 @@ La validité est définie par deux champs :
 
 Au‑delà de cette période, le certificat est considéré invalide et doit être renouvelé.
 
-![validite](/../assets/images/certificat-validite.png)
+![validite](../assets/images/certificat-validite.png)
 
 ---
 
@@ -47,10 +47,11 @@ Il peut contenir :
 - L (Locality),
 - ST (State).
 
-![subject](/../assets/images/certificat-subject.png)
+![subject](../assets/images/certificat-subject.png)
 
 {: .highlight-title}
 > Certificat générique (*wildcard certificate*)
+>
 > Un certificat peut inclure un nom générique tel que `*.exemple.com`, permettant de sécuriser plusieurs sous-domaines d’une même organisation avec un même certificat.
 
 ---
@@ -72,7 +73,7 @@ Les certificats peuvent être signés par :
 
 Les CA intermédiaires forment une **chaîne de certificats** jusqu’à la racine reconnue globalement.
 
-![issuer](/../assets/images/certificat-issuer.png)
+![issuer](../assets/images/certificat-issuer.png)
 
 ---
 
@@ -84,7 +85,7 @@ Ce champ contient :
 
 Il s’agit d’un élément fondamental permettant au client de vérifier les signatures et d’établir des connexions sécurisées.
 
-![public key info](/../assets/images/certificat-public-key-info.png)
+![public key info](../assets/images/certificat-public-key-info.png)
 
 ---
 
@@ -95,7 +96,7 @@ Deux champs distincts :
 
 L’algorithme de signature combine un **hachage cryptographique** et un **algorithme à clé publique**.
 
-![signature](/../assets/images/certificat-signature.png)
+![signature](../assets/images/certificat-signature.png)
 
 ---
 
