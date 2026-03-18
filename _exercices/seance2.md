@@ -32,8 +32,6 @@ Le destin de l’opération est entre vos mains!
 
 ---
 
-## Étapes
-
 ## Étape 1 : Vérification d’intégrité
 Les attaquants pourraient tenter de modifier le message original de Shadow : changer une coordonnée, altérer une date, substituer une direction… Une altération minime pourrait entraîner une opération désastreuse sur le terrain.
 
@@ -48,7 +46,7 @@ Les attaquants pourraient tenter de modifier le message original de Shadow : cha
    - Que constatez-vous ?
 1. À cette étape, pouvons-nous être certains que le message provient bel et bien de Shadow ? Pourquoi ?
 
-# Étape 2 — Authentification (signature numérique)
+## Étape 2 — Authentification (signature numérique)
 Vous désirez répondre à Shadow, et pour une sécurité accrue, vous décidez de signer votre message afin qu'elle sache qu'il provient bien du quartier général de **CyberMax**.
 
 1. Générez une paire de clés RSA de 2048 bits
@@ -71,12 +69,12 @@ Vous désirez répondre à Shadow, et pour une sécurité accrue, vous décidez 
 
 ---
 
-# Étape 3 — Confidentialité (chiffrement)
+## Étape 3 — Confidentialité (chiffrement)
 Avant de transmettre votre réponse signée à Shadow, vous vous souvenez d'un détail : le canal est compromis. Vous devez supposer que quelqu’un surveille.
 
 Votre objectif : *que seul Shadow puisse lire votre réponse.*
 
-## Option A — Chiffrement RSA simple
+### Option A — Chiffrement RSA simple
 1. Obtenez la clé publique de Shadow [ici](../assets/files/seance2/shadow.pub)
 1. Chiffrez votre réponse avec sa clé privée.
    - Quelle commande avez-vous utilisée ?
@@ -89,7 +87,7 @@ Votre objectif : *que seul Shadow puisse lire votre réponse.*
 
    - Quelle commande avez-vous utilisée ?
 
-## Option B — Schéma hybride AES + RSA (méthode recommandée)
+### Option B — Schéma hybride AES + RSA (méthode recommandée)
 1. Générez une clé AES aléatoire :
    - Quelle commande avez-vous utilisée ?
 2. Chiffrez votre message avec la clé AES
