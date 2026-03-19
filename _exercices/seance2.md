@@ -24,7 +24,7 @@ Le destin de l’opération est entre vos mains!
 
 ---
 
-## Objectif
+## Objectifs
 
 - Comprendre les concepts de hachage, de signature numérique et de chiffrement.
 - Apprendre à utiliser OpenSSL pour manipuler du matériel cryptographique.
