@@ -36,37 +36,37 @@ Vous êtes le dernier espoir du royaume. Votre mission commence ici!
 ## Préparation
 
  1. Dans votre environnement applicatif, créez un nouveau répertoire `/var/www/portal.lobbydesbraves.test` pour le site web du portail
-  ```bash
-  mkdir -p /var/www/portal.lobbydesbraves.test`
-  ```
+    ```bash
+    mkdir -p /var/www/portal.lobbydesbraves.test`
+    ```
  1. Copiez les fichiers web du portail dans `/var/www/portal.lobbydesbraves.test`
-   - [index.html](../assets/files/seance3/index.html) : fichier HTML du portail
-   - [style.css](../assets/files/seance3/style.css) : fichier CSS pour le style du portail
-   - [lobby-braves.png](../assets/files/seance3/lobby-braves.png) : *sublime* logo du Lobby des Braves
+    - [index.html](../assets/files/seance3/index.html) : fichier HTML du portail
+    - [style.css](../assets/files/seance3/style.css) : fichier CSS pour le style du portail
+    - [lobby-braves.png](../assets/files/seance3/lobby-braves.png) : *sublime* logo du Lobby des Braves
 
 1. Copiez le fichier suivant dans `/etc/nginx/sites-available/`
    - [portal.lobbydesbraves.test.conf](../assets/files/seance3/portal.lobbydesbraves.test.conf)
 
 1. Copiez le certificat dans `/etc/nginx/certs`
-  - [lobby.crt](../assets/files/seance3/lobby.crt)
-  - Si le dossier n'existe pas :
-  ```bash
-  sudo mkdir /etc/nginx/certs
-  ```
+    - [lobby.crt](../assets/files/seance3/lobby.crt)
+    - Si le dossier n'existe pas :
+      ```bash
+      sudo mkdir /etc/nginx/certs
+      ```
 
 1. Copiez la clé privée dans `/etc/nginx/keys`
-  - [lobby.crt](../assets/files/seance3/lobby.key)
-  - Si le dossier n'existe pas :
-  ```bash
-  sudo mkdir /etc/nginx/keys
-  sudo chown -R www-data:www-data /etc/nginx/keys
-  sudo chmod -R 500 /etc/nginx/keys
-  ```
+    - [lobby.crt](../assets/files/seance3/lobby.key)
+    - Si le dossier n'existe pas :
+        ```bash
+        sudo mkdir /etc/nginx/keys
+        sudo chown -R www-data:www-data /etc/nginx/keys
+        sudo chmod -R 500 /etc/nginx/keys
+        ```
 
 1. Redémarrer le serveur web
-  ```bash
-  sudo systemctl restart nginx
-  ```
+    ```bash
+    sudo systemctl restart nginx
+    ```
 
 1. Finalement, simulez la résolution DNS pour le domaine `portal.lobbydesbraves.test` en modifier le fichier d'hôtes
 
@@ -163,5 +163,6 @@ Vous êtes le dernier espoir du royaume. Votre mission commence ici!
     - Activez uniquement les versions sécuritaires de TLS (TLSv1.2 et TLSv1.3)
     - Forcez explicitement la redirection de HTTP vers HTTPS
 
+---
 
-Félicitations! Grâce à votre intervention, le portail du royaume renaît et les aventuriers reprennent leurs quêtes.
+**Félicitations! Vous avez sauvé le royaume!**
