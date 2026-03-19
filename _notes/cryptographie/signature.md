@@ -32,9 +32,9 @@ La signature se base sur les algorithmes à clés asymétriques (clé privée et
 
 ## Algorithmes de signature
 Les algorithmes les plus courants sont :
-- **RSA** — 2048 bits minimum, 4096 bits recommandé.citeturn2search1
-- **ECDSA (ECC)** — 256 bits minimum, 512 bits recommandé.citeturn2search1
-- **DSA** — 2048 bits minimum, 4096 bits recommandé.citeturn2search1
+- **RSA** — 2048 bits minimum, 4096 bits recommandé.
+- **ECDSA (ECC)** — 256 bits minimum, 512 bits recommandé.
+- **DSA** — 2048 bits minimum, 4096 bits recommandé.
 
 Les courbes elliptiques (ECC) sont généralement plus performantes pour une sécurité équivalente.
 
