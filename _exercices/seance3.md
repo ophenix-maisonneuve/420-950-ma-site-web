@@ -47,6 +47,11 @@ Vous êtes le dernier espoir du royaume. Votre mission commence ici!
 1. Copiez le fichier suivant dans `/etc/nginx/sites-available/`
    - [portal.lobbydesbraves.test.conf](../assets/files/seance3/portal.lobbydesbraves.test.conf)
 
+1. Activez le site web
+    ```bash
+    sudo ln -s /etc/nginx/sites-available/portal.lobbydesbraves.test.conf /etc/nginx/sites-enabled/portal.lobbydesbraves.test.conf
+    ```
+
 1. Copiez le certificat dans `/etc/nginx/certs`
     - [lobby.crt](../assets/files/seance3/lobby.crt)
     - Si le dossier n'existe pas :
