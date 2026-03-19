@@ -69,12 +69,12 @@ openssl rand -hex -out cle_aes.hex 32
 
 #### 2. Chiffrement d’un fichier
 ```bash
-openssl enc -aes-256-ecb -salt -in document.pdf -out document.enc -K $(cat cle_aes.hex)
+openssl enc -aes-256-cbc -salt -in document.pdf -out document.enc -K $(cat cle_aes.hex)
 ```
 
 #### 3. Déchiffrement
 ```bash
-openssl enc -d -aes-256-ecb -in document.enc -out document_dechiffre.pdf -K $(cat cle_aes.hex)
+openssl enc -d -aes-256-cbc -in document.enc -out document_dechiffre.pdf -K $(cat cle_aes.hex)
 ```
 
 ---
