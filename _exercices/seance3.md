@@ -3,7 +3,7 @@ layout: default
 title: "Au secours du Lobby des Braves"
 nav_order: 2
 has_toc: false
-published: false
+published: true
 ---
 
 # Exercice : Au secours du Lobby des Braves
@@ -152,6 +152,6 @@ Vous êtes le dernier espoir du royaume. Votre mission commence ici!
     - Activez **HSTS** (*HTTP String Transport Security*) pour forcer l’usage de HTTPS
     - Activez uniquement les versions sécuritaires de TLS (TLSv1.2 et TLSv1.3)
     - Forcez explicitement la redirection de HTTP vers HTTPS
-    
+
 
 Félicitations! Grâce à votre intervention, le portail du royaume renaît et les aventuriers reprennent leurs quêtes.
