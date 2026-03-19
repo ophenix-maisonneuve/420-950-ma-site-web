@@ -11,14 +11,15 @@ published: true
 
 ### Ordre du jour
 
+1. Informations générales
 1. Retour sur [OWASP SAMM](../notes/owasp-samm)
    - Comment les entreprises l'utilisent comme base pour construire leur SDLC
    - Résumé des différentes fonctions métier et de leurs principales pratiques
-2. [Principes de cryptographie](../notes/principes-cryptographie)
+1. [Principes de cryptographie](../notes/principes-cryptographie)
    - [Condensé](../notes/condense) (*hash*)
    - [Signature](../notes/signature)
    - [Chiffrement](../notes/chiffrement)
-3. Exercice pratique [Mission: ECHO SILENCIEUX](../exercices/seance2)
+1. Exercice pratique [Mission: ECHO SILENCIEUX](../exercices/seance2)
 
 ### Lectures recommandées
 
