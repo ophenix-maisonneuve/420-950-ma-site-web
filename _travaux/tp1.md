@@ -149,6 +149,7 @@ Sous Windows, le fichier *hosts* se trouve dans `C:\Windows\System32\drivers\etc
 ---
 
 ## Évaluation
+
 | Critère | Points |
 |--------|--------|
 | Section 1 : Reproduction de l’incident | 15 |
