@@ -23,8 +23,8 @@ Cette commande crée une clé privée RSA de 4096 bits. D’autres algorithmes c
 ## 2. Création de la requête de signature (*CSR*)
 Une *CSR* contient :
 - la clé publique dérivée de la clé privée,
-- les informations d’identification (DN),
-- les extensions demandées (comme les SAN),
+- les informations d’identification,
+- les extensions demandées (comme les *SAN*),
 - une signature réalisée avec la clé privée.
 
 Exemple de création d’un *CSR* :

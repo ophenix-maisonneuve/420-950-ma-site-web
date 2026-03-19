@@ -100,4 +100,4 @@ L’algorithme de signature combine un **hachage cryptographique** et un **algor
 
 ---
 
-Ces champs constituent la structure essentielle d’un certificat X.509. Ils permettent aux clients (navigateurs, serveurs, applications) de vérifier la légitimité du certificat, d’établir des connexions chiffrées et d’assurer une chaîne de confiance fiable sur Internet.
+**Ces champs constituent la structure essentielle d’un certificat X.509. Ils permettent aux clients (navigateurs, serveurs, applications) de vérifier la légitimité du certificat, d’établir des connexions chiffrées et d’assurer une chaîne de confiance fiable sur Internet.**
