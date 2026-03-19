@@ -89,6 +89,7 @@ Votre objectif : *que seul Shadow puisse lire votre réponse.*
 1. Générez une clé AES aléatoire :
    - Quelle commande avez-vous utilisée ?
 2. Chiffrez votre message avec la clé AES
+   - Par souci de simplicité, utilisez ici le mode AES-256-ECB à l'aide de l'option `-aes-256-ecb`. Ce mode n'est pas recommandé, mais il vous évitera d'avoir à générer également un vecteur d'initiatisation (pas besoin d'utiliser l'option `-iv` dans la commande `openssl`)
    - Quelle commande avez-vous utilisée ?
 3. Chiffrez la clé AES pour Shadow la faire parvenir de façon sécuritaire à Shadow.
    - Quelle commande avez-vous utilisée ?
