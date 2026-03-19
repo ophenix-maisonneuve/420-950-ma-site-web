@@ -74,7 +74,7 @@ Votre objectif : *que seul Shadow puisse lire votre réponse.*
 
 ### Option A — Chiffrement RSA simple
 1. Obtenez la clé publique de Shadow [ici](../assets/files/seance2/shadow.pub)
-1. Chiffrez votre réponse avec sa clé privée.
+1. Chiffrez votre réponse avec sa clé publique.
    - Quelle commande avez-vous utilisée ?
    - Qu'observez-vous ?
 1. Simulez une réponse beaucoup plus courte, et refaites l'étape précédente.
