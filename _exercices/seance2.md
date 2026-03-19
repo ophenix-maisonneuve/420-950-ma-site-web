@@ -85,7 +85,7 @@ Votre objectif : *que seul Shadow puisse lire votre réponse.*
 
    - Quelle commande avez-vous utilisée ?
 
-### Option B — Schéma hybride AES + RSA (méthode recommandée)
+### Option B — Schéma hybride AES et RSA (méthode recommandée)
 1. Générez une clé AES aléatoire :
    - Quelle commande avez-vous utilisée ?
 2. Chiffrez votre message avec la clé AES
@@ -95,7 +95,7 @@ Votre objectif : *que seul Shadow puisse lire votre réponse.*
 4. Simulez les étapes que Shadow devra effectuer pour déchiffrer votre message.
    - Quelles commandes devez-vous effectuer ?
 
-{: .remarque}
+{: .highlight}
 > Dans le monde réel, presque toutes les communications sécurisées (HTTPS, VPN, messageries chiffrées) utilisent un schéma hybride comme celui-ci, où la clé symétrique est partagée d'une façon sécurisée. Vous êtes en train d’utiliser les mêmes techniques que les analystes professionnels.
 
 
