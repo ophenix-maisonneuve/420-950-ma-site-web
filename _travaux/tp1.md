@@ -36,6 +36,8 @@ Votre rôle : **reproduire l’incident**, comprendre **pourquoi** il s’est pr
 
 ## Préparation
 
+Télécharger la VM simulant le serveur web de Oups Technologies [ici](https://cmaisonneuveqcca-my.sharepoint.com/:u:/r/personal/ophenix_cmaisonneuve_qc_ca/Documents/Cours/420-950-MA%20-%20Cybers%C3%A9curit%C3%A9/Mat%C3%A9riel%20de%20cours/420-950-MA-TP1.ova?csf=1&web=1&e=eUqSaK)
+
 Afin de simuler une résolution DNS pour l'adresse `portail.oups.tech.test`, il est nécessaire d'y associer l'adresse IP de la machine virtuelle du TP 1. Pour ce faire, voici les étapes à effectuer dans votre environnement applicatif :
 
 ### Linux
@@ -174,5 +176,8 @@ Sous Windows, le fichier *hosts* se trouve dans `C:\Windows\System32\drivers\etc
 - Le travail est à remettre au plus tard le **2 avril 2026** en fin de journée.
 
 ---
+
+## Liens utiles
+[Télécharger la VM du TP](https://cmaisonneuveqcca-my.sharepoint.com/:u:/r/personal/ophenix_cmaisonneuve_qc_ca/Documents/Cours/420-950-MA%20-%20Cybers%C3%A9curit%C3%A9/Mat%C3%A9riel%20de%20cours/420-950-MA-TP1.ova?csf=1&web=1&e=eUqSaK)
 
 À vous de jouer ! 🔐🔥
