@@ -68,6 +68,16 @@ Vous êtes le dernier espoir du royaume. Votre mission commence ici!
   sudo systemctl restart nginx
   ```
 
+1. Finalement, simulez la résolution DNS pour le domaine `portal.lobbydesbraves.test` en modifier le fichier d'hôtes
+
+   ```bash
+   sudo nano /etc/hosts
+   ```
+
+   ```text
+   192.168.50.10   portal.lobbydesbraves.test  //remplacez par l'IP de votre VM
+   ```
+
 ---
 
 ## 1. Diagnostic de l’incident
