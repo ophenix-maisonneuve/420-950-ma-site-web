@@ -29,6 +29,7 @@ Pour sécuriser un serveur web :
 - éviter les algorithmes cryptographiques faibles (ex.: RSA < 2048 bits, SHA‑1, 3DES)
 - forcer la redirection de HTTP vers HTTPS
 - limiter les accès aux clés privées via des permissions strictes sur les systèmes de fichiers
+- activer **HSTS** (*HTTP String Transport Security*)pour forcer l’usage de HTTPS
 
 ## Déploiement sur un serveur web
 Les sections suivantes décrivent la mise en place et l’activation d’HTTPS pour **Nginx** et **Apache**, incluant :

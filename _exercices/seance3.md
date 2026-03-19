@@ -9,22 +9,22 @@ published: false
 # Exercice : Au secours du Lobby des Braves
 
 ## Mise en situation
-Une ancienne camarade de classe a lancé, il y a quelques mois, un nouveau jeu de rôle en ligne de type MMORPG (*Massively Multiplayer Online Role-Playing Game*).Chaque jour, le **Lobby des Braves**, le **lobby d'accueil** du jeu , bourdonne d’activité. Des milliers d’aventuriers s’y connectent pour :
+Une ancienne camarade de classe a lancé, il y a quelques mois, un nouveau jeu de rôle en ligne de type MMORPG (*Massively Multiplayer Online Role-Playing Game*). Chaque jour, le **Lobby des Braves**, le lobby d'accueil du jeu, bourdonne d’activité. Des milliers d’aventuriers s’y connectent pour :
 - joindre des parties pour commencer de nouvelles quêtes
 - consulter les classements
 - s'échanger des messages via le système de messagerie
 
-Mais en ce matin inhabituellement sombre, le lobby est bien silencieux. Personne n'arrive à s'y connecter...
+Mais en ce matin inhabituellement sombre, le lobby est bien silencieux. Personne n'arrive à s'y connecter depuis que l'administrateur de systèmes de la compagnie (aussi connu sous le pseudo de **UltimateNoob2000** dans le jeu) a tenté de faire une rotation du certificat X.509, qui arrivait bientôt à échéance...
 
-Ayant eu vent de vos nouveaux super-pouvoirs en cybersécurité, votre camarade vous appelle en panique. 
+Ayant eu vent de vos nouveaux superpouvoirs en cybersécurité, votre camarade vous appelle en panique. 
 
-Vous êtes le dernier espoir du royaume. Votre mission commence ici...
+Vous êtes le dernier espoir du royaume. Votre mission commence ici!
 
 ---
 
 ## Objectifs
 
-- diagnostiquer une erreur TLS réelle
+- diagnostiquer une erreur HTTPS réelle
 - analyser la relation entre une clé privée et un certificat X.509
 - générer une nouvelle clé privée et un CSR correct
 - signer ce CSR à l’aide d’une CA racine
@@ -32,6 +32,7 @@ Vous êtes le dernier espoir du royaume. Votre mission commence ici...
 - appliquer une configuration HTTPS sécuritaire
 
 ---
+
 ## Préparation
 
  1. Dans votre environnement applicatif, créez un nouveau répertoire `/var/www/portal.lobbydesbraves.test` pour le site web du portail
@@ -67,144 +68,90 @@ Vous êtes le dernier espoir du royaume. Votre mission commence ici...
   sudo systemctl restart nginx
   ```
 
-Cependant :
-- Nginx échoue à charger le certificat,  
-- le navigateur refuse la connexion,  
-- la commande `openssl` révèle une anomalie critique.
-
-Le technicien ayant effectué une maintenance a accidentellement régénéré une nouvelle clé privée, sans regénérer de certificat correspondant.
-
-Résultat :
-```
-SSL: error:0B080074:x509 certificate routines:X509_check_private_key:key values mismatch
-```
-Votre rôle est de reproduire, comprendre et réparer.
-
 ---
-## 4. Tâches à réaliser (détaillées)
 
-### 🕵️ Étape 1 — Diagnostic précis de l’incident
+## 1. Diagnostic de l’incident
 1. Accédez au portail dans un navigateur.
-2. Inspectez la clé privée :
-```
-openssl rsa -noout -modulus -in /etc/nginx/certs/wrong.key
-```
-3. Inspectez le certificat brisé :
-```
-openssl x509 -noout -modulus -in /etc/nginx/certs/broken.crt
-```
-4. Comparez les valeurs.
-5. Confirmez le mismatch.
+    - [https://portal.lobbydesbraves.test](https://portal.lobbydesbraves.test)
 
-**Livrables :** erreurs navigateur, extraits modulus, explication.
+1. Récupérez le certificat qui est fourni par le portail.
+    - Comment avez-vous réussi à récupérer le certificat ?
 
----
-### 🗝️ Étape 2 — Génération d’un certificat serveur valide
-1. Générer une clé privée :
-```
-openssl genrsa -out server.key 2048
-```
-2. Générer un CSR :
-```
-openssl req -new \ 
-  -key server.key \ 
-  -subj "/CN=portal.lobbydesbraves.test" \ 
-  -addext "subjectAltName=DNS:portal.lobbydesbraves.test" \ 
-  -out server.csr
-```
-3. Signer le certificat via CA racine :
-```
-openssl x509 -req \ 
-  -in server.csr \ 
-  -CA /etc/nginx/certs/CA/rootCA.pem \ 
-  -CAkey /etc/nginx/certs/CA/rootCA.key \ 
-  -CAcreateserial \ 
-  -days 365 \ 
-  -sha256 \ 
-  -out server.crt
-```
-4. Vérifier :
-```
-openssl x509 -in server.crt -text -noout
-```
+1. Inspectez le certificat récupéré...
+    - à l'aide du navigateur ou de l'explorateur système
+    - à l'aide d'une commande OpenSSL
+      - Quelle est la commande qui a été utilisée ?
 
-**Livrables :** commandes, extraits CSR/certificat, explication SAN.
+
+1. Générez la clé publique correspondante à la clé privée utilisée (`lobby.key`)
+    - Quelle commande OpenSSL a été utilisée ?
+
+1. Comparez la clé publique générée à l'étape précédente et la clé publique contenue dans le certificat.
+    - Que remarquez-vous ?
+    - Formulez une hypothèse quant à ce qui s'est produit au moment du renouvellement du certificat.
+
+
 
 ---
-### 🔧 Étape 3 — Installation et configuration Nginx
-Copier les fichiers :
-```
-/etc/nginx/certs/server.crt
-/etc/nginx/certs/server.key
-```
-Configuration sécurisée :
-```
-server {
-    listen 80;
-    server_name portal.lobbydesbraves.test;
-    return 301 https://$host$request_uri;
-}
 
-server {
-    listen 443 ssl http2;
-    server_name portal.lobbydesbraves.test;
-
-    ssl_certificate /etc/nginx/certs/server.crt;
-    ssl_certificate_key /etc/nginx/certs/server.key;
-
-    ssl_protocols TLSv1.2 TLSv1.3;
-
-    ssl_ciphers         'ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:'         'ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256';
-
-    ssl_prefer_server_ciphers on;
-
-    add_header Strict-Transport-Security "max-age=63072000" always;
-    add_header X-Frame-Options "SAMEORIGIN" always;
-    add_header X-Content-Type-Options "nosniff" always;
-    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
-
-    root /var/www/lobbydesbraves;
-    index index.html;
-}
-```
-Redémarrer Nginx :
-```
-sudo systemctl restart nginx
-```
-
-**Livrables :** configuration complète + preuve de démarrage.
+## 2. Génération d’un certificat auto-signé
+1. Générez une nouvelle clé privée appelée `lobby.key` utilisant l'un des algorithmes suivants : RSA, DSA, EC ou ED25519
+    - Quelle est la commande OpenSSL utilisée ?
+1. Générez une requête de signature de certificat (*CSR*) appelée `lobby.csr`
+    - Quelle est la commande OpenSSL utilisée ?
+1. Inspectez votre requête de signature de certificat
+    - Le fichier est-il lisible en texte clair ?
+    - Existe-t-il une commande OpenSSL permettant de l'afficher de façon plus lisible ? Laquelle ?
+1. Signez la demande de certificat avec la même clé privée et appelez le certificat résultant `lobby.crt`
+    - Quelle commande OpenSSL avez-vous utilisée ?
+1. Remplacez le certificat et la clé sur le serveur et redémarrer nginx
+    ```bash
+    sudo cp lobby.crt /etc/nginx/certs/
+    sudo cp lobby.key /etc/nginx/keys/
+    sudo systemctl restart nginx
+    ```
+1. Accédez au portail dans un navigateur.
+    - [https://portal.lobbydesbraves.test](https://portal.lobbydesbraves.test)
+    - Est-ce que le certificat a complètement réglé le problème ? Pourquoi ?
 
 ---
-### ✔️ Étape 4 — Validation complète
-1. Tester via curl :
-```
-curl -vk https://portal.lobbydesbraves.test/
-```
-2. Tester via OpenSSL :
-```
-openssl s_client \ 
-  -connect portal.lobbydesbraves.test:443 \ 
-  -servername portal.lobbydesbraves.test \ 
-  -showcerts
-```
-3. Vérifier via navigateur.
 
-**Livrables :** extraits curl/s_client, cadenas HTTPS, conclusion.
+## 3. Génération d'une autorité de certification
+1. Générez une nouvelle clé privée nommée `ca_lobby.key` utilisant l'un des algorithmes suivants : RSA, DSA, EC ou ED25519
+    - Quelle est la commande OpenSSL utilisée ?
+1. Générez un certificat auto-signé pour une nouvelle autorité de certification interne nommé `ca_lobby.crt`...
+    - en y ajoutant les extensions suivantes :
+      - basicConstraints=CA:TRUE
+      - keyUsage=digitalSignature,cRLSign,keyCertSign
+    - et en précisant le **Autorite de certifiation Lobby des Braves** lorsque l'on vous demande le **Common Name**
+1. Inspectez votre nouveau certificat
+    - Quelle commande OpenSSL avez-vous utilisée ?
+    - Quelle est la différence principale entre ce certificat et le certificat du serveur généré précédemment ?
+1. Signez la demande de certificat avec votre nouvelle autorité de certification et appelez le certificat résultant `lobby.crt`
+    - Quelle commande OpenSSL avez-vous utilisée ?
+    - Pourquoi devez-vous fournir le certificat et la clé privée du CA pour effectuer cette opération ?
+1. Remplacez le certificat sur le serveur et redémarrer nginx
+    ```bash
+    sudo cp lobby.crt /etc/nginx/certs/
+    sudo systemctl restart nginx
+    ```
 
----
-## ⭐ 5. Étape bonus (non évaluée)
-Démonstration : AC intermédiaire, fullchain.
+1. Simulez que votre CA est une autorité de certification reconnue en installant manuellement le certifiat `ca_lobby.crt` dans votre navigateur
 
----
-## 📄 6. À remettre
-PDF ou Markdown contenant :
-- analyses ;
-- commandes ;
-- extraits de certificats ;
-- configuration Nginx ;
-- preuves de validation ;
-- conclusion.
+1. Accédez au portail dans un navigateur.
+    - [https://portal.lobbydesbraves.test](https://portal.lobbydesbraves.test)
+    - Est-ce que le problème est maintenant résolu ?
 
----
-## 🏁 7. Conclusion
-Grâce à votre intervention, le portail du royaume renaît et les aventuriers reprennent leurs quêtes.
+## 4. Sécurisation de la configuration NGINX
+
+1. Ajoutez des options de sécurité dans la configuration du portail
+    ```bash
+    sudo nano /etc/etc/nginx/portal.lobbydesbraves.test.conf
+    ```
+
+    - Activez **HSTS** (*HTTP String Transport Security*) pour forcer l’usage de HTTPS
+    - Activez uniquement les versions sécuritaires de TLS (TLSv1.2 et TLSv1.3)
+    - Forcez explicitement la redirection de HTTP vers HTTPS
+    
+
+Félicitations! Grâce à votre intervention, le portail du royaume renaît et les aventuriers reprennent leurs quêtes.

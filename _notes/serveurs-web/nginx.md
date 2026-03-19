@@ -80,18 +80,20 @@ Avec le contenu :
 
 ```nginx
 server {
-    listen 443 ssl;
+    listen 443 ssl http2;
     server_name example.com;
-
-    ssl_certificate /etc/ssl/certs/certificat.crt;
-    ssl_certificate_key /etc/ssl/private/cle_privee.key;
 
     location / {
         root /var/www/example.com;
         index index.html index.htm;
     }
+
+    # Certificats (obligatoire pour HTTPS)
+    ssl_certificate /etc/ssl/certs/certificat.crt;
+    ssl_certificate_key /etc/ssl/private/cle_privee.key;
 }
 
+# Redirection HTTP → HTTPS (basique mais essentielle)
 server {
     listen 80;
     server_name example.com;
@@ -103,6 +105,54 @@ Cette configuration :
 - active le service HTTPS sur le port 443 avec TLS
 - sert le contenu du répertoire `/var/www/example.com`
 - redirige tout le trafic HTTP vers HTTPS
+
+
+## Ajout d'options de sécurité
+On peut ensuite ajouter plusieurs directives pour améliorer la sécurité :
+
+```nginx
+server {
+    listen 443 ssl http2;
+    server_name example.com;
+
+    location / {
+        root /var/www/example.com;
+        index index.html index.htm;
+    }
+
+    # Certificats (obligatoire pour HTTPS)
+    ssl_certificate /etc/ssl/certs/certificat.crt;
+    ssl_certificate_key /etc/ssl/private/cle_privee.key;
+
+
+    # Protocoles SSL sécurisés (évite les vieux protocoles vulnérables)
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    # HSTS : force l’usage du HTTPS
+    add_header Strict-Transport-Security "max-age=31536000" always;
+
+    # Anti-clickjacking
+    add_header X-Frame-Options "DENY" always;
+
+    # Empêche l'analyse dangereuse du type MIME
+    add_header X-Content-Type-Options "nosniff" always;
+
+    # Masque la version de nginx (pas d’info pour les attaquants)
+    server_tokens off;
+
+    # Empêche l’accès aux fichiers sensibles (à modifier au besoin)
+    location ~ /\.(git|ht|env) {
+        deny all;
+    }
+}
+
+# Redirection HTTP → HTTPS (basique mais essentielle)
+server {
+    listen 80;
+    server_name example.com;
+    return 301 https://$host$request_uri;
+}
+```
 
 ---
 

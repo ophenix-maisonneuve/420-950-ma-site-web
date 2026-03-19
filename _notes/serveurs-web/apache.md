@@ -50,18 +50,25 @@ Avec le contenu suivant :
 ```apache
 <VirtualHost *:443>
     ServerName example.com
+    DocumentRoot /var/www/example.com
 
     SSLEngine on
     SSLCertificateFile /etc/ssl/certs/certificat.crt
     SSLCertificateKeyFile /etc/ssl/private/cle_privee.key
 
-    DocumentRoot /var/www/example.com
 
     <Directory /var/www/example.com>
         AllowOverride All
         Require all granted
     </Directory>
 </VirtualHost>
+
+# Redirection HTTP → HTTPS
+<VirtualHost *:80>
+    ServerName example.com
+    Redirect / https://example.com/
+</VirtualHost>
+
 ```
 
 Cette configuration :
@@ -69,19 +76,60 @@ Cette configuration :
 - associe le certificat et la clé privée
 - définit le dossier racine du site web
 - autorise l'accès via Apache.
+- redirige le trafic HTTP vers HTTPS
 
----
 
-## Redirection de HTTP vers HTTPS
-Pour forcer tout le trafic à utiliser HTTPS :
+## Ajout d'options de sécurité
+On peut ensuite ajouter plusieurs directives pour améliorer la sécurité :
 
 ```apache
-<VirtualHost *:80>
+<VirtualHost *:443>
     ServerName example.com
-    Redirect / https://example.com/
+    DocumentRoot /var/www/example.com
+
+    SSLEngine on
+    SSLCertificateFile /etc/ssl/certs/certificat.crt
+    SSLCertificateKeyFile /etc/ssl/private/cle_privee.key
+
+    <Directory /var/www/example.com>
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    # Protocoles SSL/TLS sécurisés
+    SSLProtocol TLSv1.2 TLSv1.3
+
+    # HSTS : force l’usage du HTTPS
+    Header always set Strict-Transport-Security "max-age=31536000"
+
+    # Anti-clickjacking
+    Header always set X-Frame-Options "DENY"
+
+    # Empêche l’analyse dangereuse du type MIME
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Masque la version du serveur
+    ServerSignature Off
+    ServerTokens Prod
+
+    # Empêche l’indexation des répertoires
+    <Directory /var/www/exemple>
+        Options -Indexes
+        Require all granted
+    </Directory>
+
+    # Empêche l’accès aux fichiers sensibles (ajuster au besoin)
+    <FilesMatch "^\.">
+        Require all denied
+    </FilesMatch>
+</VirtualHost>
+
+# Redirection HTTP → HTTPS
+<VirtualHost *:80>
+    ServerName exemple.com
+    Redirect permanent / https://exemple.com/
 </VirtualHost>
 ```
-Une fois ce bloc ajouté au fichier de configuration, toutes les requêtes HTTP seront redirigées vers HTTPS.
 
 ---
 

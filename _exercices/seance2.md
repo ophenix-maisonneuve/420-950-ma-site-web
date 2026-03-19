@@ -32,7 +32,7 @@ Le destin de l’opération est entre vos mains!
 
 ---
 
-## Étape 1 : Vérification d’intégrité
+## 1. Vérification d’intégrité
 Les attaquants pourraient tenter de modifier le message original de Shadow : changer une coordonnée, altérer une date, substituer une direction… Une altération minime pourrait entraîner une opération désastreuse sur le terrain.
 
 1. Récupérez le message `shadow.txt` [ici](../assets/files/seance2/shadow.txt) et son condensé `shadow.hash` [ici](../assets/files/seance2/shadow.hash) dans le matériel du cours
@@ -46,7 +46,7 @@ Les attaquants pourraient tenter de modifier le message original de Shadow : cha
    - Que constatez-vous ?
 1. À cette étape, pouvons-nous être certains que le message provient bel et bien de Shadow ? Pourquoi ?
 
-## Étape 2 — Authentification (signature numérique)
+## 2. Authentification (signature numérique)
 Vous désirez répondre à Shadow, et pour une sécurité accrue, vous décidez de signer votre message afin qu'elle sache qu'il provient bien du quartier général de **CyberMax**.
 
 1. Générez une paire de clés RSA de 2048 bits
@@ -67,7 +67,7 @@ Vous désirez répondre à Shadow, et pour une sécurité accrue, vous décidez 
 4. Modifiez légèrement le fichier de signature (un seul caractère suffit), puis refaites l'étape de la validation.
    - Décrivez et expliquez ce qui se produit.
 
-## Étape 3 — Confidentialité (chiffrement)
+## 3. Confidentialité (chiffrement)
 Avant de transmettre votre réponse signée à Shadow, vous vous souvenez d'un détail : le canal est compromis. Vous devez supposer que quelqu’un surveille.
 
 Votre objectif : *que seul Shadow puisse lire votre réponse.*
