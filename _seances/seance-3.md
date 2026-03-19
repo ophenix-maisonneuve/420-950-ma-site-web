@@ -1,28 +1,28 @@
 ---
 layout: default
-title: "Séance 3"
+title: "2026-03-20"
 nav_order: 3
-published: false
+published: true
 ---
 
-# Séance 3 : Programmation orientée objet en Java (partie 2)
+# Séance 3 : Certificats X.509 et sécurité web
 
-## <date>
+## 20 mars 2026
 
 ### Ordre du jour
 
 1. Informations générales
-2. Récapitulation
-3. Git/GitHub (révision)
-   * Cloner un dépôt
-   * Créer une branche
-4. Polymorphisme en Java
-   * [Polymorphisme statique](../notes/polymorphisme) (surcharge de méthode)
-   * [Polymorphisme dynamique](../notes/polymorphisme) (redéfinition de méthode)
-   * [Interfaces](../notes/interface)
-   * [Classes abstraites](../notes/classe-abstraite)
-5. Exercice: [Personnages de dessins animés](../exercices/polymorphisme-dessins-animes)
-6. Présentation du [travail pratique 1](../travaux/tp1)
+1. Retour sur [Principes de cryptographie](../notes/principes-cryptographie)
+1. [Certificats X.509](../notes/certificats)
+   - Exercice pratique [Au secours du Lobby des Braves](../exercices/seance3) - Questions 1 et 2
+1. [Sécurisation des serveurs web](../notes/securisation-serveur-web)
+   - Exercice pratique [Au secours du Lobby des Braves](../exercices/seance3) - Questions 3 et 4
+
+### Lectures recommandées
+
+- Notes de cours sur les [certificats X.509](../notes/certificats)
+- Notes de cours sur la [sécurisation des serveurs web](../notes/securisation-serveur-web)
 
 ### Exercice(s) complémentaire(s)
-* Continuer [Personnages de dessins animés](../exercices/polymorphisme-dessins-animes)
+
+- Commencer le [travail pratique 1](../_travaux/tp1)
