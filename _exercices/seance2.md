@@ -50,7 +50,7 @@ Les attaquants pourraient tenter de modifier le message original de Shadow : cha
 Vous désirez répondre à Shadow, et pour une sécurité accrue, vous décidez de signer votre message afin qu'elle sache qu'il provient bien du quartier général de **CyberMax**.
 
 1. Générez une paire de clés RSA de 2048 bits
-   - Quelle commande avez-vous utilisée ?
+   - Quelles commandes avez-vous utilisées ?
    - Dans les fichiers générés, lequel correspond à la clé privée et lequel correspond à la clé publique ?
 
 2. Signez le message `reponse.txt` disponible [ici](../assets/files/seance2/reponse.txt)

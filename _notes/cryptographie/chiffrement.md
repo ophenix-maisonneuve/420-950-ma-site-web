@@ -62,20 +62,27 @@ Ce type de chiffrement est **rapide**, **efficace** et largement utilisé pour p
 - **DES** — obsolète et vulnérable
 
 ### Chiffrement AES avec OpenSSL
-#### 1. Génération d’une clé
+#### 1. Génération d’une clé et d'un vecteur d'initialisation
 ```bash
-openssl rand -hex -out cle_aes.hex 32
+openssl rand -hex -out aes.key 32
+openssl rand -hex -out aes.iv 16
 ```
 
 #### 2. Chiffrement d’un fichier
 ```bash
-openssl enc -aes-256-cbc -salt -in document.pdf -out document.enc -K $(cat cle_aes.hex)
+openssl enc -aes-256-cbc -salt -in document.pdf -out document.enc -iv $(cat aes.iv) -K $(cat aes.key) 
 ```
 
 #### 3. Déchiffrement
 ```bash
-openssl enc -d -aes-256-cbc -in document.enc -out document_dechiffre.pdf -K $(cat cle_aes.hex)
+openssl enc -d -aes-256-cbc -in document.enc -out document_dechiffre.pdf -iv $(cat aes.iv) -K $(cat aes.key)
 ```
+
+{: .astuce}
+> On peut aussi laisser OpenSSL dériver automatiquement la clé AES et le vecteur d'initialisation à partir d'un mot de passe. Il suffit d'utiliser:
+> ```bash
+> openssl enc -aes-256-cbc -salt -in document.pdf -out document.enc -pass pass:<mot de passe>
+> ```
 
 ---
 
