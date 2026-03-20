@@ -28,8 +28,8 @@ Le **handshake TLS** est la séquence d’échanges permettant d’établir un c
 1. **Le client contacte le serveur** et propose une liste d’algorithmes (cipher suites).
 2. **Le serveur choisit une suite cryptographique** et envoie son **certificat X.509**.
 3. **Le client vérifie le certificat** (validité, chaîne de confiance, SAN, etc.).
-4. **Une clé de session symétrique** est négociée (via RSA, Diffie‑Hellman ou ECDHE).
-5. Les deux parties **passent en communication chiffrée** à l’aide de cette clé.
+4. **Un secret partagé** est négocié, généralement via RSA (TLS 1.2 et antérieur seulement), Diffie‑Hellman ou ECDHE.
+5. Les deux parties **dérivent une clé symétrique** et **passent en communication chiffrée** à l’aide de cette clé.
 
 Ce processus garantit que seul le client et le serveur peuvent comprendre les données échangées.
 
