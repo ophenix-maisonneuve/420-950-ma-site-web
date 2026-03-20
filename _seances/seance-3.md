@@ -17,6 +17,7 @@ published: true
    - Utilisation dans [TLS](../notes/tls) et [HTTPS](../notes/https)
    - Exercice pratique [Au secours du Lobby des Braves](../exercices/seance3) - Questions 1 et 2
 1. [Sécurisation des serveurs web](../notes/securisation-serveur-web)
+   - Utilisation de Wireshark
    - Exercice pratique [Au secours du Lobby des Braves](../exercices/seance3) - Questions 3 et 4
 
 ### Lectures recommandées
@@ -26,4 +27,5 @@ published: true
 
 ### Exercice(s) complémentaire(s)
 
+- [Au secours du Lobby des Braves](../exercices/seance3) - Questions 5 (Bonus)
 - Commencer le [travail pratique 1](../_travaux/tp1)
