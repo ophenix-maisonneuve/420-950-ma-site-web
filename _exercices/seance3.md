@@ -37,7 +37,7 @@ Vous êtes le dernier espoir du royaume. Votre mission commence ici!
 
  1. Dans votre environnement applicatif, créez un nouveau répertoire `/var/www/portal.lobbydesbraves.test` pour le site web du portail
     ```bash
-    sudo mkdir -p /var/www/portal.lobbydesbraves.test`
+    sudo mkdir -p /var/www/portal.lobbydesbraves.test
     ```
  1. Copiez les fichiers web du portail dans `/var/www/portal.lobbydesbraves.test`
     - [index.html](../assets/files/seance3/index.html) : fichier HTML du portail
