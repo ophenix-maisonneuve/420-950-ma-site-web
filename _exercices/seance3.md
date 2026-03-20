@@ -14,7 +14,7 @@ Une ancienne camarade de classe a lancé, il y a quelques mois, un nouveau jeu d
 - consulter les classements
 - s'échanger des messages via le système de messagerie
 
-Mais en ce matin inhabituellement sombre, le lobby est bien silencieux. Personne n'arrive à s'y connecter depuis que l'administrateur de systèmes de la compagnie (aussi connu sous le pseudo de **UltimateNoob2000** dans le jeu) a tenté de faire une rotation du certificat X.509, qui arrivait bientôt à échéance...
+Mais en ce matin inhabituellement sombre, le lobby est bien silencieux. Personne n'arrive à s'y connecter de façon sécuritaire depuis que l'administrateur de systèmes de la compagnie (aussi connu sous le pseudo de **UltimateNoob2000** dans le jeu) a tenté de renouveler le certificat X.509...
 
 Ayant eu vent de vos nouveaux superpouvoirs en cybersécurité, votre camarade vous appelle en panique. 
 
@@ -96,14 +96,7 @@ Vous êtes le dernier espoir du royaume. Votre mission commence ici!
       - Quelle est la commande qui a été utilisée ?
 
 
-1. Générez la clé publique correspondante à la clé privée utilisée (`lobby.key`)
-    - Quelle commande OpenSSL a été utilisée ?
-
-1. Comparez la clé publique générée à l'étape précédente et la clé publique contenue dans le certificat.
-    - Que remarquez-vous ?
-    - Formulez une hypothèse quant à ce qui s'est produit au moment du renouvellement du certificat.
-
-
+1. Formulez une hypothèse quant à ce qui s'est produit au moment du renouvellement du certificat.
 
 ---
 
