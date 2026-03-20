@@ -14,6 +14,7 @@ published: true
 1. Informations générales
 1. Retour sur [Principes de cryptographie](../notes/principes-cryptographie)
 1. [Certificats X.509](../notes/certificats)
+   - Utilisation dans [TLS](../notes/tls) et [HTTPS](../notes/https)
    - Exercice pratique [Au secours du Lobby des Braves](../exercices/seance3) - Questions 1 et 2
 1. [Sécurisation des serveurs web](../notes/securisation-serveur-web)
    - Exercice pratique [Au secours du Lobby des Braves](../exercices/seance3) - Questions 3 et 4
