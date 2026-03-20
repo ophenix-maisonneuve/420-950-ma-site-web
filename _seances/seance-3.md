@@ -23,6 +23,7 @@ published: true
 ### Lectures recommandées
 
 - Notes de cours sur les [certificats X.509](../notes/certificats)
+- Notes de cours sur les [communications sécurisées](../notes/communications-securisees)
 - Notes de cours sur la [sécurisation des serveurs web](../notes/securisation-serveur-web)
 
 ### Exercice(s) complémentaire(s)
