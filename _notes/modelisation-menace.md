@@ -23,10 +23,10 @@ Modéliser la menace, c’est prendre une longueur d’avance. Il s’agit de r�
 
 ## Qu’est-ce qu’une menace ?
 Une menace est :
-- Un acteur (personne, groupe, organisation…)
-- Qui a une intention malveillante ou opportuniste
-- Et un moyen d’exploiter une vulnérabilité
-- Pour causer un impact négatif sur un système
+- Un acteur (personne, groupe, organisation)...
+- ... qui a une intention malveillante ou opportuniste...
+- ... et un moyen d’exploiter une vulnérabilité...
+- ... pour causer un impact négatif sur un système.
 
 Une menace n’est pas encore une attaque : c’est un risque potentiel.
 

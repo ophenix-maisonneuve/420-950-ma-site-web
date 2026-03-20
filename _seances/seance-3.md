@@ -29,4 +29,4 @@ published: true
 ### Exercice(s) complémentaire(s)
 
 - [Au secours du Lobby des Braves](../exercices/seance3) - Questions 5 (Bonus)
-- Commencer le [travail pratique 1](../_travaux/tp1)
+- Commencer le [travail pratique 1](../travaux/tp1)
