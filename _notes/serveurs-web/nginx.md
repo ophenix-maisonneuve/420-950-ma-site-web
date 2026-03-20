@@ -53,8 +53,6 @@ sudo cp certificat.crt /etc/nginx/certs/
 - `/etc/nginx/keys/` pour les clés privées :
 ```bash
 sudo mkdir /etc/nginx/keys
-sudo chown nginx:nginx /etc/nginx/keys
-sudo chmod 500 /etc/nginx/keys
 sudo cp cle_privee.key /etc/nginx/keys
 ```
 
@@ -66,7 +64,7 @@ On crée d'abord un dossier pour héberger le site :
 sudo mkdir -p /var/www/example.com
 sudo nano /var/www/example.com/index.html
 ```
-Puis on y ajoute une page HTML simple.citeturn2search2
+Puis on y ajoute une page HTML simple.
 
 ---
 
@@ -81,7 +79,7 @@ Avec le contenu :
 ```nginx
 server {
     listen 443 ssl;
-    http2;
+    http2 on;
     server_name example.com;
 
     location / {
@@ -114,7 +112,7 @@ On peut ensuite ajouter plusieurs directives pour améliorer la sécurité :
 ```nginx
 server {
     listen 443 ssl;
-    http2;
+    http2 on;
     server_name example.com;
 
     location / {
@@ -131,7 +129,7 @@ server {
     ssl_protocols TLSv1.2 TLSv1.3;
 
     # HSTS : force l’usage du HTTPS
-    add_header Strict-Transport-Security "max-age=31536000" always;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
 
     # Anti-clickjacking
     add_header X-Frame-Options "DENY" always;
