@@ -80,7 +80,8 @@ Avec le contenu :
 
 ```nginx
 server {
-    listen 443 ssl http2;
+    listen 443 ssl;
+    http2;
     server_name example.com;
 
     location / {
@@ -112,7 +113,8 @@ On peut ensuite ajouter plusieurs directives pour améliorer la sécurité :
 
 ```nginx
 server {
-    listen 443 ssl http2;
+    listen 443 ssl;
+    http2;
     server_name example.com;
 
     location / {
