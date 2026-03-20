@@ -122,20 +122,15 @@ Vous êtes le dernier espoir du royaume. Votre mission commence ici!
 
 ---
 
-## 3. Génération d'une autorité de certification
-1. Générez une nouvelle clé privée nommée `ca_lobby.key` utilisant l'un des algorithmes suivants : RSA, DSA, EC ou ED25519
-    - Quelle est la commande OpenSSL utilisée ?
-1. Générez un certificat auto-signé pour une nouvelle autorité de certification interne nommé `ca_lobby.crt`...
-    - en y ajoutant les extensions suivantes :
-      - basicConstraints=CA:TRUE
-      - keyUsage=digitalSignature,cRLSign,keyCertSign
-    - et en précisant le **Autorite de certifiation Lobby des Braves** lorsque l'on vous demande le **Common Name**
-1. Inspectez votre nouveau certificat
-    - Quelle commande OpenSSL avez-vous utilisée ?
+## 3. Signature avec une autorité de certification
+1. Récupérez les fichiers suivants :
+    - [Certificat de l'autorité de certification](../assets/files/seance3/ca_lobby.crt)
+    - [Clé privée de l'autorité de certification](../assets/files/seance3/ca_lobby.key)
+1. Inspectez le certificat récupéré
     - Quelle est la différence principale entre ce certificat et le certificat du serveur généré précédemment ?
-1. Signez la demande de certificat avec votre nouvelle autorité de certification et appelez le certificat résultant `lobby.crt`
+1. Signez la demande de certificat avec l'autorité de certification et appelez le certificat résultant `lobby.crt`
     - Quelle commande OpenSSL avez-vous utilisée ?
-    - Pourquoi devez-vous fournir le certificat et la clé privée du CA pour effectuer cette opération ?
+    - Pourquoi devez-vous fournir le certificat **et** la clé privée du CA pour effectuer cette opération ?
 1. Remplacez le certificat sur le serveur et redémarrer nginx
     ```bash
     sudo cp lobby.crt /etc/nginx/certs/
@@ -159,6 +154,36 @@ Vous êtes le dernier espoir du royaume. Votre mission commence ici!
     - Activez uniquement les versions sécuritaires de TLS (TLSv1.2 et TLSv1.3)
     - Forcez explicitement la redirection de HTTP vers HTTPS
 
----
+1. À l'aide de l'outil **Wireshark**, confirmez que toutes les communications avec le portail sont bien sécurisées avec TLS.
+
 
 **Félicitations! Vous avez sauvé le royaume!**
+
+---
+
+## 5. BONUS : Création d'une autorité de certification
+1. Générez une nouvelle clé privée nommée `ca_interne.key` utilisant l'un des algorithmes suivants : RSA, DSA, EC ou ED25519
+    - Quelle est la commande OpenSSL utilisée ?
+1. Générez un certificat auto-signé pour une nouvelle autorité de certification interne nommé `ca_interne.crt`...
+    - en y ajoutant les extensions suivantes :
+      - basicConstraints=CA:TRUE
+      - keyUsage=digitalSignature,cRLSign,keyCertSign
+    - et en précisant le **Autorite de certifiation interne** lorsque l'on vous demande le **Common Name**
+1. Inspectez votre nouveau certificat
+    - Quelle commande OpenSSL avez-vous utilisée ?
+    - Quelle est la différence principale entre ce certificat et le certificat du serveur généré précédemment ?
+1. Signez la demande de certificat avec votre nouvelle autorité de certification et appelez le certificat résultant `lobby.crt`
+    - Quelle commande OpenSSL avez-vous utilisée ?
+    - Pourquoi devez-vous fournir le certificat et la clé privée du CA pour effectuer cette opération ?
+1. Remplacez le certificat sur le serveur et redémarrer nginx
+    ```bash
+    sudo cp lobby.crt /etc/nginx/certs/
+    sudo systemctl restart nginx
+    ```
+
+1. Simulez que votre CA est une autorité de certification reconnue en installant manuellement le certifiat `ca_interne.crt` dans votre navigateur
+
+1. Accédez au portail dans un navigateur.
+    - [https://portal.lobbydesbraves.test](https://portal.lobbydesbraves.test)
+    - Est-ce qu'une communication sécurisée est établie ?
+
