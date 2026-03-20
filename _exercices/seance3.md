@@ -64,8 +64,6 @@ Vous êtes le dernier espoir du royaume. Votre mission commence ici!
     - Si le dossier n'existe pas :
         ```bash
         sudo mkdir /etc/nginx/keys
-        sudo chown -R www-data:www-data /etc/nginx/keys
-        sudo chmod -R 500 /etc/nginx/keys
         ```
 
 1. Redémarrer le serveur web
