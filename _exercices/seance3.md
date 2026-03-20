@@ -60,7 +60,7 @@ Vous êtes le dernier espoir du royaume. Votre mission commence ici!
       ```
 
 1. Copiez la clé privée dans `/etc/nginx/keys`
-    - [lobby.crt](../assets/files/seance3/lobby.key)
+    - [lobby.key](../assets/files/seance3/lobby.key)
     - Si le dossier n'existe pas :
         ```bash
         sudo mkdir /etc/nginx/keys
