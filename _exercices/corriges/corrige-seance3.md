@@ -4,7 +4,7 @@ title: "Corrigé - Au secours du Lobby des Braves"
 parent: "Au secours du Lobby des Braves"
 nav_order: 2
 has_toc: false
-published: false
+published: true
 ---
 
 # Exercice : Au secours du Lobby des Braves
