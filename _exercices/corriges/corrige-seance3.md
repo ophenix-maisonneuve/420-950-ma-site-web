@@ -15,8 +15,8 @@ published: true
 
 1. Récupérez le certificat qui est fourni par le portail.
     - Comment avez-vous réussi à récupérer le certificat ?
-        - On peut récupérer le certificat directement à partir du navigateur en cliquant dans la barre d'adresse.
-        - On peut également utiliser la commande `openssl s_client -connect example.com:443 -showcerts` pour afficher le certificat et ses informations.
+        - **On peut récupérer le certificat directement à partir du navigateur en cliquant dans la barre d'adresse.**
+        - **On peut également utiliser la commande `openssl s_client -connect example.com:443 -showcerts` pour afficher le certificat et ses informations.**
 
 1. Inspectez le certificat récupéré...
     - à l'aide du navigateur ou de l'explorateur système
@@ -59,7 +59,7 @@ published: true
     ```
 1. Accédez au portail dans un navigateur.
     - [https://portal.lobbydesbraves.test](https://portal.lobbydesbraves.test)
-    - Est-ce que le certificat a complètement réglé le problème ? Pourquoi ? **Non, car un certificat auto-signé n'est pas considéré comme sécuritaire par les navigateurs modernes. Ils doivent être signés par une autorité de certification reconnue ou ajoutée manuellement par l'utilisateur.
+    - Est-ce que le certificat a complètement réglé le problème ? Pourquoi ? **Non, car un certificat auto-signé n'est pas considéré comme sécuritaire par les navigateurs modernes. Ils doivent être signés par une autorité de certification reconnue ou ajoutée manuellement par l'utilisateur.**
 
 ---
 
