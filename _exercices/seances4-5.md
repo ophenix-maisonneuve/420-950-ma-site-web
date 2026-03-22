@@ -7,10 +7,9 @@ published: false
 ---
 
 # Exercice : Nos amos les animis
-*ah caline...*
 
 ## Mise en situation
-Vous êtes analyste en sécurité pour un refuge animalier en pleine modernisation. Grâce à une nouvelle application Web, le refuge souhaite améliorer l’adoption des animaux en offrant aux visiteurs :
+Vous êtes analyste en sécurité pour un refuge animalier en pleine modernisation. Grâce à une nouvelle application Web qui sera développée, le refuge souhaite améliorer l’adoption des animaux en offrant aux visiteurs :
 - une consultation simple et rapide des animaux disponibles pour l'adoption
 - la création d’un profil personnel pour les personnes souhaitant adopter
 - un moteur d’appariement intelligent qui suggère les animaux les plus compatibles selon le profil des adoptants
@@ -24,16 +23,22 @@ Imaginez la catastrophe si une personne ayant une mobilité limitée et habitant
 - Appliquer l'analyse STRIDE sur chacun des éléments
 - Pour chaque risque significatif identifié, proposer des contre-mesures réalistes et appropriés
 
-## 🧩 Contexte général
-Au refuge, les visiteurs peuvent se connecter sur une tablette ou un kiosque interactif pour :
-1. consulter les animaux disponibles et leurs fiches ;
-2. créer leur profil d’adoptant ;
-3. obtenir, grâce au moteur d’appariement, une liste d’animaux compatibles.
+## Concept de l'application
+Les visiteurs voulant adopter un animal peuvent se connecter sur une tablette, un téléphone mobile, un ordinateur ou même un kiosque interactif à même le refuge  pour :
+1. consulter les animaux disponibles et leurs fiches (module de consultation des animaux)
+2. créer leur profil d’adoptant (module de gestion des profils des adoptants)
+3. obtenir, grâce au moteur d’appariement, une liste d’animaux compatibles (moteur d'appariement).
 
-Le système s’appuie sur :
-- une base des animaux ;
-- une base des adoptants ;
-- un moteur d’appariement (processus complexe unique).
+Les administrateurs du refuge peuvent :
+1. Se connecter au système pour mettre à jour les fiches des animaux
+
+Le système s’appuie donc sur :
+- une base des animaux
+- une base des adoptants
+- des services *backend* simples de type CRUD pour les profils des animaux et des adoptants
+- un moteur d’appariement
+
+Le schéma suivant illustre les différents modules envisagés :
 
 ```mermaid
 flowchart TD
@@ -41,7 +46,7 @@ flowchart TD
     Adoptant[Adoptant]
 
     %% --- Interface utilisateur ---
-    UI[Interface Web]
+    UI[Interface Web ou mobile]
 
     %% --- Couche logique ---
     subgraph APP[Services backend du refuge]
@@ -52,9 +57,9 @@ flowchart TD
     end
 
     %% --- Stockages ---
-    DB1[(Base de données des animaux)]
-    DB2[(Base de données des adoptants)]
-    DB3[(Journaux système  logs, audits)]
+    DB1[Base de données des animaux]
+    DB2[Base de données des adoptants]
+    DB3[Journaux système  logs, audits]
 
     %% --- Liens conceptuels (pas des flux détaillés) ---
     Adoptant --> UI
@@ -74,32 +79,33 @@ Permet l’accès à l’application par :
 - borne interactive,
 - navigateur Web.
 
-### Module de consultation des animaux**
+### Module de consultation des animaux
 Affiche les fiches : race, âge, comportement, santé, etc.
 
-### Module de gestion du profil adoptant**
+### Module de gestion du profil adoptant
 Permet la saisie : mode de vie, allergies, préférences, expérience, etc.
 
-### Module d'administration**
+### Module d'administration
 Pour les employés du refuge :
 - mises à jour des fiches des animaux,
 
-### Moteur d’appariement**
+### Moteur d’appariement
 - Analyse et compare :
     - les données du visiteur,
     - les besoins des animaux,
     - l’historique d’adoption.
 
-- Produit un **score de compatibilité**.
+- Trouve tous les animaux ayant une certaine compatibilité
+- Produit un score de compatibilité en fonction des différents critères 
 - Propose une liste d'animaux compatibles au profil de l'adoptant, en ordre décroissant de compatibilité.
 
-### **Base de données des animaux**
+### Base de données des animaux
 Données biométriques, santé, comportement, statut.
 
-### **Base des adoptants**
+### Base des adoptants
 Données personnelles, préférences, historique.
 
-### **Journal système**
+### Journal système
 Logs d’actions : connexions, modifications, accès internes.
 
 ---

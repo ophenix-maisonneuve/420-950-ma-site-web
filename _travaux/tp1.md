@@ -40,7 +40,7 @@ Télécharger la VM simulant le serveur web de Oups Technologies [ici](https://c
 
 Pour vous connecter sur la VM du TP 1 (soit directement sur le terminal ou avec SSH), utiliser les identifiants suivants :
 - Nom d'utilisateur : root
-- Mot de passe : 0upsT3ch! <- *Le 2e caractère est un **zéro***
+- Mot de passe : 0upsT3ch! <- *Le 1er caractère est un **zéro***
 
 
 Afin de simuler une résolution DNS pour l'adresse `portail.oups.tech.test`, il est nécessaire d'y associer l'adresse IP de la machine virtuelle du TP 1. Pour ce faire, voici les étapes à effectuer dans votre environnement applicatif :

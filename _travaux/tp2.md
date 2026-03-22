@@ -25,17 +25,14 @@ Votre mandat : **analyser l’application fournie (code inclus)**, produire une 
 
 ---
 ## Préparation
-Vous trouverez dans le dépôt suivant l’application à analyser :
-
-> **Dépôt Git du TP** : (fictif — à remplacer par votre dépôt réel)
-> https://git.oups.tech.test/tp-stride-reservation
+Le code de départ du projet est disponible dans le dépôt suivant: [Code portail Oups Technologies](https://github.com/ophenix-420-950-ma-24636/tp2)
 
 L’application inclut :
-- un serveur Web (backend) en Flask / Node / Java (selon version)
-- un module d’authentification interne
+- une application Web (backend) utilisant Python/Flask
+- un module d’authentification
 - un module de réservation
-- un module « moteur de disponibilité » (processus complexe)
-- une base SQLite ou JSON locale
+- un moteur de disponibilité
+- une base de données
 
 Clonez le projet et familiarisez-vous avec :
 - l’arborescence du code
