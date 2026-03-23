@@ -54,9 +54,9 @@ La répudiation sert souvent à couvrir d’autres attaques (Tampering, EoP…).
 
 ```mermaid
 flowchart LR
-    User([Utilisateur]) -->|Action non tracée| App((Application))
+    User[Utilisateur] -->|Action non tracée| App((Application))
     App -->|Journaux incomplets| Logs[(Logs)]
-    Attacker([Attaquant]) -. Efface/modifie .-> Logs
+    Attacker[Attaquant] -. Efface/modifie .-> Logs
 ```
 
 ---
