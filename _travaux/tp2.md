@@ -105,6 +105,7 @@ Attribuez une cote de risque à chaque menace réelle identifiée à l'étape pr
 
 ---
 ## Évaluation
+
 Critère | Points
 ------- | ------
 Section 1 : Analyse des composantes | 15
