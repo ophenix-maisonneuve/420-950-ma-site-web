@@ -123,7 +123,23 @@ Pour réaliser une modélisation de la menace à l'aide de la méthode STRIDE, o
 >   style box2 fill:none,stroke-dasharray: 5 5, stroke-width:2px, stroke:#444
 >
 ```
-
+<details markdown="1">
+<summary markdown="span">Code Mermaid</summary>
+```
+flowchart LR
+    subgraph box["Zone de confiance 1"]
+        EntiteExterne[Entité externe]
+    end
+    subgraph box2["Zone de confiance 2"]
+        ProcessusSimple((Processus simple))
+        ProcessusComplexe(((Processus complexe)))
+        Stockage[(Stockage)]
+        ProcessusSimple -->|Flux de données| Stockage
+    end
+    style box fill:none,stroke-dasharray: 5 5, stroke-width:2px, stroke:#444
+    style box2 fill:none,stroke-dasharray: 5 5, stroke-width:2px, stroke:#444
+```
+</details>
 **3. Analyser STRIDE**
 Pour chaque élément dans les DFD, on établit :
 - Les menaces possibles (en fonction de la matrice ci-haut)
