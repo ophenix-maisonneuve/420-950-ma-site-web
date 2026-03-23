@@ -135,7 +135,7 @@ Suppression ou modification de journaux.
 
 ```mermaid
 flowchart LR
-    Client([Client]) -->|montant=199| API((API Paiement))
+    Client[Client] -->|montant=199| API((API Paiement))
     Attacker -. Modifie montant .-> API
 ```
 
