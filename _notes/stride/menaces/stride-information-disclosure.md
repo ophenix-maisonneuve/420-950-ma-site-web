@@ -7,9 +7,9 @@ has_children: true
 has_toc: true
 ---
 
-# 3.4 — Information Disclosure (Divulgation d’information)
+# Information Disclosure (Divulgation d’information)
 
-## 📌 3.4.1 Définition complète
+## Définition complète
 
 **Information Disclosure** désigne toute situation où un attaquant obtient **accès à des informations qu’il ne devrait pas pouvoir consulter**.  
 Ces informations peuvent être :
@@ -23,13 +23,13 @@ Ces informations peuvent être :
 
 En d’autres mots :
 
-> 🔍 *Information Disclosure = fuite ou exposition non autorisée d’informations.*
+> *Information Disclosure = fuite ou exposition non autorisée d’informations.*
 
 Cette menace compromet directement la **confidentialité**.
 
 ---
 
-## 📌 3.4.2 Objectifs d’un attaquant en Information Disclosure
+## Objectifs d’un attaquant en Information Disclosure
 
 - Obtenir des informations pour préparer une attaque (reconnaissance).  
 - Voler des données sensibles.  
@@ -39,7 +39,7 @@ Cette menace compromet directement la **confidentialité**.
 
 ---
 
-## 📌 3.4.3 Comment l’Information Disclosure apparaît dans un DFD
+## Comment l’Information Disclosure apparaît dans un DFD
 
 | Élément DFD | Risque |
 |-------------|--------|
@@ -56,70 +56,70 @@ flowchart LR
 
 ---
 
-## 📌 3.4.4 Les formes courantes de divulgation
+## Les formes courantes de divulgation
 
-### 🔓 Données sensibles en clair
+### Données sensibles en clair
 - Mots de passe non hashés  
 - Tokens stockés sans protection
 
-### 🔍 Erreurs trop détaillées
+### Erreurs trop détaillées
 - Stack traces  
 - Messages SQL
 
-### 📦 Stockage mal configuré
+### Stockage mal configuré
 - Buckets publics  
 - Répertoires listés
 
-### 🛰️ Fuite dans les logs
+### Fuite dans les logs
 - Mots de passe ou clés API logués
 
-### 🔐 Manque de chiffrement
+### Manque de chiffrement
 - HTTP au lieu de HTTPS
 
 ---
 
-## 📌 3.4.5 Scénarios réels et pédagogiques
+## Scénarios réels
 
-### 🎯 Stack trace exposée
+### Stack trace exposée
 L’API renvoie une erreur détaillée.
 
-### 🎯 Identifiant sensible dans l’URL
+### Identifiant sensible dans l’URL
 IDOR possible.
 
-### 🎯 Bucket public
+### Bucket public
 Accès non autorisé à des fichiers internes.
 
-### 🎯 Secret exposé dans les logs
+### Secret exposé dans les logs
 Token visible en clair.
 
 ---
 
-## 📌 3.4.6 Contre‑mesures
+## Contre‑mesures
 
-### 🔐 Contrôles d’accès stricts
+### Contrôles d’accès stricts
 - Vérifier permissions en amont.
 
-### 🔏 Chiffrement global
+### Chiffrement global
 - TLS partout  
 - Bases chiffrées
 
-### 🔁 Masquage et gestion des erreurs
+### Masquage et gestion des erreurs
 - Pas de stack traces en production
 
-### 📦 Protection du stockage
+### Protection du stockage
 - Audits  
 - Interdiction des buckets publics
 
-### 🧹 Logs contrôlés
+### Logs contrôlés
 - Masquage des données sensibles
 
-### 🧪 Tests
+### Tests
 - Détection IDOR  
 - Scans de fuite
 
 ---
 
-## 📌 3.4.7 Exemple immersif
+## Exemple
 
 ```mermaid
 flowchart LR
@@ -136,7 +136,7 @@ Correctifs :
 
 ---
 
-## 📌 3.4.8 Synthèse
+## Conclusion
 
 - Information Disclosure = **exposition non autorisée d’informations**.  
 - Souvent utilisée en phase de reconnaissance.  

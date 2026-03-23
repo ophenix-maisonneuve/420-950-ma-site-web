@@ -7,9 +7,9 @@ has_children: true
 has_toc: true
 ---
 
-# 3.5 — Denial of Service (Déni de service)
+# Denial of Service (Déni de service)
 
-## 📌 3.5.1 Définition complète
+## Définition complète
 
 Un **Denial of Service (DoS)** désigne toute action visant à **rendre un service partiellement ou totalement indisponible**, que ce soit :
 
@@ -17,13 +17,13 @@ Un **Denial of Service (DoS)** désigne toute action visant à **rendre un servi
 - pour les autres services internes,  
 - ou pour les systèmes dépendants.
 
-> 🚫 *DoS = empêcher un système de fonctionner correctement, souvent en épuisant ses ressources.*
+> *DoS = empêcher un système de fonctionner correctement, souvent en épuisant ses ressources.*
 
-Cette menace vise la **disponibilité**, l’un des piliers du modèle CIA.
+Cette menace vise la **disponibilité** d'un service.
 
 ---
 
-## 📌 3.5.2 Objectifs d’un attaquant en DoS
+## Objectifs d’un attaquant en DoS
 
 - Bloquer ou ralentir un service critique  
 - Empêcher des utilisateurs d’accéder à un système  
@@ -33,7 +33,7 @@ Cette menace vise la **disponibilité**, l’un des piliers du modèle CIA.
 
 ---
 
-## 📌 3.5.3 Comment le DoS apparaît dans un DFD
+## Comment le DoS apparaît dans un DFD
 
 | Élément DFD | Risque |
 |-------------|--------|
@@ -50,72 +50,72 @@ flowchart LR
 
 ---
 
-## 📌 3.5.4 Formes courantes de DoS
+## Formes courantes de DoS
 
-### 🌐 DoS réseau
+### DoS réseau
 - Saturation bande passante  
 - SYN flood
 
-### 🧮 DoS applicatif
+### DoS applicatif
 - Appels lourds  
 - Paramètres extrêmes
 
-### 🗄️ DoS sur base de données
+### DoS sur base de données
 - Requêtes non optimisées  
 - Verrous prolongés
 
-### 🔁 DDoS (Distributed)
+### DDoS (Distributed)
 - Plusieurs sources simultanées
 
-### 🎣 DoS logique
+### DoS logique
 - Uploads massifs  
 - Création abusive de sessions
 
 ---
 
-## 📌 3.5.5 Scénarios réels et pédagogiques
+## Scénarios réels
 
-### 🎯 Route lente appelée massivement
-CPU saturée → service KO.
+### Route lente appelée massivement
+CPU saturé → service KO.
 
-### 🎯 SYN flood
+### SYN flood
 Plus de sockets disponibles.
 
-### 🎯 DoS SQL
+### DoS SQL
 Requêtes lourdes bloquant les tables.
 
-### 🎯 Upload massif
+### Téléversement (*upload*) massif
 Disque saturé.
 
 ---
 
-## 📌 3.5.6 Contre‑mesures
+##Contre‑mesures
 
-### 🌐 Protection réseau
+### Protection réseau
 - Pare-feu  
 - CDN / anti‑DDoS
 
-### 🧮 Rate limiting
+### Rate limiting
 - Quotas par IP / utilisateur
 
-### 🛠️ Optimisation applicative
+### Optimisation applicative
 - Mise en cache  
 - Réduction des coûts par requête
 
-### 🗄️ Résilience DB
+### Résilience DB
 - Indexation  
 - Pool de connexions
 
-### 🧱 Isolation
+### Isolation
 - Découplage des composants critiques
 
-### 🧪 Tests
+### Tests
 - Tests de charge  
 - Chaos engineering
 
 ---
 
-## 📌 3.5.7 Exemple immersif
+## Exemple
 
 ```mermaid
 flowchart LR
@@ -134,7 +134,7 @@ Correctifs :
 
 ---
 
-## 📌 3.5.8 Synthèse
+## Conclusion
 
 - DoS = attaque contre la **disponibilité**.  
 - Peut être simple ou sophistiqué.  

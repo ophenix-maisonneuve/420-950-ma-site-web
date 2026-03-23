@@ -7,13 +7,13 @@ has_children: true
 has_toc: true
 ---
 
-# 3.6 — Elevation of Privilege (Élévation de privilèges)
+# Elevation of Privilege (Élévation de privilèges)
 
-## 📌 3.6.1 Définition complète
+## Définition complète
 
 L’**Élévation de privilèges (Elevation of Privilege, EoP)** consiste pour un attaquant à **obtenir des permissions, rôles ou accès supérieurs** à ceux qu’il devrait normalement avoir.
 
-> 🔐 *EoP = franchir une barrière d’autorisation pour accéder à plus de pouvoir que prévu.*
+> *EoP = franchir une barrière d’autorisation pour accéder à plus de pouvoir que prévu.*
 
 Elle permet souvent à un attaquant de :
 - prendre le contrôle du système,  
@@ -23,7 +23,7 @@ Elle permet souvent à un attaquant de :
 
 ---
 
-## 📌 3.6.2 Objectifs d’un attaquant en EoP
+## Objectifs d’un attaquant en EoP
 
 - Passer d’un rôle “faible” à un rôle “fort” (ex. : user → admin)  
 - Contourner les contrôles d’accès  
@@ -32,7 +32,7 @@ Elle permet souvent à un attaquant de :
 
 ---
 
-## 📌 3.6.3 Comment l’EoP apparaît dans un DFD
+## Comment l’EoP apparaît dans un DFD
 
 | Élément DFD | Risque |
 |-------------|--------|
@@ -50,67 +50,67 @@ flowchart LR
 
 ---
 
-## 📌 3.6.4 Formes courantes d’Élévation de privilèges
+## Formes courantes d’Élévation de privilèges
 
-### 🔓 Contrôle d’accès défaillant
+### ontrôle d’accès défaillant
 - Endpoints admin non protégés.
 
-### 🔁 Élévation verticale
+### Élévation verticale
 - user → admin.
 
-### 🔁 Élévation horizontale
-- Consulter les données d’un autre utilisateur (IDOR).
+### Élévation horizontale
+- Consulter les données d’un autre utilisateur (*Insecure Direct Object Reference - IDOR*).
 
-### 🧪 Abus de logique métier
+### Abus de logique métier
 - Étapes de validation manquantes.
 
-### 🔐 Secrets exposés / permissions mal configurées
+### Secrets exposés / permissions mal configurées
 - Rôles cloud trop permissifs (ex. : `*:*`).
 
-### 🧬 Escalade via vulnérabilité technique
+### Escalade via vulnérabilité technique
 - Injection ou contournement de middleware.
 
 ---
 
-## 📌 3.6.5 Scénarios réels et pédagogiques
+## Scénarios réels
 
-### 🎯 Endpoint admin non protégé
+### Endpoint admin non protégé
 `POST /api/admin/create-user` accessible à tous les utilisateurs authentifiés.
 
-### 🎯 IDOR donnant accès aux comptes d’autres utilisateurs
+### IDOR donnant accès aux comptes d’autres utilisateurs
 Accès à `/api/account/12346` sans permission.
 
-### 🎯 Mauvaise gestion des JWT
+### Mauvaise gestion des JWT
 Un JWT modifié (`role": "admin"`) accepté faute de validation.
 
-### 🎯 Contournement d’un middleware
+### Contournement d’un middleware
 Accès non filtré à `/internal/export-all-data`.
 
 ---
 
-## 📌 3.6.6 Contre‑mesures
+## Contre‑mesures
 
-### 🧱 Contrôles d’accès stricts
+### Contrôles d’accès stricts
 - Vérifier les permissions **côté serveur**.
 
-### 🔐 Validation stricte des identités
+### Validation stricte des identités
 - Tokens signés et vérifiés.
 
-### 🔏 Séparation des rôles (RBAC / ABAC)
+### Séparation des rôles (RBAC / ABAC)
 - Permissions minimales.
 
-### 🧩 Protection des ressources internes
+### Protection des ressources internes
 - mTLS, segmentation réseau.
 
-### 🧪 Tests réguliers
+### Tests réguliers
 - Tests d’accès horizontaux/verticaux.
 
-### 📦 Journaux et alertes
+### Journaux et alertes
 - Journalisation des actions sensibles.
 
 ---
 
-## 📌 3.6.7 Exemple immersif
+## Exemple
 
 ```mermaid
 flowchart LR
@@ -127,7 +127,7 @@ Correctifs :
 
 ---
 
-## 📌 3.6.8 Synthèse
+## Conclusion
 
 - EoP = **accès au‑delà des privilèges autorisés**.  
 - Souvent critique et dévastatrice.  

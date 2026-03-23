@@ -7,15 +7,15 @@ has_children: true
 has_toc: true
 ---
 
-# 3.2 — Tampering (Altération de données)
+# Tampering (Altération de données)
 
-## 📌 3.2.1 Définition complète
+## Définition complète
 
 Le **Tampering** désigne toute action où un attaquant **modifie intentionnellement des données**, du code ou des messages, dans le but d’altérer le comportement du système.
 
 En d’autres mots :
 
-> 🛠️ *Tampering = corruption volontaire de données pour tromper, altérer, manipuler ou contourner un système.*
+> *Tampering = corruption volontaire de données pour tromper, altérer, manipuler ou contourner un système.*
 
 Il peut toucher :
 
@@ -30,7 +30,7 @@ Cette menace attaque directement l’un des fondements de la sécurité :
 
 ---
 
-## 📌 3.2.2 Objectifs d’un attaquant en Tampering
+## Objectifs d’un attaquant en Tampering
 
 L’attaquant cherche généralement à :
 
@@ -42,7 +42,7 @@ L’attaquant cherche généralement à :
 
 ---
 
-## 📌 3.2.3 Comment le Tampering apparaît dans un DFD
+## Comment le Tampering apparaît dans un DFD
 
 Dans un DFD, le Tampering se produit typiquement sur :
 
@@ -61,36 +61,36 @@ flowchart LR
 
 ---
 
-## 📌 3.2.4 Les formes les plus courantes de Tampering
+## 3.2.4 Les formes les plus courantes de Tampering
 
-### 🔧 Altération côté client
+### Altération côté client
 - Modification de champs cachés  
 - Manipulation de paramètres  
 - Modification de cookies non signés
 
-### 📨 Altération des flux entre services
+### Altération des flux entre services
 - Modification de JSON  
 - Injection dans une requête interne
 
-### 💾 Altération de la base de données
+### Altération de la base de données
 - Changement d’un solde  
 - Suppression de journaux
 
-### ⚙️ Altération de configuration ou de code
+### Altération de configuration ou de code
 - Modification d’un fichier `.env`  
 - Altération d’un script de déploiement
 
 ---
 
-## 📌 3.2.5 Scénarios réels et pédagogiques
+## Scénarios réels
 
-### 🎯 Scénario 1 — Paramètre modifié
+### Scénario 1 — Paramètre modifié
 Un champ caché `price=499` est modifié en `price=1`.
 
-### 🎯 Scénario 2 — Cookie modifié
+### Scénario 2 — Cookie modifié
 `role=user` devient `role=admin`.
 
-### 🎯 Scénario 3 — Altération d’un message entre services
+### Scénario 3 — Altération d’un message entre services
 ```mermaid
 flowchart LR
     ServiceA((A)) -->|{"amount": 100}| Bus((Bus))
@@ -98,40 +98,40 @@ flowchart LR
     Bus -->|{"amount": 0}| ServiceB((B))
 ```
 
-### 🎯 Scénario 4 — Corruption de logs
+### Scénario 4 — Corruption de logs
 Suppression ou modification de journaux.
 
 ---
 
-## 📌 3.2.6 Contre‑mesures
+## Contre‑mesures
 
-### 🛠️ Contrôles côté serveur
+### Contrôles côté serveur
 - Validation stricte  
 - Vérification croisée
 
-### 🔏 Signature et chiffrement
+### Signature et chiffrement
 - Cookies signés  
 - JWT signés
 
-### 📦 Protection des stockages
+### Protection des stockages
 - Intégrité  
 - Audit trail
 
-### 🔒 Protection de la configuration
+### Protection de la configuration
 - Secrets sécurisés  
 - Audit Git
 
-### 🧱 Sécurité réseau
+### Sécurité réseau
 - mTLS  
 - Zero Trust
 
-### 🧪 Tests et détection
+### Tests et détection
 - Fuzzing  
 - IDS / WAF
 
 ---
 
-## 📌 3.2.7 Exemple immersif
+## Exemple 
 
 ```mermaid
 flowchart LR
@@ -143,7 +143,7 @@ Altération du montant → validation naïve → fraude.
 
 ---
 
-## 📌 3.2.8 Synthèse
+## Conclusion
 
 - Tampering = **modification volontaire de données**.  
 - Très courant dans les systèmes web/API.  

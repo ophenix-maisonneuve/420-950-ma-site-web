@@ -7,15 +7,15 @@ has_children: true
 has_toc: true
 ---
 
-# 3.3 — Repudiation (Répudiation)
+# Repudiation (Répudiation)
 
-## 📌 3.3.1 Définition complète
+## Définition complète
 
 La **Répudiation** désigne toute situation où un utilisateur — légitime ou malveillant — peut **nier avoir effectué une action**, parce que le système ne dispose **pas de preuves fiables** permettant d’attribuer cette action de façon certaine.
 
 En d’autres mots :
 
-> 🧾 *Repudiation = impossibilité de prouver “qui a fait quoi, quand et comment”.*
+> *Repudiation = impossibilité de prouver “qui a fait quoi, quand et comment”.*
 
 Cette menace se produit lorsque :
 
@@ -29,7 +29,7 @@ La répudiation peut être volontaire (attaquant) ou accidentelle (système mal 
 
 ---
 
-## 📌 3.3.2 Objectifs d’un attaquant en Repudiation
+## Objectifs d’un attaquant en Repudiation
 
 Un attaquant cherchant la répudiation veut :
 
@@ -44,7 +44,7 @@ La répudiation sert souvent à couvrir d’autres attaques (Tampering, EoP…).
 
 ---
 
-## 📌 3.3.3 Comment la Répudiation apparaît dans un DFD
+## Comment la Répudiation apparaît dans un DFD
 
 | Élément DFD | Risque |
 |-------------|--------|
@@ -61,64 +61,64 @@ flowchart LR
 
 ---
 
-## 📌 3.3.4 Les formes les plus courantes de Répudiation
+## Les formes les plus courantes de Répudiation
 
-### 🗂️ Absence de logs
+### Absence de logs
 Aucune trace des actions sensibles.
 
-### 🧹 Logs modifiables ou supprimables
+### Logs modifiables ou supprimables
 Un attaquant peut effacer ou falsifier ses traces.
 
-### ❓ Mauvaise corrélation identité → action
+### Mauvaise corrélation identité → action
 Actions non associées à un identifiant fiable.
 
-### 🌫️ Manque de preuves cryptographiques
+### Manque de preuves cryptographiques
 Absence de signature, mauvais horodatage.
 
 ---
 
-## 📌 3.3.5 Scénarios réels et pédagogiques
+## Scénarios réels
 
-### 🎯 Scénario 1 — Suppression sans preuve
+### Scénario 1 — Suppression sans preuve
 Un fichier critique est supprimé → aucune trace → action non attribuable.
 
-### 🎯 Scénario 2 — Logs modifiés après intrusion
+### Scénario 2 — Logs modifiés après intrusion
 Un attaquant efface ses traces SSH.
 
-### 🎯 Scénario 3 — Actions non reliées à un utilisateur
+### Scénario 3 — Actions non reliées à un utilisateur
 API acceptant des requêtes anonymes pour des actions sensibles.
 
-### 🎯 Scénario 4 — Horodatage incorrect
+### Scénario 4 — Horodatage incorrect
 Serveurs non synchronisés → logs inutilisables.
 
 ---
 
-## 📌 3.3.6 Contre‑mesures
+## Contre‑mesures
 
-### 🧾 Journalisation exhaustive
+### Journalisation exhaustive
 - Toutes les actions sensibles doivent être loguées.
 
-### 🔐 Intégrité des logs
+### Intégrité des logs
 - Signatures cryptographiques  
 - Hashing en chaîne  
 - Immutabilité
 
-### 📦 Stockage protecteur
+### Stockage protecteur
 - SIEM  
 - Accès en lecture seule
 
-### 🧱 Corrélation identité → action
+### Corrélation identité → action
 - Sessions, JWT, certificats
 
-### ⏱️ Horodatage fiable
+### Horodatage fiable
 - NTP, horodatage signé
 
-### 🧪 Surveillance
+### Surveillance
 - Alertes en cas de suppression ou altération de logs
 
 ---
 
-## 📌 3.3.7 Exemple immersif
+## Exemple
 
 Un employé modifie des dossiers clients. Les logs montrent :
 ```
@@ -134,7 +134,7 @@ Correctifs :
 
 ---
 
-## 📌 3.3.8 Synthèse
+## Synthèse
 
 - La répudiation = *impossibilité de prouver qui a fait quoi*.  
 - Souvent liée au Tampering.  
