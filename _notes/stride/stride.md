@@ -140,7 +140,9 @@ flowchart LR
     style box2 fill:none,stroke-dasharray: 5 5, stroke-width:2px, stroke:#444
 ```
 </details>
+
 **3. Analyser STRIDE**
+
 Pour chaque élément dans les DFD, on établit :
 - Les menaces possibles (en fonction de la matrice ci-haut)
 - Les menaces réelles, c'est-à-dire les menaces potentielles qui sont applicables dans le cas particulier de l'application
