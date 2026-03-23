@@ -3,7 +3,7 @@ layout: default
 title: "Nos amos les animis"
 nav_order: 3
 has_toc: false
-published: false
+published: true
 ---
 
 # Exercice : Nos amos les animis
