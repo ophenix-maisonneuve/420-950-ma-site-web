@@ -43,7 +43,7 @@ Elle permet souvent à un attaquant de :
 
 ```mermaid
 flowchart LR
-    User([Utilisateur "basic"]) -->|Requête| App((Application))
+    User[Utilisateur "basic"] -->|Requête| App((Application))
     App -->|Mauvaise vérification des permissions| AdminAPI((API Admin))
     User -. Accès admin obtenu .-> AdminAPI
 ```
@@ -114,7 +114,7 @@ Accès non filtré à `/internal/export-all-data`.
 
 ```mermaid
 flowchart LR
-    User([User standard]) -->|GET /export/all| API((API interne))
+    User[Utilisateur standard] -->|GET /export/all| API((API interne))
     API -->|Fuite massive| Data[(Données complètes)]
 ```
 

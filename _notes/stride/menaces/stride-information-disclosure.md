@@ -123,7 +123,7 @@ Token visible en clair.
 
 ```mermaid
 flowchart LR
-    Client([Client]) -->|GET /api/doc/123| API((API))
+    Client[Client] -->|GET /api/doc/123| API((API))
     API -->|Chemin interne + données sensibles| Client
 ```
 

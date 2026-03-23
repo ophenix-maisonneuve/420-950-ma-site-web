@@ -104,14 +104,14 @@ Serveurs non synchronisés → logs inutilisables.
 - Immutabilité
 
 ### Stockage protecteur
-- SIEM  
+- *Security Information and Event Management* (*SIEM*)  
 - Accès en lecture seule
 
 ### Corrélation identité → action
 - Sessions, JWT, certificats
 
 ### Horodatage fiable
-- NTP, horodatage signé
+- Network Time Protocol (NTP), horodatage signé
 
 ### Surveillance
 - Alertes en cas de suppression ou altération de logs

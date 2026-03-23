@@ -43,7 +43,7 @@ Cette menace vise la **disponibilité** d'un service.
 
 ```mermaid
 flowchart LR
-    Attacker([Attaquant]) -->|10 000 req/s| API((Service API))
+    Attacker[Attaquant] -->|10 000 req/s| API((Service API))
     API -->|Surcharge| DB[(Base de données)]
     API -. Timeout .-> User([Utilisateur légitime])
 ```
@@ -119,9 +119,9 @@ Disque saturé.
 
 ```mermaid
 flowchart LR
-    Client([Attaquant]) -->|2000 req/s| API((API Devis))
+    Client[Attaquant] -->|2000 req/s| API((API Devis))
     API -->|Surcharge CPU| Workers((Workers))
-    Workers -. Timeout .-> Users([Utilisateurs légitimes])
+    Workers -. Timeout .-> Users[Utilisateurs légitimes]
 ```
 
 Résultat : files saturées, indisponibilité.
