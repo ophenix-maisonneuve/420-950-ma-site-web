@@ -93,9 +93,9 @@ Un champ caché `price=499` est modifié en `price=1`.
 ### Scénario 3 — Altération d’un message entre services
 ```mermaid
 flowchart LR
-    ServiceA((A)) -->|{"amount": 100}| Bus((Bus))
+    ServiceA((A)) -->|"montant": 100| Bus((Bus))
     Attacker -. Modifie .-> Bus
-    Bus -->|{"amount": 0}| ServiceB((B))
+    Bus -->|"montant": 0| ServiceB((B))
 ```
 
 ### Scénario 4 — Corruption de logs
@@ -135,8 +135,8 @@ Suppression ou modification de journaux.
 
 ```mermaid
 flowchart LR
-    Client([Client]) -->|amount=199| API((API Paiement))
-    Attacker -. Modifie amount .-> API
+    Client([Client]) -->|montant=199| API((API Paiement))
+    Attacker -. Modifie montant .-> API
 ```
 
 Altération du montant → validation naïve → fraude.
