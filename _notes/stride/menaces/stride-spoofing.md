@@ -96,7 +96,7 @@ L’attaquant redirige le trafic → MITM.
 
 ---
 
-## Contre‑mesures (très complètes)
+## Contre‑mesures
 
 ### Authentification robuste
 - MFA  
