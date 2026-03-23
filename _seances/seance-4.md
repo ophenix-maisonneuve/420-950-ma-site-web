@@ -13,6 +13,7 @@ published: true
 
 1. Informations générales
 2. Retour sur l'exercice pratique [Au secours du Lobby des Braves](../exercices/seance3)
+1. Présentation du [travail pratique 2](../_travaux/tp2)
 3. [Modélisation de la menace](../notes/modelisation-menace)
 4. [STRIDE](../notes/stride)
 5. Exercice [Nos amos les animis](../exercices/seances4-5)
