@@ -54,7 +54,7 @@ Dans un DFD, le Tampering se produit typiquement sur :
 
 ```mermaid
 flowchart LR
-    User([Utilisateur]) -->|Requête: montant=100| App((Application))
+    User[Utilisateur] -->|Requête: montant=100| App((Application))
     Attacker([Attaquant]) -. Intercepte le flux .-> MITM((Proxy malveillant))
     MITM -. Modifie: montant=1 .-> App
 ```

@@ -49,7 +49,7 @@ Cette menace compromet directement la **confidentialité**.
 
 ```mermaid
 flowchart LR
-    User([Attaquant]) -->|Requête| App((Application))
+    User[Attaquant] -->|Requête| App((Application))
     App -->|Erreur détaillée| User
     DB[(Base de données)] -->|Fuite| App
 ```

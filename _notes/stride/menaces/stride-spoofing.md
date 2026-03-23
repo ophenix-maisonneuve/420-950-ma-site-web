@@ -55,7 +55,7 @@ Voici un DFD minimaliste montrant un scénario classique de Spoofing :
 
 ```mermaid
 flowchart LR
-    Attacker([Attaquant]) -. Usurpation .-> User([Utilisateur légitime])
+    Attacker[Attaquant] -. Usurpation .-> User[Utilisateur légitime]
 
     User -->|Connexion| WebApp((WebApp))
     Attacker -. Envoie de fausses credentials .-> WebApp
@@ -124,7 +124,7 @@ L’attaquant redirige le trafic → MITM.
 
 ```mermaid
 flowchart LR
-    User([Utilisateur]) -->|Login| AuthService((Service Auth))
+    User[Utilisateur] -->|Login| AuthService((Service Auth))
     AuthService -->|JWT| User
 
     Attacker([Attaquant]) -. Token volé .-> AuthService

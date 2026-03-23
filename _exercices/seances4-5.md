@@ -68,6 +68,8 @@ flowchart TD
     APP --> DB1
     APP --> DB2
     APP --> DB3
+
+    style APP fill:none,stroke-dasharray: 5 5, stroke-width:2px, stroke:#444
 ```
 
 ### Adoptant

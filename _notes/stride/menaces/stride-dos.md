@@ -64,7 +64,7 @@ flowchart LR
 - Requêtes non optimisées  
 - Verrous prolongés
 
-### DDoS (Distributed)
+### DDoS (Distribué)
 - Plusieurs sources simultanées
 
 ### DoS logique
