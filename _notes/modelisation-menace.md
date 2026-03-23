@@ -31,6 +31,7 @@ Une menace est :
 Une menace n’est pas encore une attaque : c’est un risque potentiel.
 
 ## Menaces, vulnérabilités et risques
+
 | Concept | Définition | Métaphore |
 |--------|------------|-----------|
 | **Menace** | Quelque chose ou quelqu’un qui pourrait faire du mal | Le cambrioleur |
