@@ -41,10 +41,10 @@ Une menace n’est pas encore une attaque : c’est un risque potentiel.
 ## Avantages
 
 ### Prioriser les protections
-En comprenant mieux les menaces et les risques associés, on peut prioriser l'ajout de certaines protections.On ne protège pas tout au même niveau.
+En comprenant mieux les menaces et les risques associés, on peut prioriser l'ajout de certaines protections. On n'a pas à tout protéger au même niveau.
 
 ### Mieux comprendre les chemins d’attaque possibles
-Un système vu « de l’intérieur » semble simple.
+Un système vu *de l’intérieur* semble simple.
 
 ### Réduire les coûts
 Corriger une faiblesse avant le développement coûte beaucoup moins cher.
@@ -59,7 +59,7 @@ Il existe plusieurs méthodologies utilisées dans l'industrie pour modéliser l
 |---------|----------|--------------|
 | **STRIDE** | Classification des menaces | Simple, très populaire |
 | **PASTA** | Approche orientée risque | Très complet |
-| **LINDDUN** | Vie privée | Excellent pour RGPD |
+| **LINDDUN** | Vie privée | Excellent pour RGPD (*GDPR*) |
 | **MITRE ATT&CK** | Catalogue des techniques | Réaliste, orienté défense |
 
-Pour le cours de cybersécurité, nous utiliserons la méthode STRIDE.
+Pour le cours de cybersécurité, nous utiliserons la méthode STRIDE, qui est l'une des plus utilisées globalement.
