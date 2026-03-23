@@ -123,7 +123,7 @@ Section 5 : Recommandations de sécurité | 15
   - Tous les diagrammes DFD (Mermaid ou PNG)
 - Le travail est à remettre sur **Léa (Omnivox)** dans la section **Travaux - Énoncés et remises**
 - Le travail est **individuel** (une remise par personne)
-- Le travail est à remettre au plus tard le **13 avril 2026** en fin de journée.
+- Le travail est à remettre au plus tard le **16 avril 2026** en fin de journée.
 
 ---
 
