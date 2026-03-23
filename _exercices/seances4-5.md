@@ -77,7 +77,7 @@ Personne utilisant l’application pour consulter les animaux ou créer un profi
 
 ### Interface Web
 Permet l’accès à l’application par :
-- tablette,
+- tablette / téléphone intelligent
 - borne interactive,
 - navigateur Web.
 
