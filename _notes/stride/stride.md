@@ -119,8 +119,8 @@ Pour réaliser une modélisation de la menace à l'aide de la méthode STRIDE, o
 >           Stockage[(Stockage)]
 >           ProcessusSimple -->|Flux de données| Stockage
 >    end
->   style box stroke-dasharray: 5 5, stroke-width:2px, stroke:#444
->    style box stroke-dasharray: 5 5, stroke-width:2px, stroke:#444
+>   style box fill:none,stroke-dasharray: 5 5, stroke-width:2px, stroke:#444
+>   style box2 fill:none,stroke-dasharray: 5 5, stroke-width:2px, stroke:#444
 >
 ```
 
