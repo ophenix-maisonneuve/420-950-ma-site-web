@@ -1,27 +1,21 @@
 ---
 layout: default
-title: "Séance 4"
+title: "2026-03-23"
 nav_order: 4
-published: false
+published: true
 ---
 
-# Séance 4 : Complexité des algorithmes (partie 1)
+# Séance 4 : Modélisation de la menace (partie 1)
 
-## <date>
+## 23 mars 2026
 
 ### Ordre du jour
 
 1. Informations générales
-2. Récapitulation
-3. Gestion des exceptions
-   * [Exception vérifiées](../notes/exceptions) (*checked exceptions*)
-   * [Exceptions non vérifiées](../notes/exceptions) (*unchecked exceptions*)
-4. Annotations
-   * Brève introduction aux [annotations](../notes/annotations)
-5. Complexité et Notation Grand O
-   * [Introduction](../notes/complexite)
-   * [Exercice: Algorithmes mystère](../exercices/notation-grand-o)
-   * Retour / rétroaction en groupe
+2. Retour sur l'exercice pratique [Au secours du Lobby des Braves](../exercices/seance3)
+3. [Modélisation de la menace](../notes/modelisation-menace)
+4. [STRIDE](../notes/stride)
+5. Exercice [Nos amos les animis](../exercices/seances4-5)
 
 ### Exercice(s) complémentaire(s)
 * Terminer [Personnages de dessins animés](../exercices/polymorphisme-dessins-animes)

@@ -99,22 +99,30 @@ Pour réaliser une modélisation de la menace à l'aide de la méthode STRIDE, o
 - Pour chaque processus complexe (c'est-à-dire un processus qui peut être décomposé en plusieurs sous-processus distincts), on crée un DFD spécifique où l'on représente les sous-processus.
 - On répète le processus jusqu'à ce qu'il n'y ait plus de processus complexe dans le DFD.
 
+
+**2. Ajouter les frontières de confiance**
+
+- On ajoute, dans les DFD, des lignes pointillées qui délimitent des frontières de confiance (*trust boundaries*). Typiquement, dès que l'on passe d'un environnement plus sécuritaire à un environnement moins sécuritaire, on devrait voir une frontière de confiance apparaître. Par exemple, lorsque l'on passe du réseau privé d'une entreprise à l'internet, on change de zone de confiance.
+
 {: .highlight}
 >Les symboles généralement acceptés pour représenter les différents éléments sont les suivant :
 >
 >```mermaid
 >flowchart LR
 >
->   EntiteExterne[Entité externe]
->    ProcessusSimple((Processus simple))
->    ProcessusComplexe(((Processus complexe)))
->    Stockage[(Stockage)]
->    ProcessusSimple -->|Flux de données| Stockage
->```
-
-**2. Ajouter les frontières de confiance**
-
-- On ajoute, dans les DFD, des lignes pointillées qui délimitent des frontières de confiance (*trust boundaries*). Typiquement, dès que l'on passe d'un environnement plus sécuritaire à un environnement moins sécuritaire, on devrait voir une frontière de confiance apparaître. Par exemple, lorsque l'on passe du réseau privé d'une entreprise à l'internet, on change de zone de confiance.
+>    subgraph box["Zone de confiance 1"]
+>           EntiteExterne[Entité externe]
+>    end
+>    subgraph box2["Zone de confiance 2"]
+>           ProcessusSimple((Processus simple))
+>           ProcessusComplexe(((Processus complexe)))
+>           Stockage[(Stockage)]
+>           ProcessusSimple -->|Flux de données| Stockage
+>    end
+>   style box stroke-dasharray: 5 5, stroke-width:2px, stroke:#444
+>    style box stroke-dasharray: 5 5, stroke-width:2px, stroke:#444
+>
+```
 
 **3. Analyser STRIDE**
 Pour chaque élément dans les DFD, on établit :
@@ -177,5 +185,6 @@ flowchart LR
 | Tampering | Un employé mécontent fausse les données recueillies | Authentification et autorisation sur la BD, activation de l'*audit trail* | 
 | Information Disclosure | Un employé mécontent fausse les données recueillies | Authentification et autorisation fortes sur la BD, données chiffrées au repos (*encrypted at rest*) | 
 | Denial of Service | Un *bot* bombarde le serveur de requêtes | Mise en place de *throttling* et de bannissement d'IP |
+
 ---
 
