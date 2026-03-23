@@ -2,7 +2,7 @@
 layout: default
 title: "Travail pratique 2"
 nav_order: 2
-published: false
+published: true
 ---
 
 # Travail pratique 2: Chez Oups Technologies, on essaie de casser moins souvent
