@@ -36,10 +36,7 @@ Elle permet souvent à un attaquant de :
 
 | Élément DFD | Risque |
 |-------------|--------|
-| **Entités externes** | Un utilisateur contourne ses permissions |
 | **Processus** | Mauvaise validation des rôles |
-| **Stockages** | Accès non prévu à des données sensibles |
-| **Flux** | Absence de vérification d’autorisation |
 
 ```mermaid
 flowchart LR

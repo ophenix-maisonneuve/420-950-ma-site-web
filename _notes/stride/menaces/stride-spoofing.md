@@ -50,8 +50,6 @@ Dans un **Data Flow Diagram**, le Spoofing cible principalement :
 |-------------|--------|
 | **Entités externes** | Usurpation de l’utilisateur ou du client |
 | **Processus** | Faux service ou application se présentant comme légitime |
-| **Flux de données** | Tokens falsifiés ou volés |
-| **Stockages** | Informations d’identité compromises |
 
 Voici un DFD minimaliste montrant un scénario classique de Spoofing :
 
