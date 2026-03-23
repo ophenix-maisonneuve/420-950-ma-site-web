@@ -17,6 +17,10 @@ published: true
 4. [STRIDE](../notes/stride)
 5. Exercice [Nos amos les animis](../exercices/seances4-5)
 
+### Lectures recommandées
+
+- Notes de cours sur la [modélisation de la menace](../notes/modelisation-menace) et [STRIDE](../notes/stride)
+
 ### Exercice(s) complémentaire(s)
-* Terminer [Personnages de dessins animés](../exercices/polymorphisme-dessins-animes)
-* Terminer [Algorithmes mystère](../exercices/notation-grand-o)
+
+- Continuer le [travail pratique 1](../travaux/tp1)
