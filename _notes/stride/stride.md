@@ -100,7 +100,7 @@ Pour réaliser une modélisation de la menace à l'aide de la méthode STRIDE, o
 - On répète le processus jusqu'à ce qu'il n'y ait plus de processus complexe dans le DFD.
 
 {: .highlight}
->Les symboles généralement acceptés pour représenter les >différents éléments sont les suivant :
+>Les symboles généralement acceptés pour représenter les différents éléments sont les suivant :
 >
 >```mermaid
 >flowchart LR
