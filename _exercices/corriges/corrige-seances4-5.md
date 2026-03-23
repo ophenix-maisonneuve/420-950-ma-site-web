@@ -14,24 +14,31 @@ published: true
 1. Identifiez les **stockages de données** dans le système.
 1. Identifiez les **processus** dans le système
 
-## 2. Création du DFD de contexte (niveau 0)
-1. En utilisant les symboles appropriés, représentez les éléments identifiés à la questions précédente dans un DFD de contexte.
-1. Identifiez les **flux de données** entre les différentes composantes, et ajoutez-les sur le DFD.
-1. Ajoutez, au besoin, des **frontières de confiance** aux endroits où l'on passe d'un environnement plus sécurisé à un environnement moins sécurisé (ou vice-versa).
-
+<details markdown="1">
+<summary markdown="span">**Voir diagramme**</summary>
 ```mermaid
 flowchart LR
     Adoptant[Adoptant]
+    Administrateur[Admin]
     ModuleConsultation((Service de consultation d'animaux CRUD))
     ModuleAdoptant((Service gestion de profils CRUD))
     ModuleAdmin((Service d'administration))
+    ModuleAuth((Module d'authentification))
     Web((Frontend web))
     Mobile((Application mobile))
     ModuleAppariement(((Moteur d'appariement)))
     BdProfils[(BD Profils)]
     BdAnimaux[(BD Animaux)]
     Logs[(Journaux/audits)]
+    BDAuth[(BD Authentification)]
 ```
+</details>
+
+## 2. Création du DFD de contexte (niveau 0)
+1. En utilisant les symboles appropriés, représentez les éléments identifiés à la questions précédente dans un DFD de contexte.
+1. Identifiez les **flux de données** entre les différentes composantes, et ajoutez-les sur le DFD.
+1. Ajoutez, au besoin, des **frontières de confiance** aux endroits où l'on passe d'un environnement plus sécurisé à un environnement moins sécurisé (ou vice-versa).
+
 
 ## 3. Création du DFD de niveau 1
 1. Pour chaque processus complexe identifié, créez un DFD de niveau 1.
