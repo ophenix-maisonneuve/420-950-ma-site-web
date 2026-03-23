@@ -49,7 +49,7 @@ Le modèle STRIDE...
 
 Voici un tableau introductif qui résume les six menaces STRIDE et l’objectif de chaque catégorie :
 
-| Catégorie | Nom  | Impact  | Définition |
+| Catégorie | Nom  | Impact  | Description |
 |----------|-------------|------------------|----------------|
 | **S** | *Spoofing* (Usurpation) | Authenticité | Usurper une identité |
 | **T** | *Tampering* (Altération) | Intégrité | Modifier des données |
