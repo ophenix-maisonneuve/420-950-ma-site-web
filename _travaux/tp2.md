@@ -104,7 +104,7 @@ Attribuez une cote de risque à chaque menace réelle identifiée à l'étape pr
 1. Quelles sont vos 5 recommandations finales ? Justifiez.
 
 {: .astuce}
-> Certaines bonnes pratiques de sécurité n'ont pas été suivies à quelques endroits dans le portail. Vos recommandations peuvent aussi faire le lien entre certains problèmes que vous avez trouvés et les menaces STRIDE identifiées.
+> Certaines bonnes pratiques de sécurité et/ou de développement n'ont pas été suivies à quelques endroits dans le portail. Vos recommandations peuvent aussi faire le lien entre certains problèmes que vous avez trouvés et les menaces STRIDE identifiées.
 
 
 ---
