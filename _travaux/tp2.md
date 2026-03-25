@@ -27,6 +27,30 @@ Votre mandat : **analyser l’application fournie (code inclus)**, produire une 
 ## Préparation
 Le code de départ du projet est disponible dans le dépôt suivant: [Code portail Oups Technologies](https://github.com/ophenix-420-950-ma-24636/tp2)
 
+1. Il est d'abord recommandé de créer un environnement virtuel Python afin d'y installer toutes les dépendances sans affecter les paquets installés sur le système:
+    ```bash
+    python3 -m venv env
+    source env/bin/activate
+    ```
+2. Ensuite, on installe les dépendances
+    ```bash
+    pip install flask werkzeug
+    ```
+
+3. Finalement, on démarre l'application Python/Flask
+    ```bash
+    cd portail
+    python3 -m flask run
+    ```
+
+L'application démarre alors un serveur de développement qui expose l'application sur http://127.0.0.1:5000
+
+> Première observation: ceci est-il sécuritaire pour un site utilisé en production ?
+
+Un seul utilisateur est créé automatiquement au premier démarrage de l'application:
+- Utilisateur: admin
+- Mot de passe: admin
+
 L’application inclut :
 - une application web (*Frontend*)
 - une application (backend) utilisant Python/Flask
@@ -39,6 +63,7 @@ Clonez le projet et familiarisez-vous avec :
 - les routes et endpoints
 - les modèles de données
 - la logique du moteur de réservation
+
 
 ---
 ## Tâches à réaliser
