@@ -45,7 +45,10 @@ Le code de départ du projet est disponible dans le dépôt suivant: [Code porta
 
 L'application démarre alors un serveur de développement qui expose l'application sur http://127.0.0.1:5000
 
-> Première observation: ceci est-il sécuritaire pour un site utilisé en production ?
+{: .highlight-title}
+> Première obeservation
+>
+> Ceci est-il sécuritaire pour un site utilisé en production ?
 
 Un seul utilisateur est créé automatiquement au premier démarrage de l'application:
 - Utilisateur: admin
