@@ -45,9 +45,9 @@ Clonez le projet et familiarisez-vous avec :
 
 ### 1. Analyse des composantes
 À partir du code fourni :
-1. Identifiez les **processus** (simples ou complexes)
-1. Identifiez les **entités externes**
-1. Identifiez les **stockages**
+- Identifiez les **processus** (simples ou complexes)
+- Identifiez les **entités externes**
+- Identifiez les **stockages**
 
 #### Questions
 1. Quels sont les entités que vous avez identifiées ?
