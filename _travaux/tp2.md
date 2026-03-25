@@ -28,17 +28,17 @@ Votre mandat : **analyser l’application fournie (code inclus)**, produire une 
 Le code de départ du projet est disponible dans le dépôt suivant: [Code portail Oups Technologies](https://github.com/ophenix-420-950-ma-24636/tp2)
 
 L’application inclut :
-- une application Web (backend) utilisant Python/Flask
+- une application web (*Frontend*)
+- une application (backend) utilisant Python/Flask
 - un module d’authentification
-- un module de réservation
-- un moteur de disponibilité
+- un moteur de réservation
 - une base de données
 
 Clonez le projet et familiarisez-vous avec :
 - l’arborescence du code
 - les routes et endpoints
 - les modèles de données
-- la logique du moteur de disponibilité
+- la logique du moteur de réservation
 
 ---
 ## Tâches à réaliser
@@ -51,7 +51,7 @@ Clonez le projet et familiarisez-vous avec :
 
 #### Questions
 1. Quels sont les entités que vous avez identifiées ?
-1. Quel est le rôle exact du moteur de disponibilité ?
+1. Quel est le rôle exact du moteur de réservation ?
 1. Quels types de données sont enregistrés dans les différents stockages ?
 
 ---
@@ -102,6 +102,10 @@ Attribuez une cote de risque à chaque menace réelle identifiée à l'étape pr
 
 #### Questions
 1. Quelles sont vos 5 recommandations finales ? Justifiez.
+
+{: .astuce}
+> Certaines bonnes pratiques de sécurité n'ont pas été suivies à quelques endroits dans le portail. Vos recommandations peuvent aussi faire le lien entre certains problèmes que vous avez trouvés et les menaces STRIDE identifiées.
+
 
 ---
 ## Évaluation
