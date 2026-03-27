@@ -2,83 +2,70 @@
 layout: default
 title: A10:2025 — Mishandling of Exceptional Conditions
 parent: OWASP Top 10 (2025)
-nav_order: 11
+nav_order: 10
 has_toc: true
 ---
 
 # A10:2025 — Mishandling of Exceptional Conditions (Mauvaise gestion des conditions d'exception)
 
-## Comprendre la menace
-La **mauvaise gestion des exceptions** est une **vulnérabilité** : lorsque les erreurs ne sont pas empêchées, détectées ou traitées correctement, l’application adopte des **comportements non sûrs** (ex. *fail‑open*) ou fuit des informations (stack traces, chemins, variables). Le Top 10 2025 regroupe ici des CWE qui étaient auparavant éparpillées pour fournir un **cadre opérationnel** de résilience.
+## Description
 
-**En bref**
+**Mishandling of Exceptional Conditions** regroupe les failles où l’application **n’empêche pas**, **ne détecte pas** ou **réagit mal** aux situations anormales : erreurs système, entrées manquantes, états incohérents, contraintes de ressources, privilèges insuffisants, etc. Ces lacunes conduisent à des **plantages**, à des **comportements inattendus** et à des vulnérabilités exploitables (ex. *fail‑open*, contournements logiques, fuites d’information). Cette **nouvelle catégorie 2025** couvre **24 CWE**, notamment l’exposition d’informations via les messages d’erreur (**CWE‑209**), l’oubli de valider qu’un paramètre est présent (**CWE‑234**), une gestion incorrecte d’un manque de privilèges (**CWE‑274**), la déréférence de pointeur nul (**CWE‑476**), ou le fait de **ne pas échouer de manière sûre** (*fail‑open*, **CWE‑636**).
 
-- **Exemples CWE**
-  - CWE‑209 (messages d’erreur sensibles)
-  - CWE‑636 (not failing securely)
-  - CWE‑476 (NULL deref)
-
-{: .highlight-title}
-> Contexte 2025
->
-> **Nouveau en 2025** : mauvaise gestion des **conditions anormales** (erreurs, délai, ressources) qui engendre fuites, *fail‑open*, indisponibilités.
+En pratique, la mauvaise gestion des conditions exceptionnelles apparaît lorsque l’application **ne planifie pas l’échec**, **ne traite pas l’erreur à la source**, ou **laisse l’état interne dans l’inconnu**. Les erreurs de validation tardives, l’absence de garde‑fous sur les ressources (mémoire, temps, réseau) et l’**incohérence d’un « policy‑as‑code » d’exception** (qui varie d’un module à l’autre) en sont des catalyseurs.
 
 ---
-## Attaque
-Un service d’authentification/autorisation indisponible ne doit jamais déclencher un **accès accordé** ; pourtant des implémentations naïves font du *fail‑open* sur exception. Des messages d’erreur détaillés, renvoyés au client, accélèrent la **reconnaissance**. L’absence de limites (retries infinis, allocations) mène à des **épuisements de ressources** et du déni de service intermittents.
 
-**En bref**
+## How to Prevent
 
-- **Signaux/artefacts**
-  - Pics d'erreurs HTTP 500 corrélés à un downstream, latence en escalade, exceptions non rattrapées.
-
----
-## Prévention, détection, réponse)
-La **résilience** repose sur des **timeouts** réalistes, des **ré-essais (*retries*) bornés** et des l'utilisation du patron ***circuit breaker***. Sur les chemins critiques (authentification / autorisation), appliquer le moyen le plus sûr (*fail-safe*) : en cas d’incertitude, **refuser** l’accès. Normaliser la gestion d’erreurs : messages **neutres** côté client, détails complets en logs disponibles pour les utilisateurs / groupes autorisés seulement. Valider les modes **dégradés** par du monitoring **synthétique** et du **chaos engineering**.
-
-**En bref**
-
-- **Prévention**
-  - Timeouts/retries/circuit breakers; fail‑safe sur authN/authZ; messages d'erreurs neutres qui divulguent uniquement le strict nécessaire à l'utilisateur.
-- **Détection & réponse**
-  - Synthetic monitoring; chaos ciblé; bulkheads; bascule en chemin dégradé.
+- **Concevoir pour l’échec** (*expect the worst*) : anticiper les scénarios anormaux dès le design, enumerer les conditions d’erreur prévues et définir le **comportement sûr par défaut** (toujours **fail‑closed**, jamais **fail‑open**). Traiter **chaque erreur au plus près de sa source**, puis **rétablir un état connu** (rollback/compensation).
+- **Valider tôt et uniformément** : vérifier la **présence** et la **forme** des paramètres, les **prérequis de privilèges**, et les **pré/post‑conditions** de chaque appel ; éviter les validations tardives qui laissent l’application dériver.
+- **Gérer les erreurs de façon cohérente** : appliquer une **stratégie d’exception** partagée (cartographie des erreurs, types d’exception, niveaux de gravité, messages sûrs), empêcher l’**exposition de détails sensibles** dans les messages d’erreur utilisateurs/journaux.
+- **Imposer des limites et délais sûrs** : timeouts, budgets de ressources, contrôles de concurrence ; combiner avec des **patrons de résilience** (ex. *retry* borné, *backoff*, *graceful degradation*). *(Ces pratiques complètent A10 et sont décrites dans la section “Next Steps / Resilience” de l’édition 2025.)* 
+- **Observer et tester** : monitorer les erreurs, **journaliser** de manière exploitable et alerter (cf. A09), simuler des défaillances (tests de charge et d’erreur) pour vérifier la robustesse réelle.
 
 ---
-## Exemples
 
-### Python
-```python
+## Exemples d'attaques
 
-# Fail‑safe : refuser l'accès si le service d'autorisation est indisponible
+### Scénario 1 — Message d’erreur bavard (CWE‑209)  
+Une exception côté serveur renvoie un message contenant **pile d’appels, chemins, variables**. L’attaquant s’en sert pour **cartographier** l’application et cibler des composants précis.
 
-def can_access(user_id: str) -> bool:
-    try:
-        return check_authorization_service(user_id)
-    except Exception:
-        return False
+### Scénario 2 — Paramètre manquant non géré (CWE‑234)  
+Un endpoint suppose qu’un paramètre obligatoire existe ; en son absence, le code passe dans un **état non prévu** qui **court‑circuite** une vérification métier, ouvrant un **bypass** fonctionnel. 
 
-```
+### Scénario 3 — Privilèges insuffisants « gérés » en fail‑open (CWE‑274 / CWE‑636)  
+Une opération sensible doit échouer si l’utilisateur n’a pas le rôle requis ; une erreur mal gérée **retourne un état “autorisé”** au lieu de bloquer. Résultat : **élévation de privilèges**.
 
-### Java
-```java
-
-// Ne jamais autoriser par défaut en cas d'exception côté politique
-public class AuthzClient {
-    private final RemotePolicy remotePolicy;
-    public AuthzClient(RemotePolicy remotePolicy) { this.remotePolicy = remotePolicy; }
-    public boolean canAccess(String userId) {
-        try {
-            return remotePolicy.allow(userId);
-        } catch (Exception ex) {
-            return false; // fail-safe
-        }
-    }
-}
-
-```
+### Scénario 4 — Null pointer deref → DoS (CWE‑476)  
+Des valeurs nulles inattendues ne sont pas contrôlées ; un appel critique **crashe** le processus, provoquant une **indisponibilité** exploitable.
 
 ---
+
+## CWE liées
+
+Exemples représentatifs parmi les **24 CWE** de la catégorie :
+- **CWE‑209 — Generation of Error Message Containing Sensitive Information**  
+- **CWE‑234 — Failure to Handle Missing Parameter** 
+- **CWE‑274 — Improper Handling of Insufficient Privileges** 
+- **CWE‑476 — NULL Pointer Dereference**
+- **CWE‑636 — Not Failing Securely (“Failing Open”)**
+
+Pour la **liste complète des CWE mappées** et les métriques (incidence/couverture/exploit/impact), voir la page officielle A10.
+
+---
+
 ## Liens utiles
-- Fiche OWASP officielle : https://owasp.org/Top10/2025/A10_2025-Mishandling_of_Exceptional_Conditions/
-- OWASP ASVS (contrôles applicatifs) : https://owasp.org/www-project-application-security-verification-standard/
-- OWASP Cheat Sheet Series : https://cheatsheetseries.owasp.org/
+
+- **Page officielle OWASP — A10:2025 Mishandling of Exceptional Conditions**  
+  [https://owasp.org/Top10/2025/A10_2025-Mishandling_of_Exceptional_Conditions/](https://owasp.org/Top10/2025/A10_2025-Mishandling_of_Exceptional_Conditions/)
+
+- **OWASP Top 10:2025 — Page principale / contexte**  
+  [https://owasp.org/Top10/2025/](https://owasp.org/Top10/2025/)
+
+---
+
+## Attribution
+
+Contenu dérivé à partir des documents OWASP (licence **CC BY‑SA 4.0**).  
+Informations de licence : [https://owasp.org/Top10/2025/0x01_2025-About_OWASP/](https://owasp.org/Top10/2025/0x01_2025-About_OWASP/)

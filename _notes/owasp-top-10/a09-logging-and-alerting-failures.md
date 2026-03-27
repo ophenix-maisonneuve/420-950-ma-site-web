@@ -2,77 +2,78 @@
 layout: default
 title: A09:2025 — Logging & Alerting Failures
 parent: OWASP Top 10 (2025)
-nav_order: 10
+nav_order: 9
 has_toc: true
 ---
 
 # A09:2025 — Logging & Alerting Failures (Journaux et alertes défaillants)
 
-> **Contexte 2025 :** Accent 2025 : 
+## Description
 
-## Comprendre la menace
-Des **journaux pauvres** sabotent la détection et des **alertes bruyantes** usent les équipes. À l’inverse, des logs **bavards** qui exposent PII, secrets ou tokens créent des brèches additionnelles. 2025 demande des **schémas** normalisés, une **corrélation** inter‑services et des **alertes** reliées à des **actions** concrètes (playbooks, seuils d’escalade).
+Sans **journalisation** pertinente, **surveillance** continue et **alertes exploitables**, les attaques passent inaperçues et la réponse aux incidents est lente ou impossible. A09 regroupe les cas où les événements auditable (authentification, accès sensibles, opérations à forte valeur), les erreurs, et les signaux de compromission ne sont **pas consigné·es**, **mal corrélé·es**, **non surveillé·es**, ou ne déclenchent **aucune alerte** actionnable. Cette catégorie reste **difficile à tester** (donc sous‑représentée dans les données CVE) et a, pour la **troisième fois**, été retenue via le **vote de la communauté** plutôt que par le seul volume de CVE—mais son **impact sur la visibilité et la forensic** est majeur. En 2025 : 5 CWE mappées, ~**723 CVE**, et des exemples notables comme la **mauvaise gestion d’encodage vers les logs (CWE‑117)**, la **consignation d’informations sensibles (CWE‑532)**, et l’**insuffisance de journalisation (CWE‑778)**.
 
-**En bref — points clés**
-
-- **Problèmes typiques**
-  - Absence d’events pivot; logs contenant PII/secrets; pas de corrélation.
-
-{: .highlight-title}
-> Contexte 2025
->
-> En 2025, l'accent est mis sur les **alertes actionnables** (pas seulement du *logging*) et la protection contre la **fuite d’informations** dans les *logs*.
+Exemples de symptômes couverts par A09 : événements d’authentification **non logués** ou de façon incohérente ; messages d’erreur **pauvres** ou **pas de log** ; **intégrité des journaux non protégée** ; logs **non surveillés** ; stockage **local uniquement** sans sauvegarde ; **seuils d’alerte** et **escalades** inadaptés ou inexistants ; **alertes non reçues ou ignorées** ; tests **DAST/pen‑test** qui **ne déclenchent aucune alerte** ; application **incapable de détecter/alerter** en temps (quasi) réel ; **fuite d’informations sensibles** via les logs visibles des utilisateurs ; **injection dans les journaux** par manque d’encodage ; **mauvaise gestion des erreurs** qui empêche de loguer un problème ; **use cases d’alerte** absents ou obsolètes.
 
 ---
-## Attaque
-Une intrusion reste **invisible** si les événements clés (connexion, élévation, modifications des secrets) ne sont pas journalisés. À l’inverse, une **exfiltration par logs** survient lorsqu’un message d’erreur ou une trace est renvoyé tel quel côté client puis agrégé côté SIEM. Les **signaux** : absence d’events critiques, présence de PII/secrets en clair, SLO de détection dépassés.
 
-**En bref**
+## Comment se protéger
 
-- **Signaux/artefacts**
-  - Manques d’events; fuite PII/secrets; délais de détection élevés.
+- **Journaliser les événements auditables critiques** : connexions/réussies et **échecs**, tentatives anormales, réinitialisations, **transactions à forte valeur**, changements de permissions, accès aux données sensibles.
+- **Protéger l’intégrité et la disponibilité des logs** : empêcher la **modification/suppression** non autorisée, **sauvegarder** et **centraliser** (pas de stockage local seul), synchroniser l’horloge, conserver une **chaîne d’horodatage** fiable. 
+- **Surveiller en continu et alerter efficacement** : définir des **seuils**, des **processus d’escalade**, s’assurer que les **alertes sont reçues et traitées** dans des délais appropriés. Tester l’alerte via **DAST/pen‑test** et scénarios simulés.
+- **Éviter la fuite de données sensibles dans les logs** : minimiser, **masquer**/pseudonymiser si nécessaire, appliquer des **politiques de rétention** conformes.
+- **Encoder/échapper correctement les données consignées** pour éviter **l’injection dans les journaux** et la corruption des analyses forensiques.
+- **Couvrir la détection en temps réel/near‑real‑time** pour les attaques actives, et maintenir des **use cases d’alerte** à jour (correspondant aux menaces et au contexte métier).
 
----
-## Prévention, détection, réponse)
-Définir un **modèle de log** minimal (timestamp, niveau, **correlation‑ID**, tenant/user), appliquer **rédaction/tokenisation** aux champs sensibles, chiffrer le transport et le stockage et cadrer la **rétention**. Aligner des **règles d’alerte** par scénario avec des **playbooks**. En cas de fuite, **purger** et effectuer une **rotation** des secrets exposés.
-
-**En bref**
-
-- **Prévention**
-  - Journaux (*logs*) dans un format standard; rédaction/tokenisation; chiffrement; rétention cadrée.
-- **Détection & réponse**
-  - Alertes scénarisées; playbooks; purge/rotation en cas de fuite.
+> Rappel de contexte et du classement 2025 : la liste et le rang d’A09 sont détaillés dans l’édition 2025 du projet Top 10.
 
 ---
-## Exemples
 
-### Python
-```python
+## Exemples d'attaques
 
-# Masquage de secrets dans les logs
-import logging, re
-logger = logging.getLogger("app")
-SECRET_RE = re.compile(r"(apikey|token)=[A-Za-z0-9_\-]+")
+### Scénario 1 — Brute force silencieux
+Aucune **journalisation des échecs de connexion** et **aucune alerte** en cas de rafales de tentatives d’authentification. Un attaquant réussit un credential stuffing sans être détecté.  
+**Causes** : absence de logs d’événements auditables, pas de seuil d’alerte ni d’escalade.
 
-def redact(msg: str) -> str:
-    return SECRET_RE.sub(r"=***", msg)
+### Scénario 2 — Données sensibles dans les logs
+Des **PII/jetons** figurent en clair dans des journaux accessibles aux opérateurs et parfois aux utilisateurs (via messages d’erreur). L’attaquant récupère des secrets dans les logs d’application.  
+**Causes** : **CWE‑532**, messages d’erreur trop détaillés, contrôle d’accès aux logs insuffisant.
 
-```
+### Scénario 3 — Log forging / injection
+Les entrées utilisateur ne sont pas **encodées avant d’être loguées** ; un attaquant injecte des séquences qui **faussent** l’analyse (ex. spoof d’identité, leurre des SOC playbooks).  
+**Causes** : **CWE‑117**, absence d’encodage/échappement contexte‑spécifique.
 
-### Java
-```java
+### Scénario 4 — Aucune alerte pendant un pen‑test
+Un test **DAST** martèle des endpoints sensibles ; **aucune alerte** n’est déclenchée et l’équipe sécurité ne voit rien en temps utile.  
+**Causes** : manque de **détection/alerte near‑real‑time**, use cases obsolètes ou inexistants.
 
-// Redaction côté Java (regex simplifiée)
-public class LogUtil {
-    public String redact(String input) {
-        return input.replaceAll("(?i)(apikey|token)=([A-Za-z0-9_-]+)", "$1=***");
-    }
-}
-
-```
+### Scénario 5 — Effacement de traces
+Les logs sont **locaux** et non protégés ; l’attaquant efface les fichiers après exploitation.  
+**Causes** : intégrité non protégée, absence de **centralisation/sauvegarde**.
 
 ---
+
+## CWE liées
+
+- **CWE‑117 — Improper Output Neutralization for Logs** (encodage/échappement insuffisant vers les journaux)
+- **CWE‑532 — Insertion of Sensitive Information into Log File** (fuite d’informations) 
+- **CWE‑778 — Insufficient Logging** (journalisation insuffisante)
+
+Pour la **liste complète des CWE mappées** (5 CWE) et les métriques associées, consulte la page officielle A09.
+
+---
+
 ## Liens utiles
-- Fiche OWASP officielle : https://owasp.org/Top10/2025/0x00_2025-Introduction/
-- OWASP ASVS (contrôles applicatifs) : https://owasp.org/www-project-application-security-verification-standard/
-- OWASP Cheat Sheet Series : https://cheatsheetseries.owasp.org/
+
+- **Page officielle OWASP — A09:2025 Security Logging & Alerting Failures**  
+  [https://owasp.org/Top10/2025/A09_2025-Security_Logging_and_Alerting_Failures/](https://owasp.org/Top10/2025/A09_2025-Security_Logging_and_Alerting_Failures/)
+
+- **OWASP Top 10:2025 — Page principale / contexte**  
+  [https://owasp.org/Top10/2025/](https://owasp.org/Top10/2025/)
+
+---
+
+## Attribution
+
+Contenu dérivé à partir des documents OWASP (licence **CC BY‑SA 4.0**).  
+Informations de licence : [https://owasp.org/Top10/2025/0x01_2025-About_OWASP/](https://owasp.org/Top10/2025/0x01_2025-About_OWASP/)
