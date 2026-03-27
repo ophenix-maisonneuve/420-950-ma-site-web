@@ -2,77 +2,86 @@
 layout: default
 title: A03:2025 — Software Supply Chain Failures (Chaîne d’approvisionnement logiciel)
 parent: OWASP Top 10 (2025)
-nav_order: 4
+nav_order: 3
 has_toc: true
 ---
 
 # A03:2025 — Software Supply Chain Failures (Chaîne d’approvisionnement logiciel)
 
-## Comprendre la menace
+## Description
 
-Les attaques de **chaîne d’approvisionnement** visent votre **outillage** autant que votre code : dépendances (directes/transitives), registres de packages, runners CI, systèmes de build et distribution. Un package typosquatté ou un script d’installation malveillant hérite des **droits** du pipeline, accède aux secrets et peut **altérer** les artefacts. Le 2025 introduit cette catégorie à la suite d’un **consensus communautaire** face à des incidents à fort impact mais **sous‑représentés** dans les tests classiques.
+Les défaillances de la chaîne d’approvisionnement logicielle couvrent les compromissions et faiblesses qui interviennent **tout au long du cycle de fabrication et de distribution du logiciel** : dépendances et composants tiers, outils et environnements de build, registres de paquets, artefacts, images, canaux de distribution et mécanismes de mise à jour. Le risque ne se limite donc plus aux « composants avec vulnérabilités connues » : il englobe également les **modifications malveillantes** ou **changements non maîtrisés** dans les outils et artefacts dont dépend l’application. 
 
-**En bref — points clés**
+Cette catégorie, issue de l’évolution d’**A06:2021 – Vulnerable and Outdated Components**, a été **massivement priorisée par la communauté** lors de l’enquête Top 10 2025 (classée #1 par la moitié des répondants). Malgré son importance, elle reste **difficile à tester**, et **peu de CVE** sont directement mappées aux CWE de cette catégorie ; toutefois, lorsque les tests ciblent réellement la chaîne d’approvisionnement, **l’incidence observée est élevée**. 
 
-- **Surfaces**
-  - Registres (npm/PyPI/Maven), runners, SCM, registries d’images/artefacts. citeturn1search6
-- **Modes de compromission**
-  - Typosquatting/dépendance malveillante; CI compromise; **vol de clé de signature**. citeturn1search6
-
-{: .highlight-title}
-> Contexte 2025
->
-> - **Nouveau en 2025**
-> - Extension de *Vulnerable & Outdated Components* (#6 en 2021) à **toute la chaîne** (dépendances, build, CI/CD, distribution).
-> - Impact élevé, visibilité de test limitée.
+Côté données globales 2025, cette catégorie apparaît **peu fréquente en volume brut** mais présente **les scores moyens d’exploitabilité et d’impact parmi les plus élevés** lorsque l’on corrèle CWEs et CVEs — ce qui explique son rang et son attention accrues dans cette édition.
 
 ---
 
-## Attaque
-Trois scénarios dominent : **typosquatting** (exécution à l’installation), **altération de CI** (injection dans le runner ou la recette de build) et **signature usurpée** (artefacts malveillants paraissant légitimes). Les **indicateurs** incluent des divergences entre **SBOM** et artefacts, des empreintes inattendues et des processus anormaux observés pendant le build.
+## Comment se protéger
 
-**En bref**
+Pour réduire le risque « supply chain », l’objectif est de **connaître précisément ce que vous exécutez**, **durcir** chaque maillon, et **contrôler les changements**.
 
-- **Signaux/artefacts**
-  - Hash en écart
-  - Différences SBOM/artefact
-  - Téléchargements depuis miroirs non officiels.
+### Gouvernance des composants et dépendances
+- **Inventorier et suivre les versions** de **tous** les composants (directs **et transitifs**) côté client et serveur ; surveiller leur obsolescence et leur support.   
+- **Scanner régulièrement** pour détecter les vulnérabilités, et **s’abonner aux bulletins** de sécurité concernant vos composants.   
+- **Éviter les sources non fiables** : récupérer les paquets depuis des registres officiels et des liens sécurisés ; restreindre les téléchargements « ad hoc » par développeurs/ops. 
 
----
+### Maîtrise des changements et de la distribution
+- Mettre en place un **processus de gestion des changements** documenté (traçabilité des mises à jour d’IDE/plug‑ins, dépôts, registres d’images/bibliothèques, artefacts et modes de stockage). **Documenter chaque modification** de la chaîne.   
+- **Mettre à jour/patcher rapidement** plateformes, frameworks et dépendances selon une approche **pilotée par le risque**. 
 
-## Prévention, détection, réponse
-Mettre en place une **attestation de bout en bout** : **SBOM** (CycloneDX/SPDX), **SCA**, **pinning** des versions, **vérification de signatures/hachages** à l’entrée comme à la sortie. Favoriser des **builds reproductibles**, signer avec **Sigstore/cosign**, **isoler** le pipeline (agents éphémères, moindre privilège, secrets scellés) et surveiller les registres pour les **takeovers**. En réponse, préparez **rotation/révocation** des clés, **rollback** et chasse aux **dépendances transitives**.
-
-**En bref**
-
-- **Prévention**
-  - SBOM + SCA; pinning; vérification systématique des signatures/hachages.
-- **Détection**
-  - Comparaison artefact↔SBOM; surveillance des registres; contrôle d’intégrité post‑build.
-- **Réponse**
-  - Révocation/rotation des clés; rollback; assainissement des dépendances transitives.
+### Durcissement de la chaîne d’approvisionnement
+- **Durcir tous les systèmes** de la chaîne (droits d’accès stricts, principe du moindre privilège).   
+- **Séparation des tâches** : personne ne doit pouvoir **coder, valider et promouvoir** seul jusqu’en production.   
+- **Restreindre la promotion** d’artefacts vers la production aux composants **vérifiés** et **provenant de dépôts approuvés** (idéalement internes/vettés pour les environnements à risque élevé). 
 
 ---
 
-## Exemples
+## Exemples d'attaques 
 
-### Python
-```python
-# requirements.txt avec --require-hashes (extrait conceptuel)
-# requests==2.32.3 \
-#   --hash=sha256:...
+### Scénario 1 — Package compromis dans un registre public
+Un attaquant publie une version **piégée** d’une dépendance populaire (ou détourne le namespace d’un mainteneur). Une application avec des versions **non figées** récupère automatiquement la mise à jour et **exécute du code malveillant** lors du build ou au runtime.  
+**Causes** : absence de contrôle des sources, de revue des changements et d’alertes sur les nouvelles versions ; chaîne CI/CD qui **fait confiance** au registre public sans garde‑fous. 
 
-```
+### Scénario 2 — Compromission du pipeline de build
+Des **identifiants CI/CD** ou clés d’accès fuité·es permettent à un attaquant de **modifier les jobs** de build, d’insérer un script d’exfiltration dans les artefacts, puis de **promouvoir** ces artefacts jusqu’à la prod.  
+**Causes** : absence de séparation des rôles, droits excessifs, et **manque de contrôle d’intégrité** des artefacts. 
 
-### Java
-```java
-/* Maven — verrouiller versions et vérifier la résolution (Enforcer) */
+### Scénario 3 — Dépendance transitive non maintenue
+Un framework réputé s’appuie sur une **bibliothèque transitive non maintenue**. Sans **inventaire** ni **scan régulier**, l’organisation **ignore** le risque et **diffère** les mises à jour ; une vulnérabilité connue est exploitée en production.  
+**Causes** : pas d’inventaire précis, **pas de surveillance** des bulletins, **patch management** non piloté par le risque. 
 
-```
+### Scénario 4 — Dépôt/artefact interne non signé
+L’équipe consomme des **artefacts internes** (images, librairies) **non signés** et **non validés** en intégrité. Un intrus ayant compromis le stockage d’artefacts **remplace** une image par une version malveillante, discrètement déployée à grande échelle.  
+**Causes** : absence de vérification d’intégrité et de **chaîne de confiance** sur les artefacts. 
+
+---
+
+## CWE liées
+
+Les CWE fréquemment associées à cette catégorie incluent :
+
+- **CWE‑477 — Use of Obsolete Function**   
+- **CWE‑1104 — Use of Unmaintained Third Party Components**   
+- **CWE‑1329 — Reliance on Component That is Not Updateable**   
+- **CWE‑1395 — Dependency on Vulnerable Third‑Party Component**   
+
+Pour la **liste complète des CWE mappées** et les métriques associées, consulte la page officielle A03. 
 
 ---
 
 ## Liens utiles
-- Fiche OWASP officielle : https://owasp.org/Top10/2025/0x00_2025-Introduction/
-- OWASP ASVS (contrôles applicatifs) : https://owasp.org/www-project-application-security-verification-standard/
-- OWASP Cheat Sheet Series : https://cheatsheetseries.owasp.org/
+
+- **Page officielle OWASP — A03:2025 Software Supply Chain Failures**  
+  [https://owasp.org/Top10/2025/A03_2025-Software_Supply_Chain_Failures/](https://owasp.org/Top10/2025/A03_2025-Software_Supply_Chain_Failures/) 
+
+- **OWASP Top 10:2025 — Page principale / contexte**  
+  [https://owasp.org/Top10/2025/](https://owasp.org/Top10/2025/)
+
+---
+
+## Attribution
+
+Contenu dérivé à partir des documents OWASP (licence **CC BY‑SA 4.0**).  
+Informations de licence : [https://owasp.org/Top10/2025/0x01_2025-About_OWASP/](https://owasp.org/Top10/2025/0x01_2025-About_OWASP/)

@@ -2,84 +2,83 @@
 layout: default
 title: A07:2025 — Authentication Failures
 parent: OWASP Top 10 (2025)
-nav_order: 8
+nav_order: 7
 has_toc: true
 ---
 
 # A07:2025 — Authentication Failures (Défaillances d’authentification)
 
-> **Contexte 2025 :** 
+## Description
 
-## Comprendre la menace
-Les **défaillances d’authentification** accélèrent les prises de contrôle. Sans **MFA** ni limitation adaptative, le **credential stuffing** transforme des fuites externes en compromissions internes. Une **gestion de session** laxiste annule l’effort d’authN; des intégrations **OIDC** faibles (iss/aud/nonce) ouvrent la voie au **rejeu** ou au mix‑up.
+Les **échecs d’authentification** surviennent lorsque les mécanismes censés **prouver l’identité** d’un utilisateur sont absents, mal paramétrés, ou contournables. Cela inclut : la tolérance aux **attaques automatisées** (credential stuffing / password spraying), l’acceptation de **mots de passe faibles** ou d’identifiants **déjà compromis**, des **parcours de récupération** non sécurisés (questions « secrètes »), l’**absence de MFA** ou des **fallbacks MFA** trop permissifs, ainsi qu’une **mauvaise gestion de session** (ID de session dans l’URL, réutilisation du même ID après login, non‑invalidations).
 
-**En bref**
-
-- **Vecteurs**
-  - Brute force/stuffing; session fixation; flux OIDC incomplets.
-
-{: .highlight-title}
-> Contexte 2025
->
-> Toujours critique : identification/authentification, gestion de sessions, fédération (OIDC/OAuth). 
+**Prévalence 2025.** La catégorie **reste à la 7e place** comme en 2021, reflétant une amélioration partielle dans l’usage de frameworks standardisés mais une persistance des faiblesses d’implémentation. Elle regroupe **36 CWE** couvrant mots de passe codés en dur (CWE‑259/CWE‑798), validation TLS d’hôte incorrecte (CWE‑297), authentification impropre (CWE‑287), fixation de session (CWE‑384), etc. 
 
 ---
 
-## Attaque
-Des bots orchestrent des **tentatives massives** si l’application n’ajuste pas sa défense. Un **XSS** ailleurs peut voler un cookie non durci et détourner la session. Des implémentations **PKCE/device code** fragiles facilitent les **fuites de tokens**. Les **signaux** : pics d’échecs par IP/ASN, jetons sans `aud/exp` valides, *refresh* depuis des empreintes inattendues.
+## Comment se protéger
 
-**En bref**
+1. **Imposer le MFA et bloquer l’automatisation malveillante**  
+   Activer le **MFA** partout où c’est possible pour contrer credential stuffing, brute force et réutilisation d’identifiants volés. Ajouter **rate limiting**, protections anti‑bot/captcha selon le contexte, et **alertes** sur tentatives suspectes.
 
-- **Signaux**
-  - Anomalies de login; tokens invalides; réutilisation suspecte de refresh tokens. citeturn1search6
+2. **Assainir la politique de mots de passe**  
+   Interdire **mots de passe par défaut** et **listes de pires mots de passe** (ex. top 10 000). **Encourager l’usage de gestionnaires de mots de passe** et détecter l’utilisation d’identifiants **déjà compromis** lors de la création ou du changement.
 
----
-## Prévention, détection, réponse)
-**MFA** et **limitation adaptative** constituent la **ligne de base**. Durcir les cookies (`Secure`/`HttpOnly`/`SameSite`), privilégier le ***passwordless*** lorsque possible et implémenter **correctement OIDC** (validation `iss`/`aud`/`exp`/`nbf`, rotation maîtrisée). Détecter les anomalies de session et déclencher du **step‑up**. Révoquer sessions/tokens et forcer la **ré-authentification** ciblée en cas d’incident.
+3. **Sécuriser les parcours de récupération**  
+   Éviter les **questions de connaissance** et préférer des **canaux forts** (lien à usage unique avec durée courte, second facteur). Vérifier l’**audience** et la **portée** des jetons/preuves fournis.
 
-**En bref**
+4. **Stocker et transporter les secrets correctement**  
+   Ne jamais stocker des mots de passe en clair ; utiliser un **hachage adapté aux mots de passe** (p. ex. Argon2/scrypt/PBKDF2 avec paramètres robustes) et **protéger en transit** via TLS moderne. *(La partie stockage sûr des mots de passe s’interface avec A04 – Cryptographic Failures, mais reste une exigence clé d’A07.)* 
 
-- **Prévention**
-  - Authentification multi-facteurs (*MFA*); cookies sécurisés; OIDC validé; politiques sans mot de passe (*passwordless*).
-- **Détection & réponse**
-  - Risk‑based auth; step‑up; révocation et rotation des tokens.
+5. **Durcir la gestion de session**  
+   Ne jamais exposer l’**ID de session** dans l’URL ; **renouveler** l’ID après authentification, **invalider** correctement lors du logout ou d’un délai d’inactivité, et protéger contre **fixation de session** et **réutilisation**. 
 
 ---
 
-## Exemples
+## Exemples d'attaques
 
-### Python
-```python
+### Scénario 1 — Credential stuffing / password spraying  
+L’application autorise des **tentatives illimitées** sans MFA ni limite de taux. Un attaquant réessaie des **paires email/mot de passe fuitées** (ou variantes « Password1!, Password2!… ») jusqu’à prendre le contrôle de comptes.  
+**Causes** : absence de MFA, pas de blocage progressif, pas de détection d’IP/UA anormaux, mots de passe faibles acceptés. citeturn5search18
 
-# Flask — cookies de session protégés
-from flask import Flask
-app = Flask(__name__)
-app.secret_key = b"change-me"
-app.config.update(
-    SESSION_COOKIE_SECURE=True,
-    SESSION_COOKIE_HTTPONLY=True,
-    SESSION_COOKIE_SAMESITE='Lax'
-)
+### Scénario 2 — Mots de passe par défaut / codés en dur  
+Un composant déployé conserve **admin/admin** ou des **secrets en dur**. Un attaquant se connecte à l’interface d’administration dès qu’elle est exposée.  
+**Causes** : présence de **CWE‑259/CWE‑798**, absence d’audit de configuration et de rotation.
 
-```
+### Scénario 3 — Récupération d’accès faible  
+Le parcours « mot de passe oublié » repose sur des **questions de connaissance** (date de naissance, école…). L’attaquant collecte ces infos publiques et **réinitialise** le compte de la victime.  
+**Causes** : processus de récupération **non vérifiable** et non résistant à l’ingénierie sociale.
 
-### Java
-```java
-
-// Spring Security — mitigation session fixation
-@Configuration
-public class SecurityConfig {
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf().and().sessionManagement().sessionFixation().migrateSession();
-        return http.build();
-    }
-}
-
-```
+### Scénario 4 — Fixation / fuite d’identifiant de session  
+L’ID de session est **transmis dans l’URL** ou **réutilisé** après le login. Un attaquant qui force une victime à visiter une URL piégée **récupère** l’ID et **hijacke** la session.  
+**Causes** : exposition côté client, absence de rotation post‑login, invalidations incomplètes. 
 
 ---
+
+## CWE liées
+
+Exemples de CWE emblématiques dans A07 :
+
+- **CWE‑259 — Use of Hard‑coded Password** / **CWE‑798 — Use of Hard‑coded Credentials**   
+- **CWE‑297 — Improper Validation of Certificate with Host Mismatch** *(lié à la vérification de certificats côté client)*  
+- **CWE‑287 — Improper Authentication**   
+- **CWE‑384 — Session Fixation**   
+
+**Liste complète (36 CWE)** et métriques : voir la page officielle A07.
+
+---
+
 ## Liens utiles
-- Fiche OWASP officielle : https://owasp.org/Top10/2025/0x00_2025-Introduction/
-- OWASP ASVS (contrôles applicatifs) : https://owasp.org/www-project-application-security-verification-standard/
-- OWASP Cheat Sheet Series : https://cheatsheetseries.owasp.org/
+
+- **Page officielle OWASP — A07:2025 Authentication Failures**  
+  [https://owasp.org/Top10/2025/A07_2025-Authentication_Failures/](https://owasp.org/Top10/2025/A07_2025-Authentication_Failures/)
+
+- **OWASP Top 10:2025 — Page principale / contexte**  
+  [https://owasp.org/Top10/2025/](https://owasp.org/Top10/2025/)
+
+---
+
+## Attribution
+
+Contenu dérivé à partir des documents OWASP (licence **CC BY‑SA 4.0**).  
+Informations de licence : [https://owasp.org/Top10/2025/0x01_2025-About_OWASP/](https://owasp.org/Top10/2025/0x01_2025-About_OWASP/)

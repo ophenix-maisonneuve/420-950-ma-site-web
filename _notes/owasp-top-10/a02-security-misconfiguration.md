@@ -2,90 +2,75 @@
 layout: default
 title: A02:2025 — Security Misconfiguration
 parent: OWASP Top 10 (2025)
-nav_order: 3
+nav_order: 2
 has_toc: true
 ---
 
 # A02:2025 — Security Misconfiguration (Mauvaise configuration)
 
-> **Contexte 2025 :** Catégorie **#2** en 2025 ; reflète la complexité **Cloud/IaC** et l’élargissement des surfaces de configuration (plateformes, frameworks, middlewares).
+## Description
 
-## Comprendre la menace
+Une mauvaise configuration de sécurité survient lorsqu’une application, une infrastructure ou un service cloud est déployé avec des paramètres faibles, incohérents, incomplets, ou laissés par défaut. Cela peut se manifester à tous les niveaux de la pile : serveur, framework, bibliothèque, base de données, conteneur, orchestration, pare‑feu applicatif, stockage cloud, etc. Les conséquences typiques incluent l’exposition de services ou d’interfaces d’administration, des messages d’erreur trop bavards, des comptes par défaut actifs, des permissions trop larges (notamment en cloud), et des en‑têtes de sécurité absents ou non sécurisés. 
 
-La **mauvaise configuration** est un **défaut d’ingénierie** plutôt qu’une simple erreur d’exploitation. Quand le comportement sécurisé dépend d’un mille‑feuille de flags, d’options et de fichiers IaC qui divergent entre environnements, l’application expose des surfaces non prévues : **dashboards** laissés ouverts, **stockage** public, **messages d’erreur** bavards. L’édition 2025 note une **prévalence accrue** de ces défauts dans les données de tests, d’où sa place au **rang #2**. citeturn1search6
-
-**En bref — points clés**
-
-- **Causes typiques**
-  - Écarts dev/test/prod; templates IaC copiés sans revue; valeurs par défaut faibles. citeturn1search6
-  - Expositions involontaires (ports/services, directory listing, CORS `*`). citeturn1search6
-- **Exemples**
-  - Endpoints d’administration (Actuator/metrics) accessibles publiquement. citeturn1search6
-  - Buckets S3/Blob en lecture publique contenant des PII/artefacts. citeturn1search6
-  - Frameworks en **mode debug** en production (fuites d’information). citeturn1search6
-
-{: .highlight-title}
-> Contexte 2025
->
-> - Passé de #5 en 2021 à **#2** en 2025 
-> - Reflète la complexité **Cloud/IaC** et l’élargissement des surfaces de configuration (plateformes, frameworks, middlewares).
+**Prévalence 2025.** Cette catégorie est passée à la 2e place. Les données 2025 indiquent que **100 % des applications testées** comportaient au moins une forme de mauvaise configuration, avec un **taux d’incidence moyen de 3,00 %** et **plus de 719 000 occurrences** mappées à un CWE dans cette catégorie. Les CWE notables incluent **CWE‑16 (Configuration)** et **CWE‑611 (XXE)**.
 
 ---
 
-## Attaque
-Les attaquants automatisent la **découverte** d’interfaces d’administration et d’objets de stockage exposés. Un endpoint non protégée livre des métadonnées précieuses (versions, routes internes). Des **bannières d’erreur** verbeuses et des traces révèlent l’architecture et guident les intrusions suivantes. Les outils de posture (CSPM) et les **scans IaC** détectent ces problèmes à l’échelle avant qu’ils ne soient exploités massivement.
+## Comment se protéger
 
-**En bref**
+L’axe clé est de rendre la **sécurisation reproductible et vérifiable** à travers tous les environnements.
 
-- **Chaîne type**
-  - Scan → Découverte d’admin/dashboards → Fuite d’infos → Mouvement latéral.
-- **Signaux**
-  - Alertes CSPM (buckets/SG ouverts), 401/403 suivis de 200 après essais par défaut.
-
----
-
-## Prévention, détection, réponse
-Traiter la configuration comme du **code** (*configuration-as-code*): **versionner, relire et tester** avec des **politiques as code** (linters IaC). Commencer par des **benchmarks** (CIS), appliquer le principe du **moindre privilège** aux identités/ressources et **désactiver** ce qui n’est pas indispensable. Rester **neutre** côté client dans les messages d’erreur et centraliser les détails en logs serveurs. Piloter la **posture cloud** avec CSPM en continu, des **diffs** de configuration et des **runbooks** qui incluent la **rotation** des secrets potentiellement exposés.
-
-**En bref**
-
-- **Prévention**
-  - IaC + policy-as-code; CIS/benchmarks; moindre privilège; bannières neutres.
-- **Détection**
-  - CSPM/scans réguliers; vérification des expositions publiques; *drift* de config.
-- **Réponse**
-  - Durcissement via runbooks; **rotation des secrets**; quarantaine des services.
+- **Mettre en place un processus de durcissement (hardening) reproductible**, permettant d’instancier rapidement des environnements correctement verrouillés. Les environnements **Dev/QA/Prod** doivent être **configurés à l’identique** (avec des **identifiants distincts**), et ce processus doit être **automatisé**.   
+- **Réduire la surface** : bâtir une plate‑forme **minimale**, sans fonctionnalités, composants, exemples ni documentations **inutiles**. **Supprimer** ou ne pas installer ce qui n’est pas requis (frameworks, modules, services, ports, comptes de test, privilèges superflus, etc.).   
+- **Gouvernance de la configuration & patch management** : planifier des tâches régulières pour **revoir et mettre à jour** les configurations en suivant **notes de sécurité, mises à jour et correctifs**.   
+- **Stockage cloud** : **auditer** et **corriger** les permissions (ex. vérification des ACL de buckets S3) afin d’éviter toute exposition publique non désirée.   
+- **En‑têtes/directives côté client** : émettre les en‑têtes de sécurité pertinents (p. ex., HSTS, CSP, X‑Content‑Type‑Options, X‑Frame‑Options) et les configurer à des valeurs sûres. *(Cette pratique est mentionnée comme principe dans la documentation OWASP 2025 et les présentations de chapitre)*.   
+- **Vérification continue** : intégrer un processus **automatisé** qui **contrôle l’efficacité** des configurations et détecte les écarts entre environnements.
 
 ---
 
-## Exemples
+## Exemples d'attaques
 
-### Python
-```python
+### ▶ Scénario 1 — Comptes et mots de passe par défaut
+Une application conserve des **comptes par défaut** avec des **mots de passe connus**. Un attaquant tente une connexion sur l’interface d’admin exposée (ou via une API) et obtient l’accès au back‑office sans effort.  
+**Cause** : durcissement insuffisant post‑installation, absence de rotation/mise hors service des comptes par défaut. 
 
-# Django — ne jamais laisser DEBUG=True en prod
-DEBUG = False
-ALLOWED_HOSTS = ["exemple.edu"]
+### ▶ Scénario 2 — Messages d’erreur trop verbeux
+Une erreur d’application renvoie une **stack trace complète** côté client. L’attaquant récupère des **chemins, modules et versions**, ce qui facilite la **cartographie** de l’application et la recherche d’exploits ciblant les composants identifiés.  
+**Cause** : configuration de gestion d’erreurs non centralisée ou non filtrée. 
 
-```
+### ▶ Scénario 3 — Stockage cloud mal configuré
+Un **bucket de stockage** (ex. S3) est **lisible publiquement**. Des documents internes ou PII sont téléchargeables par toute personne connaissant l’URL.  
+**Cause** : permissions cloud trop larges, absence de revue systématique des ACL. 
 
-### Java
-```java
-
-# application.yml — limiter Actuator
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info
-  endpoint:
-    health:
-      show-details: when_authorized
-
-```
+### ▶ Scénario 4 — Fichiers et répertoires sensibles exposés
+Le **listing de répertoire** est actif et des fichiers tels que **`.git/`**, **backups** ou **artefacts** de build sont accessibles sur Internet.  
+**Cause** : absence de verrouillage du serveur Web et de règles d’exclusion. 
 
 ---
+
+## CWE liées
+
+La catégorie A02 regroupe **16 CWE**. Exemples représentatifs :
+
+- **CWE‑16 — Configuration** (famille racine pour de nombreuses mauvaises configurations)   
+- **CWE‑611 — Improper Restriction of XML External Entity Reference (XXE)**   
+
+**Liste complète des CWE mappées** : voir la section “CWEs Mapped” sur la page officielle A02. 
+
+---
+
 ## Liens utiles
-- Fiche OWASP officielle : https://owasp.org/Top10/2025/0x00_2025-Introduction/
-- OWASP ASVS (contrôles applicatifs) : https://owasp.org/www-project-application-security-verification-standard/
-- OWASP Cheat Sheet Series : https://cheatsheetseries.owasp.org/
+
+- **Page officielle OWASP — A02:2025 Security Misconfiguration**  
+  [https://owasp.org/Top10/2025/A02_2025-Security_Misconfiguration/](https://owasp.org/Top10/2025/A02_2025-Security_Misconfiguration/)
+
+- **OWASP Top 10:2025 — Page principale / contexte**  
+  [https://owasp.org/Top10/2025/](https://owasp.org/Top10/2025/)
+
+---
+
+## Attribution
+
+Contenu dérivé à partir des documents OWASP (licence **CC BY‑SA 4.0**).  
+Informations de licence : [https://owasp.org/Top10/2025/0x01_2025-About_OWASP/](https://owasp.org/Top10/2025/0x01_2025-About_OWASP/)

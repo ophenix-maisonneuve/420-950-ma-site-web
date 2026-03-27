@@ -8,115 +8,104 @@ has_toc: true
 
 # A01:2025 — Broken Access Control (Contrôle d’accès défaillant)
 
-## Comprendre la menace
-Le contrôle d’accès brisé apparaît lorsque la politique d’autorisation n’est pas **appliquée de façon systématique**. Dans ce contexte, un acteur peut outrepasser ses droits : accéder à des ressources d’autrui, appeler des fonctions d’administration, ou exécuter des opérations métier qui devraient être impossibles. Cette situation découle souvent d’un **empilement de petites décisions locales** (vérifications dispersées, suppositions côté client, CORS trop large) qui, cumulées, affaiblissent la barrière d’autorisation. citeturn1search9
-L’édition 2025 rappelle que des vecteurs comme **SSRF** relèvent d’abord d’un problème d’autorisation côté serveur : le système effectue des actions pour le compte d’une identité qui n’y est pas autorisée. D’où la **consolidation** de ces scénarios dans A01 plutôt que leur traitement séparé. citeturn1search6
+## Description
 
-**En bref**
-- **Causes racines**
-  - Contrôles d’accès **dispersés** dans les handlers/contrôleurs → oublis sur certains endpoints.
-  - Absence d’**ownership** au niveau du modèle (IDOR sur ressources multi‑locataires).
-  - Politiques **CORS permissives** qui laissent émettre des requêtes authentifiées depuis des origines de non confiance.
-  - Jetons **non invalidés**/non rotés et métadonnées manipulables (cookies/JWT).
-- **CWE fréquents**
-  - CWE‑284 (contrôle d’accès)
-  - CWE‑352 (CSRF)
-  - CWE‑200/201 (exposition), 
-  - **CWE‑918 (SSRF)**.
+Les contrôles d’accès définissent quelles actions un utilisateur peut réaliser en fonction de ses permissions. Lorsqu’une application met en œuvre ces contrôles de manière incomplète, incohérente ou facilement contournable, on parle de *Broken Access Control*.  
+Ces failles mènent souvent à :
 
-{: .highlight-title}
-> Contexte 2025
->
-> - Position **#1** maintenue
-> - **SSRF** (CWE‑918) est **intégré** au périmètre.
-> - Les contrôles doivent être **centralisés et côté serveur** sur toute la surface (UI/API/services).
+- Des fuites de données sensibles, accessibles par des utilisateurs non autorisés.  
+- L’altération ou la suppression de ressources appartenant à d’autres utilisateurs.  
+- L’exécution de tâches réservées à des rôles plus privilégiés, incluant l’escalade de privilèges.  
+- L’accès à des API ou des endpoints sans vérification sérieuse des droits d’accès.  
+
+Les contributeurs de données pour l’édition 2025 ont constaté que **100 % des applications testées** contenaient au moins une forme de rupture du contrôle d’accès, ce qui en fait la vulnérabilité la plus répandue et la plus critique. Cette catégorie regroupe **40 CWE**, incluant notamment les failles liées au SSRF, désormais intégrées à A01. 
+
+### Exemples typiques de situations vulnérables
+
+- Le principe du moindre privilège n’est pas appliqué : certaines actions restent accessibles alors qu’elles devraient être explicitement restreintes.  
+- L’URL, les identifiants d’objets ou certains paramètres sont modifiables et permettent d’accéder à des données d’autrui (IDOR).  
+- L’application autorise l’appel à des endpoints sensibles (POST/PUT/DELETE) sans vérification des permissions.  
+- Les jetons JWT, cookies ou métadonnées sont manipulables et peuvent être rejoués ou falsifiés.  
+- Des erreurs de configuration CORS permettent l’accès aux API depuis des origines non approuvées.  
+
 
 ---
 
-## Attaque
-Dans une API multi‑tenant, l’attaquant commence par la **découverte** (docs publiques, erreurs verbeuses), enchaîne avec des **variations d’identifiants** pour tester l’IDOR, puis tente une **escalade verticale** via des routes d’administration insuffisamment cloisonnées. Des politiques **CORS permissives** peuvent amplifier l’impact en permettant des requêtes authentifiées depuis un site malveillant. Enfin, des composants serveur exécutant des **requêtes sortantes** sans garde‑fous peuvent conduire à des lectures internes de type **SSRF**.
+## Comment se protéger
 
-**En bref**
+La prévention des ruptures de contrôle d’accès repose sur des mécanismes robustes, centralisés et non manipulables par l’utilisateur.
 
-- **Chaîne type**
-  - Recon → Fuzzing d’IDs → Accès non autorisé (IDOR) → Essais d’endpoints admin.
-- **Tactiques & techniques**
-  - Manipulation d’URL/paramètres
-  - Relecture/altération de JWT
-  - Abus de CORS
-- **Signaux/artefacts**
-  - Alternance 403/404/200 sur séries d’IDs
-  - Accès admin par comptes non privilégiés
-  - Rejeu de jetons expirés.
+### Bonnes pratiques essentielles
 
----
+1. **Effectuer toutes les vérifications d’accès côté serveur**  
+   Aucun contrôle ne doit dépendre de données modifiables côté client.  
+   
 
-## Prévention, détection, réponse
-Utiliser une **autorisation centralisée** (RBAC/ABAC) appliquée **uniquement côté serveur**. **Refuser par défaut**, puis ouvrir par règles explicites. Modélisez l’*ownership* des ressources au niveau du domaine. Définir une politique **CORS stricte** (origines explicites, jamais `*` avec cookies) et des pratiques **JWT** saines (TTL court, rotation, invalidation et vérification d’`iss`/`aud`/`nbf`/`exp`). Automatiser des **tests négatifs d’autorisation** et relier gateway/services par **correlation‑ID** pour l’observabilité.
+2. **Deny-by-default**  
+   Toutes les ressources non publiques doivent exiger une permission explicite.  
 
-**En bref**
+3. **Centraliser et réutiliser les mécanismes d’autorisation**  
+   Éviter la duplication manuelle d’un même contrôle dans différentes parties du code.  
 
-- **Prévention**
-  - Deny‑by‑default; politiques centralisées réutilisées; contrôle d’**ownership** en back‑end.
-  - CORS strict; gestion de jetons robuste (rotation/invalidation).
-- **Détection**
-  - Tests unitaires/E2E **négatifs**; fuzzing d’IDs; corrélation de traces.
-- **Réponse**
-  - Invalidation de jetons; **feature flags** pour couper des surfaces; réduction de privilèges d’urgence.
+4. **Implémenter une gestion stricte de la propriété des enregistrements**  
+   Les opérations CRUD doivent vérifier la légitimité de l’utilisateur face aux données manipulées.  
+
+5. **Limiter l’utilisation de CORS**  
+   Et ne l’activer que pour des origines explicitement approuvées.  
+
+6. **Supprimer toute exposition de fichiers internes**  
+   Éviter les listings de répertoires ou la mise en ligne de fichiers sensibles comme `.git`, `.bak`, etc.  
+   
+
+7. **Consigner et surveiller les échecs de permission**  
+   Ces événements enrichissent la détection d’abus et facilitent les investigations.
 
 ---
 
-## Exemples
+## Exemples d'attaques
 
-### Python
-```python
+### Scénario 1 — Contournement d'autorisation par modification d’URL  
+Un utilisateur non authentifié découvre qu’en accédant à une URL prévue pour des utilisateurs connectés (ex. `/admin/dashboard`), l’application renvoie la page au lieu de vérifier le statut de connexion.  
+➡ Résultat : accès non autorisé à des données internes.
 
-# FastAPI — contrôle d'ownership côté serveur
-from fastapi import FastAPI, HTTPException
-from typing import Dict
-
-app = FastAPI()
-DB: Dict[int, Dict[str, str]] = {41: {"owner": "alice"}, 42: {"owner": "bob"}}
-
-def current_user() -> str:
-    return "alice"
-
-@app.get("/api/me/{user_id}")
-def get_record(user_id: int):
-    rec = DB.get(user_id)
-    if rec is None:
-        raise HTTPException(status_code=404)
-    if rec.get("owner") != current_user():
-        raise HTTPException(status_code=403)
-    return rec
-
+### Scénario 2 — Escalade de privilèges via IDOR  
+Une API expose un endpoint tel que :  
 ```
-
-### Java
-```java
-
-// Spring — vérification d'ownership côté serveur
-@RestController
-@RequestMapping("/api")
-public class UserController {
-    private final UserService userService;
-    public UserController(UserService userService) { this.userService = userService; }
-
-    @GetMapping("/me/{id}")
-    public UserDto getUserSecure(@PathVariable long id) {
-        UserDto dto = userService.findById(id);
-        String current = userService.getCurrentUsername();
-        if (!dto.getOwner().equals(current)) {
-            throw new ForbiddenException("Accès refusé");
-        }
-        return dto;
-    }
-}
-
+GET /api/account/456
 ```
+En remplaçant l’ID par `457`, un attaquant peut consulter ou modifier le compte de quelqu’un d’autre si l’application ne vérifie pas la propriété du compte.
+
+### Scénario 3 — Manipulation d’un JWT  
+Si un JWT n’est pas signé, ou si la clé est faible, un attaquant peut forger un jeton contenant un rôle administrateur. Cela permet d'obtenir des privilèges élevés sans authentification légitime.  
+
 
 ---
+
+## CWE liées
+
+Cette catégorie regroupe **40 CWE**. Quelques exemples parmi les plus représentatives :
+
+- **CWE‑200** – Exposure of Sensitive Information to an Unauthorized Actor  
+- **CWE‑201** – Exposure of Sensitive Information Through Sent Data  
+- **CWE‑352** – Cross-Site Request Forgery (CSRF)  
+- **CWE‑918** – Server-Side Request Forgery (SSRF)  
+
+
+Pour la liste complète des CWE : [https://owasp.org/Top10/2025/A01_2025-Broken_Access_Control/](https://owasp.org/Top10/2025/A01_2025-Broken_Access_Control/) (section « CWEs Mapped »)
+
+---
+
 ## Liens utiles
-- Fiche OWASP officielle : https://owasp.org/Top10/2025/A01_2025-Broken_Access_Control/
-- OWASP ASVS (contrôles applicatifs) : https://owasp.org/www-project-application-security-verification-standard/
-- OWASP Cheat Sheet Series : https://cheatsheetseries.owasp.org/
+
+- **Page officielle OWASP (A01:2025)**  
+  [https://owasp.org/Top10/2025/A01_2025-Broken_Access_Control/](https://owasp.org/Top10/2025/A01_2025-Broken_Access_Control/)  
+
+- **OWASP Top 10:2025 — Page principale / contexte**  
+  [https://owasp.org/Top10/2025/](https://owasp.org/Top10/2025/)
+
+---
+
+## Attribution
+
+Contenu dérivé à partir des documents OWASP (licence **CC BY‑SA 4.0**).  
+Informations de licence : [https://owasp.org/Top10/2025/0x01_2025-About_OWASP/](https://owasp.org/Top10/2025/0x01_2025-About_OWASP/)

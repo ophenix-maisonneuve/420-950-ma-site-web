@@ -2,75 +2,88 @@
 layout: default
 title: A05:2025 — Injection
 parent: OWASP Top 10 (2025)
-nav_order: 6
+nav_order: 5
 has_toc: true
 ---
 
 # A05:2025 — Injection
 
-## Comprendre la menace
+## Description
 
-L’**injection** se produit quand une entrée façonne la **structure** d’une requête/commande. Ce n’est pas propre au SQL : expressions de gabarits (SSTI), opérateurs NoSQL, shell/OS... Toutes ces variantes reflètent une **perte de séparation** entre données et instructions. 2025 maintient cette catégorie tout en renvoyant d’autres risques vers leurs **causes racines** (accès, config, intégrité).
+Une vulnérabilité d’**injection** survient quand des **données non fiables** sont envoyées à un **interpréteur** (base de données, moteur NoSQL, shell/OS, LDAP, moteur de templates, expression language, etc.) et qu’une partie de ces données est **traitée comme des instructions**. Les applications deviennent vulnérables lorsque : les entrées ne sont **ni validées ni assainies**, des **requêtes dynamiques** (ou appels non paramétrés) sont construites par **concaténation**, ou que des paramètres d’ORM, JSON, en‑têtes, cookies, URL, SOAP/XML, etc., sont injectés sans contrôle. La détection efficace combine **revue de code**, **tests automatisés** (SAST/DAST/IAST) et **fuzzing** des différents vecteurs d’entrée. À noter : une famille récente d’attaques d’**injection de requêtes** vise les **LLM** (p. ex. *prompt injection*), traitée séparément dans l’**OWASP LLM Top 10 (LLM01:2025)**. 
 
-**En bref — points clés**
-
-- **Variantes**
-  - SQL injection
-  - NoSQL injection
-  - Command injection
-  - XML injection
-  - JSON injection
-  - LDAP, SSTI/EL.
-
-{: .highlight-title}
-> Contexte 2025
->
-> Catégorie historique, présente depuis les toutes premières versions du Top 10. Classée #3 en 2021 mais reste tout de même très importante (SQL/NoSQL/OS/SSTI/LDAP, etc).
+**Prévalence 2025.** L’injection passe de la **3e** à la **5e** place. Elle comporte **37 CWE** et concentre le **plus grand nombre de CVE** de toutes les catégories (**≈ 62 445**), dont **XSS (CWE‑79)** à très forte fréquence (> 30 k CVE) mais impact moyen, et **SQLi** à fréquence moindre (> 14 k CVE) mais impact généralement élevé. Les outils testent l’injection **dans 100 %** des applications évaluées, ce qui en fait une catégorie très couverte et toujours critique. 
 
 ---
 
-## Attaque
-Une concaténation triviale permet `"' OR 1=1--"` sur un login. Les moteurs NoSQL qui évaluent `$where/$regex` sans garde‑fous autorisent parfois de la logique arbitraire. En **command injection**, les opérateurs d’enchaînement (`&&`, `;`) élargissent l’impact. Les symptômes : erreurs SQL, latences, et réponses *gonflées* révélant des extractions massives.
+## Comment se protéger
 
-**En bref**
+Le principe directeur est de **séparer les données des instructions**.
 
-- **Signaux**
-  - Erreurs de syntaxe, temps de réponse anormal, dumps inattendus.
+1. **API/accès sûrs et requêtes paramétrées**  
+   Utiliser des **APIs sûres** qui évitent l’interpréteur ou imposent une **paramétrisation** stricte ; privilégier les **ORM** qui encapsulent correctement les requêtes. **Éviter la concaténation** de chaînes pour construire des commandes ou des requêtes. 
+
+2. **Validation et assainissement côté serveur**  
+   Valider les données **en amont** (listes d’autorisation, formats/tailles/types), puis **échapper/encoder selon le contexte** (SQL, LDAP, shell, HTML/JS, etc.). 
+
+3. **Gestion défensive des entrées applicatives**  
+   Couvrir **tous** les points d’entrée (corps, query string, en‑têtes, cookies, JSON/XML) dans les pipelines CI/CD avec **SAST/DAST/IAST/fuzzing** ; bloquer les patterns dangereux et journaliser les rejets. 
+
+4. **Principe du moindre privilège**  
+   Restreindre les privilèges du compte DB/OS utilisé par l’application ; cloisonner les permissions par fonctionnalité. 
+
+5. **Cas particuliers**  
+   Pour le **XSS**, appliquer un **encodage contextuel** rigoureux et des patrons de rendu sûrs ; pour la **commande OS**, utiliser des **APIs natives** (exec paramétré, pas de shell) ; surveiller les **templates/EL/OGNL**. 
 
 ---
 
-## Prévention, détection, réponse
-La **paramétrisation** universelle (requêtes préparées) reste la défense clé. Ajouter l’**échappement** (*escaping*) de caractères au rendu, des **listes admises** (*allow lists*) pour commandes/flags, bannir les requêtes dynamiques en ORM et intégrer **tests négatifs** + **fuzzing** au pipeline. En réponse : désactiver les endpoints vulnérables, appliquer un **hotfix** de paramétrisation et revoir les **modèles d’accès BD**.
+## Exemples d'attaques
 
-**En bref**
-
-- **Prévention**
-  - Paramétrisation partout; échappement contextuel; whitelists.
-- **Détection & réponse**
-  - Tests négatifs/fuzzing; WAF/IDS; hotfix + revue d’accès DB.
-
----
-
-## Exemples
-
-### Python
-```python
-
-# SQL injection (anti‑pattern)
-query = f"SELECT * FROM users WHERE name = '{username}'"
-# Paramétré (correct)
-cursor.execute("SELECT * FROM users WHERE name = ?", (username,))
-
+### Scénario 1 — SQL Injection par concaténation
+L’application construit :  
+```sql
+SELECT * FROM users WHERE name = '" + input + "' AND active = 1;
 ```
+En injectant `input = "x' OR '1'='1"`, l’attaquant contourne le filtre et **extrait des enregistrements** non autorisés.  
+**Causes** : requête non paramétrée, absence d’escaping contextuel. 
 
-### Java
-```java 
-// JDBC — PreparedStatement obligatoire
+### Scénario 2 — NoSQL/ORM Injection
+Un filtre de recherche est passé tel quel à un **ORM/NoSQL** (p. ex. champ JSON). En injectant un opérateur (`$ne`, `$or`, etc.), l’attaquant **altère la clause** et **élargit** les résultats pour exfiltrer des données sensibles.  
+**Causes** : confiance excessive dans les paramètres, pas de validation forte. 
 
-```
+### Scénario 3 — OS Command Injection
+Le serveur assemble une commande système avec une **entrée utilisateur** (ex. `ping {host}`). En ajoutant `; cat /etc/passwd`, l’attaquant **enchaîne** une commande arbitraire.  
+**Causes** : passage par le shell, concaténation de chaînes, absence d’API système paramétrée. 
+
+### Scénario 4 — Template/EL Injection
+Une valeur contrôlée par l’utilisateur est **évaluée** par le moteur de templates (ex. **OGNL/EL**). L’attaquant injecte une **expression** qui, une fois résolue, **exécute** des actions imprévues côté serveur.  
+**Causes** : évaluation d’entrées non fiables dans un interpréteur. 
 
 ---
+
+## CWE liées
+
+Exemples de CWE emblématiques dans A05 :
+
+- **CWE‑79 — Improper Neutralization of Input During Web Page Generation (XSS)**   
+- **CWE‑89 — Improper Neutralization of Special Elements used in an SQL Command (SQL Injection)**   
+- **CWE‑77 — Improper Neutralization of Special Elements used in a Command (Command Injection)**   
+
+La **liste complète (37 CWE)** et les métriques (occurrences/CVE, exploit/impact) figurent sur la page officielle A05. 
+
+---
+
 ## Liens utiles
-- Fiche OWASP officielle : https://owasp.org/Top10/2025/0x00_2025-Introduction/
-- OWASP ASVS (contrôles applicatifs) : https://owasp.org/www-project-application-security-verification-standard/
-- OWASP Cheat Sheet Series : https://cheatsheetseries.owasp.org/
+
+- **Page officielle OWASP — A05:2025 Injection**  
+  [https://owasp.org/Top10/2025/A05_2025-Injection/](https://owasp.org/Top10/2025/A05_2025-Injection/)
+
+- **OWASP Top 10:2025 — Page principale / contexte**  
+  [https://owasp.org/Top10/2025/](https://owasp.org/Top10/2025/)
+
+---
+
+## Attribution
+
+Contenu dérivé à partir des documents OWASP (licence **CC BY‑SA 4.0**).  
+Informations de licence : [https://owasp.org/Top10/2025/0x01_2025-About_OWASP/](https://owasp.org/Top10/2025/0x01_2025-About_OWASP/)

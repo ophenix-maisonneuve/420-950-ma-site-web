@@ -2,63 +2,86 @@
 layout: default
 title: A06:2025 — Insecure Design
 parent: OWASP Top 10 (2025)
-nav_order: 7
+nav_order: 6
 has_toc: true
 ---
 
 # A06:2025 — Insecure Design (Conception non sécurisée)
 
-## Comprendre la menace
-La **conception non sécurisée** désigne des architectures où les **règles métier** et hypothèses de confiance ne sont pas matérialisées en contrôles. Un flux de **réinitialisation** sans preuve de possession, un **parcours critique** sans idempotence/limites, ou des microservices s’accordant une **confiance implicite** sont vulnérables **même** si le code respecte les bonnes pratiques.
+## Description
 
-**En bref**
+**Insecure Design** regroupe les faiblesses qui proviennent d’un **contrôle de sécurité manquant, mal défini ou inefficace au niveau de la conception** (et non d’un simple défaut d’implémentation). Autrement dit, même un code « parfait » ne corrigera pas un **modèle d’architecture** qui n’intègre pas les bons garde‑fous (gestion des limites métier, contrôles d’autorisation, protections contre les états inattendus, etc.). Cette catégorie, apparue en 2021, recule à la **6e place** en 2025, notamment parce que l’industrie progresse sur la modélisation des menaces et la conception sécurisée, tandis que d’autres risques (A02, A03) gagnent en prévalence. Elle regroupe **39 CWE** représentatives de défauts de design (p. ex., **CWE‑256**, **CWE‑269**, **CWE‑434**, **CWE‑501**, **CWE‑522**). 
 
-- **Exemples**
-  - Reset sans 2FA/ownership; double dépense/coupons; trust implicite inter‑services.
-
-{: .highlight-title}
-> Contexte 2025
->
-> La **conception** est l'étape-clé : sans menaces modélisées ni contrôles métier, un code “propre” reste vulnérable.
-
----
-## Attaque
-Les attaques visent la **logique métier** : réutilisation de coupons, contournement de plafonds, exploitation de liens de reset prédictibles. Dans un maillage interne, un service “confiant” accepte des requêtes sans **authz**, ouvrant un pivot latéral. Les **signaux** : métriques métier anormales, rafales d’appels sur endpoints critiques, incohérences d’état.
-
-**En bref**
-
-- **Signaux/artefacts**
-  - Pics de conversions/paniers, répétitions d’appels, états contradictoires.
+Exemples de signaux faibles en conception : absence d’analyse de risques métier, **flux qui autorisent des transitions d’état non souhaitées**, manque de contraintes explicites (quotas/limites), frontières de confiance mal définies entre composants/services, et scénarios anormaux non anticipés. 
 
 ---
 
-## Prévention, détection, réponse)
-Intégrer une modélisation de la menace (ex.: STRIDE), appliquer des **patrons** (policy‑based, **rate‑limit**, **idempotence**) et encoder ces règles en **tests**. Prévoir des **kill switches** pour couper des parcours risqués et des **modes dégradés** pour conserver l’intégrité. Cette discipline incarne l’approche 2025 : **sécurité by design**, vérifiée en continu.
+## Comment se protéger
 
-**En bref**
+La prévention passe par des **activités de conception structurées** avant et pendant le développement, et par des **patrons de sécurité réutilisables**.
 
-- **Prévention**
-  - Modélisation de la menace; patrons d’architecture; exigences testables.
-- **Détection & réponse**
-  - Tests d’abus; chaos contrôlé; kill switches; compensation transactionnelle.
+### 1) Exigences & gestion des ressources
+- **Recueillir et négocier les exigences** avec le métier (confidentialité, intégrité, disponibilité, authenticité), **classer les actifs** et préciser les objectifs de sécurité et de conformité.  
+- Définir clairement les **limites métier** (taux, montants, fréquences, tailles) et les **états interdits** à empêcher. 
 
----
-## Exemples
+### 2) Créer une conception sécurisée
+- Pratiquer la **modélisation des menaces** (acteurs, surfaces, flux, scénarios d’abus) et sélectionner des **patrons de conception** sécurisés et des **architectures de référence** (zéro‑trust interne, séparation stricte des privilèges, frontières de confiance explicites).  
+- **Intégrer les contrôles au design**, pas en post‑traitement : autorisation centralisée, contrôle d’accès par **propriété d’enregistrement**, vérifications côté serveur sur chaque opération critique, limites de débit, journalisation/alerting utiles. 
 
-### Python
-```python
-# Token de reset robuste : aléa + timestamp + HMAC
+### 3) Cycle de vie (SDL) et validation continue
+- Mettre en place un **Secure Development Lifecycle** : revues de conception, listes de contrôle de sécurité, critères d’acceptation, tests d’abus/abus cases, et **ré‑évaluation périodique** des menaces lorsque l’architecture évolue.  
+- Outiller la **traçabilité des décisions de conception** et la **réutilisation** des composants/patrons approuvés pour éviter les anti‑patterns. 
 
-```
-
-### Java
-```java
-// Rate limiter (conceptuel) pour endpoints sensibles
-
-```
+> En 2025, OWASP encourage à dépasser le seul « shift‑left » du code pour investir **en amont** (exigences, design), condition d’un *Secure‑by‑Design* durable. 
 
 ---
+
+## Exemples d'attaques
+
+> Scénarios **paraphrasés** et alignés sur les défaillances de conception mises en avant par OWASP pour A06. 
+
+### Scénario 1 — Logique métier sans garde‑fou
+Un flux de remboursement **n’impose aucune limite** de montant/ fréquence. Un attaquant script automatise des remboursements légitimes en chaîne pour **vidanger un solde**.  
+**Cause racine** : absence de **contraintes métier** et de **rate limiting** au **design**. 
+
+### Scénario 2 — Frontières de confiance floues
+Un service interne « de confiance » accepte des **données non validées** depuis une passerelle publique. Un attaquant injecte des valeurs inattendues qui **brisent des hypothèses** d’architecture et déclenchent un chemin privilégié.  
+**Cause racine** : frontières et **trust boundary** mal définies. 
+
+### Scénario 3 — Upload de fichiers sans conception défensive
+Le système permet l’**upload** mais **sans politique centralisée** de type, taille et stockage. Un fichier script est accepté et **exécuté** par un composant en aval.  
+**Cause racine** : design qui n’impose pas de **contrôles d’upload** (types autorisés, désarmement, stockage isolé). 
+
+### Scénario 4 — Autorisation implicite par design
+Des routes « basse sensibilité » **héritent** d’un middleware d’authentification mais **pas** d’une **autorisation métier** explicite. Des opérations à **fort impact** restent donc accessibles à des rôles non prévus.  
+**Cause racine** : **contrôle d’accès** non **centralisé** dans le design. 
+
+---
+
+## CWE liées
+
+Parmi les CWE emblématiques d’**Insecure Design** :
+- **CWE‑256 — Unprotected Storage of Credentials**   
+- **CWE‑269 — Improper Privilege Management**   
+- **CWE‑434 — Unrestricted Upload of File with Dangerous Type**   
+- **CWE‑501 — Trust Boundary Violation**   
+- **CWE‑522 — Insufficiently Protected Credentials**   
+
+👉 **Liste complète (39 CWE)** et métriques (incidence, couverture, exploit/impact) disponibles sur la page officielle A06. 
+
+---
+
 ## Liens utiles
-- Fiche OWASP officielle : https://owasp.org/Top10/2025/0x00_2025-Introduction/
-- OWASP ASVS (contrôles applicatifs) : https://owasp.org/www-project-application-security-verification-standard/
-- OWASP Cheat Sheet Series : https://cheatsheetseries.owasp.org/
+
+- **Page officielle OWASP — A06:2025 Insecure Design**  
+  [https://owasp.org/Top10/2025/A06_2025-Insecure_Design/](https://owasp.org/Top10/2025/A06_2025-Insecure_Design/) 
+
+- **OWASP Top 10:2025 — Page principale / contexte**  
+  [https://owasp.org/Top10/2025/](https://owasp.org/Top10/2025/)
+
+---
+
+## Attribution
+
+Contenu dérivé à partir des documents OWASP (licence **CC BY‑SA 4.0**).  
+Informations de licence : [https://owasp.org/Top10/2025/0x01_2025-About_OWASP/](https://owasp.org/Top10/2025/0x01_2025-About_OWASP/)
