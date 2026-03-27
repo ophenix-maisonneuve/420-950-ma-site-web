@@ -1,45 +1,50 @@
 ---
 layout: default
-title: A10:2025 — Mishandling of Exceptional Conditions (Mauvaise gestion des conditions exceptionnelles)
+title: A10:2025 — Mishandling of Exceptional Conditions
 parent: OWASP Top 10 (2025)
 nav_order: 11
 has_toc: true
 ---
 
-# A10:2025 — Mishandling of Exceptional Conditions (Mauvaise gestion des conditions exceptionnelles)
-
-> **Contexte 2025 :** **Nouveau en 2025** : mauvaise gestion des **conditions anormales** (erreurs, délai, ressources) → fuites, *fail‑open*, indisponibilités. Page dédiée disponible. citeturn1search8
+# A10:2025 — Mishandling of Exceptional Conditions (Mauvaise gestion des conditions d'exception)
 
 ## Comprendre la menace
-La **mauvaise gestion des exceptions** est une **vulnérabilité** : lorsque les erreurs ne sont pas empêchées, détectées ou traitées correctement, l’application adopte des **comportements non sûrs** (ex. *fail‑open*) ou fuit des informations (stack traces, chemins, variables). 2025 regroupe ici des CWE naguère éparpillées pour fournir un **cadre opérationnel** de résilience. citeturn1search8
+La **mauvaise gestion des exceptions** est une **vulnérabilité** : lorsque les erreurs ne sont pas empêchées, détectées ou traitées correctement, l’application adopte des **comportements non sûrs** (ex. *fail‑open*) ou fuit des informations (stack traces, chemins, variables). Le Top 10 2025 regroupe ici des CWE qui étaient auparavant éparpillées pour fournir un **cadre opérationnel** de résilience.
 
-**En bref — points clés**
+**En bref**
 
 - **Exemples CWE**
-  - CWE‑209 (messages d’erreur sensibles), CWE‑636 (not failing securely), CWE‑476 (NULL deref). citeturn1search8
+  - CWE‑209 (messages d’erreur sensibles)
+  - CWE‑636 (not failing securely)
+  - CWE‑476 (NULL deref)
+
+{: .highlight-title}
+> Contexte 2025
+>
+> **Nouveau en 2025** : mauvaise gestion des **conditions anormales** (erreurs, délai, ressources) qui engendre fuites, *fail‑open*, indisponibilités.
 
 ---
-## Comment l’attaque se manifeste (angles d’attaque, kill‑chain, signaux)
-Un service d’**authz** indisponible ne doit jamais déclencher un **accès accordé** ; pourtant des implémentations naïves font du *fail‑open* sur exception. Des messages d’erreur détaillés, renvoyés au client, accélèrent la **reconnaissance**. L’absence de bornes (retries infinis, allocations) mène à des **épuisements de ressources** et du déni de service intermittents. citeturn1search8
+## Attaque
+Un service d’authentification/autorisation indisponible ne doit jamais déclencher un **accès accordé** ; pourtant des implémentations naïves font du *fail‑open* sur exception. Des messages d’erreur détaillés, renvoyés au client, accélèrent la **reconnaissance**. L’absence de limites (retries infinis, allocations) mène à des **épuisements de ressources** et du déni de service intermittents.
 
-**En bref — points clés**
+**En bref**
 
 - **Signaux/artefacts**
-  - Pics de 500 corrélés à un downstream, latence en escalade, exceptions non rattrapées. citeturn1search8
+  - Pics d'erreurs HTTP 500 corrélés à un downstream, latence en escalade, exceptions non rattrapées.
 
 ---
-## Se protéger (prévention, détection, réponse)
-La **résilience** repose sur des **timeouts** réalistes, des **retries bornés** et des **circuit breakers**. Sur les chemins critiques (authN/authZ), appliquer le **fail‑safe** : en cas d’incertitude, **refuser** l’accès. Normalisez la gestion d’erreurs : messages **neutres** côté client, détails complets en logs. Validez vos modes **dégradés** par du monitoring **synthétique** et du **chaos engineering**. citeturn1search8
+## Prévention, détection, réponse)
+La **résilience** repose sur des **timeouts** réalistes, des **ré-essais (*retries*) bornés** et des l'utilisation du patron ***circuit breaker***. Sur les chemins critiques (authentification / autorisation), appliquer le moyen le plus sûr (*fail-safe*) : en cas d’incertitude, **refuser** l’accès. Normaliser la gestion d’erreurs : messages **neutres** côté client, détails complets en logs disponibles pour les utilisateurs / groupes autorisés seulement. Valider les modes **dégradés** par du monitoring **synthétique** et du **chaos engineering**.
 
-**En bref — points clés**
+**En bref**
 
 - **Prévention**
-  - Timeouts/retries/circuit breakers; fail‑safe sur authN/authZ; messages neutres. citeturn1search8
+  - Timeouts/retries/circuit breakers; fail‑safe sur authN/authZ; messages d'erreurs neutres qui divulguent uniquement le strict nécessaire à l'utilisateur.
 - **Détection & réponse**
-  - Synthetic monitoring; chaos ciblé; bulkheads; bascule en chemin dégradé. citeturn1search8
+  - Synthetic monitoring; chaos ciblé; bulkheads; bascule en chemin dégradé.
 
 ---
-## Exemples didactiques
+## Exemples
 
 ### Python
 ```python

@@ -9,6 +9,7 @@ has_toc: true
 # A03:2025 — Software Supply Chain Failures (Chaîne d’approvisionnement logiciel)
 
 ## Comprendre la menace
+
 Les attaques de **chaîne d’approvisionnement** visent votre **outillage** autant que votre code : dépendances (directes/transitives), registres de packages, runners CI, systèmes de build et distribution. Un package typosquatté ou un script d’installation malveillant hérite des **droits** du pipeline, accède aux secrets et peut **altérer** les artefacts. Le 2025 introduit cette catégorie à la suite d’un **consensus communautaire** face à des incidents à fort impact mais **sous‑représentés** dans les tests classiques.
 
 **En bref — points clés**

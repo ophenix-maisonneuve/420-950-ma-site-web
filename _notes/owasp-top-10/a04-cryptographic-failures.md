@@ -9,6 +9,7 @@ has_toc: true
 # A04:2025 — Cryptographic Failures (Erreurs cryptographiques)
 
 ## Comprendre la menace
+
 Les **échecs cryptographiques** résultent de choix d’algorithmes/modes inadaptés, d’une **mauvaise gestion des clés** ou de l’absence de chiffrement aux bons endroits. Réutiliser un **IV**/nonce, stocker des **clés** dans le code, tolérer des suites **TLS** faibles : autant d’erreurs qui mènent à l’interception, à la modification ou à l’usurpation. Le corpus 2025 montre une **occurrence élevée**, d’où l’importance d’un socle hygiénique solide. citeturn1search6
 
 **En bref — points clés**

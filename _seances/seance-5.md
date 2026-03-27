@@ -1,30 +1,25 @@
 ---
 layout: default
-title: "Séance 5"
+title: "2026-03-30"
 nav_order: 5
-published: false
+published: true
 ---
 
-# Séance 5 : Complexité des algorithmes (partie 2)
+# Séance 5 : Modélisation de la menace (partie 2)
 
-## <date>
+## 30 mars 2026
 
 ### Ordre du jour
 
 1. Informations générales
-1. Récapitulation
-1. Révision de la question 7 de l'exercice [algorithmes mystère](../exercices/notation-grand-o)
-1. [Optimisation des algorithmes](../notes/optimisation)
-   1. Caractérisation du problème
-   1. [Analyse de la structure de données utilisée](../notes/structure)
-   1. [Analyse de l'algorithme utilisé](../notes/algorithme)
-   1. Exercice 1 (en sous-équipes): [Optimisation de la structure et de l'algorithme](../exercices/optimisation)
-   1. [Réduction du problème](../notes/reduction)
-   1. [Programmation dynamique](../notes/algorithme)
-   1. Exercice 2 (en groupe): [Optimisation de la suite de Fibonacci](../exercices/optimisation)
-1. Retour et conclusion
+1. Récapitulation de la méthode [STRIDE](../notes/stride)
+1. Suite de l'exercice [Nos amos les animis](../exercices/seances4-5)
+
+### Lectures recommandées
+
+- Notes de cours sur la [modélisation de la menace](../notes/modelisation-menace) et [STRIDE](../notes/stride)
 
 ### Exercice(s) complémentaire(s)
-* Terminer [Optimisation: Exercice 1](../exercices/optimisation) (au besoin)
-* Essayer [Optimisation: Exercice 2](../exercices/optimisation)
-  * Nous le corrigerons ensemble dans la séance 5 (12 novembre)
+
+- Terminer le [travail pratique 1](../travaux/tp1)
+- Commencer le [travail pratique 2](../travaux/tp2)

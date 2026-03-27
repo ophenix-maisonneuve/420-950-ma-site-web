@@ -1,6 +1,6 @@
 ---
 layout: default
-title: A09:2025 — Logging & Alerting Failures (Journaux et alertes défaillants)
+title: A09:2025 — Logging & Alerting Failures
 parent: OWASP Top 10 (2025)
 nav_order: 10
 has_toc: true
@@ -8,38 +8,43 @@ has_toc: true
 
 # A09:2025 — Logging & Alerting Failures (Journaux et alertes défaillants)
 
-> **Contexte 2025 :** Accent 2025 : **alertes actionnables** (pas seulement du logging) et protection contre la **fuite d’informations** dans les journaux. citeturn1search6
+> **Contexte 2025 :** Accent 2025 : 
 
 ## Comprendre la menace
-Des **journaux pauvres** sabotent la détection et des **alertes bruyantes** usent les équipes. À l’inverse, des logs **bavards** qui exposent PII, secrets ou tokens créent des brèches additionnelles. 2025 demande des **schémas** normalisés, une **corrélation** inter‑services et des **alertes** reliées à des **actions** concrètes (playbooks, seuils d’escalade). citeturn1search6
+Des **journaux pauvres** sabotent la détection et des **alertes bruyantes** usent les équipes. À l’inverse, des logs **bavards** qui exposent PII, secrets ou tokens créent des brèches additionnelles. 2025 demande des **schémas** normalisés, une **corrélation** inter‑services et des **alertes** reliées à des **actions** concrètes (playbooks, seuils d’escalade).
 
 **En bref — points clés**
 
 - **Problèmes typiques**
-  - Absence d’events pivot; logs contenant PII/secrets; pas de corrélation. citeturn1search6
+  - Absence d’events pivot; logs contenant PII/secrets; pas de corrélation.
+
+{: .highlight-title}
+> Contexte 2025
+>
+> En 2025, l'accent est mis sur les **alertes actionnables** (pas seulement du *logging*) et la protection contre la **fuite d’informations** dans les *logs*.
 
 ---
-## Comment l’attaque se manifeste (angles d’attaque, kill‑chain, signaux)
-Une intrusion reste **invisible** si les événements clés (connexion, élévation, modif. secrets) ne sont pas journalisés. À l’inverse, une **exfiltration par logs** survient lorsqu’un message d’erreur ou une trace est renvoyé tel quel côté client puis agrégé côté SIEM. Les **signaux** : absence d’events critiques, présence de PII/secrets en clair, SLO de détection dépassés. citeturn1search6
+## Attaque
+Une intrusion reste **invisible** si les événements clés (connexion, élévation, modifications des secrets) ne sont pas journalisés. À l’inverse, une **exfiltration par logs** survient lorsqu’un message d’erreur ou une trace est renvoyé tel quel côté client puis agrégé côté SIEM. Les **signaux** : absence d’events critiques, présence de PII/secrets en clair, SLO de détection dépassés.
 
-**En bref — points clés**
+**En bref**
 
 - **Signaux/artefacts**
-  - Manques d’events; fuite PII/secrets; délais de détection élevés. citeturn1search6
+  - Manques d’events; fuite PII/secrets; délais de détection élevés.
 
 ---
-## Se protéger (prévention, détection, réponse)
-Définissez un **modèle de log** minimal (timestamp, niveau, **correlation‑ID**, tenant/user), appliquez **redaction/tokenisation** aux champs sensibles, chiffrez le transport et le stockage et cadrez la **rétention**. Alignez des **règles d’alerte** par scénario avec des **playbooks**. En cas de fuite, **purgez** et **rotAtez** les secrets exposés. citeturn1search6
+## Prévention, détection, réponse)
+Définir un **modèle de log** minimal (timestamp, niveau, **correlation‑ID**, tenant/user), appliquer **rédaction/tokenisation** aux champs sensibles, chiffrer le transport et le stockage et cadrer la **rétention**. Aligner des **règles d’alerte** par scénario avec des **playbooks**. En cas de fuite, **purger** et effectuer une **rotation** des secrets exposés.
 
-**En bref — points clés**
+**En bref**
 
 - **Prévention**
-  - Schéma standard; redaction/tokenisation; chiffrement; rétention cadrée. citeturn1search6
+  - Journaux (*logs*) dans un format standard; rédaction/tokenisation; chiffrement; rétention cadrée.
 - **Détection & réponse**
-  - Alertes scénarisées; playbooks; purge/rotation en cas de fuite. citeturn1search6
+  - Alertes scénarisées; playbooks; purge/rotation en cas de fuite.
 
 ---
-## Exemples didactiques
+## Exemples
 
 ### Python
 ```python

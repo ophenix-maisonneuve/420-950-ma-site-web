@@ -9,17 +9,23 @@ has_toc: true
 # A05:2025 — Injection
 
 ## Comprendre la menace
-L’**injection** se produit quand une entrée façonne la **structure** d’une requête/commande. Ce n’est pas propre au SQL : expressions de gabarits (SSTI), opérateurs NoSQL, shell/OS… Toutes ces variantes reflètent une **perte de séparation** entre données et instructions. 2025 maintient cette catégorie tout en renvoyant d’autres risques vers leurs **causes racines** (accès, config, intégrité). citeturn1search6
+
+L’**injection** se produit quand une entrée façonne la **structure** d’une requête/commande. Ce n’est pas propre au SQL : expressions de gabarits (SSTI), opérateurs NoSQL, shell/OS... Toutes ces variantes reflètent une **perte de séparation** entre données et instructions. 2025 maintient cette catégorie tout en renvoyant d’autres risques vers leurs **causes racines** (accès, config, intégrité).
 
 **En bref — points clés**
 
 - **Variantes**
-  - SQLi, NoSQLi, command injection, LDAP, SSTI/EL. citeturn1search6
+  - SQL injection
+  - NoSQL injection
+  - Command injection
+  - XML injection
+  - JSON injection
+  - LDAP, SSTI/EL.
 
 {: .highlight-title}
 > Contexte 2025
 >
-> Catégorie historique, présente depuis les toutes premières versions du Top 10. Classée #3 en 2021 mais reste tout de même très importante (SQL/NoSQL/OS/SSTI/LDAP).
+> Catégorie historique, présente depuis les toutes premières versions du Top 10. Classée #3 en 2021 mais reste tout de même très importante (SQL/NoSQL/OS/SSTI/LDAP, etc).
 
 ---
 
@@ -50,15 +56,15 @@ La **paramétrisation** universelle (requêtes préparées) reste la défense cl
 ### Python
 ```python
 
-# ❌ SQLi (anti‑pattern)
+# SQL injection (anti‑pattern)
 query = f"SELECT * FROM users WHERE name = '{username}'"
-# ✅ Paramétré
+# Paramétré (correct)
 cursor.execute("SELECT * FROM users WHERE name = ?", (username,))
 
 ```
 
 ### Java
-```java
+```java 
 // JDBC — PreparedStatement obligatoire
 
 ```

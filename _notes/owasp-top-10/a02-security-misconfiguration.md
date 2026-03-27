@@ -11,6 +11,7 @@ has_toc: true
 > **Contexte 2025 :** Catégorie **#2** en 2025 ; reflète la complexité **Cloud/IaC** et l’élargissement des surfaces de configuration (plateformes, frameworks, middlewares).
 
 ## Comprendre la menace
+
 La **mauvaise configuration** est un **défaut d’ingénierie** plutôt qu’une simple erreur d’exploitation. Quand le comportement sécurisé dépend d’un mille‑feuille de flags, d’options et de fichiers IaC qui divergent entre environnements, l’application expose des surfaces non prévues : **dashboards** laissés ouverts, **stockage** public, **messages d’erreur** bavards. L’édition 2025 note une **prévalence accrue** de ces défauts dans les données de tests, d’où sa place au **rang #2**. citeturn1search6
 
 **En bref — points clés**

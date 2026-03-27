@@ -1,21 +1,20 @@
 ---
 layout: default
-title: "Séance 6"
+title: "2026-04-02"
 nav_order: 6
 published: false
 ---
 
-# Séance 6 : Bases des structures de données - Structures linéaires (tableaux, listes)
+# Séance 6 : OWASP Top 10 (partie 1)
 
-## <date>
+## 2 avril 2026
 
 ### Ordre du jour
 
 1. Informations générales
-1. Récapitulation
-   1. Rappel des étapes de la méthode
-   2. Revue de l'exercice 2 : [Optimisation de la suite de Fibonacci](../exercices/optimisation)
-1. [Structures linéaires](../notes/listes)
+1. Introduction à [OWASP Top 10](../notes/owasp-top-10)
+1. Introduction à WebGoat
+1. [A10 - Mauvaise gestion des conditions d'exception]
    1. [Tableau (*array*)](../notes/tableau)
    1. [Liste chaînée](../notes/liste-chainee)
       1. [Exercice](../exercices/liste-chainee) - préparation
@@ -32,6 +31,6 @@ published: false
       1. Tri par fusion (*merge sort*)
 
 ### Exercice(s) complémentaire(s)
-- [Exercice](../exercices/liste-chainee) question 6 et questions de réflexion
+- Continuer le [travail pratique 2](../travaux/tp2)
 
 
