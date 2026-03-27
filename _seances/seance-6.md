@@ -14,23 +14,21 @@ published: false
 1. Informations générales
 1. Introduction à [OWASP Top 10](../notes/owasp-top-10)
 1. Introduction à WebGoat
-1. [A10 - Mauvaise gestion des conditions d'exception]
-   1. [Tableau (*array*)](../notes/tableau)
-   1. [Liste chaînée](../notes/liste-chainee)
-      1. [Exercice](../exercices/liste-chainee) - préparation
-      1. [Exercice](../exercices/liste-chainee) questions 1 et 2
-1. Algorithmes
-   1. Recherche
-      1. [Exercice](../exercices/liste-chainee) question 3 
-   1. Ajout
-   1. Suppression
-      1. [Exercice](../exercices/liste-chainee) question 4
-   1. Tri
-      1. Tri à bulle (*bubble sort*)
-        1. [Exercice](../exercices/liste-chainee) question 5
-      1. Tri par fusion (*merge sort*)
+1. [A10 - Mauvaise gestion des conditions d'exception](../notes/a10)
+1. [A09 - Journaux et alertes défaillants](../notes/a09)
+1. Exercice : *WebGoat / (A9) Security Logging Failures / Logging Security*
+1. [A08 - Intégrité défaillante des logiciels / données](../notes/a08)
+1. Exercice : *WebGoat / (A8) Software & Data Integrity / Insecure Deserialization*
+1. [A07 - Défaillances d'authentification](../notes/a07)
+1. Exercice : *WebGoat / (A7) Identity & Auth Failure / JWT tokens*
+1. [A06 - Conception non sécurisée](../notes/a06)
+
 
 ### Exercice(s) complémentaire(s)
+
+
 - Continuer le [travail pratique 2](../travaux/tp2)
-
-
+- Exercice : *WebGoat / (A7) Identity & Auth Failure / Authentication Bypasses*
+- Exercice : *WebGoat / (A7) Identity & Auth Failure / Insecure Login*
+- Exercice : *WebGoat / (A7) Identity & Auth Failure / Password reset*
+- Exercice : *WebGoat / (A7) Identity & Auth Failure / Secure Passwords*
