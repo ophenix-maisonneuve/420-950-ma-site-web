@@ -1,7 +1,7 @@
 ---
 layout: default
 title: OWASP Top 10 (2025)
-nav_order: 1
+nav_order: 8
 has_children: true
 has_toc: true
 published: false
