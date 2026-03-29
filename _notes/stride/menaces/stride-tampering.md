@@ -42,7 +42,7 @@ L’attaquant cherche généralement à :
 
 ---
 
-## Comment le Tampering apparaît dans un DFD
+## Comment l'altération (*tampering*) apparaît dans un DFD
 
 Dans un DFD, le Tampering se produit typiquement sur :
 
@@ -61,7 +61,7 @@ flowchart LR
 
 ---
 
-## 3.2.4 Les formes les plus courantes de Tampering
+## 3.2.4 Les formes les plus courantes d'altération (*tampering*)
 
 ### Altération côté client
 - Modification de champs cachés  
