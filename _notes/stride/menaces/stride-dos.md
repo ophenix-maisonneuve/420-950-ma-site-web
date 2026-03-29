@@ -11,7 +11,7 @@ has_toc: true
 
 ## Définition complète
 
-Un **Denial of Service (DoS)** désigne toute action visant à **rendre un service partiellement ou totalement indisponible**, que ce soit :
+Un **déni de service (DoS)** désigne toute action visant à **rendre un service partiellement ou totalement indisponible**, que ce soit :
 
 - pour les utilisateurs légitimes,  
 - pour les autres services internes,  
@@ -23,7 +23,7 @@ Cette menace vise la **disponibilité** d'un service.
 
 ---
 
-## Objectifs d’un attaquant en DoS
+## Objectifs d’un attaquant en déni de service (*denial of service*)
 
 - Bloquer ou ralentir un service critique  
 - Empêcher des utilisateurs d’accéder à un système  
@@ -33,7 +33,7 @@ Cette menace vise la **disponibilité** d'un service.
 
 ---
 
-## Comment le DoS apparaît dans un DFD
+## Comment le déni de service apparaît dans un DFD
 
 | Élément DFD | Risque |
 |-------------|--------|
@@ -50,7 +50,7 @@ flowchart LR
 
 ---
 
-## Formes courantes de DoS
+## Formes courantes de déni de service
 
 ### DoS réseau
 - Saturation bande passante  
@@ -76,7 +76,7 @@ flowchart LR
 ## Scénarios réels
 
 ### Route lente appelée massivement
-CPU saturé → service KO.
+CPU saturé : service qui ne répond plus.
 
 ### SYN flood
 Plus de sockets disponibles.
@@ -89,7 +89,7 @@ Disque saturé.
 
 ---
 
-##Contre‑mesures
+## Contre‑mesures
 
 ### Protection réseau
 - Pare-feu  

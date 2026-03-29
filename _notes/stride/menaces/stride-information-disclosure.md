@@ -29,7 +29,7 @@ Cette menace compromet directement la **confidentialité**.
 
 ---
 
-## Objectifs d’un attaquant en Information Disclosure
+## Objectifs d’un attaquant en divulgation d'information (*information disclosure*)
 
 - Obtenir des informations pour préparer une attaque (reconnaissance).  
 - Voler des données sensibles.  
@@ -81,10 +81,10 @@ flowchart LR
 ## Scénarios réels
 
 ### Stack trace exposée
-L’API renvoie une erreur détaillée.
+L’API renvoie une erreur détaillée qui informe l'attaquant de la structure interne de l'application.
 
 ### Identifiant sensible dans l’URL
-IDOR possible.
+Accès direct à une ressource non-sécurisé (*IDOR*) possible.
 
 ### Bucket public
 Accès non autorisé à des fichiers internes.
@@ -104,7 +104,7 @@ Token visible en clair.
 - Bases chiffrées
 
 ### Masquage et gestion des erreurs
-- Pas de stack traces en production
+- Pas de *stack traces* en production
 
 ### Protection du stockage
 - Audits  

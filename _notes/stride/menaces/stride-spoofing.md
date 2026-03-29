@@ -11,14 +11,13 @@ has_toc: true
 
 ## Définition complète
 
-Le **Spoofing** consiste pour un attaquant à **se faire passer pour quelqu’un ou quelque chose d’autre**, afin d’accéder à un système, d’interagir avec lui ou d’obtenir des informations qu’il ne devrait pas obtenir.
+L'**usurpation** (*spoofing*) consiste pour un attaquant à **se faire passer pour quelqu’un ou quelque chose d’autre**, afin d’accéder à un système, d’interagir avec lui ou d’obtenir des informations qu’il ne devrait pas obtenir.
 
 En d’autres mots :
 
 > *Le Spoofing brise l’authenticité : si un système ne peut plus faire confiance à l’identité d’un acteur, tout le reste s’effondre.*
 
-Le spoofing ne concerne pas uniquement les utilisateurs humains.  
-Il peut viser :
+Le *spoofing* ne concerne pas uniquement les utilisateurs humains.  Il peut viser :
 
 - un **compte utilisateur**,  
 - une **application**,  
@@ -30,7 +29,7 @@ Il peut viser :
 
 ---
 
-## Objectifs d’un attaquant en Spoofing
+## Objectifs d’un attaquant en usurpation (*spoofing*)
 
 Un attaquant cherche généralement à :
 
@@ -44,7 +43,7 @@ Un attaquant cherche généralement à :
 
 ## Comment le Spoofing apparaît dans un DFD
 
-Dans un **Data Flow Diagram**, le Spoofing cible principalement :
+Dans un **Data Flow Diagram**, le *spoofing* cible principalement :
 
 | Élément DFD | Risque |
 |-------------|--------|
@@ -83,21 +82,21 @@ Dans les environnements cloud / microservices.
 
 ## Scénarios réels
 
-### Scénario 1 — Vol de session (session hijacking)
-Un attaquant récupère un cookie non protégé → usurpation de l’utilisateur.
+### Scénario 1 — Vol de session (*session hijacking*)
+Un attaquant récupère un cookie non protégé : usurpation de l’utilisateur.
 
 ### Scénario 2 — API interne usurpée
-Une clé API fuit → un attaquant se fait passer pour un service légitime.
+Une clé API fuit : un attaquant se fait passer pour un service légitime.
 
 ### Scénario 3 — Spoofing réseau (ARP poisoning)
-L’attaquant redirige le trafic → MITM.
+L’attaquant redirige le trafic : attaque *man-in-the-middle (MITM)*.
 
 ---
 
 ## Contre‑mesures
 
 ### Authentification robuste
-- MFA  
+- Authentification multi-facteurs (*MFA*)
 - Sessions courtes  
 - Rotation des tokens
 
@@ -110,8 +109,8 @@ L’attaquant redirige le trafic → MITM.
 - HSTS  
 - Signature inter‑services
 
-### Isolation réseau & Zero Trust
-- mTLS  
+### Isolation réseau & *Zero Trust*
+- TLS mutuel (mTLS)
 - Identité machine par certificats
 
 ### Journalisation fiable
@@ -137,8 +136,8 @@ Un endpoint de debug expose un token → usurpation complète.
 
 ## Conclusion
 
-- Le spoofing attaque **l’authenticité**.  
+- Le *spoofing* attaque **l’authenticité**.  
 - Il vise identités humaines et machines.  
 - Souvent première étape d’une chaîne d’attaque.  
-- Les protections doivent être combinées : MFA + TLS + mTLS + rotation + journaux fiables.
+- Les protections doivent être combinées, par exemple : MFA + TLS + mTLS + rotation + journaux fiables.
 

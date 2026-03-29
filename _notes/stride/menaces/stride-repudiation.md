@@ -44,7 +44,7 @@ La répudiation sert souvent à couvrir d’autres attaques (Tampering, EoP…).
 
 ---
 
-## Comment la Répudiation apparaît dans un DFD
+## Comment la répudiation apparaît dans un DFD
 
 | Élément DFD | Risque |
 |-------------|--------|
@@ -61,7 +61,7 @@ flowchart LR
 
 ---
 
-## Les formes les plus courantes de Répudiation
+## Les formes les plus courantes de répudiation
 
 ### Absence de logs
 Aucune trace des actions sensibles.
@@ -69,7 +69,7 @@ Aucune trace des actions sensibles.
 ### Logs modifiables ou supprimables
 Un attaquant peut effacer ou falsifier ses traces.
 
-### Mauvaise corrélation identité → action
+### Mauvaise corrélation identité vs action
 Actions non associées à un identifiant fiable.
 
 ### Manque de preuves cryptographiques
@@ -80,7 +80,7 @@ Absence de signature, mauvais horodatage.
 ## Scénarios réels
 
 ### Scénario 1 — Suppression sans preuve
-Un fichier critique est supprimé → aucune trace → action non attribuable.
+Un fichier critique est supprimé : aucune trace, donc aucune imputabilité.
 
 ### Scénario 2 — Logs modifiés après intrusion
 Un attaquant efface ses traces SSH.
@@ -89,7 +89,7 @@ Un attaquant efface ses traces SSH.
 API acceptant des requêtes anonymes pour des actions sensibles.
 
 ### Scénario 4 — Horodatage incorrect
-Serveurs non synchronisés → logs inutilisables.
+Serveurs non synchronisés : logs inutilisables.
 
 ---
 
@@ -107,7 +107,7 @@ Serveurs non synchronisés → logs inutilisables.
 - *Security Information and Event Management* (*SIEM*)  
 - Accès en lecture seule
 
-### Corrélation identité → action
+### Corrélation identité vs action
 - Sessions, JWT, certificats
 
 ### Horodatage fiable
@@ -137,5 +137,5 @@ Correctifs :
 ## Synthèse
 
 - La répudiation = *impossibilité de prouver qui a fait quoi*.  
-- Souvent liée au Tampering.  
+- Souvent liée à l'altération (*tampering*).  
 - Contre‑mesures : logs complets, signés, immuables, corrélés aux identités.

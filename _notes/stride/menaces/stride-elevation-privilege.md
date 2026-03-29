@@ -23,16 +23,16 @@ Elle permet souvent à un attaquant de :
 
 ---
 
-## Objectifs d’un attaquant en EoP
+## Objectifs d’un attaquant en élévation de privilège
 
-- Passer d’un rôle “faible” à un rôle “fort” (ex. : user → admin)  
+- Passer d’un rôle “faible” à un rôle “fort” (ex. : user vers admin)  
 - Contourner les contrôles d’accès  
 - Accéder à des actions réservées  
 - Étendre sa portée dans le système
 
 ---
 
-## Comment l’EoP apparaît dans un DFD
+## Comment l’élévation de privilège apparaît dans un DFD
 
 | Élément DFD | Risque |
 |-------------|--------|
@@ -47,13 +47,13 @@ flowchart LR
 
 ---
 
-## Formes courantes d’Élévation de privilèges
+## Formes courantes d’élévation de privilèges
 
-### ontrôle d’accès défaillant
+### Contrôle d’accès défaillant
 - Endpoints admin non protégés.
 
 ### Élévation verticale
-- user → admin.
+- `user` devient `admin`.
 
 ### Élévation horizontale
 - Consulter les données d’un autre utilisateur (*Insecure Direct Object Reference - IDOR*).
@@ -94,6 +94,8 @@ Accès non filtré à `/internal/export-all-data`.
 - Tokens signés et vérifiés.
 
 ### Séparation des rôles (RBAC / ABAC)
+- RBAC = *Role-based access control*
+- ABAC = *Attribute-based access control*
 - Permissions minimales.
 
 ### Protection des ressources internes
@@ -128,4 +130,4 @@ Correctifs :
 
 - EoP = **accès au‑delà des privilèges autorisés**.  
 - Souvent critique et dévastatrice.  
-- Solutions : contrôles stricts, RBAC, tokens signés, segmentation, audits.
+- Solutions : contrôles stricts, RBAC/ABAC, tokens signés, segmentation, audits.
