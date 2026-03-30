@@ -153,7 +153,7 @@ Pour chaque élément dans les DFD, on établit :
 
    Risque = Probabilité × Impact 
 
-5. **Définir les contre‑mesures**  
+**5. Définir les contre‑mesures**  
 - Pour chaque menace présentant un risque au-delà du seuil acceptable pour l'organisation, définir des mesures de mitigation (ou contre-mesures). Ces mesures peuvent être :
  - Techniques
  - Architecturales
