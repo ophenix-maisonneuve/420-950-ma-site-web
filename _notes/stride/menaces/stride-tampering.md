@@ -30,7 +30,7 @@ Cette menace attaque directement l’un des fondements de la sécurité :
 
 ---
 
-## Objectifs d’un attaquant en Tampering
+## Objectifs d’un attaquant en altération (*tampering*)
 
 L’attaquant cherche généralement à :
 
