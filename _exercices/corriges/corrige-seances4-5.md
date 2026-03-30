@@ -308,7 +308,7 @@ Pour chaque menace réelle identifiée à l'étape précédente :
 | Denial of Service | 5 | 4 | 20 | Attaque très facile à réaliser si non protégé; peut rendre impossible l'adoption d'animaux, leur causant un tort significatif |
 | Elevation of Privilege | 5 | 1 | 5 | Attaque potentiellement très facile à réaliser, mais ayant très peu d'impact étant donné que les fiches des animaux ne sont pas vraiment confidentielles |
 
-{: .remarque}
+{: .highlight}
 > Il est utile de bien définir les critères qui font varier la probabilité et l'impact. Par exemple, pour attribuer l'impact dans le tableau ci-haut, les critères suivants ont été utilisés :
 > - **5 (impact énorme)** : L'attaquant obtient l'accès a des informations personnelles et identifiables (*PII*); l'attaquant cause un grand tort à une personne ou un animal
 > - **4** : L'attaquant peut effectuer une attaque affectant l'ensemble du système ou camoufler une attaque de cette ampleur; l'attaquant cause un tort significatif à une personne ou un animal
