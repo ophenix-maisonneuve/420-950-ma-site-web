@@ -38,7 +38,7 @@ Dans la pratique, le Top 10 sert de point de départ pragmatique pour bâtir une
 ---
 
 ### Références officielles
-- Projet : https://owasp.org/Top10/2025/
-- Introduction : https://owasp.org/Top10/2025/0x00_2025-Introduction/
-- Page d’accueil : https://owasp.org/www-project-top-ten/
+- Projet : [https://owasp.org/Top10/2025/](https://owasp.org/Top10/2025/)
+- Introduction : [https://owasp.org/Top10/2025/0x00_2025-Introduction/](https://owasp.org/Top10/2025/0x00_2025-Introduction/)
+- Page d’accueil : [https://owasp.org/www-project-top-ten/](https://owasp.org/www-project-top-ten/)
 
