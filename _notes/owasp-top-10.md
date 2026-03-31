@@ -22,16 +22,16 @@ Dans la pratique, le Top 10 sert de point de départ pragmatique pour bâtir une
 
 ## La liste 2025
 
-1. **A01 — Broken Access Control**  
-2. **A02 — Security Misconfiguration**  
-3. **A03 — Software Supply Chain Failures**  
-4. **A04 — Cryptographic Failures**  
-5. **A05 — Injection**  
-6. **A06 — Insecure Design**  
-7. **A07 — Authentication Failures**  
-8. **A08 — Software or Data Integrity Failures**  
-9. **A09 — Logging & Alerting Failures**  
-10. **A10 — Mishandling of Exceptional Conditions**
+- **A01 — Broken Access Control**  
+- **A02 — Security Misconfiguration**  
+- **A03 — Software Supply Chain Failures**  
+- **A04 — Cryptographic Failures**  
+- **A05 — Injection**  
+- **A06 — Insecure Design**  
+- **A07 — Authentication Failures**  
+- **A08 — Software or Data Integrity Failures**  
+- **A09 — Logging & Alerting Failures**  
+- **A10 — Mishandling of Exceptional Conditions**
 
 **Faits saillants :** montée de ***Security Misconfiguration*** (#2), introduction de  ***Mishandling of Exceptional Conditions*** et **SSRF** absorbé par ***Broken Access Controls***.
 
