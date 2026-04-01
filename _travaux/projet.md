@@ -137,11 +137,12 @@ Section 6 : Nomenclature logicielle (SBOM) | 10
         - La version corrigée du portail de réservation
         - L'implémentation démontrant volontairement la vulnérabilité (peut être en commentaires au besoin)
     - Le rapport SAST
-    - Le rapport  
+    - Le rapport SCA
+    - La nomenclature logicielle (SBOM)
 - Le travail est à remettre sur **Léa (Omnivox)** dans la section **Travaux - Énoncés et remises**
 - Le travail se fait en **équipe de 3 personnes** (une remise par équipe)
 - Le travail est à remettre au plus tard le **21 mai 2026** en fin de journée.
 
 ---
 
-Bon courage ! 🔐🚀
+**Oups Technologies compte sur vous!** 
