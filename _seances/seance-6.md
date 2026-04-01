@@ -23,6 +23,7 @@ published: true
     1. Exercice : *WebGoat / (A7) Identity & Auth Failure / Secure Passwords*
     1. Exercice : *WebGoat / (A7) Identity & Auth Failure / JWT tokens*
         1. Jusqu'à la leçon 11 (inclusivement)
+        1. ***À noter :** Pour certains exercices, il y a un recoupement avec A01 - Broken Access Controls*
 1. [A06 - Conception non sécurisée](../notes/a06)
 
 
