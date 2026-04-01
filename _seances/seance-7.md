@@ -5,7 +5,7 @@ nav_order: 7
 published: false
 ---
 
-# Séance 6 : OWASP Top 10 (partie 2)
+# Séance 7 : OWASP Top 10 (partie 2)
 
 ## 9 avril 2026
 
