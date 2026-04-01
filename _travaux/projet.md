@@ -82,7 +82,7 @@ Dans le code fourni, un seul utilisateur est créé au premier démarrage. De pl
 - Une nouvelle section dans l'interface web qui montre les salles réservées par d'autres utilisateurs
 - Le code nécessaire à cette fonctionnalité dans les services backend
 
-{. :highlight}
+{: .highlight}
 > Pour les fins du projet, il est acceptable que les utilisateurs soient ajoutés une seule fois au premier démarrage de l'application. Autrement dit, il n'est pas nécessaire d'ajouter la fonctionnalité d'ajout/suppression d'utilisateurs dans l'application.
 
 ### 2. Démonstration de code vulnérable
@@ -95,38 +95,52 @@ Chaque équipe choisira une vulnérabilité parmi les suivantes (premier arrivé
 - L'injection de commandes / scripts
 - L'accès non-sécurisé direct aux ressources (*IDOR*)
 
-Vous devrez d'abord, pour la vulnérabilité choisie, introduire volontairement cette vulnérabilité à l'application. 
+Pour la vulnérabilité choisie, introduisez volontairement cette vulnérabilité à l'application. En d'autres termes, ajoutez du code à une nouvelle fonctionnalité ou à une fonctionnalité existante, qui présente la vulnérabilité choisie.
 
 ### 3. Analyse SAST
+À l'aide de l'outil **Semgrep**, effectuez une analyse statique de l'application. Normalement, cette analyse devrait détecter la vulnérabilité introduite volontairement à l'étape précédente ainsi que, possiblement, d'autres vulnérabilités qui étaient déjà présentes.
+
+***Notez les vulnérabilités identifiées***
 
 ### 4. Analyse SCA
+À l'aide de l'outil **Dependency-Check**, effectuez une analyse des composantes logicielles (*SCA*) de l'application. 
+
+***Notez les vulnérabilités identifiées***
 
 ### 5. Correction des vulnérabilités identifiées
+Corrigez maintenant les vulnérabilités identifiées aux étapes 3 et 4, y compris celle que vous avez introduite volontairement.
+
+{: .important}
+> Ne supprimez pas votre code vulnérable, car il sera également évalué. Si votre application respecte bien les principes SOLID ( ;) ), il devrait être assez simple de fournir une implémentation alternative au code vulnérable et de remplacer l'implémentation vulnérable par l'implémentation corrigée. Si ce n'est pas possible, vous pouvez aussi mettre en commentaires l'implémentation fautive et la remplacer par la correction.
 
 ### 6. SBOM
-
+Finalement, à l'aide de l'outil **CycloneDX**, produisez une nomenclature logicielle (*SBOM*) de l'application.
 ---
 
 ## Évaluation
 
 Critère | Points
 ------- | ------
-Section 1 : Analyse des composantes | 15
-Section 2 : Construction des DFD | 25
-Section 3 : Modélisation STRIDE | 25
-Section 4 : Analyse de risque | 20
-Section 5 : Recommandations de sécurité | 15
-**Total** | **100 points (20% de la note finale)**
+Section 1 : Prise en charge multi-utilisateurs | 10
+Section 2 : Ajout du code vulnérable | 25
+Section 3 : Analyse SAST | 15
+Section 4 : Analyse SCA | 15
+Section 5 : Correction des vulnérabilités | 25
+Section 6 : Nomenclature logicielle (SBOM) | 10
+**Total** | **100 points (25% de la note finale)**
 
 ---
 
 ## À remettre
 - Un fichier **.zip** contenant :
-  - Les réponses aux **questions** des **sections 1 à 5** (dans un document PDF, Word, LibreOffice ou Markdown)
-  - Tous les diagrammes DFD (Mermaid ou PNG)
+    - Le code final contenant :
+        - La version corrigée du portail de réservation
+        - L'implémentation démontrant volontairement la vulnérabilité (peut être en commentaires au besoin)
+    - Le rapport SAST
+    - Le rapport  
 - Le travail est à remettre sur **Léa (Omnivox)** dans la section **Travaux - Énoncés et remises**
-- Le travail est **individuel** (une remise par personne)
-- Le travail est à remettre au plus tard le **16 avril 2026** en fin de journée.
+- Le travail se fait en **équipe de 3 personnes** (une remise par équipe)
+- Le travail est à remettre au plus tard le **21 mai 2026** en fin de journée.
 
 ---
 
