@@ -22,6 +22,7 @@ Dans la pratique, le Top 10 sert de base pour bâtir une culture de sécurité�
 
 ## La liste 2025
 
+
 - **A01 : Broken Access Control** : Problèmes liés à un mauvais contrôles des accès et autorisations menant généralement à une élévation de privilèges
 - **A02 : Security Misconfiguration** : Problèmes causés par des configurations plutôt que par du code
 - **A03 : Software Supply Chain Failures** : Problèmes introduits par des logiciels tierces inclus dans une application
@@ -40,7 +41,9 @@ Dans la pratique, le Top 10 sert de base pour bâtir une culture de sécurité�
 
 ---
 
-### Références officielles
+## Références officielles
+
+
 - Projet : [https://owasp.org/Top10/2025/](https://owasp.org/Top10/2025/)
 - Introduction : [https://owasp.org/Top10/2025/0x00_2025-Introduction/](https://owasp.org/Top10/2025/0x00_2025-Introduction/)
 - Page d’accueil : [https://owasp.org/www-project-top-ten/](https://owasp.org/www-project-top-ten/)
