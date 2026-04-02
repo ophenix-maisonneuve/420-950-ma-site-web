@@ -25,7 +25,7 @@ Dans la pratique, le Top 10 sert de base pour bâtir une culture de sécurité�
 
 - **A01 : Broken Access Control** : Problèmes liés à un mauvais contrôles des accès et autorisations menant généralement à une élévation de privilèges
 - **A02 : Security Misconfiguration** : Problèmes causés par des configurations plutôt que par du code
-- **A03 : Software Supply Chain Failures** : Problèmes introduits par des logiciels tierces inclus dans une application
+- **A03 : Software Supply Chain Failures** : Problèmes introduits par des logiciels tierces inclus dans une application ou par les outils/processus du CI/CD
 - **A04 : Cryptographic Failures** : Mauvaise utilisation des algorithmes ou du matériel cryptigraphique
 - **A05 : Injection** : Vulnérabilités permettant à un attaquant d'ajouter du code malicieux à une application légitime
 - **A06 : Insecure Design** : Problèmes émanant de la conception du logiciel, et non de son implémentation
