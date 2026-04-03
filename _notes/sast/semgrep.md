@@ -31,29 +31,35 @@ pipx install semgrep
 ---
 
 ## Commandes courantes
+
 ### Lancer un scan avec règles par défaut
 ```bash
-semgrep --config=auto .
+semgrep scan --config auto .
 ```
-### Scan avec un fichier de règles local
+ou plus simplement
+
 ```bash
-semgrep --config=rules/
-```
-### Scan avec une règle du registre Semgrep
-```bash
-semgrep --config="p/owasp-top-ten"
+semgrep scan
 ```
 
----
+*Semgrep tentera de détecter automatiquement le langage et les règles à utiliser*
 
-## Exemples
 
-### Java
+### Scan avec des règles spécifiques du registre Semgrep
 ```bash
-semgrep --config=p/owasp-top-ten --lang=java src/
+semgrep scan --config=p/owasp-top-ten
 ```
 
-### Python
+{: .highlight}
+> Par défaut, **Semgrep** ne fonctionne qu'avec un sous-ensemble limité de règles. Pour profiter de toutes les règles, il suffit de se créer un compte à l'adresse [https://semgrep.dev/signup](https://semgrep.dev/signup). Il faut ensuite connecter Semgrep à son compte :
+>
+> ```bash
+>semgrep login
+>```
+
+### Scan avec un fichier de règles locales
+Il est aussi possible de définir des règles personnalisées et de les inclure dans l'analyse. Pour plus d'informations sur la syntaxe à utiliser pour définir des règles, consulez la documentation officielle ici : [https://semgrep.dev/docs/writing-rules/overview](https://semgrep.dev/docs/writing-rules/overview)
 ```bash
-semgrep --config=p/python src/
+semgrep --config=<répertoire contenant les fichiers de règles>
 ```
+

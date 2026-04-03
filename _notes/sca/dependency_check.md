@@ -27,17 +27,20 @@ unzip dependency-check-12.2.0-release.zip -d $HOME/.local/share/
 ln -s ~/.local/share/dependency-check/bin/dependency-check.sh ~/.local/bin/dependency-check
 ```
 
+{: .astuce}
+> Une fois l'installation complétée, il est fortement recommandé de demander un identifiant NVD à l'adresse suivante [https://nvd.nist.gov/developers/request-an-api-key](https://nvd.nist.gov/developers/request-an-api-key). Cela permettra de grandement accélérer l'exécution des analyses.
+
 ---
 
 ## Commandes courantes
 ### Scan d'un projet Java (Maven)
 ```bash
-dependency-check --project "Mon projet Java" --scan ./ --format "ALL"
+dependency-check [--nvdApiKey <votre clé NVD>] --project "Mon projet Java" --scan ./ --format "ALL"
 ```
 
 ### Scan d'un dossier Python
 ```bash
-dependency-check --project "Mon projet Python" --enableExperimental --scan ./ --format "ALL"
+dependency-check [--nvdApiKey <votre clé NVD>] --project "Mon projet Python" --enableExperimental --scan ./ --format "ALL"
 ```
 
 {: .astuce}
