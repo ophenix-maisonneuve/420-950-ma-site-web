@@ -89,7 +89,7 @@ Créez :
 - un **DFD niveau 0 complet**
 
 Si un ou plusieurs processus complexe(s), produisez :
-- un (1) DFD de niveau 1 pour un processus complexe.
+- un (1) DFD de niveau 1 pour **un** processus complexe.
 
 #### Questions
 1. Quels flux de données impliquent les utilisateurs ?
@@ -107,8 +107,8 @@ Sur vos DFD, ajoutez des frontières de confiance aux endroits appropriés.
 
 ### 4. Modélisation STRIDE
 Pour chaque élément du système (entités externes, processus, stockages, flux), identifiez :
-- les menaces potentielles
-- les menaces réelles
+- les menaces potentielles (S, T, R, I, D, E)
+- les menaces réelles, c'est-à-dire les menaces potentielles qui sont applicables pour l'application analysée
 - un exemple ou scénario d'attaque concret pour chaque menace réelle
 
 #### Questions
@@ -141,17 +141,17 @@ Attribuez une cote de risque à chaque menace réelle identifiée à l'étape pr
 Critère | Points
 ------- | ------
 Section 1 : Analyse des composantes | 15
-Section 2 : Construction des DFD | 25
-Section 3 : Modélisation STRIDE | 25
-Section 4 : Analyse de risque | 20
-Section 5 : Recommandations de sécurité | 15
+Sections 2 & 3 : Construction des DFD | 25
+Section 4 : Modélisation STRIDE | 25
+Section 5 : Analyse de risque | 20
+Section 6 : Recommandations de sécurité | 15
 **Total** | **100 points (20% de la note finale)**
 
 ---
 
 ## À remettre
 - Un fichier **.zip** contenant :
-  - Les réponses aux **questions** des **sections 1 à 5** (dans un document PDF, Word, LibreOffice ou Markdown)
+  - Les réponses aux **questions** des **sections 1 à 6** (dans un document PDF, Word, LibreOffice ou Markdown)
   - Tous les diagrammes DFD (Mermaid ou PNG)
 - Le travail est à remettre sur **Léa (Omnivox)** dans la section **Travaux - Énoncés et remises**
 - Le travail est **individuel** (une remise par personne)
