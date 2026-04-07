@@ -2,7 +2,7 @@
 layout: default
 title: "2026-04-09"
 nav_order: 7
-published: false
+published: true
 ---
 
 # Séance 7 : OWASP Top 10 (partie 2)
@@ -13,6 +13,8 @@ published: false
 
 1. Informations générales
 1. Récapitulation [OWASP Top 10](../notes/owasp-top-10)
+    1. Correction en groupe de *WebGoat / (A7) Identity & Auth Failure / JWT tokens* (leçons 9 à 11)
+1. [A06 - Conception non sécurisée](../notes/a06)
 1. [A05 - Injection](../notes/a05)
     1. Exercice en groupe : *WebGoat / (A3) Injection / SQL Injection (Intro)* (leçons 1 à 5)
     1. Exercice individuel : *WebGoat / (A3) Injection / SQL Injection (Intro)* (leçons 6 à 11)
@@ -27,9 +29,16 @@ published: false
 1. [A01 - Contrôle d'accès défaillant](../notes/a01)
     1. Exercice : *WebGoat / (A1) Broken Access Control / Insecure Direct Object Reference*
 
+### Lectures recommandées
+
+- Notes de cours sur la [OWASP Top 10](../notes/owasp-top-10)
+    - [A05 - Injection](../notes/a05)
+    - [A04 - Défaillances cryptographiques](../notes/a04)
+    - [A03 - Chaîne d'approvisionnement logiciel défaillante](../notes/a03)
+    - [A02 - Mauvaise configuration de sécurité](../notes/a02)
+    - [A01 - Contrôles d'accès défaillants](../notes/a01)
 
 ### Exercice(s) complémentaire(s)
-
 
 - Continuer le [travail pratique 2](../travaux/tp2)
 - Exercice : *WebGoat / (A3) Injection / SQL Injection*
