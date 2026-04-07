@@ -142,8 +142,11 @@ En utilisant un générateur de requêtes HTTP (Postman ou extensions Chrome/Fir
 
 ## Nomenclature logicielle (*SBOM*)
 
-### 1. Configurer l'outil **OWASP CycloneDX**
+### 1. Générer un SBOM minimal avec OWASP Dependency-Check
+### 2. Configurer l'outil **OWASP CycloneDX**
 
-### 2. Créer la nomenclature logicielle
+### 3. Créer la nomenclature logicielle
+
+### 4. Comparer
 
 
