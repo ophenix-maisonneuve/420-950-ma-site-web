@@ -111,6 +111,7 @@ Pour chaque vulnérabilités identifiées aux étapes 3 et 4 (incluant celle que
 
 ### 6. SBOM
 Finalement, à l'aide de l'outil **CycloneDX**, produisez une nomenclature logicielle (*SBOM*) de l'application.
+
 ---
 
 ## Évaluation
