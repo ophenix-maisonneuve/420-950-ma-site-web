@@ -90,7 +90,7 @@ Pour la vulnérabilité choisie, introduisez volontairement cette vulnérabilit�
 
 ***Notez les vulnérabilités identifiées***
 
-{: .warning}
+{: .remarque}
 > Comme nous le remarquerons pendant les cours, les outils *SAST*, en particulier leurs versions gratuites, n'attrapent pas tous les problèmes. Si votre vulnérabilité n'a pas été rapportée par l'outil, cela ne veut pas nécessairement dire que vous l'avez mal implémentée.
 
 ### 4. Analyse SCA
@@ -106,7 +106,7 @@ Pour chaque vulnérabilités identifiées aux étapes 3 et 4 (incluant celle que
     - S'il n'existe pas de correctif direct, par exemple dans le cas d'une librairie pour laquelle il n'existe pas encore de mise à jour, expliquez et proposez des méthodes de contournement alternatives.
 
 
-{: .important}
+{: .warning}
 > Ne supprimez pas le code vulnérable que vous aviez introduit volontairement, car il sera également évalué. Si votre application respecte bien les principes SOLID ( ;) ), il devrait être assez simple de fournir une implémentation alternative au code vulnérable et de remplacer l'implémentation vulnérable par l'implémentation corrigée. Si ce n'est pas possible, vous pouvez aussi mettre en commentaires l'implémentation fautive et la remplacer par la correction.
 
 ### 6. SBOM
