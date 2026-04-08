@@ -60,22 +60,10 @@ Un seul utilisateur est créé automatiquement au premier démarrage de l'applic
 - Utilisateur: admin
 - Mot de passe: admin
 
-L’application inclut :
-- une application web (*Frontend*)
-- une application (backend) utilisant Python/Flask
-- un module d’authentification
-- un moteur de réservation
-- une base de données
-
-Clonez le projet et familiarisez-vous avec :
-- l’arborescence du code
-- les routes et endpoints
-- les modèles de données
-- la logique du moteur de réservation
-
 ---
+
 ## Tâches à réaliser
-Le travail est à réaliser en équipes de 3 personnes. Pour la partie 2, chaque équipe aura à implémenter et à corriger une vulnérabilité différente
+Le travail est à réaliser en équipes de 3 personnes. Pour la partie 2, chaque équipe aura à implémenter et à corriger **une seule** (1) vulnérabilité parmi la liste ci-bas.
 
 ### 1. Ajouter la prise en charge multi-utilisateurs
 Dans le code fourni, un seul utilisateur est créé au premier démarrage. De plus, la liste des réservations n'affiche que les réservations effectuées par l'utilisateur connecté, ce qui n'est pas très pratique pour tenter de réserver une salle. Vous devrez ajouter :
@@ -86,21 +74,24 @@ Dans le code fourni, un seul utilisateur est créé au premier démarrage. De pl
 > Pour les fins du projet, il est acceptable que les utilisateurs soient ajoutés une seule fois au premier démarrage de l'application. Autrement dit, il n'est pas nécessaire d'ajouter la fonctionnalité d'ajout/suppression d'utilisateurs dans l'application.
 
 ### 2. Démonstration de code vulnérable
-Chaque équipe choisira une vulnérabilité parmi les suivantes (premier arrivé, premier servi) :
+Chaque équipe choisira une vulnérabilité parmi les suivantes :
 - L'injection SQL
 - Le *cross-site scripting* réflété
 - Le *cross-site scripting* stocké
-- L'usurpation de jeton JWT
+- La manipulation de jeton JWT
 - La traversée de répertoires (*path traversal*)
 - L'injection de commandes / scripts
 - L'accès non-sécurisé direct aux ressources (*IDOR*)
 
-Pour la vulnérabilité choisie, introduisez volontairement cette vulnérabilité à l'application. En d'autres termes, ajoutez du code à une nouvelle fonctionnalité ou à une fonctionnalité existante, qui présente la vulnérabilité choisie.
+Pour la vulnérabilité choisie, introduisez volontairement cette vulnérabilité à l'application. En d'autres termes, ajoutez du code à une nouvelle fonctionnalité ou à une fonctionnalité existante qui présente la vulnérabilité choisie.
 
 ### 3. Analyse SAST
 À l'aide de l'outil **Semgrep**, effectuez une analyse statique de l'application. Normalement, cette analyse devrait détecter la vulnérabilité introduite volontairement à l'étape précédente ainsi que, possiblement, d'autres vulnérabilités qui étaient déjà présentes.
 
 ***Notez les vulnérabilités identifiées***
+
+{: .warning}
+> Comme nous le remarquerons pendant les cours, les outils *SAST*, en particulier leurs versions gratuites, n'attrapent pas tous les problèmes. Si votre vulnérabilité n'a pas été rapportée par l'outil, cela ne veut pas nécessairement dire que vous l'avez mal implémentée.
 
 ### 4. Analyse SCA
 À l'aide de l'outil **Dependency-Check**, effectuez une analyse des composantes logicielles (*SCA*) de l'application. 
@@ -108,10 +99,15 @@ Pour la vulnérabilité choisie, introduisez volontairement cette vulnérabilit�
 ***Notez les vulnérabilités identifiées***
 
 ### 5. Correction des vulnérabilités identifiées
-Corrigez maintenant les vulnérabilités identifiées aux étapes 3 et 4, y compris celle que vous avez introduite volontairement.
+Pour chaque vulnérabilités identifiées aux étapes 3 et 4 (incluant celle que vous avez introduite volontairement), effectuez l'une des actions suivantes, selon le cas :
+- S'il s'agit d'un faux positif ou d'une vulnérabilité non-exploitable, indiquez-le et justifiez.
+- S'il s'agit d'une vulnérabilité exploitable : 
+    - Corrigez la vulnérabilité (correctif de code, mise à jour d'une librairie, etc)
+    - S'il n'existe pas de correctif direct, par exemple dans le cas d'une librairie pour laquelle il n'existe pas encore de mise à jour, expliquez et proposez des méthodes de contournement alternatives.
+
 
 {: .important}
-> Ne supprimez pas votre code vulnérable, car il sera également évalué. Si votre application respecte bien les principes SOLID ( ;) ), il devrait être assez simple de fournir une implémentation alternative au code vulnérable et de remplacer l'implémentation vulnérable par l'implémentation corrigée. Si ce n'est pas possible, vous pouvez aussi mettre en commentaires l'implémentation fautive et la remplacer par la correction.
+> Ne supprimez pas le code vulnérable que vous aviez introduit volontairement, car il sera également évalué. Si votre application respecte bien les principes SOLID ( ;) ), il devrait être assez simple de fournir une implémentation alternative au code vulnérable et de remplacer l'implémentation vulnérable par l'implémentation corrigée. Si ce n'est pas possible, vous pouvez aussi mettre en commentaires l'implémentation fautive et la remplacer par la correction.
 
 ### 6. SBOM
 Finalement, à l'aide de l'outil **CycloneDX**, produisez une nomenclature logicielle (*SBOM*) de l'application.
@@ -134,10 +130,11 @@ Section 6 : Nomenclature logicielle (SBOM) | 10
 ## À remettre
 - Un fichier **.zip** contenant :
     - Le code final contenant :
-        - La version corrigée du portail de réservation
         - L'implémentation démontrant volontairement la vulnérabilité (peut être en commentaires au besoin)
+        - La version corrigée du portail de réservation contenant tous les correctifs que vous aurez implémentés
     - Le rapport SAST
     - Le rapport SCA
+    - Les justifications / explications pour les vulnérabilités qui n'ont pas été corrigées dans le code.
     - La nomenclature logicielle (SBOM)
 - Le travail est à remettre sur **Léa (Omnivox)** dans la section **Travaux - Énoncés et remises**
 - Le travail se fait en **équipe de 3 personnes** (une remise par équipe)
