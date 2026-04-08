@@ -63,7 +63,6 @@ Un seul utilisateur est créé automatiquement au premier démarrage de l'applic
 ---
 
 ## Tâches à réaliser
-Le travail est à réaliser en équipes de 3 personnes. Pour la partie 2, chaque équipe aura à implémenter et à corriger **une seule** (1) vulnérabilité parmi la liste ci-bas.
 
 ### 1. Ajouter la prise en charge multi-utilisateurs
 Dans le code fourni, un seul utilisateur est créé au premier démarrage. De plus, la liste des réservations n'affiche que les réservations effectuées par l'utilisateur connecté, ce qui n'est pas très pratique pour tenter de réserver une salle. Vous devrez ajouter :
@@ -74,7 +73,8 @@ Dans le code fourni, un seul utilisateur est créé au premier démarrage. De pl
 > Pour les fins du projet, il est acceptable que les utilisateurs soient ajoutés une seule fois au premier démarrage de l'application. Autrement dit, il n'est pas nécessaire d'ajouter la fonctionnalité d'ajout/suppression d'utilisateurs dans l'application.
 
 ### 2. Démonstration de code vulnérable
-Chaque équipe choisira une vulnérabilité parmi les suivantes :
+Chaque équipe choisira **une seule** (1) vulnérabilité parmi les suivantes :
+
 - L'injection SQL
 - Le *cross-site scripting* réflété
 - Le *cross-site scripting* stocké
