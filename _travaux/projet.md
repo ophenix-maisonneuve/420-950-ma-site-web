@@ -130,7 +130,7 @@ Section 6 : Nomenclature logicielle (SBOM) | 10
 
 ## À remettre
 - Un fichier **.zip** contenant :
-    - Le code final contenant :
+    - Le code final incluant :
         - L'implémentation démontrant volontairement la vulnérabilité (peut être en commentaires au besoin)
         - La version corrigée du portail de réservation contenant tous les correctifs que vous aurez implémentés
     - Le rapport SAST
