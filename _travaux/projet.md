@@ -90,7 +90,7 @@ Pour la vulnérabilité choisie, introduisez volontairement cette vulnérabilit�
 
 ***Notez les vulnérabilités identifiées***
 
-{: .remarque}
+{: .highlight}
 > Comme nous le remarquerons pendant les cours, les outils *SAST*, en particulier leurs versions gratuites, n'attrapent pas tous les problèmes. Si votre vulnérabilité n'a pas été rapportée par l'outil, cela ne veut pas nécessairement dire que vous l'avez mal implémentée.
 
 ### 4. Analyse SCA
