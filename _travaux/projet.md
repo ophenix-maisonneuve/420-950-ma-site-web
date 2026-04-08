@@ -107,7 +107,7 @@ Pour chaque vulnérabilités identifiées aux étapes 3 et 4 (incluant celle que
 
 
 {: .warning}
-> Ne supprimez pas le code vulnérable que vous aviez introduit volontairement, car il sera également évalué. Si votre application respecte bien les principes SOLID ( ;) ), il devrait être assez simple de fournir une implémentation alternative au code vulnérable et de remplacer l'implémentation vulnérable par l'implémentation corrigée. Si ce n'est pas possible, vous pouvez aussi mettre en commentaires l'implémentation fautive et la remplacer par la correction.
+> Ne supprimez pas le code vulnérable que vous aviez introduit volontairement, car il sera également évalué. Si votre application respecte bien les principes SOLID (:smile:), il devrait être assez simple de fournir une implémentation alternative au code vulnérable et de remplacer l'implémentation vulnérable par l'implémentation corrigée. Si ce n'est pas possible, vous pouvez aussi mettre en commentaires l'implémentation fautive et la remplacer par la correction.
 
 ### 6. SBOM
 Finalement, à l'aide de l'outil **CycloneDX**, produisez une nomenclature logicielle (*SBOM*) de l'application.
