@@ -25,8 +25,8 @@ published: true
 1. [A03 - Chaîne d'approvisionnement logiciel défaillante](../notes/a03)
     1. Exercice en groupe : *WebGoat / (A6) Vuln. & Outdated Components / Vulnerable Components*
 1. [A02 - Mauvaise configuration de sécurité](../notes/a02)
-    1. Exercice en groupe : *WebGoat / (A5) Security Misconfiguration / Cross-Site Request Forgeries* (leçons 1 à 4)
 1. [A01 - Contrôle d'accès défaillant](../notes/a01)
+    1. Exercice en groupe : *WebGoat / (A5) Security Misconfiguration / Cross-Site Request Forgeries* (leçons 1 à 4, aussi lié à *A02 - Mauvaise configuration de sécurité*)
     1. Exercice individuel : *WebGoat / (A1) Broken Access Control / Insecure Direct Object Reference*
 
 ### Lectures recommandées

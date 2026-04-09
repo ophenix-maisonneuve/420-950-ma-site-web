@@ -126,6 +126,19 @@ Section 5 : Correction des vulnérabilités | 25
 Section 6 : Nomenclature logicielle (SBOM) | 10
 **Total** | **100 points (25% de la note finale)**
 
+## Évaluation (avec DAST)
+
+Critère | Points
+------- | ------
+Section 1 : Prise en charge multi-utilisateurs | 10
+Section 2 : Ajout du code vulnérable | 20
+Section 3 : Analyse SAST | 10
+Section 4 : Analyse SCA | 10
+Section 5 : Analyse DAST | 15
+Section 6 : Correction des vulnérabilités | 25
+Section 7 : Nomenclature logicielle (SBOM) | 10
+**Total** | **100 points (25% de la note finale)**
+
 ---
 
 ## À remettre
