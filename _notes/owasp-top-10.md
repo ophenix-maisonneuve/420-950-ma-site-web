@@ -5,8 +5,8 @@ nav_order: 8
 has_children: true
 has_toc: true
 published: true
-
 ---
+
 # OWASP Top 10 (2025)
 Le OWASP Top 10 est un document de sensibilisation standard pour les développeurs et les équipes de sécurité applicative : il présente un consensus large sur les dix risques les plus critiques pour les applications web, afin d’offrir un langage commun et des priorités pour l’industrie.  L’édition 2025 constitue la version la plus récente du projet et reflète l’état actuel des menaces ainsi que la manière dont elles sont observées dans les applications modernes.  Il ne s'agit pas d'une liste exhaustive ni d'une norme de conformité ; c’est plutôt un point de départ pour l’apprentissage, la communication et la priorisation des efforts de sécurité au sein des entreprises et organisations.
 

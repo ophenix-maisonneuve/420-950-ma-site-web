@@ -1,7 +1,8 @@
 ---
 layout: default
 title: SBOM - Nomenclature logicielle
-nav_order: 11
+parent: Analyse statique
+nav_order: 3
 has_children: true
 has_toc: true
 published: false

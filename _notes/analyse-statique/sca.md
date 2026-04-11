@@ -1,7 +1,8 @@
 ---
 layout: default
 title: SCA - Analyse de composition logicielle
-nav_order: 10
+parent: Analyse statique
+nav_order: 2
 has_children: true
 has_toc: true
 published: false

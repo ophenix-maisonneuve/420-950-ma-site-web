@@ -1,10 +1,11 @@
 ---
 layout: default
 title: SAST - Analyse statique de sécurité
-nav_order: 9
+parent: Analyse statique
+nav_order: 1
 has_children: true
 has_toc: true
-published: false
+published: true
 ---
 
 # SAST - Analyse statique de sécurité (*Static Application Security Testing*)  
@@ -55,9 +56,9 @@ Voici une liste d'outils *SAST* parmi les plus utilisés dans l'industrie :
 
 | Outil | Description rapide | Open source ? |
 |-------|--------------------|----------------|
-| **Semgrep** | Rapide, multi‑langages, règles personnalisables | ✅ Oui |
-| **SonarQube** | Analyse qualité + sécurité, très populaire en entreprise | Version Community |
-| **Checkmarx** | Solution SAST complète orientée entreprises | ❌ |
-| **Fortify** | Solution commerciale mature avec intégration large | ❌ |
-| **Bandit (Python)** | Analyse statique spécialisée Python | ✅ |
-| **ESLint + plugins sécurité** | Pour analyser JS/TS | Dépend des plugins |
+| **Semgrep** | Rapide, multi‑langages, règles personnalisables | Oui |
+| **SonarQube** | Analyse qualité + sécurité, très populaire en entreprise | Version Community seulement|
+| **Checkmarx** | Solution SAST complète orientée entreprises | Non |
+| **Fortify** | Solution commerciale mature avec intégration large | Non |
+| **Bandit (Python)** | Analyse statique spécialisée Python | Oui |
+| **ESLint + plugins sécurité** | Pour analyser Javascript ou Typescript | Dépend des plugins |
