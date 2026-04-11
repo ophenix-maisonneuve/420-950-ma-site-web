@@ -7,15 +7,14 @@ nav_order: 1
 
 # Semgrep
 
-**Semgrep** est un outil d’analyse statique moderne conçu pour être **simple**, **rapide**, **léger** et **extrêmement flexible**. Contrairement aux outils SAST traditionnels qui reposent sur des moteurs complexes, Semgrep utilise une approche unique basée sur les **patterns structurés** : des règles qui ressemblent directement au code des développeurs. Il ne s’agit donc pas d’une recherche par mots‑clés ou de regex approximatives : Semgrep comprend réellement la structure syntaxique du code.
+**Semgrep** est un outil d’analyse statique moderne conçu pour être **simple**, **rapide**, **léger** et **extrêmement flexible**. Contrairement aux outils *SAST* traditionnels qui reposent sur des moteurs complexes, Semgrep utilise une approche unique basée sur les **patrons structurés** : des règles qui ressemblent directement au code des développeurs. Il ne s’agit donc pas d’une recherche par mots‑clés ou de regex approximatives : Semgrep comprend réellement la structure syntaxique du code.
 
 L’outil prend en charge plus de trente langages (Java, Python, JavaScript, Go, Terraform, Docker, YAML, etc.) et s’intègre aisément dans les environnements de développement modernes.  
 Ses forces principales :  
-- **vitesse d’exécution exceptionnelle** (analyse en quelques secondes),  
-- **règles faciles à écrire en YAML**,  
-- **écosystème riche** (des milliers de règles prêtes à l’emploi),  
-- **intégration fluide** dans les pipelines CI/CD,  
-- **mode taint‑analysis** pour détecter des vulnérabilités plus complexes liées aux flux de données,  
+- **vitesse d’exécution** (analyse en quelques secondes)
+- **règles faciles à écrire en YAML**
+- **écosystème riche** (des milliers de règles prêtes à l’emploi)
+- **intégration facile** dans les pipelines CI/CD 
 - **philosophie DevSecOps** qui encourage les développeurs à corriger les problèmes immédiatement.
 
 Avec Semgrep, les équipes détectent les mauvaises pratiques et vulnérabilités **au moment où elles sont introduites**, favorisant une sécurité proactive.  
