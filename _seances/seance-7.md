@@ -43,9 +43,5 @@ published: true
 - Continuer le [travail pratique 2](../travaux/tp2)
 - Exercice : *WebGoat / (A3) Injection / SQL Injection*
     - Leçons restantes
-- Exercice : *WebGoat / (A2) Cryptographic Failures / Crypto Basics* (révise la matière vue dans les premières séances du cours)
 - Exercice : *WebGoat / (A5) Security Misconfiguration / Cross-Site Request Forgeries* (leçons restantes)
 - Exercice : *WebGoat / (A5) Security Misconfiguration / XXE*
-- Exercice : *WebGoat / (A1) Broken Access Control / Hijack a session*
-- Exercice : *WebGoat / (A1) Broken Access Control / Missing Function Level Access Control*
-- Exercice : *WebGoat / (A1) Broken Access Control / Spoofing an Authentication Cookie*

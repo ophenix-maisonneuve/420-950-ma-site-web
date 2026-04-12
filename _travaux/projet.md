@@ -98,7 +98,10 @@ Pour la vulnérabilité choisie, introduisez volontairement cette vulnérabilit�
 
 ***Notez les vulnérabilités identifiées***
 
-### 5. Correction des vulnérabilités identifiées
+### 5. Analyse DAST
+
+
+### 6. Correction des vulnérabilités identifiées
 Pour chaque vulnérabilités identifiées aux étapes 3 et 4 (incluant celle que vous avez introduite volontairement), effectuez l'une des actions suivantes, selon le cas :
 - S'il s'agit d'un faux positif ou d'une vulnérabilité non-exploitable, indiquez-le et justifiez.
 - S'il s'agit d'une vulnérabilité exploitable : 
@@ -111,6 +114,9 @@ Pour chaque vulnérabilités identifiées aux étapes 3 et 4 (incluant celle que
 
 ### 6. SBOM
 Finalement, à l'aide de l'outil **CycloneDX**, produisez une nomenclature logicielle (*SBOM*) de l'application.
+
+### 7. Conclusion
+Comparez les correctifs qui ont été détectés et corrigés avec les recommandations de sécurité que vous aviez formulées pour le portail lors de votre modélisation de la menace STRICE (travail pratique 2). Existe-t-il des points en commun ?
 
 ---
 

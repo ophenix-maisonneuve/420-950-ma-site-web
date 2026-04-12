@@ -44,5 +44,5 @@ mvn org.cyclonedx:cyclonedx-maven-plugin:makeAggregateBom
 
 ### Générer pour un projet Python
 ```bash
-cyclonedx-bom -r -o sbom.json
+cyclonedx-py environment -o sbom.json
 ```

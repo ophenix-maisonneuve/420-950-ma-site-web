@@ -1,38 +1,37 @@
 ---
 layout: default
-title: "Séance 8"
+title: "2026-04-13"
 nav_order: 8
-published: false
+published: true
 ---
 
-# Séance 8 : Bases des structures de données - Tables associatives
+# Séance 8 : OWASP Top 10 (fin) et SAST
 
-## <date>
+## 13 avril 2026
 
 ### Ordre du jour
 
 1. Informations générales
-1. Récapitulation
-   1. Questions de récapitulation
-   1. Revue de la suppression dans l'arbre binaire de recherche
-   1. Parcours préfixe et suffixe dans l'arbre binaire de recherche
-1. [Tables associatives](../notes/tables)
-   1. Caractéristiques générales
-   1. Variantes
-   1. [Table de hachage](../notes/tables-hachage)
-      1. [Exercice](../exercices/table-hachage) - préparation
-      1. [Exercice](../exercices/table-hachage) question 1
-1. Algorithmes
-   1. Ajout
-      1. Explications
-      1. [Exercice](../exercices/table-hachage) question 2 
-   1. Recherche
-      1. Explications
-      1. [Exercice](../exercices/table-hachage) question 3 
-   1. Suppression
-      1. Explications et cas spécifiques
-      1. [Exercice](../exercices/table-hachage) question 4
-1. Temps pour avancer le travail pratique 1
+1. [A02 - Mauvaise configuration de sécurité](../notes/a02)
+1. [A01 - Contrôle d'accès défaillant](../notes/a01)
+    1. Exercice en groupe : *WebGoat / (A5) Security Misconfiguration / Cross-Site Request Forgeries* (leçons 1 à 4, aussi lié à *A02 - Mauvaise configuration de sécurité*)
+    1. Exercice individuel : *WebGoat / (A1) Broken Access Control / Insecure Direct Object Reference*
+1. [Analyse statique de sécurité](../notes/sast.md)
+   1. Outil [Semgrep](../notes/semgrep.md)
+1. Mise en situation : [MISSION : GHOST BEACON (phase 1)](../exercices/seances8-10)
+   1. Exercice individuel : [MISSION : GHOST BEACON (phase 1)](../exercices/seance8)
+
+### Lectures recommandées
+
+- Notes de cours sur la [OWASP Top 10](../notes/owasp-top-10)
+    - [A02 - Mauvaise configuration de sécurité](../notes/a02)
+    - [A01 - Contrôles d'accès défaillants](../notes/a01)
+- Notes de cours sur l'[analyse statique de sécurité](../notes/sast.md) et [Semgrep](../notes/semgrep.md)
 
 ### Exercice(s) complémentaire(s)
-- [Exercice](../exercices/table-hachage) question 5
+
+- Terminer le [travail pratique 2](../travaux/tp2)
+- Exercice : *WebGoat / (A2) Cryptographic Failures / Crypto Basics* (révise la matière vue dans les premières séances du cours)
+- Exercice : *WebGoat / (A1) Broken Access Control / Hijack a session*
+- Exercice : *WebGoat / (A1) Broken Access Control / Missing Function Level Access Control*
+- Exercice : *WebGoat / (A1) Broken Access Control / Spoofing an Authentication Cookie*
