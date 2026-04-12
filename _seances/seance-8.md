@@ -12,10 +12,12 @@ published: true
 ### Ordre du jour
 
 1. Informations générales
-1. [A02 - Mauvaise configuration de sécurité](../notes/a02)
-1. [A01 - Contrôle d'accès défaillant](../notes/a01)
-    1. Exercice en groupe : *WebGoat / (A5) Security Misconfiguration / Cross-Site Request Forgeries* (leçons 1 à 4, aussi lié à *A02 - Mauvaise configuration de sécurité*)
-    1. Exercice individuel : *WebGoat / (A1) Broken Access Control / Insecure Direct Object Reference*
+1. Présentation du [projet](../travail/projet)
+1. OWASP Top 10
+   1. [A02 - Mauvaise configuration de sécurité](../notes/a02)
+   1. [A01 - Contrôle d'accès défaillant](../notes/a01)
+      1. Exercice en groupe : *WebGoat / (A5) Security Misconfiguration / Cross-Site Request Forgeries* (leçons 1 à 4, aussi lié à *A02 - Mauvaise configuration de sécurité*)
+      1. Exercice individuel : *WebGoat / (A1) Broken Access Control / Insecure Direct Object Reference*
 1. [Analyse statique de sécurité](../notes/sast)
    1. Outil [Semgrep](../notes/semgrep)
 1. Mise en situation : [MISSION : GHOST BEACON (phase 1)](../exercices/seances8-10)
