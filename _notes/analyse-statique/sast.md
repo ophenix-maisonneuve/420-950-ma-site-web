@@ -10,9 +10,9 @@ published: true
 
 # SAST - Analyse statique de sécurité (*Static Application Security Testing*)  
 
-Le **SAST (*Static Application Security Testing*)** désigne l'ensemble des techniques permettant d’analyser la sécurité d’une application **sans l’exécuter**, en observant exclusivement son **code source**, ses **binaires** ou son ***bytecode***. Il s’agit d’une approche dite boîte blanche (*white-box*) : l’outil voit tout ce que verrait un développeur.
+Le ***SAST* (*Static Application Security Testing*)** désigne l'ensemble des techniques permettant d’analyser la sécurité d’une application **sans l’exécuter**, en observant exclusivement son **code source**, ses **binaires** ou son ***bytecode***. Il s’agit d’une approche dite boîte blanche (*white-box*) : l’outil voit tout ce que verrait un développeur.
 
-L’objectif principal du SAST est d’identifier dès que possible les failles introduites lors du développement. En examinant la structure interne du code, il devient possible de détecter :
+L’objectif principal du *SAST* est d’identifier dès que possible les failles introduites lors du développement. En examinant la structure interne du code, il devient possible de détecter :
 - des vulnérabilités logiques
 - des mauvaises pratiques de validation d’entrées
 - des erreurs cryptographiques
@@ -20,7 +20,7 @@ L’objectif principal du SAST est d’identifier dès que possible les failles 
 - des risques d’injections
 - des fuites potentielles d’informations
 
-Le SAST se distingue par sa capacité à explorer **tous les chemins d’exécution possibles**, y compris ceux difficiles à atteindre en situation réelle. Cela en fait une méthode particulièrement adaptée pour intervenir tôt dans le cycle de développement, avant même la compilation ou le déploiement. Contrairement à l'**analyse dynamique** (*DAST - Dynamic Application Security Testing*), qui teste l’application en fonctionnement, le *SAST* fournit une vision interne et exhaustive du comportement potentiel du code.
+Le *SAST* se distingue par sa capacité à explorer **tous les chemins d’exécution possibles**, y compris ceux difficiles à atteindre en situation réelle. Cela en fait une méthode particulièrement adaptée pour intervenir tôt dans le cycle de développement, avant même la compilation ou le déploiement. Contrairement à l'**analyse dynamique** (*DAST - Dynamic Application Security Testing*), qui teste l’application en fonctionnement, le *SAST* fournit une vision interne et exhaustive du comportement potentiel du code.
 
 En pratique, le *SAST* s’intègre parfaitement dans une démarche *DevSecOps* moderne, notamment grâce à son exécution rapide, son automatisation dans les pipelines CI/CD et sa capacité à guider les développeurs vers des correctifs précis. Il contribue ainsi à instaurer une pratique de sécurité en continu.
 
@@ -43,7 +43,7 @@ Les outils *SAST* sont souvent intégrés dans :
 Les résultats s’intègrent bien dans des tableaux de bord et des revues internes. Les rapports *SAST* font généralement partie des artefacts qui seront demandés lors d'un audit de sécurité, qu'il soit interne ou externe.
 
 ### Réduire les risques de sécurité avant compilation
-Le SAST aide à protèger les organisations contre :
+Le *SAST* aide à protèger les organisations contre :
 - des fuites de données
 - des injections de code  
 - des failles logiques 
