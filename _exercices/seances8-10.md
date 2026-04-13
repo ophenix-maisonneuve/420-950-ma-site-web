@@ -2,7 +2,7 @@
 layout: default
 title: "Mission : GHOST BEACON - Phase 1"
 nav_order: 4
-has_toc: false
+has_toc: true
 published: true
 ---
 
