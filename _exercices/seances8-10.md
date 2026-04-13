@@ -3,7 +3,7 @@ layout: default
 title: "Mission : GHOST BEACON - Phase 1"
 nav_order: 4
 has_toc: false
-published: false
+published: true
 ---
 
 # Exercice : Mission GHOST BEACON - Phase 1

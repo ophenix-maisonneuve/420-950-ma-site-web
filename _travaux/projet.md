@@ -99,24 +99,28 @@ Pour la vulnérabilité choisie, introduisez volontairement cette vulnérabilit�
 ***Notez les vulnérabilités identifiées***
 
 ### 5. Analyse DAST
+À l'aide de l'outil **OWASP ZAP**, effectuez une analyse active (*Active Scan*) afin de détecter certaines failles difficiles ou impossibles à détecter lors d'une analyse statique.
 
+***Notez les vulnérabilités identifiées***
 
-### 6. Correction des vulnérabilités identifiées
-Pour chaque vulnérabilités identifiées aux étapes 3 et 4 (incluant celle que vous avez introduite volontairement), effectuez l'une des actions suivantes, selon le cas :
-- S'il s'agit d'un faux positif ou d'une vulnérabilité non-exploitable, indiquez-le et justifiez.
-- S'il s'agit d'une vulnérabilité exploitable : 
-    - Corrigez la vulnérabilité (correctif de code, mise à jour d'une librairie, etc)
-    - S'il n'existe pas de correctif direct, par exemple dans le cas d'une librairie pour laquelle il n'existe pas encore de mise à jour, expliquez et proposez des méthodes de contournement alternatives.
+### 6. Correction des vulnérabilités
+Choisissez 5 vulnérabilités à corriger parmi celles qui auront été identifiées par les outils SAST, SCA et DAST. **La vulnérabilité que vous avez ajoutée intentionnellement à l'étape 2 doit obligatoirement faire partie des 5 vulnérabilités choisies. 
 
+Pour chaque vulnérabilité choisie...
+- Expliquez, en vos mots, en quoi consiste cette vulnérabilité
+- Expliquez pourquoi vous avez choisi de prioriser cette vulnérabilité
+- Implémentez le correctif approprié (correctif de code, mise à jour d'une librairie, etc)
+- Expliquez comment le correctif implémenté corrige la vulnérabilité
+- Démontrez à l'aide d'une nouvelle analyse (*scan*) que la vulnérabilité a bien disparu
 
 {: .warning}
-> Ne supprimez pas le code vulnérable que vous aviez introduit volontairement, car il sera également évalué. Si votre application respecte bien les principes SOLID (🙂), il devrait être assez simple de fournir une implémentation alternative au code vulnérable et de remplacer l'implémentation vulnérable par l'implémentation corrigée. Si ce n'est pas possible, vous pouvez aussi mettre en commentaires l'implémentation fautive et la remplacer par la correction.
+> Lors de la mise en place des correctifs, ne supprimez pas le code vulnérable que vous aviez introduit volontairement, car il sera également évalué. Si votre application respecte bien les principes SOLID (🙂), il devrait être assez simple de fournir une implémentation alternative au code vulnérable et de remplacer l'implémentation vulnérable par l'implémentation corrigée. Si ce n'est pas possible, vous pouvez aussi mettre en commentaires l'implémentation fautive et la remplacer par la correction.
 
-### 6. SBOM
+### 7. SBOM
 Finalement, à l'aide de l'outil **CycloneDX**, produisez une nomenclature logicielle (*SBOM*) de l'application.
 
-### 7. Conclusion
-Comparez les correctifs qui ont été détectés et corrigés avec les recommandations de sécurité que vous aviez formulées pour le portail lors de votre modélisation de la menace STRICE (travail pratique 2). Existe-t-il des points en commun ?
+### 8. Conclusion
+Comparez les correctifs que vous avez effectués avec les recommandations de sécurité que vous aviez formulées pour le portail lors de votre modélisation de la menace STRIDE (travail pratique 2). Existe-t-il des points en commun ?
 
 ---
 
@@ -125,24 +129,13 @@ Comparez les correctifs qui ont été détectés et corrigés avec les recommand
 Critère | Points
 ------- | ------
 Section 1 : Prise en charge multi-utilisateurs | 10
-Section 2 : Ajout du code vulnérable | 25
-Section 3 : Analyse SAST | 15
-Section 4 : Analyse SCA | 15
-Section 5 : Correction des vulnérabilités | 25
-Section 6 : Nomenclature logicielle (SBOM) | 10
-**Total** | **100 points (25% de la note finale)**
-
-## Évaluation (avec DAST)
-
-Critère | Points
-------- | ------
-Section 1 : Prise en charge multi-utilisateurs | 10
 Section 2 : Ajout du code vulnérable | 20
 Section 3 : Analyse SAST | 10
 Section 4 : Analyse SCA | 10
-Section 5 : Analyse DAST | 15
+Section 5 : Analyse DAST | 10
 Section 6 : Correction des vulnérabilités | 25
 Section 7 : Nomenclature logicielle (SBOM) | 10
+Section 8 : Conclusion | 5
 **Total** | **100 points (25% de la note finale)**
 
 ---
@@ -154,10 +147,11 @@ Section 7 : Nomenclature logicielle (SBOM) | 10
         - La version corrigée du portail de réservation contenant tous les correctifs que vous aurez implémentés
     - Le rapport SAST
     - Le rapport SCA
+    - Le rapport DAST
     - Les justifications / explications pour les vulnérabilités qui n'ont pas été corrigées dans le code.
     - La nomenclature logicielle (SBOM)
 - Le travail est à remettre sur **Léa (Omnivox)** dans la section **Travaux - Énoncés et remises**
-- Le travail se fait en **équipe de 3 personnes** (une remise par équipe)
+- Le travail se fait en **équipe de 2 ou 3 personnes** (une remise par équipe)
 - Le travail est à remettre au plus tard le **21 mai 2026** en fin de journée.
 
 ---
