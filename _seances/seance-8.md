@@ -29,6 +29,7 @@ published: true
     - [A02 - Mauvaise configuration de sécurité](../notes/a02)
     - [A01 - Contrôles d'accès défaillants](../notes/a01)
 - Notes de cours sur l'[analyse statique de sécurité](../notes/sast) et [Semgrep](../notes/semgrep)
+- Notes de cours sur OWASP [Application Security Verification Standard](../notes/asvs)
 
 ### Exercice(s) complémentaire(s)
 
