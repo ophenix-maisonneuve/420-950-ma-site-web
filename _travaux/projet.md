@@ -2,7 +2,7 @@
 layout: default
 title: "Projet"
 nav_order: 3
-published: false
+published: true
 ---
 
 # Projet : Oups Technologies - Un slogan ? Quel slogan ?
