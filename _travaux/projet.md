@@ -54,7 +54,7 @@ Le code de départ du projet est disponible dans le dépôt suivant (il s'agit p
     python3 -m flask run
     ```
 
-L'application démarre alors un serveur de développement qui expose l'application sur http://0.0.0.0:5000 (toutes les interfaces du serveur).
+L'application démarre alors un serveur de développement qui expose l'application sur 0.0.0.0 (http://127.0.0.1:5000 et toutes les interfaces du serveur).
 
 Un seul utilisateur est créé automatiquement au premier démarrage de l'application:
 - Utilisateur: admin
