@@ -45,7 +45,7 @@ Le code de départ du projet est disponible dans le dépôt suivant (il s'agit p
     ```
 2. Ensuite, on installe les dépendances
     ```bash
-    pip install flask werkzeug
+    pip install -r requirements.txt
     ```
 
 3. Finalement, on démarre l'application Python/Flask
