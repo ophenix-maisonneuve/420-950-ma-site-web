@@ -112,8 +112,6 @@ Le calcul du score CVSS peut sembler complexe au premier abord, mais il repose s
 
 Le score CVSS est calculé à partir de plusieurs **métriques normalisées**, regroupées principalement dans le **score de base**. Chaque métrique représente un aspect précis de la vulnérabilité, et l’ensemble est combiné pour produire un score final compris entre 0.0 et 10.0.
 
----
-
 ### Métriques du score de base (CVSS 3.x)
 Le **score de base** est composé de deux grandes catégories :
 1. Exploitabilité
