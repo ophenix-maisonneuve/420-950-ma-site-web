@@ -193,9 +193,9 @@ Une portée modifié augmente fortement le score final.
 
 ## Combinaison des métriques
 Toutes ces métriques sont combinées à l’aide d’une **formule standardisée** définie par le consortium CVSS. Cette formule :
-- applique différents poids à chaque métrique,
-- produit un score intermédiaire,
-- arrondit le résultat à un chiffre décimal.
+- applique différents poids à chaque métrique
+- produit un score intermédiaire
+- arrondit le résultat à un chiffre décimal
 
 En pratique, **les outils SCA ne recalculent pas ce score** : ils utilisent celui publié dans la NVD ou par l’éditeur.
 
