@@ -51,4 +51,4 @@ published: true
     - Quel est le résultat de cette nouvelle analyse ?
 
 ### 1.6 BONUS : Raffiner la règle personnalisée
-1. Raffinez votre règle pour ne relever que les cas où de l'information sensible est imprimée à la console (ex.: se fier au nom de la variable).
+1. Raffinez votre règle pour ne relever que les cas où de l'information sensible est imprimée à la console. Par exemple, on pourrait se fier au nom de la variable pour détecter les cas où une variable appelée `password` ou `secret` est imprimée.
