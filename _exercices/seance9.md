@@ -4,7 +4,7 @@ title: "Analyse de composition locicielle (SCA)"
 parent: "Mission : GHOST BEACON - Phase 1"
 nav_order: 2
 has_toc: false
-published: false
+published: true
 ---
 
 ## 2. Analyse de composition logicielle (*SCA*)
