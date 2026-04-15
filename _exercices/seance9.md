@@ -27,7 +27,7 @@ published: true
     cd exercice-seances-8-10
     ```
 1. Lancez l'analyse de composition **Dependency-Check**
-    - Quelle commande avez-vous utilisée
+    - Quelle commande avez-vous utilisée ?
     - Combien de vulnérabilités *différentes* ont été identifiées ?
     - Quelle est la principale différence entre les vulnérabilités identifiées ici et celles qui avaient été identifiées avec **Semgrep** ?
 
