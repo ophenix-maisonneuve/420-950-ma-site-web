@@ -7,7 +7,7 @@ has_toc: true
 published: true
 ---
 
-# CVSS – Common Vulnerability Scoring System
+# CVSS - Common Vulnerability Scoring System
 
 Le **CVSS (*Common Vulnerability Scoring System*)** est un standard ouvert utilisé pour évaluer la gravité d’une vulnérabilité de sécurité de manière **standardisée, cohérente et comparable**.  
 Il permet d’attribuer un **score numérique**, généralement compris entre **0.0 et 10.0**, représentant le niveau de risque associé à une vulnérabilité donnée.
@@ -223,3 +223,9 @@ Le **CVSS** est un standard fondamental pour comprendre et prioriser les vulnér
 - la prise de décision
 
 Toutefois, le CVSS ne remplace pas l’analyse humaine : il doit être utilisé **avec discernement**, en tenant compte du contexte réel de l’application.
+
+---
+
+## Liens utiles
+- Documentation officielle : [https://www.first.org/cvss/](https://www.first.org/cvss/)
+- CVSS sur Wikipedia : [https://en.wikipedia.org/wiki/Common_Vulnerability_Scoring_System](https://en.wikipedia.org/wiki/Common_Vulnerability_Scoring_System)
