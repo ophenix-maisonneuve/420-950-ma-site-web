@@ -122,7 +122,7 @@ Le **score de base** est composé de deux grandes catégories :
 ### Métriques d'exploitabilité
 Ces métriques décrivent **à quel point il est facile d’exploiter la vulnérabilité**.
 
-#### AV - Attack Vector (Vecteur d’attaque)  
+#### **AV - Attack Vector (Vecteur d’attaque)**
 Indique comment l’attaque peut être menée :
 - **Network (N)** : exploitable à distance via le réseau
 - **Adjacent (A)** : réseau local ou voisin
@@ -131,7 +131,7 @@ Indique comment l’attaque peut être menée :
 
 Plus l’attaque peut être faite à distance, plus le score augmente.
 
-#### AC - Attack Complexity (Complexité)  
+#### **AC - Attack Complexity (Complexité)**
 Mesure la difficulté technique de l’exploitation :
 - **Low (L)** : attaque simple, fiable
 - **High (H)** : conditions particulières nécessaires
@@ -139,7 +139,7 @@ Mesure la difficulté technique de l’exploitation :
 Une attaque simple augmente la sévérité.
 
 
-#### PR - Privileges Required (Privilèges requis)  
+#### **PR - Privileges Required (Privilèges requis)**
 Décrit le niveau d’accès nécessaire :
 - **None (N)** : aucun privilège requis
 - **Low (L)** : accès limité
@@ -148,7 +148,7 @@ Décrit le niveau d’accès nécessaire :
 Moins il faut de privilèges, plus le score est élevé.
 
 
-#### UI - User Interaction (Interaction utilisateur)  
+#### **UI - User Interaction (Interaction utilisateur)**
 Indique si une action humaine est nécessaire :
 - **None (N)** : aucune interaction requise
 - **Required (R)** : clic, ouverture de fichier, etc.
@@ -157,31 +157,31 @@ Une vulnérabilité exploitable sans interaction est jugée plus grave.
 
 ---
 
-### Métriques d’impact*
+### Métriques d’impact
 Ces métriques mesurent **les conséquences de l’exploitation réussie**.
 
-#### C - Confidentiality (Confidentialité)
+#### **C - Confidentiality (Confidentialité)**
 Impact sur les données :
 - None (N)
 - Low (L)
 - High (H)
 
 
-#### I - Integrigy (Intégrité)
+#### **I - Integrigy (Intégrité)**
 Impact sur la modification des données :
 - aucune modification
 - modification partielle
 - modification complète
 
 
-#### A - Availability (Disponibilité)  
+#### **A - Availability (Disponibilité)**
 Impact sur le service :
 - pas d’impact,
 - dégradation,
 - indisponibilité complète.
 
 
-### S - Scope (Portée)
+### **S - Scope (Portée)**
 Le  indique si la vulnérabilité affecte uniquement le composant vulnérable ou si elle permet d’impacter **d’autres composants**.
 
 - **Unchanged (U)** : même périmètre de sécurité
