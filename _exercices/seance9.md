@@ -14,6 +14,7 @@ published: true
     - **Organization Name** : College de Maisonneuve
     - **Email Address** : Votre adresse courriel du Collège
     - **Organization Type** : Academia
+    
 1. Vérifiez que **OWASP Dependency-Check** est bien installé :
     ```bash
     dependency-check --version
