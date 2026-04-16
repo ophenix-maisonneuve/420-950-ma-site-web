@@ -17,7 +17,7 @@ published: true
    1. Exercice individuel : [MISSION : GHOST BEACON (phase 1)](../exercices/seance8)
 1. [Analyse de composition logicielle](../notes/sca)
    1. Outil [OWASP Dependency-Check](../notes/dependency-check)
-   1. Exercice individuel : [MISSION : GHOST BEACON (phase 2)](../_exercices/seance9)
+   1. Exercice individuel : [MISSION : GHOST BEACON (phase 1](../_exercices/seance9)
 
 ### Lectures recommandées
 
