@@ -52,10 +52,10 @@ published: true
     - Quel est le résultat de cette nouvelle analyse ?
 
 ### 1.6 Vulnérabilité non-identifiée
-1. Les versions gratuites des outils *SAST* n'identifient généralement pas toutes les vulnérabilités. C'est un marché très lucratif, et les compagnies préfèrent souvent offrir les fonctionnalités complètes aux clients payants. Ainsi, l'outil **Semgrep** a manqué une vulnérabilité de type **traversée des répertoires** (*Path Traversal*).
-    - Renseignez-vous sur ce type de vulnérabilité [ici](https://owasp.org/www-community/attacks/Path_Traversal)
-    - Identifiez l'emplacement de la vulnérabilité dans le code de **GhostBeacon**
-    - Exploitez la vulnérabilité à l'aide d'un outil comme **Postman** ou **RESTer** (extension Chrome et Firefox)
+Les versions gratuites des outils *SAST* n'identifient généralement pas toutes les vulnérabilités. C'est un marché très lucratif, et les compagnies préfèrent souvent offrir les fonctionnalités complètes aux clients payants. Ainsi, l'outil **Semgrep** a manqué une vulnérabilité de type **traversée des répertoires** (*Path Traversal*).
+1. Renseignez-vous sur ce type de vulnérabilité [ici](https://owasp.org/www-community/attacks/Path_Traversal)
+1. Identifiez l'emplacement de la vulnérabilité dans le code de **GhostBeacon**
+1. Exploitez la vulnérabilité à l'aide d'un outil comme **Postman** ou **RESTer** (extension Chrome et Firefox)
 
 {: .astuce}
 > Tentez d'identifier un endroit où un fichier est lu directement à partir du système de fichiers du serveur...
