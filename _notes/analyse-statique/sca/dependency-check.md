@@ -3,6 +3,7 @@ layout: default
 title: OWASP Dependency-Check
 parent: SCA - Analyse de composition logicielle
 nav_order: 1
+published: true
 ---
 
 OWASP Dependency‑Check est un outil de **Software Composition Analysis (SCA)** spécialisé dans la détection des **vulnérabilités connues** dans les dépendances d’un projet logiciel. Il s’appuie principalement sur la **National Vulnerability Database (NVD)** ainsi que sur d’autres sources pour déterminer si votre application utilise des versions affectées par des CVE connues.

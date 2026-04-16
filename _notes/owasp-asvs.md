@@ -160,7 +160,7 @@ L’ASVS ne remplace pas le SAST : il le **complète**.
 - Toujours choisir un niveau ASVS clair dès le début du projet.
 - Ne pas viser L3 sans justification (coût élevé).
 - Utiliser l’ASVS comme **guide**, pas comme contrainte rigide.
-- Mapper progressivement les résultats SAST vers les contrôles ASVS.
+- Associer progressivement les résultats SAST vers les contrôles ASVS.
 - Former les développeurs à lire *quelques* sections clés plutôt que tout le standard.
 
 ---

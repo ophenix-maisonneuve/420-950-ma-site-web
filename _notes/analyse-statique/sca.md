@@ -5,7 +5,7 @@ parent: Analyse statique
 nav_order: 2
 has_children: true
 has_toc: true
-published: false
+published: true
 ---
 
 # SCA - Analyse de composition logicielle (*Software Composition Analysis*)
