@@ -74,6 +74,7 @@ Les versions gratuites des outils *SAST* n'identifient généralement pas toutes
 ### 1.6 Ajouter une règle personnalisée
 
 1. En consultant la [documentation officielle de Semgrep](https://semgrep.dev/docs/writing-rules/overview), écrivez une règle qui génère un avertissement à l'utilisation de *print* à la console de type `System.out.println` (on préfère généralement l'utilisation d'un vrai *logger*).
+
     ```yaml
     rules:
       - id: cybermax.logging.system-out
