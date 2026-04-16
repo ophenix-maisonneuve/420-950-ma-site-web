@@ -15,18 +15,14 @@ published: true
 1. [Analyse statique de sécurité](../notes/sast)
    1. Outil [Semgrep](../notes/semgrep)
    1. Exercice individuel : [MISSION : GHOST BEACON (phase 1)](../exercices/seance8)
-1. [Analyse de composition logicielle](../notes/sca)
-   1. Outil [OWASP Dependency-Check](../notes/dependency-check)
-   1. Exercice individuel : [MISSION : GHOST BEACON (phase 1](../_exercices/seance9)
+
 
 ### Lectures recommandées
 
 - Notes de cours sur l'[analyse statique de sécurité](../notes/sast) et [Semgrep](../notes/semgrep)
 - Notes de cours sur OWASP [Application Security Verification Standard](../notes/asvs)
-- Notes de cours sur l'[analyse de composition logicielle](../notes/sca) et [OSASP Dependency-Check](../notes/dependency-check)
-- Notes de cours sur le calcul du [CVSS](../notes/cvss)
 
 ### Exercice(s) complémentaire(s)
 
 - Terminer le [travail pratique 2](../travaux/tp2)
-- [MISSION : GHOST BEACON (phase 1)](../exercices/seance8) : Question 1.6 (Bonus)
+- [MISSION : GHOST BEACON (phase 1)](../exercices/seance8) : Question 1.7 (Bonus)

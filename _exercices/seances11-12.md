@@ -11,7 +11,7 @@ published: false
 
 ## Mise en situation
 
-L’application **GhostBeacon** a maintenant été auditée en profondeur à l’aide d’outils SAST et SCA. Plusieurs vulnérabilités ont été identifiées et corrigées, d’autres ont été documentées et acceptées temporairement.
+L’application **GhostBeacon** a maintenant été vérifiée en profondeur à l’aide d’outils SAST et SCA. Plusieurs vulnérabilités ont été identifiées et corrigées, d’autres ont été documentées et acceptées temporairement.
 
 Cependant, dans un contexte opérationnel réel, **la sécurité ne repose jamais uniquement sur le code**. Les mécanismes de journalisation, la configuration du système, les contrôles réseau et les contre‑mesures automatiques jouent un rôle tout aussi critique.
 

@@ -5,26 +5,25 @@ nav_order: 10
 published: false
 ---
 
-# Séance 10 : Structures de données - Listes (suite)
+# Séance 10 : SCA et SBOM
 
-## <date>
+## 16 avril 2026
 
 ### Ordre du jour
 
 1. Informations générales
-1. Récapitulation
-   1. [Le lobby des braves](../exercices/semaine1-listes) : Fin de la question 1 (LinkedList)
-   1. Correction en groupe de la question 1
-1. [ArrayList](../notes/arraylist)
-   1. Forces, faiblesses et quand l'utiliser
-   1. [Le lobby des braves](../exercices/semaine1-listes) : Question 2 (ArrayList)
-   1. Correction en groupe de la question 2
-1. Concurrence (*thread safety*)
-   1. `List.synchronizedList(List)`
-   1. [CopyOnWriteArrayList](../notes/cowarraylist)
-   1. 1. [Le lobby des braves](../exercices/semaine1-listes) : Question 3 (Accès concurrent aux listes)
-1. Présentation du [travail pratique 2](../travaux/tp2)
+1. [Common Vulnerability Scoring System (CVSS)](../notes/cvss)
+1. [Analyse de composition logicielle](../notes/sca)
+   1. Outil [OWASP Dependency-Check](../notes/dependency-check)
+   1. Exercice individuel : [MISSION : GHOST BEACON (phase 1](../_exercices/seance9)
+1. [Nomenclature logicielle (SBOM)](../notes/sbom)
+   1. Outil [OWASP Dependency-Check](../notes/cyclonedx)
+   1. Exercice individuel : [MISSION : GHOST BEACON (phase 1](../_exercices/seance10)
 
-### Exercices complémentaires
-1. [Le lobby des braves](../exercices/semaine1-listes) : terminer question 3 (Accès concurrent aux listes)
-1. [Le lobby des braves](../exercices/semaine1-listes) : question 4 (Bonus) (Comparaisons avec Comparator)
+### Lectures recommandées
+
+- Notes de cours sur l'[analyse de composition logicielle](../notes/sca) et [OSASP Dependency-Check](../notes/dependency-check)
+- Notes de cours sur le calcul du [CVSS](../notes/cvss)
+- Notes de cours sur la [nomenclature logicielle](../notes/sbom) et [CycloneDX](../notes/cyclonedx)
+
+### Exercice(s) complémentaire(s)

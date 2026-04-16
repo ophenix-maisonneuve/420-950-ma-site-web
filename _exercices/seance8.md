@@ -43,6 +43,7 @@ published: true
 ### 1.4 Corriger les vulnérabilités identifiées
 1. Pour chaque problème identifié, implémentez un correctif directement dans le code de **GhostBeacon**
 
+
 ### 1.5 Ajouter une règle personnalisée
 
 1. En consultant la [documentation officielle de Semgrep](https://semgrep.dev/docs/writing-rules/overview), écrivez une règle qui génère un avertissement à l'utilisation de *print* à la console de type `System.out.println` (on préfère généralement l'utilisation d'un vrai *logger*).
@@ -50,5 +51,14 @@ published: true
     - Quelle commande pouvez-vous utiliser pour inclure votre règle personnalisée dans l'analyse ?
     - Quel est le résultat de cette nouvelle analyse ?
 
-### 1.6 BONUS : Raffiner la règle personnalisée
+### 1.6 Vulnérabilité non-identifiée
+1. Les versions gratuites des outils *SAST* n'identifient généralement pas toutes les vulnérabilités. C'est un marché très lucratif, et les compagnies préfèrent souvent offrir les fonctionnalités complètes aux clients payants. Ainsi, l'outil **Semgrep** a manqué une vulnérabilité de type **traversée des répertoires** (*Path Traversal*).
+    - Renseignez-vous sur ce type de vulnérabilité [ici](https://owasp.org/www-community/attacks/Path_Traversal)
+    - Identifiez l'emplacement de la vulnérabilité dans le code de **GhostBeacon**
+    - Exploitez la vulnérabilité à l'aide d'un outil comme **Postman** ou **RESTer** (extension Chrome et Firefox)
+
+{: .astuce}
+> Tentez d'identifier un endroit où un fichier est lu directement à partir du système de fichiers du serveur...
+
+### 1.7 BONUS : Raffiner la règle personnalisée
 1. Raffinez votre règle pour ne relever que les cas où de l'information sensible est imprimée à la console. Par exemple, on pourrait se fier au nom de la variable pour détecter les cas où une variable appelée `password` ou `secret` est journalisée (*loguée*).
