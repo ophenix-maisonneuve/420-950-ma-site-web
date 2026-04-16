@@ -210,7 +210,7 @@ Les outils d'analyse de composition logicielle (*SCA*) utilisent massivement le 
 - automatiser des décisions dans les pipelines CI/CD.
 
 {: .highlight}
-> Les outils de SCA tels que **Dependency‑Check**, **Snyk**, **Mend**, **Dependabot** s’appuient tous sur les scores CVSS publiés.
+> Les outils de SCA tels que **Dependency‑Check**, **Black Duck** et **Snyk* s'appuient tous sur les scores CVSS publiés.
 
 ---
 
