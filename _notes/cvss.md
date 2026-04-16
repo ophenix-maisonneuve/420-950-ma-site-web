@@ -180,9 +180,10 @@ Impact sur le service :
 - dégradation,
 - indisponibilité complète.
 
+---
 
 ### **S - Scope (Portée)**
-Le  indique si la vulnérabilité affecte uniquement le composant vulnérable ou si elle permet d’impacter **d’autres composants**.
+La portée est une métrique n'appartenant ni aux métriques d'exploitabilité, ni aux métriques d'impact. Il s'agit d'une métrique transversale qui indique si la vulnérabilité affecte uniquement le composant vulnérable ou si elle permet d’impacter **d’autres composants**.
 
 - **Unchanged (U)** : même périmètre de sécurité
 - **Changed (C)** : franchissement d’une frontière de sécurité
