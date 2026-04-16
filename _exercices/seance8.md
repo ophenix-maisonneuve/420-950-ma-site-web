@@ -45,10 +45,10 @@ published: true
 
 ### 1.5 Ajouter une règle personnalisée
 
-1. En consultant la [documentation officielle de Semgrep](https://semgrep.dev/docs/writing-rules/overview), écrivez une règle qui interdit l'utilisation de *print* à la console de type `System.out.println`
+1. En consultant la [documentation officielle de Semgrep](https://semgrep.dev/docs/writing-rules/overview), écrivez une règle qui génère un avertissement à l'utilisation de *print* à la console de type `System.out.println` (on préfère généralement l'utilisation d'un vrai *logger*).
 1. Lancez une nouvelle analyse
     - Quelle commande pouvez-vous utiliser pour inclure votre règle personnalisée dans l'analyse ?
     - Quel est le résultat de cette nouvelle analyse ?
 
 ### 1.6 BONUS : Raffiner la règle personnalisée
-1. Raffinez votre règle pour ne relever que les cas où de l'information sensible est imprimée à la console. Par exemple, on pourrait se fier au nom de la variable pour détecter les cas où une variable appelée `password` ou `secret` est imprimée.
+1. Raffinez votre règle pour ne relever que les cas où de l'information sensible est imprimée à la console. Par exemple, on pourrait se fier au nom de la variable pour détecter les cas où une variable appelée `password` ou `secret` est journalisée (*loguée*).
