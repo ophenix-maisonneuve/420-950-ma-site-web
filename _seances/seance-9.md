@@ -2,7 +2,7 @@
 layout: default
 title: "2026-04-16"
 nav_order: 9
-published: false
+published: true
 ---
 
 # Séance 9 : SAST et SCA
