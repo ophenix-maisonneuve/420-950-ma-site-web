@@ -7,7 +7,7 @@ nav_order: 1
 
 # Semgrep
 
-**Semgrep** est un outil d’analyse statique moderne conçu pour être **simple**, **rapide**, **léger** et **extrêmement flexible**. Contrairement aux outils *SAST* traditionnels qui reposent sur des moteurs complexes, Semgrep utilise une approche unique basée sur les **patrons structurés** : des règles qui ressemblent directement au code des développeurs. Il ne s’agit donc pas d’une recherche par mots‑clés ou de regex approximatives : Semgrep comprend réellement la structure syntaxique du code.
+**Semgrep** est un outil d’analyse statique moderne conçu pour être **simple**, **rapide**, **léger** et **extrêmement flexible**. Contrairement aux outils *SAST* traditionnels qui reposent sur des moteurs complexes, **Semgrep** utilise une approche unique basée sur les **patrons structurés** (*semantic grep*) : des règles qui ressemblent directement au code des développeurs. Il ne s’agit donc pas d’une recherche par mots‑clés ou de regex approximatives : **Semgrep** "comprend" réellement la structure syntaxique du code.
 
 L’outil prend en charge plus de trente langages (Java, Python, JavaScript, Go, Terraform, Docker, YAML, etc.) et s’intègre aisément dans les environnements de développement modernes.  
 Ses forces principales :  
