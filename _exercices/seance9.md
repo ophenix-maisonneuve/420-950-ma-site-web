@@ -33,7 +33,7 @@ published: true
 
 ### 2.3 Analyser les vulnérabilités identifiées
 1. Pour chaque problème identifié, expliquez :
-    - votre compréhension de la vulnérabilité.
+    - votre compréhension de la vulnérabilité en fonction de son score CVSS (consultez l'entrée CVE dans la *National Vulnerability Database* pour le détail du score CVSS)
     - les différentes options qui s'offrent à vous pour corriger cette vulnérabilité
 
 ### 2.4 Corriger les vulnérabilités identifiées
