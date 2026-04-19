@@ -62,3 +62,8 @@ Il est aussi possible de définir des règles personnalisées et de les inclure 
 semgrep --config=<répertoire contenant les fichiers de règles>
 ```
 
+---
+
+## Liens utiles
+
+- Documentation officielle de Semgrep : [https://semgrep.dev/docs/](https://semgrep.dev/docs/)

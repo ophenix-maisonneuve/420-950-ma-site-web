@@ -46,3 +46,9 @@ dependency-check [--nvdApiKey <votre clé NVD>] --project "Mon projet Python" --
 
 {: .astuce}
 > L'option `--format` peut prendre les valeurs suivantes : `HTML`, `XML`, `CSV`, `JSON`, `JUNIT`, `SARIF`, `JENKINS`, `GITLAB`, ou `ALL` pour produire tous les formats.
+
+---
+
+## Liens utiles
+
+- Documentation officielle de Dependency-Check : [https://owasp.org/www-project-dependency-check/](https://owasp.org/www-project-dependency-check/)

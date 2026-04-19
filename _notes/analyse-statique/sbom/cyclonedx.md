@@ -50,3 +50,15 @@ mvn org.cyclonedx:cyclonedx-maven-plugin:makeAggregateBom
 ```bash
 cyclonedx-py environment -o sbom.json
 ```
+
+## Sunshine
+
+Les nomenclatures logicielles sont généralement produites dans l'un des deux principaux formats standards (CycloneDX ou SPDX). Il existe donc une multitude d'outils de visualisation permettant d'interpréter les SBOM de façon plus lisible et claire. L'outil [CycloneDX Sunshine](https://cyclonedx.github.io/Sunshine/), disponible gratuitement en ligne, est un bon exemple.
+
+
+---
+
+## Liens utiles
+
+- Documentation officielle de CycloneDX : [https://cyclonedx.org/](https://cyclonedx.org/)
+- Sunshine : [https://cyclonedx.github.io/Sunshine/](https://cyclonedx.github.io/Sunshine/)
