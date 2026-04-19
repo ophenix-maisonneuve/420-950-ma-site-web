@@ -38,17 +38,46 @@ pipx ensurepath
 ---
 
 ## Commandes courantes
-### Générer une SBOM pour un projet Java (*Maven*)
+### Générer un SBOM pour un projet Java (*Maven*)
+
+**Générer un SBOM à la volée**
 ```bash
 mvn org.cyclonedx:cyclonedx-maven-plugin:makeAggregateBom
 ```
+
+**Intégrer la génération du SBOM au *build* de façon permanente**
+1. Ajouter le *plugin* cyclonedx-maven au `pom.xml` du projet
+
+    ```maven
+    <!-- uses default configuration -->
+    <plugins>
+        <plugin>
+            <groupId>org.cyclonedx</groupId>
+            <artifactId>cyclonedx-maven-plugin</artifactId>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>makeAggregateBom</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+    ```
+2. Lancer le *build* comme à l'habitude
+
+    ```bash
+    mvn clean package
+    ```
+
 
 ### Générer pour un projet Python
 
 À partir d'un répertoire où un environnement virtuel Python existe, lancer la commande suivante :
 
 ```bash
-cyclonedx-py environment -o sbom.json
+cyclonedx-py venv <dossier de l'environnement virtuel> -o sbom.json
 ```
 
 ## Sunshine

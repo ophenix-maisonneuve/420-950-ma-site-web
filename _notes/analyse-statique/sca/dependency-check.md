@@ -36,16 +36,16 @@ ln -s ~/.local/share/dependency-check/bin/dependency-check.sh ~/.local/bin/depen
 ## Commandes courantes
 ### Scan d'un projet Java (Maven)
 ```bash
-dependency-check [--nvdApiKey <votre clé NVD>] --project "Mon projet Java" --scan ./ --format "ALL"
+dependency-check [--nvdApiKey <votre clé NVD>] --project "Mon projet Java" --scan ./ --format "HTML"
 ```
 
 ### Scan d'un dossier Python
 ```bash
-dependency-check [--nvdApiKey <votre clé NVD>] --project "Mon projet Python" --enableExperimental --scan ./ --format "ALL"
+dependency-check [--nvdApiKey <votre clé NVD>] --project "Mon projet Python" --enableExperimental --scan ./ --format "HTML"
 ```
 
 {: .astuce}
-> L'option `--format` peut prendre les valeurs suivantes : `HTML`, `XML`, `CSV`, `JSON`, `JUNIT`, `SARIF`, `JENKINS`, `GITLAB`, ou `ALL` pour produire tous les formats.
+> L'option `--format` peut prendre les valeurs suivantes : `HTML`, `XML`, `CSV`, `JSON`, `JUNIT`, `SARIF`, `JENKINS`, `GITLAB`, ou `ALL` pour produire tous les formats. La valeur par défaut est `HTML`.
 
 ---
 
