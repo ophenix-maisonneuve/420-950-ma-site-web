@@ -46,10 +46,9 @@ mvn org.cyclonedx:cyclonedx-maven-plugin:makeAggregateBom
 ```
 
 **Intégrer la génération du SBOM au *build* de façon permanente**
-1. Ajouter le *plugin* cyclonedx-maven au `pom.xml` du projet
+1. Ajouter le *plugin* cyclonedx-maven au `pom.xml` du projet :
 
     ```maven
-    <!-- uses default configuration -->
     <plugins>
         <plugin>
             <groupId>org.cyclonedx</groupId>
@@ -65,7 +64,8 @@ mvn org.cyclonedx:cyclonedx-maven-plugin:makeAggregateBom
         </plugin>
     </plugins>
     ```
-2. Lancer le *build* comme à l'habitude
+
+2. Lancer le *build* comme à l'habitude :
 
     ```bash
     mvn clean package
