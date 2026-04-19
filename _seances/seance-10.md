@@ -2,7 +2,7 @@
 layout: default
 title: "Séance 10"
 nav_order: 10
-published: false
+published: true
 ---
 
 # Séance 10 : SCA et SBOM
@@ -25,5 +25,3 @@ published: false
 - Notes de cours sur l'[analyse de composition logicielle](../notes/sca) et [OSASP Dependency-Check](../notes/dependency-check)
 - Notes de cours sur le calcul du [CVSS](../notes/cvss)
 - Notes de cours sur la [nomenclature logicielle](../notes/sbom) et [CycloneDX](../notes/cyclonedx)
-
-### Exercice(s) complémentaire(s)
