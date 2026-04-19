@@ -9,7 +9,7 @@ nav_order: 1
 
 CycloneDX est un standard de nomenclature logicielle développé par OWASP pour répondre aux besoins croissants de **transparence**, de **sécurité** et de **traçabilité** dans la chaîne d'approvisionnement logicielle. Contrairement à une simple liste de dépendances, CycloneDX vise à fournir une représentation riche et complète des composants d’un système.
 
-Une SBOM CycloneDX peut inclure :
+Un SBOM CycloneDX peut inclure :
 - les dépendances directes et transitives
 - les licences associées à chaque composant
 - des métadonnées complètes sur les modules

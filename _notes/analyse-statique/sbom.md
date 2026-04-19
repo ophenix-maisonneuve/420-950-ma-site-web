@@ -20,12 +20,12 @@ Historiquement, les organisations n’avaient qu’une vision partielle des comp
 - retracer l’origine et l’intégrité de chaque élément du logiciel,
 - répondre aux exigences réglementaires croissantes.
 
-Une SBOM peut être générée automatiquement à partir d’un projet et suit un format normalisé, comme **CycloneDX** ou **SPDX**. Ces formats sont conçus pour être lisibles par des humains mais surtout exploitables par des outils de sécurité, de conformité ou d’audit. Une SBOM bien structurée permet non seulement de réagir rapidement lors de la découverte d’une faille critique, mais aussi de maintenir une gouvernance claire et transparente du patrimoine logiciel.
+Un SBOM peut être générée automatiquement à partir d’un projet et suit un format normalisé, comme **CycloneDX** ou **SPDX**. Ces formats sont conçus pour être lisibles par des humains mais surtout exploitables par des outils de sécurité, de conformité ou d’audit. Un SBOM bien structurée permet non seulement de réagir rapidement lors de la découverte d’une faille critique, mais aussi de maintenir une gouvernance claire et transparente du patrimoine logiciel.
 
 ---
 
 ## Objectif ?
-Une SBOM permet de :
+Un SBOM permet de :
 - améliorer la transparence logicielle,  
 - répondre aux exigences réglementaires (dont le décret américain Executive Order 14028),  
 - accélérer la détection des composants vulnérables,  
