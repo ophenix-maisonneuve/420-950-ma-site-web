@@ -167,7 +167,7 @@ Impact sur les données :
 - High (H)
 
 
-#### **I - Integrigy (Intégrité)**
+#### **I - Integrity (Intégrité)**
 Impact sur la modification des données :
 - aucune modification
 - modification partielle

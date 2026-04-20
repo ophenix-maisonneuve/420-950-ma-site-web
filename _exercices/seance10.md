@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Analyse statique de sécurité (SAST)
-parent: "Mission : GHOST BEACON - Phase 1"
+parent: "Mission : GHOST BEACON Phase 1"
 nav_order: 1
 has_toc: false
 published: true
