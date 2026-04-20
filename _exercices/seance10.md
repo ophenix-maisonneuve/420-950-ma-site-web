@@ -2,7 +2,7 @@
 layout: default
 title: "Nomenclature logicielle (SBOM)"
 parent: "Mission : GHOST BEACON Phase 1"
-nav_order: 1
+nav_order: 3
 has_toc: false
 published: true
 ---
