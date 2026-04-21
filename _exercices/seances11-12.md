@@ -16,60 +16,58 @@ L’application **GhostBeacon** a maintenant été vérifiée en profondeur à l
 Cependant, dans un contexte opérationnel réel, **la sécurité ne repose jamais uniquement sur le code**. Les mécanismes de journalisation, la configuration du système, les contrôles réseau et les contre‑mesures automatiques jouent un rôle tout aussi critique.
 
 CyberMax vous confie donc une nouvelle mission : **durcir GhostBeacon et son environnement d’exécution**, afin de réduire l’impact d’attaques potentielles et d’améliorer la capacité de détection et de réaction face aux incidents.
-
+'
 ---
 
-## Objectifs
-
-À la fin de cet exercice, vous serez en mesure de :
-
-- Mettre en place une stratégie de journalisation structurée et exploitable
-- Configurer la rotation des logs avec **Log4j**
-- Restreindre la surface réseau à l’aide de **UFW**
-- Installer et configurer **fail2ban** pour bloquer des comportements malveillants
-- Créer une **jail personnalisée** pour une application métier (GhostBeacon)
-
----
-
-## Phase 1 – Journalisation structurée et audit
+## 1. Amélioration de la journalisation
 
 ### Objectif
 
 Améliorer la qualité et l’utilité des logs afin de permettre :
 - l’audit de sécurité
-- la détection d’abus
-- l’intégration éventuelle avec des systèmes de monitoring
+- la détection de tentatives d'intrusion
+- l’intégration éventuelle avec des systèmes de détection et/ou de surveillance
 
-### Tâches
+### 1.1 Analyse des logs
 
 1. Analysez les logs actuellement produits par GhostBeacon
-2. Identifiez au moins deux catégories de logs distinctes :
-   - logs fonctionnels (ex.	traitement normal, événements applicatifs)
-   - logs de sécurité / audit (ex.	authentification, accès sensibles, erreurs)
-3. Modifiez le code de GhostBeacon pour :
-   - utiliser des *loggers* distincts par type de log
+1. Identifiez au moins deux catégories de logs distinctes :
+   - logs fonctionnels (ex.: traitement normal, événements applicatifs)
+   - logs de sécurité / audit (ex.: authentification, accès privilégiés, erreurs)
+
+### 1.2 Amélioration des logs
+1. Modifiez le code de GhostBeacon pour :
+   - utiliser des *loggers* distincts par catégorie de log
    - normaliser les messages (structure, vocabulaire, niveau)
 
-### Questions
-
-- Pourquoi est‑il risqué de mélanger logs fonctionnels et logs d’audit ?
-- Quels événements devraient systématiquement apparaître dans les logs d’audit ?
+1. Pourquoi est‑il risqué de mélanger logs fonctionnels et logs d’audit ?
+1. Quels événements devraient systématiquement apparaître dans les logs d’audit ?
 
 ---
 
-## Phase 2 – Rotation et gestion des logs
+## 2. Rotation et gestion des logs
 
 ### Objectif
 
-Éviter la saturation du disque et conserver un historique exploitable.
+Éviter la saturation du disque et conserver un historique utilisable.
 
-### Tâches
+### 2.1 Analyse du fichier de configuration ***Log4j***
+Inspectez le fichier de configuration `src/resources/log4j2-spring.xml`.
+1. Qu'est-ce qu'un `Appender` ?
+1. Quelle est l'intention derrière les trois `Appender` déclarés dans le fichier ?
+1. En ce moment, existe-t-il une différence entre les `Appender` *AuditFile* et *AppFile* ?
+   - Si oui, quelle est-elle ?
+   - Sinon, que manque-t-il ?
 
-1. Configurez **Log4j** afin de :
-   - activer la rotation des fichiers de logs
+### 2.1 Configuration de ***Log4j***
+
+1. Séparez les logs d'audit et les logs applicatifs de façon à ce que :
+   - Les logs d'audit ne contiennent que les événements liés à la sécurité
+   - Les logs applicatifs contiennent les événements liés au fonctionnement *métier* de l'application, mais aucune donnée sensible de sécurité
+1. Activez la rotation des fichiers de logs 
    - limiter la taille maximale des fichiers
    - conserver un nombre fini d’archives
-2. Vérifiez que la rotation fonctionne en générant des événements applicatifs
+1. Vérifiez que la rotation fonctionne en générant des événements applicatifs
 
 ### Questions
 
@@ -147,14 +145,3 @@ Expliquez brièvement :
 - Quels mécanismes sont les plus critiques en environnement réel
 - Quels compromis doivent parfois être faits entre sécurité et opération
 
----
-
-## Livrables attendus
-
-- Description des modifications apportées au code
-- Extraits de configuration (logs, UFW, fail2ban)
-- Analyse des risques atténués
-
----
-
-> Activité réalisée dans un environnement volontairement vulnérable et contrôlé. Toute tentative de reproduction sur un système réel sans autorisation est interdite.
