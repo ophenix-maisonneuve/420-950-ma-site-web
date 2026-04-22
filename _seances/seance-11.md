@@ -1,34 +1,25 @@
 ---
 layout: default
-title: "Séance 11"
+title: "2026-04-23"
 nav_order: 11
 published: false
 ---
 
-# Séance 11 : Structures de données: Piles
+# Séance 11 : Durcissement d'un serveur (partie 1)
 
-## <date>
+## 23 avril 2026
 
 ### Ordre du jour
 
 1. Informations générales
-1. Récapitulation
-   1. [Le lobby des braves](../exercices/semaine1-listes) : discussion questions 3 et 4
-1. Interfaces
-   1. Stack (obsolète)
-   1. [Deque](../notes/deque)
-     1. Méthodes utilisées pour une pile
-1. Implémentations standard
-   1. [LinkedList](../notes/linkedlist)
-     1. Notre bonne vieille liste chaînée peut aussi être utilisée comme deque... !
-   1. [ArrayDeque](../notes/arraydeque)
-     1. Forces, faiblesses, quand l'utiliser
-     1. [Le lobby des braves](../exercices/semaine2-piles-files) : Question 1 (ArrayDeque)
-     1. Correction en groupe de la question 1
-1. Implémentations avec concurrence
-   1. [ConcurrentLinkedDeque](../notes/concurrentlinkeddeque)
-   1. Alternative: mot-clé `synchronized` (utilisation d'un mutex)
-   1. [Le lobby des braves](../exercices/semaine2-piles-files) : Question 2 (Deque synchronisé)  
+1. Pare-feu
+   1. iptables
+   1. UFW
+   1. Exercice
+1. Logging
+   1. Concepts généraux
+   1. Gestion / rotation des logs
+   1. Exercice - ajout de logs et configuration de la rotation
 
-### Exercices complémentaires
-1. [Le lobby des braves](../exercices/semaine2-piles-files) : terminer question 2 (Accès concurrent aux piles)
+### Lectures recommandées
+
