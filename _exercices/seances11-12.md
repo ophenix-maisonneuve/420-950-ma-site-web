@@ -7,7 +7,7 @@ published: false
 ---
 
 # Exercice : Mission GHOST BEACON - Phase 2
-## Durcissement applicatif et défensif (*Hardening*)
+## Durcissement d'un serveur (*Hardening*)
 
 ## Mise en situation
 
@@ -33,18 +33,7 @@ Sachant que vous désirez permettre les services suivants...
 
 ... déterminez la liste des ports que vous devrez autoriser sur le pare-feu.
 
-### 1.2 Utilisation de iptables
-1. Modifiez la politique par défaut afin de :
-   - Permettre le trafic sortant
-   - Bloquer le trafic entrant
-
-1. Ajoutez les règles nécessaires pour autoriser le trafic HTTP, HTTPS et SSH.
-
-1. Testez vos règles de pare-feu en tentant de vous connecter à votre machine applicative...
-   - avec SSH à partir de votre hôte
-   - à GhostBeacon à partir de votre hôte (par exemple avec un navigateur ou un outil comme Postman)
-
-### 1.3 Utilisation de UFW
+### 1.2 Configuration de UFW
 1. Supprimez les règles iptables de l'une des façons suivantes :
    - Redémarrer la machine
    - En exécutant la commande `sudo iptables --flush`
@@ -65,13 +54,22 @@ Sachant que vous désirez permettre les services suivants...
 
 ### Questions de réflexion
 
-- Quelle méthode (iptables ou UFW) était la plus intuitive
+- Quelle méthode (iptables ou UFW) était la plus intuitive ?
 - Pourquoi le filtrage réseau reste‑t‑il essentiel même pour une application sécurisée ?
 
 
-### 1.4 BONUS : Blocage du trafic sortant
+### 1.4 BONUS : Utilisation de iptables
+1. Modifiez la politique par défaut afin de :
+   - Permettre le trafic sortant
+   - Bloquer le trafic entrant
 
-1. Avec iptables, modifiez la politique par défaut afin de :
+1. Ajoutez les règles nécessaires pour autoriser le trafic HTTP, HTTPS et SSH.
+
+1. Testez vos règles de pare-feu en tentant de vous connecter à votre machine applicative...
+   - avec SSH à partir de votre hôte
+   - à GhostBeacon à partir de votre hôte (par exemple avec un navigateur ou un outil comme Postman)
+
+1. Pour plus de sécurité, modifiez maintenant la politique par défaut afin de :
    - Bloquer le trafic sortant
    - Bloquer le trafic entrant
 
@@ -81,8 +79,6 @@ Sachant que vous désirez permettre les services suivants...
 1. Testez vos règles de pare-feu en tentant de vous connecter à votre machine applicative...
    - avec SSH à partir de votre hôte
    - à GhostBeacon à partir de votre hôte (par exemple avec un navigateur ou un outil comme Postman)
-
-1. Refaites maintenant les mêmes étapes avec UFW. Que remarquez-vous ?
 
 ---
 
@@ -125,56 +121,120 @@ Améliorer la qualité et l’utilité des logs afin de permettre :
 - la détection de tentatives d'intrusion
 - l’intégration éventuelle avec des systèmes de détection et/ou de surveillance
 
-### 3.1 Analyse des logs
+### 3.1 Analyse du fichier de configuration ***Log4j***
+
+Inspectez le fichier de configuration `src/resources/log4j2-spring.xml`.
+
+1. Qu'est-ce qu'un `Appender` ?
+1. Quelle est l'intention derrière les trois `Appender` déclarés dans le fichier ?
+
+
+### 3.2 Séparation des logs applicatifs et des logs d'audit
+Modifiez le fichier de configuration `src/resources/log4j2-spring.xml` de façon à permettre d'écrire les logs d'audit et les logs de sécurité dans deux fichiers différents.
+
+1. En ce moment, existe-t-il une différence entre les `Appender` *AuditFile* et *AppFile* ?
+   - Si oui, quelle est-elle ?
+   - Sinon, que manque-t-il ?
+1. Effectuez les modifications requises dans les `Appender` afin que les logs d'audit utilisent *AuditFile* et que les logs applicatifs utilisent *AppFile*.
+
+{: .astuce}
+> Consultez les notes de cours, en particulier l'utilisation de `<Filter>` jumelée avec les `Marker` dans le code...
+
+### 3.3 Analyse des logs
 
 1. Analysez les logs actuellement produits par GhostBeacon
-1. Identifiez au moins deux catégories de logs distinctes :
+1. Catégorisez les logs selon les deux catégories suivantes : 
    - logs applicatifs / fonctionnels / (ex.: traitement, événements applicatifs, etc)
    - logs d'audit / sécurité (ex.: accès réseau, accès privilégiés, erreurs de sécurité, etc)
 
-### 3.2 Amélioration des logs
+### 3.4 Amélioration des logs
 1. Modifiez le code de GhostBeacon pour :
-   - utiliser des *loggers* distincts par catégorie de log (audit, application)
    - normaliser les messages (structure, vocabulaire, niveau)
+   - envoyer les logs dans le bon fichier selon la catégorie (audit vs application)
 
-### 3.3 Questions de réflexion
-1. Pourquoi est‑il risqué de mélanger logs fonctionnels et logs d’audit ?
+
+### 3.5 Questions de réflexion
+1. Pourquoi est‑il risqué de mélanger logs applicatifs et logs d’audit ?
 1. Quels événements devraient systématiquement apparaître dans les logs d’audit ?
 
 ---
 
-## Phase 4 – Protection automatique avec fail2ban
+## 4. Protection automatique avec fail2ban
 
 ### Objectif
 
 Bloquer automatiquement des comportements suspects avant qu’ils ne dégénèrent.
 
-### Tâches
+### 4.1 Installation de fail2ban
+Installez l'outil `fail2ban` sur l'environnement, ou vérifiez qu'il est déjà installé
+1. Quelle commande avez-vous utilisée ?
 
-1. Installez **fail2ban** sur le serveur
-2. Activez une **jail SSH** afin de bloquer les tentatives de connexion répétées
-3. Testez le fonctionnement du bannissement
+### 4.2 Blocage des tentatives de connexion SSH échouées
+1. Configurez `fail2ban` de manière à bloquer automatiquement...
+   - les tentatives de connexion SSH
+   - ayant eu un échec de connexion
+   - au moins 3 fois
+   - dans un intervalle de 5 minutes
+   - pour une durée de 1 minute
 
-### Questions
+1. Testez le fonctionnement du blocage en effectuant 3 connexions SSH infructueuses à votre VM
 
-- Quels types d’attaques fail2ban permet‑il de contrer efficacement ?
+### 4.3 Questions de réflexion
+
+- Quels types d’attaques `fail2ban` permet‑il de contrer efficacement ?
 - Quelles sont les limites de ce type de protection ?
 
 ---
 
-## Phase 5 – Jail personnalisée pour GhostBeacon
+## 5. Blocage spécifique pour GhostBeacon
 
 ### Objectif
 
-Mettre en place une défense dédiée à une application métier.
+Mettre en place une défense spécifique à la logique de l'application.
 
-### Tâches
+### 4.1 Identification du code vulnérable au *Path Traversal*
+Dans le code de GhostBeacon, identifiez l'endroit où l'application contient une vulnérabilité de type *Path Traversal*
+1. Où se situe cette vulnérabilité ?
+1. Comment peut-elle être exploitée ?
 
-1. Identifiez un comportement suspect côté GhostBeacon (ex.	trop de requêtes en peu de temps)
-TENTATIVE DE PATH TRAVERSAL SUR LE ENDPOINT STATUS
-2. Créez un **filtre fail2ban personnalisé** basé sur les logs d’audit
-3. Configurez une **jail** associée à ce filtre
-4. Définissez une politique de bannissement adaptée
+### 4.2 Identification des logs applicables
+Identifiez le ou les logs qui seront produits si un attaquant tente d'exploiter la vulnérabilité de *Path Traversal*
+
+1. Les logs identifiés contiennent-ils une information permettant de détecter l'attaque ?
+1. Quelle expression régulière pourrait permettre de générer un échec et d'extraire l'IP ou le nom d'hôte de provenance de l'attaque ?
+
+### 4.3 Création d'un filtre
+À partir de vos réponses aux questions précédentes, écrivez un filtre *fai2ban* permettant de détecter les tentatives d'exploitation de la vulnérabilité.
+
+1. Créez un nouveau fichier de filtre sous `/etc/fail2ban/filter.d/ghostbeacon.conf`
+1. Complétez la structure suivante afin de configurer correctement votre filtre
+   ```
+   [Definition]
+   failregex = <regex identifiée à la question précédente>
+   ```
+1. Testez votre filtre
+   ```bash
+   fail2ban-regex <fichier de log de ghostbeacon contenant l'attaque> /etc/fail2ban/filter.d/ghostbeacon.conf
+   ```
+
+### 4.4 Création d'un fichier de blocage 
+Créez maintenant un fichier de blocage (*jail*) utilisant votre filtre. Ce fichier permettra de paramétrer le blocage effectué lorsqu'une attaque est détectée.
+
+1. Créez un nouveau fichier de blocage sous `/etc/fail2ban/jail.d/ghostbeacon.local`
+1. Complétez la structure suivante afin de configurer correctement votre blocage
+   ```
+   [ghostbeacon]
+   enabled = true
+   filter = ghostbeacon
+   logpath = <fichier de log d'audit de ghostbeacon>
+   maxretry = <nombre maximal d'essais permis avant de bloquer>
+   findtime = <intervalle>
+   bantime = <durée du blocage>
+   ```
+1. Rechargez la configuration de fail2ban
+   ```bash
+   sudo systemctl restart fail2ban
+   ```
 
 ### Questions
 
