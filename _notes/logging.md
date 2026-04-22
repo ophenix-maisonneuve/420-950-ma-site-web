@@ -159,7 +159,7 @@ Les *logs* structurés facilitent l’analyse automatique.
 
 ---
 
-## 6. Gestion des logs
+## Gestion des logs
 
 ### Centralisation
 
@@ -172,7 +172,7 @@ La centralisation des *logs* permet :
 {: .astuce}
 > Dans les environnements auto-hébergés, on préconise souvent des outils comme la pile ELK (Elasticsearch, Logstash, Kibana) ou Splunk pour aggréger, centraliser et visualiser les logs. La plupart des fournisseurs *cloud* (Microsoft, Amazon, Google) offrent également des services hégergés équivalents.
 
-### Rotation ?
+### Rotation
 
 La rotation évite les problèmes liés à la volumétrie.
 
