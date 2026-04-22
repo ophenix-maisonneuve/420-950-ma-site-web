@@ -149,7 +149,7 @@ Les niveaux de *logs* permettent de filtrer l’information selon le contexte.
 - Vocabulaire constant
 - Format stable dans le temps
 
-### Logs structurés (quand possible)
+### Logs structurés (lorsque possible)
 
 Les *logs* structurés facilitent l’analyse automatique.
 
