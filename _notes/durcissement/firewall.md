@@ -1,8 +1,9 @@
 ---
 layout: default
 title: "Pare-feu Linux"
-nav_order: 12
-published: false
+parent: "Durcissement d'un serveur"
+nav_order: 1
+published: true
 ---
 
 # Pare-feux sous Linux
@@ -39,7 +40,7 @@ Lorsqu’un paquet traverse la pile réseau Linux, il passe par des points appel
 - **OUTPUT** : paquet généré localement
 - **POSTROUTING** : après routage
 
-Ces hooks permettent à Netfilter d’intercepter et traiter les paquets.
+Ces *hooks* permettent à Netfilter d’intercepter et traiter les paquets.
 
 ---
 

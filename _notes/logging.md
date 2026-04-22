@@ -1,8 +1,8 @@
 ---
 layout: default
 title: "Journalisation (logging)"
-nav_order: 13
-published: false
+nav_order: 12
+published: true
 ---
 
 # Journalisation (*logging*)
