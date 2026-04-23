@@ -9,7 +9,9 @@ published: true
 
 ## Mise en situation
 
-Vous poursuivez votre stage chez **Oups Technologies**. Après avoir sécurisé le transport, analysé les menaces possibles, puis renforcé le portail de réservation grâce à des analyses SAST/SCA/DAST (travail qui est toujours en cours d'ailleurs), les dirigeants réalisent qu’un aspect fondamental n'a toujours pas été validé : **la journalisation et le durcissement du serveur en production**. Décidément, plus les dirigeants en apprennent sur la sécurité, plus votre charge de travail tend à augmenter... 
+Vous poursuivez votre stage chez **Oups Technologies**. Après avoir sécurisé le transport, analysé les menaces possibles, puis renforcé le portail de réservation grâce à des analyses SAST/SCA/DAST (travail qui est toujours en cours d'ailleurs), les dirigeants réalisent qu’un aspect fondamental n'a toujours pas été validé : **la journalisation et le durcissement du serveur en production**. 
+
+Décidément, plus les dirigeants en apprennent sur la sécurité, plus votre charge de travail tend à augmenter... 
 
 Un incident récent a mis en évidence plusieurs lacunes :
 
