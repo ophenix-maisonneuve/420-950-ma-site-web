@@ -5,7 +5,7 @@ nav_order: 3
 published: true
 ---
 
-# Travail pratique 3 : Chez Oups Technologies, on réagit pas mal plus vite qu'avant!
+# Travail pratique 3 : Chez Oups Technologies, nos serveurs sont durcis!
 
 ## Mise en situation
 
