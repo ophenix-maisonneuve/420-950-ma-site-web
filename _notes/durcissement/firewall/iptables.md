@@ -109,6 +109,7 @@ iptables
 │   ├─ -I  (insert : insérer à une position)
 │   ├─ -D  (delete : supprimer)
 │   ├─ -P  (policy : règle par défaut)
+|   ├─ -L  (list : voir les règles)
 │
 ├─ CHAÎNE
 │   ├─ INPUT
