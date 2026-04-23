@@ -150,7 +150,7 @@ Le pare‑feu doit :
 
 ### 5. Mise en place de fail2ban
 
-Configurez **fail2ban** sur la VM afin de créer un blocage (*jail*) respectant les critères suivants :
+Configurez **fail2ban** sur la VM afin de créer une cellule (*jail*) respectant les critères suivants :
 
 - Protection du portail de réservation
 - Bannissement d’une adresse IP après : 
@@ -160,7 +160,7 @@ Configurez **fail2ban** sur la VM afin de créer un blocage (*jail*) respectant 
 Vous devez :
 
 - Créer un filtre permettant de détecter les échecs dans les logs d'audit du portail de réservation
-- Créer un blocage (*jail*) utilisant votre filtre 
+- Créer une cellule (*jail*) utilisant votre filtre 
 - Démontrer que le bannissement fonctionne
 
 **Question(s)**

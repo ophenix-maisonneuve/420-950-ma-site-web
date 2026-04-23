@@ -178,7 +178,7 @@ Installez l'outil `fail2ban` sur l'environnement, ou vérifiez qu'il est déjà 
    - dans un intervalle de 5 minutes
    - pour une durée de 1 minute
 
-1. Testez le fonctionnement du blocage en effectuant 3 connexions SSH infructueuses à votre VM
+1. Testez le fonctionnement du bannissement en effectuant 3 connexions SSH infructueuses à votre VM
 
 ### 4.3 Questions de réflexion
 
@@ -218,11 +218,11 @@ Identifiez le ou les logs qui seront produits si un attaquant tente d'exploiter 
    fail2ban-regex <fichier de log de ghostbeacon contenant l'attaque> /etc/fail2ban/filter.d/ghostbeacon.conf
    ```
 
-### 4.4 Création d'un fichier de blocage 
-Créez maintenant un fichier de blocage (*jail*) utilisant votre filtre. Ce fichier permettra de paramétrer le blocage effectué lorsqu'une attaque est détectée.
+### 4.4 Création d'une cellule personnalisée 
+Créez maintenant un fichier de cellule (*jail*) utilisant votre filtre. Ce fichier permettra de paramétrer le bannissement effectué lorsqu'une attaque est détectée.
 
-1. Créez un nouveau fichier de blocage sous `/etc/fail2ban/jail.d/ghostbeacon.local`
-1. Complétez la structure suivante afin de configurer correctement votre blocage
+1. Créez un nouveau fichier de cellule sous `/etc/fail2ban/jail.d/ghostbeacon.local`
+1. Complétez la structure suivante afin de configurer correctement votre bannissement
    ```
    [ghostbeacon]
    enabled = true
@@ -237,7 +237,7 @@ Créez maintenant un fichier de blocage (*jail*) utilisant votre filtre. Ce fich
    sudo systemctl restart fail2ban
    ```
 
-### Questions
+### Questions de réflexion
 
 - Quels événements applicatifs se prêtent bien à une protection par fail2ban ?
 - Pourquoi ce type de mécanisme ne remplace‑t‑il pas une authentification robuste ?
