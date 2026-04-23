@@ -62,7 +62,7 @@ Une machine virtuelle Debian minimaliste simulant un serveur de production vous 
     pip install -r requirements.txt
     sudo systemctl restart portail
     ```
-1. Vérifiez que l’application fonctionne via HTTP ou HTTPS avant toute modification
+1. Vérifiez que l’application fonctionne via HTTP avant toute modification
     - Le serveur est disponible à `http://<ip de votre VM>`
     - Par souci de simplicité, comme il s'agit d'un test, le serveur utilise HTTP et non HTTPS. Vous n'avez pas à changer cela (vous l'avez déjà fait dans le TP1, une fois c'est assez 😄)
 
