@@ -51,7 +51,7 @@ Une machine virtuelle Debian minimaliste simulant un serveur de production vous 
 ## Préparation
 
 1. Importez la machine virtuelle fournie (.ova) dans **VirtualBox ou VMware**
-1. Démarrez la VM et connectez‑vous avec l’utilisateur `student`
+1. Démarrez la VM et connectez‑vous avec l’utilisateur `employe`
 1. Récupérez le code de départ du portail de réservation ici : [Code portail Oups Technologies - TP 3](https://github.com/ophenix-420-950-ma-24636/tp3)
 1. Copiez le code de l'application sous `/var/www/portail`
 1. Lancer les commandes suivantes 
@@ -61,6 +61,8 @@ Une machine virtuelle Debian minimaliste simulant un serveur de production vous 
     sudo systemctl restart portail
     ```
 1. Vérifiez que l’application fonctionne via HTTP ou HTTPS avant toute modification
+    - Le serveur est disponible à `http://<ip de votre VM>`
+    - Par souci de simplicité, comme il s'agit d'un test, le serveur utilise HTTP et non HTTPS. Vous n'avez pas à changer cela (vous l'avez déjà fait dans le TP1, une fois c'est assez 😄)
 
 {: .astuce}
 > Pour démarrer/arrêter/redémarrer le serveur, vous pouvez utiliser les commandes suivantes:
