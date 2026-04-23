@@ -29,7 +29,7 @@ git clone git@github.com:ophenix-420-950-ma-24636/exercice-seances-11-12.git
 ```
 ou
 ```bash
-git clone https://github.com/ophenix-420-930-ma-24636/exercice-seances-11-12.git
+git clone https://github.com/ophenix-420-950-ma-24636/exercice-seances-11-12.git
 ```
 
 ### 2. Lancez le projet Java
