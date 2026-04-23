@@ -20,6 +20,34 @@ CyberMax vous confie donc une nouvelle mission : **durcir GhostBeacon et son en
 
 ---
 
+## Préparation
+
+### 1. Clonez le dépôt de l'exercice
+
+```bash
+git clone git@github.com:ophenix-420-950-ma-24636/exercice-seances-11-12.git
+```
+ou
+```bash
+git clone https://github.com/ophenix-420-930-ma-24636/exercice-seances-11-12.git
+```
+
+### 2. Lancez le projet Java
+```bash
+mvn clean package
+java -jar target/ghostbeacon-1.1.0.jar
+```
+ou directement à partir de votre IDE.
+
+En utilisant un générateur de requêtes HTTP (Postman ou extensions Chrome/Firefox telles que RESTer), familiarisez-vous avec les différents services offerts par **GhostBeacon**, notamment:
+
+- `POST /api/v1/crypto/encrypt` et `POST /api/v1/crypto/decrypt`
+- `POST /api/v1/file` 
+- `POST /api/v1/message` et `GET /api/v1/message/{nom de l'agent}`
+- `POST /api/v1/status` et `GET /api/v1/status/{nom de l'agent}`
+
+Par rapport à la version précédente, vous verrez apparaître la présence de nouveaux *logs*.
+
 ## 1. Configuration du pare-feu
 
 ### Objectif
@@ -35,9 +63,6 @@ Sachant que vous désirez permettre les services suivants...
 ... déterminez la liste des ports que vous devrez autoriser sur le pare-feu.
 
 ### 1.2 Configuration de UFW
-1. Supprimez les règles iptables de l'une des façons suivantes :
-   - Redémarrer la machine
-   - En exécutant la commande `sudo iptables --flush`
 
 1. Installez UFW (s'il n'est pas déjà installé)
    ```bash
@@ -53,13 +78,18 @@ Sachant que vous désirez permettre les services suivants...
    - avec SSH à partir de votre hôte
    - à GhostBeacon à partir de votre hôte (par exemple avec un navigateur ou un outil comme Postman)
 
-### Questions de réflexion
+### 1.3 Questions de réflexion
 
 - Quelle méthode (iptables ou UFW) était la plus intuitive ?
 - Pourquoi le filtrage réseau reste‑t‑il essentiel même pour une application sécurisée ?
 
 
 ### 1.4 BONUS : Utilisation de iptables
+1. Désactivez d'abord UFW
+   ```bash
+   sudo ufw disable
+   ```
+
 1. Modifiez la politique par défaut afin de :
    - Permettre le trafic sortant
    - Bloquer le trafic entrant
@@ -93,20 +123,19 @@ Sachant que vous désirez permettre les services suivants...
 
 Inspectez le fichier de configuration `src/resources/log4j2-spring.xml`.
 
-1. Qu'est-ce qu'un `Appender` ?
-1. Quelle est l'intention derrière les trois `Appender` déclarés dans le fichier ?
-1. En ce moment, existe-t-il une différence entre les `Appender` *AuditFile* et *AppFile* ?
-   - Si oui, quelle est-elle ?
-   - Sinon, que manque-t-il ?
+1. En vous basant sur les notes de cours, à quel endroit pourriez-vous ajouter des paramètres pour activer la rotation des *logs* ?
+1. Quelle serait une période raisonnable pour effectuer une rotation ?
+1. Quelle serait une taille raisonnable pour effectuer une rotation ?
+1. Combien de fichiers archivés pourrait-on garder ?
 
 ### 2.2 Modification de la configuration de ***Log4j***
 
 1. Activez la rotation des fichiers de logs 
-   - limiter la taille maximale des fichiers
-   - conserver un nombre fini d’archives
+   - limiter la taille maximale des fichiers, ou l'âge des fichiers, ou les deux en fonction de vos réponses à la question précédente
+   - conserver un nombre fini d’archives en fonction de
 1. Vérifiez que la rotation fonctionne en générant des événements applicatifs
 
-### Questions de réflexion
+### 2.3 Questions de réflexion
 
 - Pourquoi la rotation des logs est‑elle un mécanisme de sécurité ?
 - Quels risques apparaissent lorsque les logs ne sont pas maîtrisés ?
@@ -237,14 +266,14 @@ Créez maintenant un fichier de cellule (*jail*) utilisant votre filtre. Ce fich
    sudo systemctl restart fail2ban
    ```
 
-### Questions de réflexion
+### 4.5 Questions de réflexion
 
 - Quels événements applicatifs se prêtent bien à une protection par fail2ban ?
 - Pourquoi ce type de mécanisme ne remplace‑t‑il pas une authentification robuste ?
 
 ---
 
-## Réflexion finale
+## 5. Réflexion finale
 
 Expliquez brièvement :
 

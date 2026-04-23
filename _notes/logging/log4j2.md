@@ -96,7 +96,7 @@ Bonnes pratiques :
 ```xml
 <RollingFile name="FileAppender"
              fileName="logs/app.log"
-             filePattern="logs/app-%d{yyyy-MM-dd}.log">
+             filePattern="logs/app-%d{yyyy-MM-dd}-%i.log">
   <PatternLayout pattern="%d %-5level %c - %msg%n" />
   <Policies>
     <!-- Par défaut, rotation quotidienne mais on peut paramétrer avec "interval" (en jours) et "modulate" pour alignement-->
@@ -106,8 +106,8 @@ Bonnes pratiques :
     <SizeBasedTriggeringPolicy size="10 MB"/>
   </Policies>
 
-  <!-- On conserve un historique de 10 fichiers -->
-  <DefaultRolloverStrategy max="10"/>
+  <!-- On conserve un historique de 30 fichiers -->
+  <DefaultRolloverStrategy max="30"/>
 </RollingFile>
 ```
 
