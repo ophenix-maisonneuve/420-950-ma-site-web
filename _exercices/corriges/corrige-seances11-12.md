@@ -105,21 +105,32 @@ Sachant que vous désirez permettre les services suivants...
 Inspectez le fichier de configuration `src/resources/log4j2-spring.xml`.
 
 1. En vous basant sur les notes de cours, à quel endroit pourriez-vous ajouter des paramètres pour activer la rotation des *logs* ?
+    ***On pourrait utiliser la balise `<RollingFile>` au lieu de la balise `<File>` dans chacun des `<Appender>`. Cette balise configure la rotation des logs et permet d'appliquer des politiques basées sur le temps ou la taille des fichiers.***
 1. Quelle serait une période raisonnable pour effectuer une rotation ?
+    ***Il n'existe pas de réponse unique, mais une journée (qui est la valeur par défaut) est une valeur très raisonnable.***
 1. Quelle serait une taille raisonnable pour effectuer une rotation ?
+    ***Encore une fois, cela dépend grandement de la quantité de logs. Pour un petit volume comme celui de notre cours, une valeur relativement faible comme 1MB ou 5MB ferait bien l'affaire.***
 1. Combien de fichiers archivés pourrait-on garder ?
+    ***Plus les fichiers sont petits, moins il est coûteux d'en garder beaucoup. Ainsi, on pourrait facilement ici en garder 30, surtout pour les logs d'audit (et même plus)***
 
 ### 2.2 Modification de la configuration de ***Log4j***
 
 1. Activez la rotation des fichiers de logs 
    - limiter la taille maximale des fichiers, ou l'âge des fichiers, ou les deux en fonction de vos réponses à la question précédente
-   - conserver un nombre fini d’archives en fonction de
+   - conserver un nombre fini d’archives en fonction de votre réponse à la question précédente
 1. Vérifiez que la rotation fonctionne en générant des événements applicatifs
+
+***Voir le code dans la branche `solution` du dépôt Git***
 
 ### 2.3 Questions de réflexion
 
 - Pourquoi la rotation des logs est‑elle un mécanisme de sécurité ?
+    ***Parce qu'elle permet de garantir:***
+    - ***Que les logs ne causent pas un déni de service (volontaire ou non) en remplissant l'unité de stockage qui les héberge***
+    - ***Que l'on garde suffisamment de logs archivés pour être en mesure de mener une enquête post-incident (au besoin)***
 - Quels risques apparaissent lorsque les logs ne sont pas maîtrisés ?
+    - ***Déni de service par remplissage***
+    - ***Loi de Murphy: c'est exactement au moment où l'on aurait eu besoin de nos logs qu'ils ont été supprimés...***
 
 ---
 
@@ -137,16 +148,23 @@ Améliorer la qualité et l’utilité des logs afin de permettre :
 Inspectez le fichier de configuration `src/resources/log4j2-spring.xml`.
 
 1. Qu'est-ce qu'un `Appender` ?
+    ***Un Appender est une sortie d'un logger; le logger envoie le message à logger dans un ou plusieurs appenders. Chaque appender a une configuration qui lui est propre, permettant de définir le format des logs, des filtres, etc***
 1. Quelle est l'intention derrière les trois `Appender` déclarés dans le fichier ?
+    - ***Console : écrit tous les logs à la console***
+    - ***AppFile : destination pour les logs applicatifs***
+    - ***AuditFile : destination pour les logs d'audit***
 
 
 ### 3.2 Séparation des logs applicatifs et des logs d'audit
 Modifiez le fichier de configuration `src/resources/log4j2-spring.xml` de façon à permettre d'écrire les logs d'audit et les logs de sécurité dans deux fichiers différents.
 
-1. En ce moment, existe-t-il une différence entre les `Appender` *AuditFile* et *AppFile* ?
+1. En ce moment, existe-t-il une différence entre les `Appender` *AuditFile* et *AppFile* ? ***Non***
    - Si oui, quelle est-elle ?
    - Sinon, que manque-t-il ?
+        ***Il manque un mécanisme de filtrage qui permettrait de différencier le contenu écrit dans AuditFile de celui qui est écrit dans AppFile.***
 1. Effectuez les modifications requises dans les `Appender` afin que les logs d'audit utilisent *AuditFile* et que les logs applicatifs utilisent *AppFile*.
+
+    ***Voir le code dans la branche `solution` du dépôt Git. Les logs ayant le marqueur AUDIT sont ceux qui seront imprimés dans le log d'audit.***
 
 {: .astuce}
 > Consultez les notes de cours, en particulier l'utilisation de `<Filter>` jumelée avec les `Marker` dans le code...
@@ -158,15 +176,21 @@ Modifiez le fichier de configuration `src/resources/log4j2-spring.xml` de façon
    - logs applicatifs / fonctionnels / (ex.: traitement, événements applicatifs, etc)
    - logs d'audit / sécurité (ex.: accès réseau, accès privilégiés, erreurs de sécurité, etc)
 
+   ***Voir le code dans la branche `solution` du dépôt Git. Les logs ayant le marqueur AUDIT sont ceux qui seront imprimés dans le log d'audit.***
+
 ### 3.4 Amélioration des logs
 1. Modifiez le code de GhostBeacon pour :
    - normaliser les messages (structure, vocabulaire, niveau) au besoin
    - envoyer les logs dans le bon fichier selon la catégorie (audit vs application)
 
+    ***Voir le code dans la branche `solution` du dépôt Git. Les logs ayant le marqueur AUDIT sont ceux qui seront imprimés dans le log d'audit.***
+
 
 ### 3.5 Questions de réflexion
 1. Pourquoi est‑il risqué de mélanger logs applicatifs et logs d’audit ?
+    ***Parce qu'on donne généralement accès aux logs applicatifs à beaucoup plus d'utilisateurs qu'aux logs d'audit. Comme les logs d'audit sont très importants d'un point de vue réglementaire / sécurité / conformité, on doit tout faire pour protéger leur intégrité et ainsi éviter qu'ils soient falsifiés. Les séparer des logs applicatifs est donc fondamental pour ensuite pouvoir attribuer des permissions différentes.***
 1. Quels événements devraient systématiquement apparaître dans les logs d’audit ?
+    ***Tous les événements pouvant avoir un impact sur la sécurité et/ou étant nécessaires lors d'une éventuelle enquête post-incident: tentatives de connexion (succès ou échec), authentification (succès ou échec), accès à des ressources sensibles, élévations de privilèges (autorisées ou non), changements de mot de passe, etc.***
 
 ---
 
