@@ -132,7 +132,7 @@ Inspectez le fichier de configuration `src/resources/log4j2-spring.xml`.
 
 1. Activez la rotation des fichiers de logs 
    - limiter la taille maximale des fichiers, ou l'âge des fichiers, ou les deux en fonction de vos réponses à la question précédente
-   - conserver un nombre fini d’archives en fonction de
+   - conserver un nombre fini d’archives en fonction de vos réponses à la question précédente.
 1. Vérifiez que la rotation fonctionne en générant des événements applicatifs
 
 ### 2.3 Questions de réflexion
