@@ -12,6 +12,7 @@ published: true
 ### Ordre du jour
 
 1. Informations générales
+1. Présentation du [travail pratique 3](../travaux/tp3)
 1. [Pare-feu Linux](../notes/firewall)
    1. [iptables](../notes/iptables)
    1. [UFW](../notes/ufw)

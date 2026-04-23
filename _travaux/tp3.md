@@ -2,7 +2,7 @@
 layout: default
 title: "Travail pratique 3"
 nav_order: 3
-published: false
+published: true
 ---
 
 # Travail pratique 3 : Chez Oups Technologies, nos serveurs sont durcis!
@@ -11,7 +11,7 @@ published: false
 
 Vous poursuivez votre stage chez **Oups Technologies**. Après avoir sécurisé le transport, analysé les menaces possibles, puis renforcé le portail de réservation grâce à des analyses SAST/SCA/DAST (travail qui est toujours en cours d'ailleurs), les dirigeants réalisent qu’un aspect fondamental n'a toujours pas été validé : **la journalisation et le durcissement du serveur en production**. 
 
-Décidément, plus les dirigeants en apprennent sur la sécurité, plus votre charge de travail tend à augmenter... 
+Décidément, plus les dirigeants en apprennent sur la sécurité et sur votre capacité à régler les problèmes, plus votre charge de travail tend à augmenter... 
 
 Un incident récent a mis en évidence plusieurs lacunes :
 
@@ -26,10 +26,10 @@ Votre mandat : améliorer la **journalisation**, renforcer la **sécurité rése
 
 ## Objectifs pédagogiques
 
-- Implémenter une **journalisation structurée** dans une application Flask
+- Implémenter une **journalisation structurée** dans une application Python/Flask
 - Distinguer les **logs applicatifs** des **logs d’audit / de sécurité**
 - Configurer une **rotation des logs** côté serveur
-- Déployer une application Flask sur une VM de type production
+- Déployer une application sur une VM simulant un serveur de production
 - Appliquer le principe du **moindre privilège réseau** via un pare‑feu
 - Mettre en place une défense active avec **fail2ban**
 
@@ -41,7 +41,7 @@ Une machine virtuelle Debian minimaliste simulant un serveur de production vous 
 
 - ***Nginx*** comme proxy inverse
 - Le serveur applicatif ***Gunicorn*** configuré comme service `systemd`
-- Une structure d’application Flask standardisée dans `/var/www/portail`
+- Une structure vide prête à recevoir l'application du portail dans `/var/www/portail`
 
 {: .warning}
 > Aucune modification de la configuration Nginx ou du service systemd n’est requise ni attendue, sauf indication contraire.
@@ -51,7 +51,9 @@ Une machine virtuelle Debian minimaliste simulant un serveur de production vous 
 ## Préparation
 
 1. Importez la machine virtuelle fournie (.ova) dans **VirtualBox ou VMware**
-1. Démarrez la VM et connectez‑vous avec l’utilisateur `employe`
+1. Démarrez la VM et connectez‑vous avec les identifiants suivants :
+    - Utilisateur : `employe`
+    - Mot de passe : `employe` 
 1. Récupérez le code de départ du portail de réservation ici : [Code portail Oups Technologies - TP 3](https://github.com/ophenix-420-950-ma-24636/tp3)
 1. Copiez le code de l'application sous `/var/www/portail`
 1. Lancer les commandes suivantes 
@@ -101,12 +103,15 @@ Les événements suivants doivent au minimum être journalisés :
 Modifier l'application du portail de réservation :
 
 - Configurez une **rotation automatique des fichiers de logs**
-- Limitez la taille maximale des fichiers
+- Limitez la taille maximale des fichiers ou l'âge des fichiers
+    - Vous pouvez donc choisir une rotation basée sur la **taille** des fichiers ou sur la **date/heure**
 - Conservez un nombre raisonnable d’archives
 
 **Question(s)**
 
 - Pourquoi la rotation des logs est‑elle critique, surtout sur un serveur exposé à Internet ?
+- Pourquoi avez-vous choisi le critère de rotation choisi (taille ou date/heure) ?
+- Pourquoi avez-vous choisi le nombre de fichiers archivés choisi ?
 
 ---
 
@@ -126,10 +131,10 @@ Déployez votre nouvelle version du portail sur la VM fournie :
     sudo systemctl restart portail
     ```
 
-Vous devez démontrer que :
+Démontrez que :
 
 - Les nouveaux logs sont générés sur le serveur
-- L’application fonctionne toujours correctement après déploiement
+- L’application fonctionne correctement après le déploiement
 
 ---
 
@@ -153,6 +158,7 @@ Le pare‑feu doit :
 **Question(s)**
 
 - Pourquoi est‑il déconseillé de laisser tous les ports ouverts sur un serveur applicatif ?
+- En quoi un pare-feu permet-il d'améliorer la sécurité du serveur ?
 
 ---
 
@@ -164,6 +170,7 @@ Configurez **fail2ban** sur la VM afin de créer une cellule (*jail*) respectant
 - Bannissement d’une adresse IP après : 
     - **3 tentatives d’authentification échouées**
     - dans une **fenêtre de 5 minutes**
+- Choisissez une durée de bannissement raisonnable
 
 Vous devez :
 
@@ -174,6 +181,7 @@ Vous devez :
 **Question(s)**
 
 - Pourquoi fail2ban est‑il considéré comme une mesure de défense réactive ?
+- Quel(s) critère(s) avez-vous utilisés pour choisir la durée du bannissement ?
 
 ---
 
@@ -184,8 +192,8 @@ Vous devez :
 |Section 1 : Journalisation|25|
 |Section 2 : Rotation des logs|15|
 |Section 3 : Déploiement|10|
-|Section 4 : Pare‑feu|25|
-|Section 5 : fail2ban|25|
+|Section 4 : Pare‑feu|20|
+|Section 5 : fail2ban|30|
 |**Total**|**100 points (15 % de la note finale)**|
 
 ---
@@ -209,4 +217,4 @@ Un fichier **.zip** contenant :
 
 ---
 
-Encore une fois, l'avenir de Oups Technologies est entre vos mains! 🔐🔥
+Encore une fois, l'avenir de Oups Technologies est entre vos mains (vous devriez vraiment demander une augmentation à votre prochaine évaluation de rendement)!
