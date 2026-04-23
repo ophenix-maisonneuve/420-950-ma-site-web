@@ -51,7 +51,7 @@ Les tables déterminent le type de traitement effectué sur le paquet (filtrage,
 **En entrée**
 
 ```mermaid
-flowchart TD
+flowchart LR
     A[Paquet IP entrant] --> B[raw / PREROUTING]
     B --> C[mangle / PREROUTING]
     C --> D[nat / PREROUTING]
@@ -73,7 +73,7 @@ flowchart TD
 **En sortie**
 
 ```mermaid
-flowchart TD
+flowchart LR
     A[Application locale] --> B[raw / OUTPUT]
     B --> C[mangle / OUTPUT]
     C --> D[nat / OUTPUT]
