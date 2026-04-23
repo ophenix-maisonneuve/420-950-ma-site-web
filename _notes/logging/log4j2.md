@@ -111,6 +111,12 @@ Bonnes pratiques :
 </RollingFile>
 ```
 
+
+Cette configuration :
+- écrit dans un fichier
+- crée un nouveau fichier chaque jour OU lorsque le fichier a atteint 10MB
+- évite la croissance infinie des logs en conservant seulement les 30 derniers fichiers
+
 ### Filtrage sur des marqueurs
 
 Il est possible d'ajouter un marqueur à une entrée de log de la façon suivante :
@@ -130,11 +136,6 @@ Log4j2 peut ensuite filtrer sur le marqueur afin de le rediriger vers une cible 
             onMismatch="DENY"/>
 </Filters>
 ```
-
-Cette configuration :
-- écrit dans un fichier
-- crée un nouveau fichier chaque jour
-- évite la croissance infinie des logs
 
 ---
 

@@ -49,7 +49,7 @@ Les *logs* jouent également un rôle central en matière de sécurité.
 
 - **Traçabilité des actions** : savoir qui a fait quoi, quand et comment
 - **Détection d’incidents de sécurité** : identifier des tentatives d’intrusion ou des abus
-- **Analyse post-incident (forensics)** : reconstituer précisément une attaque après coup
+- **Analyse post-incident (*forensics*)** : reconstituer précisément une attaque après coup
 - **Conformité réglementaire** : répondre aux exigences d’audit et de conformité
 
 ---
@@ -62,36 +62,36 @@ Il est important de distinguer les *logs* selon leur finalité, notamment entre 
 
 Les ***logs* applicatifs** décrivent le fonctionnement interne normal ou anormal d’une application.
 
-Exemples typiques :
+**Exemples typiques :**
 
 - Démarrage ou arrêt d’un service
 - Appel à une API externe
 - Traitement d’une requête métier
 - Exception non gérée ou erreur technique
 
-Caractéristiques principales :
+**Caractéristiques principales :**
 
-- **Forte volumétrie** (beaucoup d’événements)
-- **Contenu majoritairement technique**
-- **Utilisés principalement par les développeurs et les équipes techniques**
+- Forte volumétrie (beaucoup d’événements)
+- Contenu majoritairement technique
+- Utilisés principalement par les développeurs et les équipes techniques
 
 ### Logs d’audit
 
 Les **logs d’audit** décrivent les actions significatives du point de vue de la sécurité et de la conformité.
 
-Exemples typiques :
+**Exemples typiques :**
 
 - Connexion et déconnexion d’un utilisateur
 - Échec ou succès d’authentification
 - Changement de mot de passe
 - Accès à une ressource sensible
 
-Caractéristiques principales :
+**Caractéristiques principales :**
 
-- **Volumétrie plus faible**
-- **Structure très rigoureuse**
-- **Forte valeur légale et sécuritaire**
-- Doivent être **inaltérables autant que possible**
+- Volumétrie plus faible
+- Structure très rigoureuse
+- Forte valeur légale et sécuritaire
+- Doivent être inaltérables autant que possible
 
 ---
 
