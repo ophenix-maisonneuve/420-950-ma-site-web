@@ -3,10 +3,11 @@ layout: default
 title: "Mission : GHOST BEACON - Phase 2 
 nav_order: 5
 has_toc: false
-published: false
+published: true
 ---
 
 # Exercice : Mission GHOST BEACON - Phase 2
+
 ## Durcissement d'un serveur (*Hardening*)
 
 ## Mise en situation
