@@ -82,7 +82,7 @@ sudo ufw allow https
 
 ---
 
-## Ports et plages
+###  Ports et plages
 
 ```bash
 sudo ufw allow 6000:6007/tcp
@@ -90,7 +90,7 @@ sudo ufw allow 6000:6007/tcp
 
 ---
 
-## IP et sous-réseaux
+### IP et sous-réseaux
 
 ```bash
 sudo ufw allow from 192.168.1.100
@@ -99,7 +99,7 @@ sudo ufw allow from 192.168.1.0/24 to any port 22
 
 ---
 
-## Interfaces réseau
+### Interfaces réseau
 
 ```bash
 sudo ufw allow in on ens33 to any port 80
@@ -107,7 +107,7 @@ sudo ufw allow in on ens33 to any port 80
 
 ---
 
-## Activation et statut
+### Activation et statut
 
 ```bash
 sudo ufw enable
@@ -116,7 +116,7 @@ sudo ufw status verbose
 
 ---
 
-## Suppression de règles
+### Suppression de règles
 
 ```bash
 sudo ufw status numbered
