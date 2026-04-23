@@ -6,7 +6,7 @@ nav_order: 1
 published: true
 ---
 
-# Pare-feux sous Linux
+# Pare-feu Linux
 
 Un **pare-feu** (*firewall* en anglais) est un mécanisme de sécurité chargé de **contrôler, filtrer et éventuellement bloquer** les communications réseau entrant et sortant d’un système. Ses objectifs principaux sont :
 
