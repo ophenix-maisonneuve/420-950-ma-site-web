@@ -28,7 +28,7 @@ Sans mécanisme de sanction, un attaquant peut effectuer un nombre astronomique 
 
 Le fonctionnement de Fail2ban est basé sur une surveillance continue et en temps quasi réel des fichiers journaux. Chaque entrée de journal est comparée à un ensemble de motifs définis dans des filtres. Lorsqu’une correspondance est trouvée, Fail2ban incrémente un compteur associé à l’adresse IP source.
 
-Ces tentatives sont analysées dans une fenêtre temporelle appelée findtime. Si le nombre d’échecs dépasse la limite autorisée (maxretry), Fail2ban déclenche une action, généralement un bannissement temporaire via le pare-feu.
+Ces tentatives sont analysées dans une fenêtre temporelle appelée `findtime`. Si le nombre d’échecs dépasse la limite autorisée (`maxretry`), Fail2ban déclenche une action, généralement un bannissement temporaire via le pare-feu.
 
 ---
 
@@ -36,7 +36,7 @@ Ces tentatives sont analysées dans une fenêtre temporelle appelée findtime. S
 
 - **Filtre** : expressions régulières détectant des événements suspects
 - **Action** : commandes exécutées lors d’un bannissement
-- **Jail** : association filtre + journal + action(s)
+- **Cellule (*jail*)** : association d'un filtre appliqué sur un journal (*log*) déclenchant une ou plusieurs action(s)
 - **Client** : interface de contrôle
 - **Serveur** : moteur d’application des règles
 
