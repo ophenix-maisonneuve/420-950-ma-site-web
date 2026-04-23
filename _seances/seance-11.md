@@ -2,7 +2,7 @@
 layout: default
 title: "2026-04-23"
 nav_order: 11
-published: false
+published: true
 ---
 
 # Séance 11 : Durcissement d'un serveur (partie 1)
@@ -12,14 +12,26 @@ published: false
 ### Ordre du jour
 
 1. Informations générales
-1. Pare-feu
-   1. iptables
-   1. UFW
-   1. Exercice
+1. [Pare-feu Linux](../notes/firewall)
+   1. [iptables](../notes/iptables)
+   1. [UFW](../notes/ufw)
+   1. Exercice : [GhostBeacon phase 2](../exercices/seances11-12)
+      - Préparation
+      - Question 1
 1. Logging
-   1. Concepts généraux
-   1. Gestion / rotation des logs
-   1. Exercice - ajout de logs et configuration de la rotation
+   1. [Concepts généraux](../notes/logging)
+   1. Gestion et rotation des logs
+      1. [Gestion des logs en Java](../notes/log4j2)
+      1. Exercice : [GhostBeacon phase 2](../exercices/seances11-12)
+         - Question 2
+   1. Logs d'audit vs logs de sécurité
+      1. [Séparation des logs en Java](../notes/log4j2)
+      1. Exercice : [GhostBeacon phase 2](../exercices/seances11-12)
+         - Question 3
+
 
 ### Lectures recommandées
 
+- Notes de cours sur les pare-feux sous Linux : [Pare-feu Linux](../notes/firewall)
+- Notes de cours sur iptables : [iptables](../notes/iptables)
+- Notes de cours sur Uncomplicated Firewall (UFW) : [UFW](../notes/ufw)

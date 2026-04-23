@@ -1,23 +1,28 @@
 ---
 layout: default
-title: "Séance 12"
+title: "2026-04-24"
 nav_order: 12
-published: false
+published: true
 ---
 
 # Séance 12 : Durcissement d'un serveur (partie 2)
 
-## 23 avril 2026
-
-### Ordre du jour
+## 24 avril 2026
 
 1. Informations générales
-1. Logging (suite)
-   1. Logs applicatifs vs logs d'audit
-   1. Exercice - séparation des logs en logs applicatifs et logs d'audit
-1. fail2ban
-   1. Présentation de l'outil
-   1. Exercice - Configuration d'une *jail* SSH
-   1. Exercice - Ajout d'une *jail* pour l'application Ghostbeacon
+1. Logging
+   1. Exercice : [GhostBeacon phase 2](../exercices/seances11-12)
+      - Question 3 (fin au besoin)
+1. [Fail2ban](../notes/fail2ban)
+   1. Mise en place et configuration
+   1. Exercice : [GhostBeacon phase 2](../exercices/seances11-12)
+      - Question 4
+   1. Filtres et cellules personnalisées(../notes/fail2ban-personnalise)
+   1. Exercice : [GhostBeacon phase 2](../exercices/seances11-12)
+      - Question 5
+
 
 ### Lectures recommandées
+
+- Notes de cours sur Fail2ban : [Fail2ban](../notes/fail2ban)
+- Notes de cours sur la personnalisation des règles : [Règles personnalisées](../notes/fail2ban-personnalise)
