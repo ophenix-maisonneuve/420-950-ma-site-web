@@ -57,9 +57,12 @@ Sachant que vous désirez permettre les services suivants...
 ### 1.3 Questions de réflexion
 
 - Quelle méthode (iptables ou UFW) était la plus intuitive ?
-    - ***UFW est normalement beaucoup plus simple et intuitif à utiliser que iptables***
+    ***UFW est normalement beaucoup plus simple et intuitif à utiliser que iptables***
 - Pourquoi le filtrage réseau reste‑t‑il essentiel même pour une application sécurisée ?
-    - ***Parce que le pare-feu permet de sécuriser le réseau avant même que les paquets n'atteignent l'application. Ainsi, il agit comme une couche de défense complémentaire qui ne remplace pas (ni n'est remplacé par) une sécurisation de l'application.***
+    ***Parce que le pare-feu permet de sécuriser le réseau avant même que les paquets n'atteignent l'application. Ainsi, il agit comme une couche de défense complémentaire qui ne remplace pas (ni n'est remplacé par) une sécurisation de l'application.***
+
+    ***Autrement dit, le pare-feu devra nécessairement permettre la communication avec votre application. À partir de ce moment, ce sera à l'application de bien gérer la sécurité.***
+
 
 
 ### 1.4 BONUS : Utilisation de iptables
