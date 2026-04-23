@@ -114,9 +114,17 @@ Modifier l'application du portail de réservation :
 
 Déployez votre nouvelle version du portail sur la VM fournie :
 
-- Copie du code applicatif
-- Installation des dépendances
-- Redémarrage du service Flask
+- Copiez le code modifié aux étapes précédentes sous `/var/www/portail`
+- Assurez-vous que toutes les dépendances sont bien installées
+    ```bash
+    source venv/bin/activate
+    pip install -r requirements.txt
+    ```
+
+- Redémarrez le portail
+    ```bash
+    sudo systemctl restart portail
+    ```
 
 Vous devez démontrer que :
 

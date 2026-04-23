@@ -46,6 +46,44 @@ Les tables déterminent le type de traitement effectué sur le paquet (filtrage,
 | **FORWARD** | Trafic transitant | Traite les **paquets qui traversent la machine sans lui être destinés**. Utilisée lorsque la machine agit comme **routeur ou passerelle**. |
 
 
+### Flux typique d'un paquent IP
+
+**En entrée**
+
+```mermaid
+flowchart TD
+    A[Paquet IP entrant] --> B[raw / PREROUTING]
+    B --> C[mangle / PREROUTING]
+    C --> D[nat / PREROUTING]
+    D --> E{Décision de routage}
+
+    E -->|Vers la machine| F[mangle / INPUT]
+    F --> G[filter / INPUT]
+    G --> H[security / INPUT]
+    H --> I[Application locale]
+
+    E -->|À transférer| J[mangle / FORWARD]
+    J --> K[filter / FORWARD]
+    K --> L[security / FORWARD]
+    L --> M[mangle / POSTROUTING]
+    M --> N[nat / POSTROUTING]
+    N --> O[Paquet sortant]
+```
+
+**En sortie**
+
+```mermaid
+flowchart TD
+    A[Application locale] --> B[raw / OUTPUT]
+    B --> C[mangle / OUTPUT]
+    C --> D[nat / OUTPUT]
+    D --> E[filter / OUTPUT]
+    E --> F[security / OUTPUT]
+    F --> G[mangle / POSTROUTING]
+    G --> H[nat / POSTROUTING]
+    H --> I[Paquet IP envoyé sur le réseau]
+```
+
 ---
 
 ## Commandes iptables
