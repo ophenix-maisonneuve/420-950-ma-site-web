@@ -21,7 +21,7 @@ Caractéristiques :
 ## Tables et chaînes
 
 ### Tables
-Comme son nom l'indique, iptables et composé de plusieurs tables permettant d'interagir d'une façon différente avec les paquets IP. 
+Comme son nom l'indique, iptables est composé de plusieurs tables permettant d'interagir d'une façon différente avec les paquets IP. 
 
 | Table | Rôle principal | Description |
 |------|----------------|-------------|
@@ -29,7 +29,7 @@ Comme son nom l'indique, iptables et composé de plusieurs tables permettant d'i
 | **nat** | Translation d’adresses (NAT) | Utilisée pour **modifier les adresses IP et ports** des paquets (DNAT, SNAT, MASQUERADE). Typiquement utilisée pour le partage de connexion et le port forwarding. Chaînes : `PREROUTING`, `POSTROUTING`, `OUTPUT`. |
 | **mangle** | Modification des paquets | Permet de **modifier des champs des paquets** (TTL, TOS, marquage). Utilisée pour des besoins avancés comme la QoS ou le routage complexe. Chaînes : `PREROUTING`, `INPUT`, `FORWARD`, `OUTPUT`, `POSTROUTING`. |
 | **raw** | Gestion du suivi de connexion | Table utilisée **avant le suivi de connexion (conntrack)**. Sert principalement à exclure certains paquets du suivi d’état. Chaînes : `PREROUTING`, `OUTPUT`. |
-| **security** | Contrôle de sécurité renforcé | Utilisée pour les **politiques de sécurité obligatoires** (ex. SELinux). Peu utilisée dans un contexte pédagogique standard. Chaînes similaires à `filter`. |
+| **security** | Contrôle de sécurité renforcé | Utilisée pour les **politiques de sécurité obligatoires** (ex. SELinux ou AppArmor). Peu utilisée pour modifications manuelles. Chaînes similaires à `filter`. |
 
 La table **filter** étant celle qui est responsable du filtrage des paquets, c'est celle-ci que nous étudierons plus en détails pour une utilisation en tant que pare-feu.
 
@@ -48,10 +48,12 @@ Les tables déterminent le type de traitement effectué sur le paquet (filtrage,
 
 ### Flux typique d'un paquent IP
 
-**En entrée**
+
+<details markdown="1">
+<summary markdown="span">**En entrée**</summary>
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[Paquet IP entrant] --> B[raw / PREROUTING]
     B --> C[mangle / PREROUTING]
     C --> D[nat / PREROUTING]
@@ -70,10 +72,13 @@ flowchart LR
     N --> O[Paquet sortant]
 ```
 
-**En sortie**
+</details>
+
+<details markdown="1">
+<summary markdown="span">**En sortie**</summary>
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[Application locale] --> B[raw / OUTPUT]
     B --> C[mangle / OUTPUT]
     C --> D[nat / OUTPUT]
@@ -83,6 +88,7 @@ flowchart LR
     G --> H[nat / POSTROUTING]
     H --> I[Paquet IP envoyé sur le réseau]
 ```
+</details>
 
 ---
 
