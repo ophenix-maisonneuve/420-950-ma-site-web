@@ -2,7 +2,7 @@
 layout: default
 title: "Travail pratique 3"
 nav_order: 3
-published: true
+published: false
 ---
 
 # Travail pratique 3 : Chez Oups Technologies, nos serveurs sont durcis!
@@ -20,7 +20,7 @@ Un incident récent a mis en évidence plusieurs lacunes :
 - Aucun mécanisme pour limiter ou bloquer les tentatives d’authentification malveillantes
 - Un pare‑feu trop permissif pour un serveur exposé à Internet
 
-Votre mandat : améliorer la **journalisation**, renforcer la **sécurité réseau** et déployer ces améliorations sur un serveur simulant la production.
+Votre mandat : améliorer la **journalisation**, renforcer la **sécurité réseau** et déployer ces améliorations sur un serveur simulant la production afin d'en faire la démonstration.
 
 ---
 
@@ -37,14 +37,14 @@ Votre mandat : améliorer la **journalisation**, renforcer la **sécurité rése
 
 ## Environnement fourni
 
-Une machine virtuelle Debian minimaliste simulant un serveur de production vous est fournie. Cette VM inclut **déjà** :
+Une machine virtuelle Debian minimaliste simulant un serveur de production vous est fournie. Cette VM inclut déjà :
 
 - ***Nginx*** comme proxy inverse
 - Le serveur applicatif ***Gunicorn*** configuré comme service `systemd`
 - Une structure d’application Flask standardisée dans `/var/www/portail`
 
 {: .warning}
-> **Aucune modification de la configuration Nginx ou du service systemd n’est requise ni attendue**, sauf indication contraire.
+> Aucune modification de la configuration Nginx ou du service systemd n’est requise ni attendue, sauf indication contraire.
 
 ---
 
@@ -80,7 +80,7 @@ Vous devez :
 
 - Ajouter un **logger applicatif**
 - Ajouter un **logger d’audit / de sécurité** distinct
-- Vous assurer que les deux types de logs sont clairement séparés
+- Vous assurer que les deux types de logs sont clairement séparés (par exemple écrits dans des fichiers séparés)
 
 Les événements suivants doivent au minimum être journalisés :
 
@@ -88,7 +88,7 @@ Les événements suivants doivent au minimum être journalisés :
 - Tentatives d’authentification (succès et échecs)
 - Création, modification et suppression de réservations
 
-**Questions**
+**Question(s)**
 
 - Quels critères avez‑vous utilisés pour décider qu’un événement relève d’un log applicatif ou d’un log d’audit ?
 
@@ -102,7 +102,7 @@ Modifier l'application du portail de réservation :
 - Limitez la taille maximale des fichiers
 - Conservez un nombre raisonnable d’archives
 
-**Questions**
+**Question(s)**
 
 - Pourquoi la rotation des logs est‑elle critique, surtout sur un serveur exposé à Internet ?
 
@@ -140,7 +140,7 @@ Le pare‑feu doit :
     - HTTPS
 - Bloquer tout autre trafic entrant
 
-**Questions**
+**Question(s)**
 
 - Pourquoi est‑il déconseillé de laisser tous les ports ouverts sur un serveur applicatif ?
 
@@ -161,7 +161,7 @@ Vous devez :
 - Créer un blocage (*jail*) utilisant votre filtre 
 - Démontrer que le bannissement fonctionne
 
-**Questions**
+**Question(s)**
 
 - Pourquoi fail2ban est‑il considéré comme une mesure de défense réactive ?
 
