@@ -23,10 +23,10 @@ Un **pare-feu** (*firewall* en anglais) est un mécanisme de sécurité chargé 
 
 **Netfilter** est un module du noyau Linux permettant :
 - le filtrage de paquets
-- le suivi des connexions (stateful firewall)
-- la modification de paquets (NAT)
+- le suivi des connexions
+- la modification de paquets
 
-Tous les outils de pare-feu Linux reposent sur Netfilter.
+Pratiquement tous les outils de pare-feu Linux reposent sur Netfilter.
 
 ---
 
