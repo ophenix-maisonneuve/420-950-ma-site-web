@@ -260,7 +260,7 @@ Mettre en place une défense spécifique à la logique de l'application.
 ### 4.1 Identification du code vulnérable au *Path Traversal*
 Dans le code de GhostBeacon, identifiez l'endroit où l'application contient une vulnérabilité de type *Path Traversal*
 1. Où se situe cette vulnérabilité ?
-   ***Elle se situe dans la classe `StatusService`, car on ne valide pas que le chemin passé ne tente pas de sortir du répertoire racine de l'application. ***
+   ***Elle se situe dans la classe `StatusService`, car on ne valide pas que le chemin passé ne tente pas de sortir du répertoire racine de l'application.***
 1. Comment peut-elle être exploitée ?
    ***Un attaquant peut tenter de passer un chemin de type `../` pour reculer dans l'arborescence de fichiers et afficher le contenu de fichiers non-reliés à ghostbeacon.***
 
