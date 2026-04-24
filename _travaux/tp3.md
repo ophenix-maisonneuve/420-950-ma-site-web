@@ -59,11 +59,11 @@ Vous pouvez la télécharger ici : [Téléchargement de la machine virtuelle](ht
 1. Récupérez le code de départ du portail de réservation ici : [Code portail Oups Technologies - TP 3](https://github.com/ophenix-420-950-ma-24636/tp3)
 1. Copiez le code de l'application sous `/var/www/portail` de façon à obtenir la structure suivante :
     ```
-/var/www/portail
-├─ venv (déjà présent)
-├─ portail (répertoire parent contenant votre code)
-    ├─ (vos fichiers de code)
-├─ requirements.txt
+    /var/www/portail
+    ├─ venv (déjà présent)
+    ├─ portail (répertoire parent contenant votre code)
+        ├─ (vos fichiers de code)
+    ├─ requirements.txt
 
     ```
 1. Lancer les commandes suivantes 
@@ -130,7 +130,15 @@ Modifier l'application du portail de réservation :
 
 Déployez votre nouvelle version du portail sur la VM fournie :
 
-- Copiez le code modifié aux étapes précédentes sous `/var/www/portail`
+- Copiez le code modifié aux étapes précédentes sous `/var/www/portail` de façon à obtenir la structure suivante :
+    ```
+    /var/www/portail
+    ├─ venv (déjà présent)
+    ├─ portail (répertoire parent contenant votre code)
+        ├─ (vos fichiers de code)
+    ├─ requirements.txt
+
+    ```
 - Assurez-vous que toutes les dépendances sont bien installées
     ```bash
     source venv/bin/activate
