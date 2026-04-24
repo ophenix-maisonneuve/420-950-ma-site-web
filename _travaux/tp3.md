@@ -43,7 +43,7 @@ Une machine virtuelle Debian minimaliste simulant un serveur de production vous 
 - Le serveur applicatif ***Gunicorn*** configuré comme service `systemd`
 - Une structure vide prête à recevoir l'application du portail dans `/var/www/portail`
 
-Vous pouvez la télécharger ici : [Téléchargement de la machine virtuelle]()
+Vous pouvez la télécharger ici : [Téléchargement de la machine virtuelle](https://cmaisonneuveqcca-my.sharepoint.com/:u:/r/personal/ophenix_cmaisonneuve_qc_ca/Documents/Cours/420-950-MA%20-%20Cybers%C3%A9curit%C3%A9/Mat%C3%A9riel%20de%20cours/420-950-MA-TP3.ova?csf=1&web=1&e=WOlja9)
 
 {: .warning}
 > Aucune modification de la configuration Nginx ou du service systemd n’est requise ni attendue, sauf indication contraire.
@@ -52,7 +52,7 @@ Vous pouvez la télécharger ici : [Téléchargement de la machine virtuelle]()
 
 ## Préparation
 
-1. Importez la machine virtuelle fournie (.ova) dans **VirtualBox ou VMware** (téléchargez [ici]()
+1. Importez la machine virtuelle fournie (.ova) dans **VirtualBox ou VMware** (téléchargez [ici](https://cmaisonneuveqcca-my.sharepoint.com/:u:/r/personal/ophenix_cmaisonneuve_qc_ca/Documents/Cours/420-950-MA%20-%20Cybers%C3%A9curit%C3%A9/Mat%C3%A9riel%20de%20cours/420-950-MA-TP3.ova?csf=1&web=1&e=WOlja9))
 1. Démarrez la VM et connectez‑vous avec les identifiants suivants :
     - Utilisateur : `employe`
     - Mot de passe : `employe` 
