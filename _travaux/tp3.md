@@ -66,6 +66,7 @@ Une machine virtuelle Debian minimaliste simulant un serveur de production vous 
     ```
 1. Lancer les commandes suivantes 
     ```bash
+    cd /var/www/portail
     source venv/bin/activate
     pip install -r requirements.txt
     sudo systemctl restart portail
