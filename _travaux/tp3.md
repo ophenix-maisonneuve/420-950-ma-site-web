@@ -91,8 +91,8 @@ Modifiez le code du portail de réservation afin d’y améliorer le système de
 
 Vous devez :
 
-- Ajouter un **logger applicatif**
-- Ajouter un **logger d’audit** distinct
+- Ajouter (ou modifier) un **logger applicatif**
+- Ajouter (ou modifier) un **logger d’audit** distinct
 - Vous assurer que les deux types de logs sont clairement séparés (par exemple écrits dans des fichiers séparés)
 
 Les événements suivants doivent au minimum être journalisés :
