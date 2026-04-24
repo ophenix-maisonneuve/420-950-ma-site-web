@@ -68,7 +68,7 @@ bantime = 86400
 ## Bonnes pratiques
 
 - Tester systématiquement les filtres
-- Utiliser des listes blanches
+- Utiliser des listes d'autorisation
 - Adapter les durées de bannissement
 - Documenter les jails personnalisées
 
