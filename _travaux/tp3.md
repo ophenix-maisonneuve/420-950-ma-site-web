@@ -84,14 +84,14 @@ Une machine virtuelle Debian minimaliste simulant un serveur de production vous 
 
 ## Tâches à réaliser
 
-### 1. Ajout d’un système de journalisation
+### 1. Amélioration du système de journalisation
 
-Modifiez le code du portail de réservation afin d’y intégrer un système de **logging** basé sur le module standard `logging` de Python.
+Modifiez le code du portail de réservation afin d’y améliorer le système de **logging** basé sur le module standard `logging` de Python.
 
 Vous devez :
 
 - Ajouter un **logger applicatif**
-- Ajouter un **logger d’audit / de sécurité** distinct
+- Ajouter un **logger d’audit** distinct
 - Vous assurer que les deux types de logs sont clairement séparés (par exemple écrits dans des fichiers séparés)
 
 Les événements suivants doivent au minimum être journalisés :
