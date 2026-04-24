@@ -55,7 +55,14 @@ Une machine virtuelle Debian minimaliste simulant un serveur de production vous 
     - Utilisateur : `employe`
     - Mot de passe : `employe` 
 1. Récupérez le code de départ du portail de réservation ici : [Code portail Oups Technologies - TP 3](https://github.com/ophenix-420-950-ma-24636/tp3)
-1. Copiez le code de l'application sous `/var/www/portail`
+1. Copiez le code de l'application sous `/var/www/portail` de façon à obtenir la structure suivante :
+    ```
+/var/www/portail
+├─ portail (répertoire parent contenant votre code)
+│   ├─ (vos fichiers de code)
+├─ requirements.txt
+
+    ```
 1. Lancer les commandes suivantes 
     ```bash
     source venv/bin/activate
