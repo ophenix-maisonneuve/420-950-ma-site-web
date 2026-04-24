@@ -58,6 +58,7 @@ Une machine virtuelle Debian minimaliste simulant un serveur de production vous 
 1. Copiez le code de l'application sous `/var/www/portail` de façon à obtenir la structure suivante :
     ```
 /var/www/portail
+├─ venv (déjà présent)
 ├─ portail (répertoire parent contenant votre code)
 │   ├─ (vos fichiers de code)
 ├─ requirements.txt
