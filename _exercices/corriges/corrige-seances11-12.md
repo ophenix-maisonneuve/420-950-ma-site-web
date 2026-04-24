@@ -203,6 +203,9 @@ Bloquer automatiquement des comportements suspects avant qu’ils ne dégénère
 ### 4.1 Installation de fail2ban
 Installez l'outil `fail2ban` sur l'environnement, ou vérifiez qu'il est déjà installé
 1. Quelle commande avez-vous utilisée ?
+   ```bash
+   sudo apt install fail2ban
+   ```
 
 ### 4.2 Blocage des tentatives de connexion SSH échouées
 1. Configurez `fail2ban` de manière à bloquer automatiquement...
@@ -212,12 +215,39 @@ Installez l'outil `fail2ban` sur l'environnement, ou vérifiez qu'il est déjà 
    - dans un intervalle de 5 minutes
    - pour une durée de 1 minute
 
+   ```ini
+   [sshd]
+   enabled=true
+   port=22
+   logpath=/var/log/auth.log
+   maxretry=3
+   findtime=300
+   bantime=60
+   ```
+
+
+
 1. Testez le fonctionnement du bannissement en effectuant 3 connexions SSH infructueuses à votre VM
+
+   ***Après 3 tentatives de connexion, vous devriez être incapables de vous connecter en SSH. Vous devriez aussi voir une sortie similaire à :***
+   ```bash
+   Status for the jail: sshd
+   |- Filter
+   |  |- Currently failed:	0
+   |  |- Total failed:	6
+   |  `- Journal matches:	_SYSTEMD_UNIT=ssh.service + _COMM=sshd + _COMM=sshd-session
+   `- Actions
+      |- Currently banned:	1
+      |- Total banned:	2
+      `- Banned IP list:	172.16.116.135
+   ```
 
 ### 4.3 Questions de réflexion
 
 - Quels types d’attaques `fail2ban` permet‑il de contrer efficacement ?
+   ***Fail2ban se spécialise dans la détection d'attaques de type "force brute". Cependant, il peut être efficace pour n'importe quelle autre attaque étant clairement visible à partir des logs.***
 - Quelles sont les limites de ce type de protection ?
+   ***L'attaquant doit essayer d'exploiter la vulnérabilité un certain nombre de fois avant que la protection ne soit déclenchée.***
 
 ---
 
@@ -230,13 +260,20 @@ Mettre en place une défense spécifique à la logique de l'application.
 ### 4.1 Identification du code vulnérable au *Path Traversal*
 Dans le code de GhostBeacon, identifiez l'endroit où l'application contient une vulnérabilité de type *Path Traversal*
 1. Où se situe cette vulnérabilité ?
+   ***Elle se situe dans la classe `StatusService`, car on ne valide pas que le chemin passé ne tente pas de sortir du répertoire racine de l'application. ***
 1. Comment peut-elle être exploitée ?
+   ***Un attaquant peut tenter de passer un chemin de type `../` pour reculer dans l'arborescence de fichiers et afficher le contenu de fichiers non-reliés à ghostbeacon.***
 
 ### 4.2 Identification des logs applicables
 Identifiez le ou les logs qui seront produits si un attaquant tente d'exploiter la vulnérabilité de *Path Traversal*
 
 1. Les logs identifiés contiennent-ils une information permettant de détecter l'attaque ?
+   ***Le log d'audit permettra de voir que le `StatusController` a reçu une requête contenant `../` (ou l'une de ses variantes) ***
 1. Quelle expression régulière pourrait permettre de générer un échec et d'extraire l'IP ou le nom d'hôte de provenance de l'attaque ?
+   ***On pourrait utiliser une regex de ce type :***
+   ```
+   failregex=^.*\| ip=<HOST> \| code=(?:\.\./)+.*$
+   ```
 
 ### 4.3 Création d'un filtre
 À partir de vos réponses aux questions précédentes, écrivez un filtre *fai2ban* permettant de détecter les tentatives d'exploitation de la vulnérabilité.
@@ -245,11 +282,38 @@ Identifiez le ou les logs qui seront produits si un attaquant tente d'exploiter 
 1. Complétez la structure suivante afin de configurer correctement votre filtre
    ```
    [Definition]
-   failregex = <regex identifiée à la question précédente>
+   failregex = failregex=^.*\| ip=<HOST> \| code=(?:\.\./)+.*$
    ```
 1. Testez votre filtre
    ```bash
    fail2ban-regex <fichier de log de ghostbeacon contenant l'attaque> /etc/fail2ban/filter.d/ghostbeacon.conf
+   ```
+   ```bash
+      Running tests
+   =============
+
+   Use      filter file : ghostbeacon, basedir: /etc/fail2ban
+   Use         log file : test.log
+   Use         encoding : UTF-8
+
+
+   Results
+   =======
+
+   Failregex: 1 total
+   |-  #) [# of hits] regular expression
+   |   1) [1] ^.*\| ip=<HOST> \| code=(?:\.\./)+.*$
+   `-
+
+   Ignoreregex: 0 total
+
+   Date template hits:
+   |- [# of hits] date format
+   |  [1] {^LN-BEG}ExYear(?P<_sep>[-/.])Month(?P=_sep)Day(?:T|  ?)24hour:Minute:Second(?:[.,]Microseconds)?(?:\s*Zone offset)?
+   `-
+
+   Lines: 1 lines, 0 ignored, 1 matched, 0 missed
+   [processed in 0.00 sec]
    ```
 
 ### 4.4 Création d'une cellule personnalisée 
@@ -274,7 +338,9 @@ Créez maintenant un fichier de cellule (*jail*) utilisant votre filtre. Ce fich
 ### 4.5 Questions de réflexion
 
 - Quels événements applicatifs se prêtent bien à une protection par fail2ban ?
+   ***De manière générale, les événements de connexion, d'accès aux ressources et d'authentification sont d'excellents candidats pour fail2ban.***
 - Pourquoi ce type de mécanisme ne remplace‑t‑il pas une authentification robuste ?
+   ***Parce que si l'attaquant réussit à déjouer le mécanisme d'authentification, l'échec ne sera pas visible dans les logs (autrement dit, il n'y aura pas d'échec). Ainsi, du point de vue de fail2ban, l'attaque passera complètement inaperçue.***
 
 ---
 
