@@ -62,7 +62,7 @@ Vous pouvez la télécharger ici : [Téléchargement de la machine virtuelle](ht
 /var/www/portail
 ├─ venv (déjà présent)
 ├─ portail (répertoire parent contenant votre code)
-│   ├─ (vos fichiers de code)
+    ├─ (vos fichiers de code)
 ├─ requirements.txt
 
     ```
