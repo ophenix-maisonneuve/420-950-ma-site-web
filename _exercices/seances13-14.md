@@ -51,27 +51,23 @@ git clone https://github.com/ophenix-420-950-ma-24636/exercice-seances-13-14.git
 ```
 
 ### 2. Lancez le projet Java
+
+Dans l'environnement applicatif, lancez l'application GhostBeacon comme nous l'avons fait dans les dernières semaines :
 ```bash
 mvn clean package
 java -jar target/ghostbeacon-1.2.0.jar
 ```
-ou directement à partir de votre IDE.
-
-En utilisant un générateur de requêtes HTTP (Postman ou extensions Chrome/Firefox telles que RESTer), familiarisez-vous avec les différents services offerts par **GhostBeacon**, notamment:
-
-- `POST /api/v1/crypto/encrypt` et `POST /api/v1/crypto/decrypt`
-- `POST /api/v1/file` 
-- `POST /api/v1/message` et `GET /api/v1/message/{nom de l'agent}`
-- `POST /api/v1/status` et `GET /api/v1/status/{nom de l'agent}`
 
 ### 3. Installez et lancez OWASP ZAP
 
-- Dans la [machine virtuelle de sécurité offensive](../notes/environnement-pentest), installez OWASP ZAP
+- Dans l'[environnement de sécurité offensive](../notes/environnement-pentest), installez OWASP ZAP
    ```bash
    sudo apt update && sudo apt install zaproxy
    ```
 - Lancer **OWASP ZAP** (zaproxy)
 - Conserver la configuration de proxy par défaut (`127.0.0.1:8080`)
+- Vérifiez que vous arrivez à communiquer avec GhostBeacon en pointant votre navigateur vers :
+   - `http://<ip environnement applicatif>:8080`
 
 ---
 
