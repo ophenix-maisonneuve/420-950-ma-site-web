@@ -82,15 +82,15 @@ Observer le trafic HTTP **sans modifier les requêtes**, afin de détecter autom
 - des en‑têtes HTTP dangereux
 - des comportements révélateurs de faiblesse de configuration
 
----
-
 ### Étapes
 
 1. Dans OWASP ZAP, vérifiez que l’application est en cours d’exécution et que le proxy est actif.
 2. Configurez votre navigateur ou Postman pour utiliser ZAP comme proxy HTTP.
-   - *Pour installer **Postman** sous Kali, vous pouvez exécuter la commande suivante*
+   - *Pour installer **Postman** sous Kali, vous pouvez exécuter les commandes suivantes*
    ```bash
-   sudo apt install flatpak && flatpak install postman
+   sudo apt install flatpak && sudo apt install gnome-software-plugin-flatpak
+   sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+   flatpak install postman
    ```
 3. Dans ZAP, ouvrez l’onglet **History** afin d’observer les requêtes interceptées.
 4. Interagissez normalement avec GhostBeacon :
@@ -102,7 +102,6 @@ Observer le trafic HTTP **sans modifier les requêtes**, afin de détecter autom
    - observez les échanges HTTP dans l’onglet **History**
    - consultez les alertes générées dans l’onglet **Alerts**
 
----
 
 ### Questions de réflexion
 
@@ -118,8 +117,6 @@ Observer le trafic HTTP **sans modifier les requêtes**, afin de détecter autom
 
 Découvrir automatiquement la **surface d’attaque exposée** par GhostBeacon.
 
----
-
 ### Étapes
 
 1. Dans OWASP ZAP, ouvrez l’onglet **Sites**.
@@ -133,13 +130,17 @@ Découvrir automatiquement la **surface d’attaque exposée** par GhostBeacon.
    - dans l’onglet **Spider**
    - dans l’arbre **Sites**, où apparaissent les nouvelles routes découvertes
 
----
 
 ### Questions de réflexion
 
-- Toutes les fonctionnalités connues ont‑elles été découvertes ?
+- Toutes les routes connues ont‑elles été découvertes ? Pourquoi ?
+- Refaites les étapes ci-haut, mais en ciblant le site web du cours (https://ophenix-maisonneuve.github.io/420-950-ma-site-web/). Qu'observez-vous ?
 - Que se passe‑t‑il si une route n’est pas découverte par le Spider ?
 - En quoi cette phase conditionne‑t‑elle l’efficacité du reste du DAST ?
+
+
+{: .astuce}
+> Il est également possible d'utiliser une méthode de type force brute afin de découvrir des routes sur des services REST. Avec un clic droit sur le site à analyser, l'option **Attack → Forced Browse Site...** permet de choisir un dictionnaire et tentera de découvrir les routes en se basant sur des mots très utilisés.
 
 ---
 
@@ -148,8 +149,6 @@ Découvrir automatiquement la **surface d’attaque exposée** par GhostBeacon.
 ### Objectif
 
 Identifier des **vulnérabilités exploitables** à l’aide d’attaques automatisées.
-
----
 
 ### Étapes
 
@@ -170,8 +169,6 @@ Identifier des **vulnérabilités exploitables** à l’aide d’attaques automa
    - analysez chaque alerte
    - examinez les requêtes et réponses associées
 
----
-
 ### Questions de réflexion
 
 - Quelles vulnérabilités sont détectées dynamiquement ?
@@ -187,7 +184,6 @@ Identifier des **vulnérabilités exploitables** à l’aide d’attaques automa
 
 Tester le comportement de l’application face à des **entrées malformées ou inattendues**.
 
----
 
 ### Étapes
 
@@ -198,7 +194,7 @@ Tester le comportement de l’application face à des **entrées malformées ou 
 3. Sélectionnez :  
    **Attack → Fuzz...**
 4. Dans la fenêtre du fuzzer :
-   - sélectionnez le paramètre à fuzzzer
+   - sélectionnez le paramètre à fuzzer
    - ajoutez un générateur de payloads fourni par ZAP
    - conservez les paramètres par défaut
 5. Lancez le fuzzing et observez :
@@ -206,15 +202,13 @@ Tester le comportement de l’application face à des **entrées malformées ou 
    - les variations de contenu
    - les erreurs ou comportements anormaux
 
----
 
 ### Questions de réflexion
 
-- Pourquoi ce paramètre est‑il intéressant à fuzzzer ?
+- Pourquoi ce paramètre est‑il intéressant à fuzzer ?
 - En quoi le fuzzing diffère‑t‑il de l’analyse active standard ?
 - Le fuzzing met‑il en évidence des comportements non détectés précédemment ?
 
----
 
 ## 5. Corrélation SAST / DAST
 
@@ -222,7 +216,6 @@ Tester le comportement de l’application face à des **entrées malformées ou 
 
 Comparer les vulnérabilités détectées dynamiquement avec celles identifiées statiquement lors de la **phase 1**.
 
----
 
 ### Questions de réflexion
 
@@ -232,6 +225,64 @@ Comparer les vulnérabilités détectées dynamiquement avec celles identifiées
   - détectées par les deux approches ?
 - Pourquoi certaines vulnérabilités existent‑elles dans le code sans être exploitables dynamiquement ?
 - Que révèle cette comparaison sur la complémentarité des méthodes ?
+
+---
+
+## 6. BONUS : Création d’un plan d’automatisation
+
+Jusqu’à présent, l’analyse a été effectuée **manuellement** :
+- analyse passive,
+- spider,
+- active scan,
+- fuzzing ciblé.
+
+Dans un contexte professionnel, ces étapes sont souvent **orchestrées automatiquement** afin de garantir la répétabilité des tests, la cohérence des paramètres et la réduction des erreurs humaines.
+
+OWASP ZAP fournit un **Automation Framework**, accessible depuis l’interface graphique, permettant de définir ces étapes sous forme de **plan**.
+
+### Objectif
+
+Formaliser les différentes étapes de l’analyse DAST réalisées précédemment sous forme d’un **plan d’automatisation**, afin de rendre le test **reproductible**, **structuré** et **réexécutable**.
+
+Cette étape vise à introduire les bases de l’**automatisation de la sécurité applicative**, sans entrer dans un pipeline CI/CD complet.
+
+### Étapes
+
+1. Dans OWASP ZAP, ouvrez le menu :
+   **Tools → Automation Framework**
+
+2. Dans le panneau Automation Framework :
+   - choisissez **Create new plan**
+   - donnez un nom explicite au plan (ex. `ghostbeacon-dast-plan`)
+
+3. Définissez l’environnement cible :
+   - ajoutez une **Environment**
+   - spécifiez l’URL de GhostBeacon (ex. `http://<ip de votre environnement applicatif:8080`)
+
+4. Ajoutez successivement les **tâches** (*jobs*) suivantes au plan :
+   - une tâche de **Spider**
+   - une tâche de **Passive Scan**
+   - une tâche d’**Active Scan**
+
+5. Pour chaque tâche :
+   - vérifiez qu’elle cible bien l’URL de GhostBeacon
+   - conservez les paramètres par défaut
+   - ne configurez aucune authentification
+
+6. Sauvegardez le plan puis exécutez‑le depuis l’interface graphique.
+
+7. Observez :
+   - l’ordre d’exécution des tâches
+   - les résultats générés (routes découvertes, alertes, scans actifs)
+
+### Questions de réflexion
+
+- En quoi ce plan permet‑il de reproduire une analyse DAST cohérente ?
+- Quels avantages l’automatisation apporte‑t‑elle par rapport à une analyse manuelle ?
+- Quelles limites subsistent compte tenu de l’absence d’authentification ?
+- Dans quel contexte ce plan pourrait‑il être intégré dans un pipeline CI/CD ?
+
+---
 
 ## Réflexion finale
 

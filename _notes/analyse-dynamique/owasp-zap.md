@@ -55,7 +55,21 @@ L’analyse active consiste à envoyer des requêtes malveillantes afin de teste
 
 ### Politiques d'analyse (*scan policies*)
 
-Les politiques d'analyse définissent les règles exécutées, l’intensité des attaques et les seuils d’alerte. Elles permettent d’adapter l’analyse aux besoins spécifiques de l’application.
+Les politiques d'analyse définissent les règles exécutées, l’intensité des attaques et les seuils d’alerte. Elles permettent d’adapter l’analyse aux besoins spécifiques de l’application. Voici les principales politiques prédéfinites dans ZAP : 
+
+
+| Politique | Description | Usage typique |
+|------------|-------------------|---------------|
+| **Default Policy** | Politique de scan par défaut de ZAP. Active toutes les règles installées avec une agressivité modérée offrant un bon compromis entre couverture, durée et bruit. | Premier scan DAST, tests généraux, contexte pédagogique |
+| **Developer CICD Policy** | Politique légère orientée CI/CD développeur. Cible les vulnérabilités à fort impact avec un nombre limité de requêtes pour un retour rapide. | Pipelines CI côté dev, feedback rapide |
+| **Developer Standard Policy** | Politique développeur intermédiaire offrant une couverture plus large que la CICD tout en conservant un temps d’exécution raisonnable. | Tests réguliers en environnement de développement |
+| **Developer Full Policy** | Politique développeur la plus complète. Active un grand nombre de règles applicatives au prix d’un scan plus long et plus bruyant. | Audits approfondis en développement |
+| **QA CICD Policy** | Politique CI/CD adaptée aux environnements QA. Plus de couverture que les policies développeur tout en restant rapide. | Pipelines CI en QA ou staging |
+| **QA Standard Policy** | Politique QA équilibrée visant une couverture accrue des vulnérabilités applicatives et serveur. | Tests de sécurité en QA avant livraison |
+| **QA Full Policy** | Politique QA la plus exhaustive. Inclut règles applicatives, environnementales et serveur. Scan agressif et long. | Pré‑production, audits encadrés |
+| **API Policy** | Politique spécialisée pour les API. Désactive les règles orientées interface utilisateur et cible les vulnérabilités propres aux services REST/JSON/XML. | Tests DAST sur API et microservices |
+| **Penetration Tester Policy** | Politique la plus agressive. Active toutes les règles d’active scan disponibles afin de maximiser la surface testée. | Tests d’intrusion automatisés, audits formels |
+
 
 ### Limites
 
