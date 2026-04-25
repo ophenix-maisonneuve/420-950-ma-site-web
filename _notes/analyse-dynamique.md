@@ -17,4 +17,4 @@ L'analyse dynamique se distingue par sa capacité à :
 - prendre en compte la configuration réelle de l’environnement,
 - tester les intégrations externes et les dépendances.
 
-En revanche, elle ne peut pas analyser le code mort ou les branches logiques jamais exécutées.
+En revanche, elle ne peut pas analyser le code mort ou les branches logiques jamais exécutées ou extrêmement difficiles d'accès.
