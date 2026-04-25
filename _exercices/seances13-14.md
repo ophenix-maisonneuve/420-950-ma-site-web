@@ -88,6 +88,10 @@ Observer le trafic HTTP **sans modifier les requêtes**, afin de détecter autom
 
 1. Dans OWASP ZAP, vérifiez que l’application est en cours d’exécution et que le proxy est actif.
 2. Configurez votre navigateur ou Postman pour utiliser ZAP comme proxy HTTP.
+   - *Pour installer **Postman** sous Kali, vous pouvez exécuter la commande suivante*
+   ```bash
+   sudo apt install flatpak && flatpak install postman
+   ```
 3. Dans ZAP, ouvrez l’onglet **History** afin d’observer les requêtes interceptées.
 4. Interagissez normalement avec GhostBeacon :
    - envoyer un message
