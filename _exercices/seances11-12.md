@@ -7,8 +7,9 @@ published: true
 ---
 
 # Exercice : Mission GHOST BEACON - Phase 2
-
 ## Durcissement d'un serveur (*Hardening*)
+
+---
 
 ## Mise en situation
 
