@@ -32,7 +32,6 @@ Votre mandat consiste à mener cette analyse à l’aide de **OWASP ZAP**, outil
 - Effectuer du **fuzzing ciblé**
 - Corréler les résultats **DAST** avec ceux du **SAST/SCA**
 - Évaluer le **risque réel** des vulnérabilités détectées
-- Identifier explicitement **ce qui ne peut pas être évalué** dans ce contexte
 
 {: .warning}
 > La version actuelle de GhostBeacon ne comporte aucun mécanisme d’authentification. L’analyse DAST sera donc réalisée **exclusivement en tant qu’utilisateur non authentifié**. Il s'agit d'une décison volontaire afin d'apprendre à utiliser l'outil ZAP avant d'ajouter la complexité liée à l'authentification.
@@ -65,13 +64,13 @@ En utilisant un générateur de requêtes HTTP (Postman ou extensions Chrome/Fir
 - `POST /api/v1/message` et `GET /api/v1/message/{nom de l'agent}`
 - `POST /api/v1/status` et `GET /api/v1/status/{nom de l'agent}`
 
-### 3. Installer et lancer OWASP ZAP
+### 3. Installez et lancez OWASP ZAP
 
-- Dans la machine virtuelle de sécurité offensive, installez OWASP ZAP
+- Dans la [machine virtuelle de sécurité offensive](../notes/environnement-pentest), installez OWASP ZAP
    ```bash
-   sudo apt install zaproxy
+   sudo apt update && sudo apt install zaproxy
    ```
-- Lancer **OWASP ZAP Desktop**
+- Lancer **OWASP ZAP** (zaproxy)
 - Conserver la configuration de proxy par défaut (`127.0.0.1:8080`)
 
 ---
@@ -120,7 +119,7 @@ Découvrir automatiquement la **surface d’attaque exposée** par GhostBeacon.
 
 ---
 
-### Étapes (interface graphique ZAP)
+### Étapes
 
 1. Dans OWASP ZAP, ouvrez l’onglet **Sites**.
 2. Repérez le noeud correspondant à l’application  

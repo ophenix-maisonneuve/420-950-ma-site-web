@@ -15,4 +15,4 @@ Quelques liens importants:
 * [Omnivox/Léa](https://cmaisonneuve-lea.omnivox.ca/)
 * [GitHub](https://github.com/ophenix-420-950-ma-24636)
 * [Environnement applicatif / sécurité défensive](https://cmaisonneuveqcca-my.sharepoint.com/:u:/r/personal/ophenix_cmaisonneuve_qc_ca/Documents/Cours/420-950-MA%20-%20Cybers%C3%A9curit%C3%A9/Mat%C3%A9riel%20de%20cours/420-950-MA-applicatif.ova?csf=1&web=1&e=9LSWNF)
-* [Environnement de sécurité offensive / tests d'intrusion]()
+* [Environnement de sécurité offensive / tests d'intrusion](./notes/environnement-pentest)
