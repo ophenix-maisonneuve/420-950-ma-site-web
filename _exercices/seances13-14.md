@@ -6,8 +6,8 @@ has_toc: true
 published: true
 ---
 
-## Exercice : Mission GHOST BEACON – Phase 3  
-### Analyse dynamique de sécurité (DAST)
+# Exercice : Mission GHOST BEACON – Phase 3  
+## Analyse dynamique de sécurité (DAST)
 
 ---
 
