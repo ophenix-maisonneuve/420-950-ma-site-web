@@ -15,7 +15,7 @@ published: true
 
 Malgré les correctifs appliqués lors de la **phase 1** (SAST / SCA) et le durcissement du serveur effectué dans la **phase 2** (configuration réseau, journalisation, protections automatiques), la direction de CyberMax demeure prudente.
 
-L’expérience a démontré qu’un code qui *passe le build* peut néanmoins présenter des failles exploitables une fois l’application déployée et accessible sur le réseau**. Avant toute utilisation opérationnelle, **GhostBeacon** doit maintenant être analysée du point de vue d’un attaquant externe, sans accès au code source ni connaissance interne de son implémentation.
+L’expérience a démontré qu’un code qui *passe le build* peut néanmoins présenter des failles exploitables une fois l’application déployée et accessible sur le réseau. Avant toute utilisation opérationnelle, **GhostBeacon** doit maintenant être analysée du point de vue d’un attaquant externe, sans accès au code source ni connaissance interne de son implémentation.
 
 Cette approche, appelée **analyse dynamique de sécurité** (*DAST*), vise à évaluer le comportement réel de l’application en fonctionnement.
 
