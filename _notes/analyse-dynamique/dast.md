@@ -9,7 +9,7 @@ has_toc: false
 
 # DAST - Analyse dynamique de sécurité (*Dynamic Application Security Testing*)
 
-Le **Dynamic Application Security Testing (DAST)** désigne un ensemble de techniques et d’outils visant à évaluer la sécurité d’une application **lorsqu’elle est en cours d’exécution**, en interagissant avec elle exactement comme le ferait un utilisateur ou un attaquant externe. Contrairement aux approches basées sur l’analyse du code source ou des binaires, le DAST observe uniquement ce que l’application *expose réellement* à travers ses interfaces publiques.
+Le ***Dynamic Application Security Testing* (DAST)** désigne un ensemble de techniques et d’outils visant à évaluer la sécurité d’une application **lorsqu’elle est en cours d’exécution**, en interagissant avec elle exactement comme le ferait un utilisateur ou un attaquant externe. Contrairement aux approches basées sur l’analyse du code source ou des binaires, le DAST observe uniquement ce que l’application *expose réellement* à travers ses interfaces publiques.
 
 Concrètement, un outil DAST communique avec l’application via les protocoles qu’elle supporte — principalement HTTP/HTTPS pour les applications web et les API REST, mais également WebSocket, GraphQL ou SOAP. Le DAST se place ainsi dans une posture **boîte noire**, ou parfois **boîte grise** lorsqu’un minimum de contexte est fourni (comptes utilisateurs, rôles, documentation API).
 
