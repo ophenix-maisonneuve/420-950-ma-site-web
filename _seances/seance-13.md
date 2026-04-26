@@ -13,7 +13,7 @@ published: true
 
 1. Informations générales
 1. Retour sur le [travail pratique 2](../travaux/tp2)
-1. Récapitulation
+1. Préparation de l'[environnement de sécurité offensive](../notes/environnement-pentest)
 1. [Analyse dynamique de sécurité](../notes/analyse-dynamique)
    1. [DAST](../notes/dast)
    1. Outil [OWASP ZAP] pour le DAST(../notes/owasp-zap)
