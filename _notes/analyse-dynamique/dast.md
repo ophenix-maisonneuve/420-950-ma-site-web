@@ -99,7 +99,7 @@ L’analyse active consiste à injecter des contenus malveillants dans les param
 Elle doit être exécutée avec prudence, idéalement dans des environnements de test ou de pré‑production dédiés à cet effet.
 
 {: .warning}
-> Cette étape doit absolument être bien planifiée et coordonnée, car elle a un réel potentiel destructeur. Ainsi, lancer une analyse active sur un environnement critique (ex.: un environnement nécessaire aux développeurs, un serveur de tests interne ou pire, un serveur de prodution...) peut avoir des conséquences catastrophiques, car l'environnement peut en ressortir passablement démoli.
+> Cette étape doit absolument être bien planifiée et coordonnée, car elle a un réel potentiel destructeur. Ainsi, lancer une analyse active sur un environnement critique (ex.: un environnement nécessaire aux développeurs, un serveur de tests interne ou pire, un serveur de production...) peut avoir des conséquences catastrophiques, car l'environnement peut en ressortir passablement démoli.
 
 
 ### 4. Traitement des réponses
