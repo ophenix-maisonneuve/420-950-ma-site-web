@@ -4,7 +4,7 @@ title: Analyse dynamique
 nav_order: 10
 has_children: true
 has_toc: true
-published: false
+published: true
 ---
 
 # Analyse dynamique d'une application

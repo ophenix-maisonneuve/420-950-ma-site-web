@@ -1,24 +1,27 @@
 ---
 layout: default
-title: "Séance 13"
+title: "2026-04-27"
 nav_order: 13
-published: false
+published: true
 ---
 
-# Séance 13 : Structures de données: Arbres
+# Séance 13 : DAST (partie 1)
 
-## <date>
+## 27 avril 2026
 
 ### Ordre du jour
 
-1. Retour sur le [travail pratique 1](../travaux/tp1)
-1. Ensemble (*Set*) et ses variantes
-   1. SortedSet
-   1. NavigableSet
-   1. [TreeSet](../notes/treeset)
-1. [Arbre rouge-noir](../notes/arbre-rouge-noir)
-   1. Fonctionnement général
-   1. Comparaison visuelle avec un arbre de recherche binaire standard
-      1. [Outil de visualisation](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html)
-1. Mise en pratique
-   1. [Le lobby des braves](../exercices/semaine3-arbres)
+1. Informations générales
+1. Retour sur le [travail pratique 2](../travaux/tp2)
+1. Récapitulation
+1. [Analyse dynamique de sécurité](../notes/analyse-dynamique)
+   1. [DAST](../notes/dast)
+   1. Outil [OWASP ZAP] pour le DAST(../notes/owasp-zap)
+   1. Exercice individuel : [MISSION : GHOST BEACON (phase 3)](../exercices/seances13-14)
+      - Préparation
+      - Questions 1 à 3
+
+
+### Lectures recommandées
+
+- Notes de cours sur l'[analyse dynamique de sécurité](../notes/dast) et [ZAP](../notes/owasp-zap)
