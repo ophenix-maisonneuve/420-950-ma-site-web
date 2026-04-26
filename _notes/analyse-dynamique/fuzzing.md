@@ -16,7 +16,7 @@ Dans un contexte de sécurité applicative, le fuzzing vise principalement à d�
 - des failles logiques,
 - des comportements instables (crash, exceptions, erreurs internes).
 
-Le fuzzing est aujourd’hui considéré comme une **technique dynamique**, et donc un sous‑ensemble naturel du DAST, tout en possédant ses propres particularités.
+Le fuzzing est aujourd’hui considéré comme une **technique dynamique**, et donc un sous‑ensemble du DAST, tout en possédant ses propres particularités.
 
 ---
 
@@ -58,7 +58,7 @@ Contrairement aux scans DAST classiques, le fuzzing ne se contente pas de tester
 Le fuzzing est souvent présenté comme une composante du DAST, ce qui est à la fois vrai mais qui ignore aussi certaines particularités. Les scanners DAST traditionnels exécutent des tests ciblés, basés sur des signatures et des règles connues, alors que le fuzzing adopte une approche plus exploratoire.
 
 Un DAST classique répond généralement à la question :
-> *Cette entrée est‑elle vulnérable selon des patterns connus ?*
+> *Cette entrée est‑elle vulnérable selon des patrons connus ?*
 
 Le fuzzing, lui, cherche plutôt à répondre à :
 > *Que se passe‑t‑il si l’application reçoit quelque chose de totalement inattendu ?*
