@@ -134,4 +134,4 @@ Dans un plan d’automatisation, l’authentification est définie dans la secti
 
 ## Conclusion
 
-OWASP ZAP est une plateforme DAST complète couvrant la découverte, l’analyse passive, l’analyse active, le fuzzing et l’automatisation. Utilisé correctement, il constitue un pilier essentiel d’une stratégie DevSecOps moderne.
+OWASP ZAP est une plateforme DAST complète couvrant la découverte, l’analyse passive, l’analyse active, le fuzzing et l’automatisation. Utilisé correctement, ZAP (ou d'autres outils similaires) peut constituer un atout majeur dans la stratégie DevSecOps d'une entreprise.
