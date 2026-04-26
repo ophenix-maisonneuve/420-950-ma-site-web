@@ -138,6 +138,6 @@ L’objectif n’est plus de trouver toutes les failles, mais de **réduire cont
 
 ## Conclusion
 
-Le DAST est un outil essentiel pour comprendre la sécurité réelle d’une application déployée. Il permet de confronter les hypothèses de conception à la réalité du terrain, et d’identifier des vulnérabilités exploitables dans des conditions proches de celles d’un attaquant.
+Le DAST aide à comprendre la sécurité réelle d’une application déployée. Il permet de valider les hypothèses de conception en les testant *en vrai*, et d’identifier des vulnérabilités exploitables dans des conditions proches de celles d’un attaquant.
 
 Utilisé intelligemment et combiné à d’autres approches, le DAST constitue l’un des piliers de la sécurité applicative moderne.
