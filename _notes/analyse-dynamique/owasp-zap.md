@@ -17,14 +17,6 @@ ZAP se distingue par l'étendue de ses fonctionnalités, son orientation gratuit
 
 ---
 
-## Fonctionnalités ZAP
-
-Dans une démarche DAST, OWASP ZAP se positionne comme un attaquant externe simulé. Il interagit uniquement via les interfaces exposées de l’application (HTTP, HTTPS, WebSocket, API), sans accès au code source.
-
-ZAP permet ainsi d’observer le comportement réel de l’application, de détecter des vulnérabilités exploitables et de fournir des preuves concrètes sous forme de requêtes et de réponses associées aux alertes.
-
----
-
 ## Découverte de la surface d’attaque (*Spider*)
 
 La phase de spidering constitue le point d’entrée de toute analyse DAST avec ZAP. Le spider explore automatiquement les ressources accessibles afin de construire une cartographie de l’application.
@@ -80,7 +72,18 @@ L’analyse active ne permet pas de détecter les failles de logique métier ou 
 - Active Scan : [https://www.zaproxy.org/docs/desktop/start/features/ascan/](https://www.zaproxy.org/docs/desktop/start/features/ascan/)
 - Scan Policy : [https://www.zaproxy.org/docs/desktop/start/features/scanpolicy/](https://www.zaproxy.org/docs/desktop/start/features/scanpolicy/)
 
-### Configuration de l’authentification
+---
+
+## Fuzzing
+
+ZAP intègre un fuzzer permettant d’injecter de grandes quantités de payloads dans une requête ciblée afin de tester la robustesse des paramètres.
+
+**Pour plus de détails** :
+- [https://www.zaproxy.org/docs/desktop/addons/fuzzer/](https://www.zaproxy.org/docs/desktop/addons/fuzzer/)
+
+---
+
+## Configuration de l’authentification
 
 Dans la majorité des applications modernes, une part importante de la surface d’attaque n’est accessible qu’aux utilisateurs authentifiés. Sans configuration explicite de l’authentification, une analyse active avec OWASP ZAP se limite souvent aux pages publiques, ce qui réduit fortement sa pertinence.
 
@@ -100,10 +103,6 @@ ZAP prend en charge plusieurs mécanismes courants :
 Le contexte définit les URLs incluses et exclues, la méthode d’authentification et la gestion de session. Une fois configuré, ZAP est capable de maintenir automatiquement une session valide et de se réauthentifier si nécessaire.
 
 
-**Authentification et analyse active**
-
-Une analyse active lancée dans un contexte authentifié permet de tester les endpoints protégés et d’augmenter significativement la couverture du scan. Toutefois, cela ne remplace pas les tests manuels d’autorisation.
-
 **Authentication Decision Tree**
 
 OWASP fournit un arbre de décision officiel pour choisir rapidement la méthode d’authentification la plus appropriée selon le type d’application.
@@ -113,15 +112,6 @@ OWASP fournit un arbre de décision officiel pour choisir rapidement la méthode
 - Contexts : [https://www.zaproxy.org/docs/desktop/start/features/contexts/](https://www.zaproxy.org/docs/desktop/start/features/contexts/)
 - Session Management : [https://www.zaproxy.org/docs/desktop/start/features/session-management/](https://www.zaproxy.org/docs/desktop/start/features/session-management/)
 - Decision Tree : [https://www.zaproxy.org/docs/authentication/decision-tree/](https://www.zaproxy.org/docs/authentication/decision-tree/)
-
----
-
-## Fuzzing
-
-ZAP intègre un fuzzer permettant d’injecter de grandes quantités de payloads dans une requête ciblée afin de tester la robustesse des paramètres.
-
-**Pour plus de détails** :
-- [https://www.zaproxy.org/docs/desktop/addons/fuzzer/](https://www.zaproxy.org/docs/desktop/addons/fuzzer/)
 
 ---
 
