@@ -103,7 +103,7 @@ ZAP prend en charge plusieurs mécanismes courants :
 Le contexte définit les URLs incluses et exclues, la méthode d’authentification et la gestion de session. Une fois configuré, ZAP est capable de maintenir automatiquement une session valide et de se réauthentifier si nécessaire.
 
 
-**Authentication Decision Tree**
+***Authentication Decision Tree***
 
 OWASP fournit un arbre de décision officiel pour choisir rapidement la méthode d’authentification la plus appropriée selon le type d’application.
 
