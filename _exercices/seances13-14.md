@@ -68,7 +68,7 @@ java -jar target/ghostbeacon-1.2.0.jar
 - Conserver la configuration de proxy par défaut (`127.0.0.1:8080`)
 - Vérifiez que vous arrivez à communiquer avec GhostBeacon en pointant votre navigateur vers :
    - `http://<ip environnement applicatif>:8080/api/v1/shadow`
-   - *Vous devriez voir `Statut introuvable`*
+   - *Vous devriez voir `Impossible de lire le fichier [...]`*
 
 ---
 
