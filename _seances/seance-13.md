@@ -16,7 +16,7 @@ published: true
 1. Préparation de l'[environnement de sécurité offensive](../notes/environnement-pentest)
 1. [Analyse dynamique de sécurité](../notes/analyse-dynamique)
    1. [DAST](../notes/dast)
-   1. Outil [OWASP ZAP] pour le DAST(../notes/owasp-zap)
+   1. Outil [OWASP ZAP](../notes/owasp-zap) pour le DAST
    1. Exercice individuel : [MISSION : GHOST BEACON (phase 3)](../exercices/seances13-14)
       - Préparation
       - Questions 1 à 3
