@@ -179,7 +179,7 @@ Identifier des **vulnérabilités exploitables** à l’aide d’attaques automa
 ---
 
 ## 4. Fuzzing naïf (*dumb fuzzing*)
-
+... ou pseudo-naïf dans ce cas précis
 
 ### Objectif
 
