@@ -1,12 +1,12 @@
 ---
 layout: default
-title: "Mission : GHOST BEACON – Phase 3"
+title: "Mission : GHOST BEACON - Phase 3"
 nav_order: 6
 has_toc: true
 published: true
 ---
 
-# Exercice : Mission GHOST BEACON – Phase 3  
+# Exercice : Mission GHOST BEACON - Phase 3  
 ## Analyse dynamique de sécurité (DAST)
 
 ---
@@ -193,13 +193,13 @@ Observer le comportement de l’application face à des entrées **non structur�
 1. Dans la fenêtre qui s'ouvrira... 
    - Surlignez la valeur du paramètre `vers`
    - Du côté de **Fuzz locations**, cliquez sur le bouton **Add**
-   [!Fuzz naïf](../assets/images/zap-dumb-fuzz.png)
+   ![Fuzz naïf](../assets/images/zap-dumb-fuzz.png)
 1. Dans la nouvelle fenêtre, cliquez à nouveau sur **Add**
 1. Dans la nouvelle fenêtre...
    - Ajoutez une charge utile (*payload*) de type **Regex** et utilisez la regex suivante: `[\s\S]*`
       - *Cette expression régulière permet tous les caractères entre 0 (chaîne vide) et une infinité de fois*
    - Demandez un grand nombre de *payloads* (par exemple 100000)
-   [!Fuzz naïf - Payload](../assets/images/zap-dumb-fuzz-generator.png)
+   ![Fuzz naïf - Payload](../assets/images/zap-dumb-fuzz-generator.png)
 1. Appliquez le tout et lancez le fuzzer
 1. Une fois le fuzzing terminé, inspectez le fichier contenant les messages du côté serveur (`/tmp/ghostbeacon/messages.log`)
    - Que remarquez-vous
@@ -231,7 +231,7 @@ Réaliser un fuzzing **ciblé et structuré** en choisissant des charges utiles 
 1. Dans la fenêtre qui s'ouvrira... 
    - Surlignez la valeur du paramètre `{code}` (souvent `shadow` dans nos exercices)
    - Du côté de **Fuzz locations**, cliquez sur le bouton **Add**
-   [!Fuzz intelligent](../assets/images/zap-smart-fuzz.png)
+   ![Fuzz intelligent](../assets/images/zap-smart-fuzz.png)
 1. Dans la nouvelle fenêtre, cliquez à nouveau sur **Add**
 1. Dans la nouvelle fenêtre...
    - Ajoutez une charge utile (*payload*) de type **Regex** et utilisez la regex suivante
