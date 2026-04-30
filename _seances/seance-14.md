@@ -1,26 +1,32 @@
 ---
 layout: default
-title: "Séance 14"
+title: "2026-04-30"
 nav_order: 14
-published: false
+published: true
 ---
 
-# Séance 14 : Structures de données: Arbres (partie 2)
+# Séance 14 : DAST (partie 2)
 
-## <date>
+## 30 avril 2026
 
 ### Ordre du jour
 
-1. [Le lobby des braves](../exercices/semaine3-arbres)
-   1. Fin de la question 1 et correction
-1. *Map* et ses variantes
-   1. SortedMap
-   1. NavigableMap
-   1. [TreeMap](../notes/treemap)
-1. Mise en pratique
-   1. [Le lobby des braves](../exercices/semaine3-arbres) : Question 2
+1. Informations générales
+1. Correction de l'[exercice d'analyse active](../exercices/seances13-14)
+1. [Analyse dynamique de sécurité](../notes/analyse-dynamique)
+   1. [Fuzzing naïf](../notes/fuzzing)
+   1. Exercice individuel : [MISSION : GHOST BEACON (phase 3)](../exercices/seances13-14)
+      - Question 4
+   1. [Fuzzing intelligent](../notes/fuzzing)
+   1. Exercice individuel : [MISSION : GHOST BEACON (phase 3)](../exercices/seances13-14)
+      - Question 5
+      - Question 6 (récapitulation)
 
-### Exercices complémentaires
-1. [Le lobby des braves](../exercices/semaine3-arbres)
-   1. Terminer question 2 (le corrigé vous sera fourni)
-   1. Questions 3 (Bonus)
+
+### Lectures recommandées
+
+- Notes de cours sur le [fuzzing](../notes/fuzzing)
+
+### Exercice(s) complémentaire(s)
+
+- [MISSION : GHOST BEACON (phase 3)](../exercices/seances13-14) : Question 7 (Bonus)

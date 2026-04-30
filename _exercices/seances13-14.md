@@ -178,39 +178,77 @@ Identifier des **vulnérabilités exploitables** à l’aide d’attaques automa
 
 ---
 
-## 4. Fuzzing
+## 4. Fuzzing naïf (*dumb fuzzing*)
+
 
 ### Objectif
 
-Tester le comportement de l’application face à des **entrées malformées ou inattendues**.
+Observer le comportement de l’application face à des entrées **non structurées ou peu pertinentes**, afin d’identifier l'utilité et les limites de cette méthode.
+
+### Étapes
+
+1. Sélectionnez le *endpoint* `POST /api/v1/message`
+1. Avec un clic droit, lancez :
+   **Attack → Fuzz…**
+1. Dans la fenêtre qui s'ouvrira... 
+   - Surlignez la valeur du paramètre `vers`
+   - Du côté de **Fuzz locations**, cliquez sur le bouton **Add**
+   [!Fuzz naïf](../assets/images/zap-dumb-fuzz.png)
+1. Dans la nouvelle fenêtre, cliquez à nouveau sur **Add**
+1. Dans la nouvelle fenêtre...
+   - Ajoutez une charge utile (*payload*) de type **Regex** et utilisez la regex suivante: `[\s\S]*`
+      - *Cette expression régulière permet tous les caractères entre 0 (chaîne vide) et une infinité de fois*
+   - Demandez un grand nombre de *payloads* (par exemple 100000)
+   [!Fuzz naïf - Payload](../assets/images/zap-dumb-fuzz-generator.png)
+1. Appliquez le tout et lancez le fuzzer
+1. Une fois le fuzzing terminé, inspectez le fichier contenant les messages du côté serveur (`/tmp/ghostbeacon/messages.log`)
+   - Que remarquez-vous
+
+{: .highlight}
+> Il s'agit ici en fait d'une simulation de fuzzing naïf appliqué à un seul paramètre de la requête. Un fuzzing naïf pur n'aurait même pas tenu compte du format JSON requis pour l'entrée et aurait simplement envoyé des chaînes de caractères complètement aléatoires au *endpoint* testé. Pour rendre l'exercice plus intéressant, nous avons plutôt choisi un fuzzing naïf ciblé à un seul paramètre en utilisant une expression régulière générant des caractères aléatoires.
+
+### Questions de réflexion
+
+- Le fuzzing naïf a-t-il explicitement fait ressortir des vulnérabilités directement dans ZAP ?
+- Le fuzzing naïf a-t-il fait ressortir une vulnérabilité à l'extérieur de ZAP ?
+   - ***Indice** : Que serait-il arrivé si on avait choisi une quantité gigantesque de payloads ?
+
+
+---
+
+## 5. Fuzzing intelligent (*smart fuzzing*)
+
+### Objectif
+
+Réaliser un fuzzing **ciblé et structuré** en choisissant des charges utiles (*payloads*) adaptés aux paramètres testés
 
 
 ### Étapes
 
-1. Identifiez une requête pertinente dans :
-   - l’onglet **History**
-   - ou l’onglet **Sites**
-2. Cliquez avec le bouton droit sur la requête choisie.
-3. Sélectionnez :  
-   **Attack → Fuzz...**
-4. Dans la fenêtre du fuzzer :
-   - sélectionnez le paramètre à fuzzer
-   - ajoutez un générateur de payloads fourni par ZAP
-   - conservez les paramètres par défaut
-5. Lancez le fuzzing et observez :
-   - les codes de réponse HTTP
-   - les variations de contenu
-   - les erreurs ou comportements anormaux
+1. Sélectionnez le *endpoint* correspondant à `GET /api/v1/status?agent={code}`
+1. Avec un clic droit, lancez :
+   **Attack → Fuzz…**
+1. Dans la fenêtre qui s'ouvrira... 
+   - Surlignez la valeur du paramètre `{code}` (souvent `shadow` dans nos exercices)
+   - Du côté de **Fuzz locations**, cliquez sur le bouton **Add**
+   [!Fuzz intelligent](../assets/images/zap-smart-fuzz.png)
+1. Dans la nouvelle fenêtre, cliquez à nouveau sur **Add**
+1. Dans la nouvelle fenêtre...
+   - Ajoutez une charge utile (*payload*) de type **Regex** et utilisez la regex suivante
+      - Cette fois, créez vous-même une expression régulière spécifiquement pour cette route. On peut par exemple penser à exploitre le *Path Traversal* ou un possible *Cross-site Scripting*...
+   - Au besoin, ajoutez une autre charge utile de type **Strings** pour spécifier des chaînes fixes à tester en plus de l'expression régulière.
+   [!Fuzz intelligent - Payload](../assets/images/zap-smart-fuzz-generator.png)
+1. Appliquez le tout et lancez le fuzzer
+1. Une fois le fuzzing terminé, inspectez les alertes générées
 
+### Questions
 
-### Questions de réflexion
+- Le fuzzing intelligent a-t-il explicitement fait ressortir des vulnérabilités détectées automatiquement dans ZAP ? Pourquoi ?
+   - *En d'autres termes, est-ce qu'un alerte a été générée sous l'onglet **Alerts*** ?
+- Le fuzzing intelligent a-t-il fait ressortir une vulnérabilité devant être analysée manuellement ?
+- Le fuzzing naïf aurait-il pu, de façon réaliste, faire ressortir cette vulnérabilité ?
 
-- Pourquoi ce paramètre est‑il intéressant à fuzzer ?
-- En quoi le fuzzing diffère‑t‑il de l’analyse active standard ?
-- Le fuzzing met‑il en évidence des comportements non détectés précédemment ?
-
-
-## 5. Corrélation SAST / DAST
+## 6. Corrélation SAST / DAST
 
 ### Objectif
 
@@ -228,17 +266,17 @@ Comparer les vulnérabilités détectées dynamiquement avec celles identifiées
 
 ---
 
-## 6. BONUS : Création d’un plan d’automatisation
+## 7. BONUS : Création d’un plan d’automatisation
 
 Jusqu’à présent, l’analyse a été effectuée **manuellement** :
-- analyse passive,
-- spider,
-- active scan,
-- fuzzing ciblé.
+- analyse passive
+- spider
+- active scan
+- fuzzing intelligent
 
 Dans un contexte professionnel, ces étapes sont souvent **orchestrées automatiquement** afin de garantir la répétabilité des tests, la cohérence des paramètres et la réduction des erreurs humaines.
 
-OWASP ZAP fournit un **Automation Framework**, accessible depuis l’interface graphique, permettant de définir ces étapes sous forme de **plan**.
+OWASP ZAP fournit le ***Automation Framework***, accessible depuis l’interface graphique, permettant de définir ces étapes sous forme de **plan**.
 
 ### Objectif
 
@@ -281,13 +319,3 @@ Cette étape vise à introduire les bases de l’**automatisation de la sécurit
 - Quels avantages l’automatisation apporte‑t‑elle par rapport à une analyse manuelle ?
 - Quelles limites subsistent compte tenu de l’absence d’authentification ?
 - Dans quel contexte ce plan pourrait‑il être intégré dans un pipeline CI/CD ?
-
----
-
-## Réflexion finale
-
-Expliquez brièvement :
-
-- En quoi le DAST complète, sans remplacer, le SAST et le durcissement
-- Pourquoi les résultats DAST doivent toujours être interprétés dans leur contexte
-- Quels risques résiduels subsistent après ces analyses
