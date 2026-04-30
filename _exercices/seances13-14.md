@@ -240,7 +240,7 @@ Réaliser un fuzzing **ciblé et structuré** en choisissant des charges utiles 
    - Ajoutez une charge utile (*payload*) de type **Regex** et utilisez la regex suivante
       - Cette fois, créez vous-même une expression régulière spécifiquement pour cette route. On peut par exemple penser à exploitre le *Path Traversal* ou un possible *Cross-site Scripting*...
    - Au besoin, ajoutez une autre charge utile de type **Strings** pour spécifier des chaînes fixes à tester en plus de l'expression régulière.
-   [!Fuzz intelligent - Payload](../assets/images/zap-smart-fuzz-generator.png)
+   ![Fuzz intelligent - Payload](../assets/images/zap-smart-fuzz-generator.png)
 1. Appliquez le tout et lancez le fuzzer
 1. Une fois le fuzzing terminé, inspectez les alertes générées
 
