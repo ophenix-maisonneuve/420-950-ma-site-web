@@ -1,6 +1,7 @@
-### layout: default  
+---
+layout: default  
 title: gobuster  
-parent: Outils  
+parent: Étapes d'une attaque  
 nav_order: 2  
 has_toc: false  
 

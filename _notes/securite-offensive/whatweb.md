@@ -1,9 +1,8 @@
-### layout: default  
+---
+layout: default  
 title: whatweb  
-parent: Outils  
-nav_order: 2  
-has_toc: false  
-
+parent: Étapes d'une attaque  
+nav_order: 2    
 ---
 
 ## whatweb  
