@@ -27,6 +27,7 @@ Un groupe sans mandat ni reconnaissance officielle.
 
 Bienvenue chez **Spectre**.
 
+
 ### Spectre
 
 **Spectre** n’est pas une organisation formelle. Il n’existe ni structure, ni hiérarchie clairement établie. Il s’agit plutôt d’un réseau informel d’analystes et de chercheurs en sécurité qui partagent une même conviction : il vaut mieux comprendre les vulnérabilités galopantes sur l'Internet avant qu'elles ne soient exploitées par des gens ou des groupes mal intentionnés.
@@ -46,7 +47,11 @@ Saurez-vous utiliser les mêmes outils que les *hackers* mal intentionnés afin 
 ---
 
 ## Objectifs
+- Comprendre la manière de réfléchir des *hackers* 
+- Mettre en pratique les étapes classiques d'une attaque informatique
+- Se familiariser avec certains des outils les plus utilisés en sécurité offensive
 
+---
 
 ## Préparation
 
