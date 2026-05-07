@@ -98,19 +98,19 @@ Identifier les points d’entrée accessibles depuis l’extérieur.
 
 2. Lancez un scan des ports :
 
-  ```bash
-  nmap -sV <IP>
-  ```
+    ```bash
+    nmap -sV <IP>
+    ```
 
-  {: .highlight}
-  > L'option -sV indique à nmap de lancer un *scan* pour découvrir les ports ouverts ainsi que la version du service qui écoute sur un port.
+    {: .highlight}
+    > L'option -sV indique à nmap de lancer un *scan* pour découvrir les ports ouverts ainsi que la version du service qui écoute sur un port.
 
 
 3. Prenez en note :
 
-  - Quels ports sont ouverts ?  
-  - Quel service écoute sur ces ports ?  
-  - Le port utilisé par l’application web est-il standard (80/443) ou non ?  
+    - Quels ports sont ouverts ?  
+    - Quel service écoute sur ces ports ?  
+    - Le port utilisé par l’application web est-il standard (80/443) ou non ?  
 
 4. Analysez maintenant l’application web elle-même :
 
