@@ -252,28 +252,29 @@ Découvrir des chemins et endpoints cachés.
   - À quoi cela peut-il servir ?
 
 1. Lancez la commande suivante
-    ```bash
-    gobuster dir -u http://<IP>:3000 -w /usr/share/wordlists/dirb/common.txt
-    ```
+      ```bash
+      gobuster dir -u http://<IP>:3000 -w /usr/share/wordlists/dirb/common.txt
+      ```
 
-    {: .astuce}
-    > Malgré toutes ses vulnérabilités, Juice Shop échappe ici à notre première tentative de *scan*, car il retourne un code 200 même pour les routes qui n'existent pas. C'est ce qui cause l'erreur retournée par **gobuster**. Vous pouvez le tester vous-mêmes dans le navigateur en entrant n'importe quoi après le `:3000/`. Mais **gobuster** n'a pas dit son dernier mot...
+      {: .astuce}
+      > Malgré toutes ses vulnérabilités, Juice Shop échappe ici à notre première tentative de *scan*, car il retourne un code 200 même pour les routes qui n'existent pas. C'est ce qui cause l'erreur retournée par **gobuster**. Vous pouvez le tester vous-mêmes dans le navigateur en entrant n'importe quoi après le `:3000/`. Mais **gobuster** n'a pas dit son dernier mot...
 
 1. Lancez à nouveau la commande, mais en excluant les réponses identiques
-    - Dans l'erreur précédente, **gobuster** vous donne la taille des réponses identiques pour un statut 200. Il est donc possible d'ignorer les réponses de cette taille :
-    ```bash
-    gobuster dir -u http://<IP>:3000 -w /usr/share/wordlists/dirb/common.txt --exclude-length <taille>
-    ```
+      - Dans l'erreur précédente, **gobuster** vous donne la taille des réponses identiques pour un statut 200. Il est donc possible d'ignorer les réponses de cette taille :
+      
+      ```bash
+      gobuster dir -u http://<IP>:3000 -w /usr/share/wordlists/dirb/common.txt --exclude-length <taille>
+      ```
 
 1. Observez...
-    - Quels chemins sont trouvés ?  
-    - Quels codes HTTP sont retournés (200, 403, 401, etc) ?
+      - Quels chemins sont trouvés ?  
+      - Quels codes HTTP sont retournés (200, 403, 401, etc) ?
 
 1. Visitez l'une des routes ayant retourné un code 200.
-    - Que remarquez-vous ?
+      - Que remarquez-vous ?
 
 1. Visitez l'une des routes ayant retourné un code 500.
-    - Quelle information supplémentaire cette route fournit-elle à un *hacker* ?
+      - Quelle information supplémentaire cette route fournit-elle à un *hacker* ?
 
 ### Questions de réflexion
 
