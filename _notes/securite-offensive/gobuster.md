@@ -74,6 +74,7 @@ gobuster
 │   ├─ -x          → extensions de fichiers
 │   ├─ -t          → threads
 │   ├─ -s          → filtrer par code HTTP
+│   ├─ -m          → spécifier la méthode HTTP à utiliser, par exemple GET ou POST
 │   ├─ --exclude-length → ignorer taille
 │   └─ --wildcard  → ignorer réponses identiques
 │
