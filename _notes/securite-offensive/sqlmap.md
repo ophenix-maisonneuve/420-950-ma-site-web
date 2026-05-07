@@ -111,12 +111,12 @@ La commande sqlmap se lit comme suit :
 **Exemple** :
 
 ```bash
-sqlmap -r request.txt --dbs
+sqlmap -u "http://mon-serveur:45000/rest/api" --dbs
 ```
 
 **Lecture** :
 
-- `-r request.txt` → utiliser une requête interceptée  
+- `-u` → utiliser l'URL spécifiée  
 - `--dbs` → lister les bases de données  
 
 {: .highlight}
@@ -126,7 +126,7 @@ sqlmap -r request.txt --dbs
 
 ## Commandes utiles
 
-### Détection de base
+### Détection automatique de base
 
 ```bash
 sqlmap -u "http://site/?id=1"
@@ -142,7 +142,7 @@ sqlmap -r request.txt
 ### Lister les bases de données
 
 ```bash
-sqlmap -r request.txt --dbs
+sqlmap -u "http://mon-serveur:45000/rest/api" --dbs
 ```
 
 
@@ -155,7 +155,7 @@ sqlmap -r request.txt --tables
 ### Extraire les données
 
 ```bash
-sqlmap -r request.txt --dump
+sqlmap -u "http://mon-serveur:45000/rest/api" --dump
 ```
 
 ---
