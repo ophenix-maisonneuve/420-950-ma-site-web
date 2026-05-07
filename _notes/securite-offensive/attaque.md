@@ -1,6 +1,6 @@
 ---
 layout: default  
-title: Étapes d’une attaque
+title: Étapes d'une attaque
 parent: Sécurité offensive
 nav_order: 1
 has_toc: true  
