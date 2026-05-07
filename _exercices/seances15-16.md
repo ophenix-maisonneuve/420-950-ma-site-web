@@ -98,28 +98,28 @@ Identifier les points d’entrée accessibles depuis l’extérieur.
 
 2. Lancez un scan des ports :
 
-```bash
-nmap -sV <IP>
-```
+  ```bash
+  nmap -sV <IP>
+  ```
 
-{: .highlight}
-> L'option -sV indique à nmap de lancer un *scan* pour découvrir les ports ouverts ainsi que la version du service qui écoute sur un port.
+  {: .highlight}
+  > L'option -sV indique à nmap de lancer un *scan* pour découvrir les ports ouverts ainsi que la version du service qui écoute sur un port.
 
 
-3. Notez soigneusement :
+3. Prenez en note :
 
-- Quels ports sont ouverts ?  
-- Quel service écoute sur ces ports ?  
-- Le port utilisé par l’application web est-il standard (80/443) ou non ?  
+  - Quels ports sont ouverts ?  
+  - Quel service écoute sur ces ports ?  
+  - Le port utilisé par l’application web est-il standard (80/443) ou non ?  
 
 4. Analysez maintenant l’application web elle-même :
 
-```bash
-whatweb http://<IP>:3000 -a 3 -v
-```
+    ```bash
+    whatweb http://<IP>:3000 -a 3 -v
+    ```
 
-{: .highlight}
-> L'option -a 3 permet de configurer `whatweb` au niveau agressif, ce qui permet de faire plus de requêtes pour découvrir les technologies utilisées par un site web. Ce mode est cependant plus facile à détecter du côté du serveur.
+  {: .highlight}
+  > L'option -a 3 permet de configurer `whatweb` au niveau agressif, ce qui permet de faire plus de requêtes pour découvrir les technologies utilisées par un site web. Ce mode est cependant plus facile à détecter du côté du serveur.
 
 ### Questions de réflexion
 
