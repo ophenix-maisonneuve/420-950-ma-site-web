@@ -11,6 +11,7 @@ published: true
 
 ### Ordre du jour
 
+1. Informations générales
 1. Sécurité offensive
    1. [À quoi ça sert ?](../notes/securite-offensive)
    1. [Mentalité des *hackers*](../notes/attaque)
