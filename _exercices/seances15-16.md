@@ -118,8 +118,8 @@ Identifier les points d’entrée accessibles depuis l’extérieur.
     whatweb http://<IP>:3000 -a 3 -v
     ```
 
-  {: .highlight}
-  > L'option -a 3 permet de configurer `whatweb` au niveau agressif, ce qui permet de faire plus de requêtes pour découvrir les technologies utilisées par un site web. Ce mode est cependant plus facile à détecter du côté du serveur.
+    {: .highlight}
+    > L'option -a 3 permet de configurer `whatweb` au niveau agressif, ce qui permet de faire plus de requêtes pour découvrir les technologies utilisées par un site web. Ce mode est cependant plus facile à détecter du côté du serveur.
 
 ### Questions de réflexion
 
@@ -145,88 +145,86 @@ Comprendre comment les données sont envoyées au serveur et comment il y répon
 
 1. Configurez Burp Suite
 
-  - Lancez Burp Suite
-  - Configurez le navigateur pour utiliser Burp comme proxy : `127.0.0.1:8080`
-  - Accédez à Juice Shop : `http://<ip>:3000`
-
-
+    - Lancez Burp Suite
+    - Configurez le navigateur pour utiliser Burp comme proxy : `127.0.0.1:8080`
+    - Accédez à Juice Shop : `http://<ip>:3000`
 
 
 1. Interceptez une connexion
 
-  - Accédez au formulaire de connexion
-  - Sous l'onglet **Proxy** de Burp Suite, activez l'interception en cliquant sur **Intercept off** (qui deviendra **Intercept on**)
-  - Entrez des identifiants quelconques à l'écran de connexion de Juice Shop
-  - Interceptez la requête
+    - Accédez au formulaire de connexion
+    - Sous l'onglet **Proxy** de Burp Suite, activez l'interception en cliquant sur **Intercept off** (qui deviendra **Intercept on**)
+    - Entrez des identifiants quelconques à l'écran de connexion de Juice Shop
+    - Interceptez la requête
 
-    Vous devriez observer une requête semblable à :
+      Vous devriez observer une requête semblable à :
 
-    ```json
-    POST /rest/user/login
-    {
-      "email": "...",
-      "password": "..."
-    }
-    ```
+      ```json
+      POST /rest/user/login
+      {
+        "email": "...",
+        "password": "..."
+      }
+      ```
 
-    {: .warning}
-    > En mode *Intercept*, Burp bloquera les requêtes par défaut afin de vous permettre de les modifier. Pour qu'une requête se rende à l'application, vous devez sélectionner une requête et cliquer sur **Forward** (ou **Forward All** pour envoyer toutes les requêtes).  
+      {: .warning}
+      > En mode *Intercept*, Burp bloquera les requêtes par défaut afin de vous permettre de les modifier. Pour qu'une requête se rende à l'application, vous devez sélectionner une requête et cliquer sur **Forward** (ou **Forward All** pour envoyer toutes les requêtes).  
 
 1. Modifiez le trafic
 
-  - Avant d’envoyer la requête au serveur, modifiez les valeurs suivantes. Vous pourrez trouver la réponse du serveur sous l'onglet **HTTP history**
+    - Avant d’envoyer la requête au serveur, modifiez les valeurs suivantes. Vous pourrez trouver la réponse du serveur sous l'onglet **HTTP history**
 
 
-    - **Test 1 — Mot de passe très long**
+      - **Test 1 — Mot de passe très long**
 
-      ```text
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-      ```
+        ```text
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        ```
 
-      Observez si le serveur limite la taille.
-
-
-    - **Test 2 — Mot de passe vide ou nom d'usager**
-
-      ```text
-      "password": ""
-      ```
-
-      L'interface web permet-elle normalement de soumettre un courriel ou un mot de passe vide ? Le serveur refuse-t-il explicitement la valeur ?
+        Observez si le serveur limite la taille.
 
 
-    - **Test 3 — Injection SQL**
+      - **Test 2 — Mot de passe vide ou nom d'usager**
 
-      ```text
-      ' OR 1=1--
-      ```
+        ```text
+        "password": ""
+        ```
 
-      Le système traite-t-il cette valeur comme du texte ou comme une instruction ?
+        L'interface web permet-elle normalement de soumettre un courriel ou un mot de passe vide ? Le serveur refuse-t-il explicitement la valeur ?
 
 
-    - **Test 4 — Modifier la structure JSON**
+      - **Test 3 — Injection SQL**
 
-      Essayez de :
-      - supprimer le champ "password"  
-      - renommer "email" en "user"  
-      - ajouter un champ supplémentaire (ex: "role":"admin")  
+        ```text
+        ' OR 1=1--
+        ```
 
-      Objectif : tester la validation côté serveur.
+        Le système traite-t-il cette valeur comme du texte ou comme une instruction ?
+
+
+      - **Test 4 — Modifier la structure JSON**
+
+        Essayez de :
+        - supprimer le champ "password"  
+        - renommer "email" en "user"  
+        - ajouter un champ supplémentaire (ex: "role":"admin")  
+
+        Objectif : tester la validation côté serveur.
 
 
 4. Manipulez une recherche
 
-  - Interceptez une requête similaire à :
+    - Interceptez une requête similaire à :
 
-    ```http
-    GET /rest/products/search?q=apple
-    ```
+      ```http
+      GET /rest/products/search?q=apple
+      ```
 
-    Modifiez la valeur :
+      Modifiez la valeur :
 
-    ```text
-    q=' OR 1=1--
-    ```
+      ```text
+      q=' OR 1=1--
+      ```
 
 ### Questions de réflexion
 
