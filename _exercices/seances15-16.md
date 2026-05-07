@@ -372,28 +372,28 @@ Comprendre comment un attaquant teste automatiquement des mots de passe.
 
 1. À l'aide de Burp Suite, interceptez une requête de login et identifiez :
 
-    - l’URL exacte (ex.: `/rest/user/login`)  
-    - les paramètres envoyés (`email`, `password`)  
-    - le message d’erreur retourné en cas d’échec  
+      - l’URL exacte (ex.: `/rest/user/login`)  
+      - les paramètres envoyés (`email`, `password`)  
+      - le message d’erreur retourné en cas d’échec  
 
-    Exemple de message :
+      Exemple de message :
 
-    ```text
-    Invalid email or password
-    ```
+      ```text
+      Invalid email or password
+      ```
 
 
 2. Construisez la commande Hydra
 
-  ```bash
-  hydra -l admin -P /usr/share/wordlists/rockyou.txt <IP> http-post-form "/rest/user/login:email=^USER^&password=^PASS^:Invalid"
-  ```
+    ```bash
+    hydra -l admin -P /usr/share/wordlists/rockyou.txt <IP> http-post-form "/rest/user/login:email=^USER^&password=^PASS^:Invalid"
+    ```
 
 
 3. Lancez la commande et observez :
 
-  - le nombre de tentatives effectuées  
-  - la détection d’un mot de passe valide  
+    - le nombre de tentatives effectuées  
+    - la détection d’un mot de passe valide  
 
 
 ### Questions de réflexion
