@@ -2,10 +2,11 @@
 layout: default  
 title: hydra  
 parent: Étapes d'une attaque  
-nav_order: 4  
+nav_order: 4
+published: false
 ---
 
-## hydra  
+# hydra  
 
 L’outil **Hydra** est un outil d’attaque par force brute utilisé pour tester automatiquement un grand nombre de combinaisons d’identifiants et de mots de passe.
 
@@ -154,4 +155,10 @@ Lecture :
 ## Conclusion  
 
 > *Un système peut être parfaitement conçu…*  
-> *mais rester vulnérable à cause d’un mot de passe faible.*  
+> *mais rester vulnérable à cause d’un mot de passe faible.*
+
+---
+
+## Liens utiles
+- Documentation officielle : [https://github.com/vanhauser-thc/thc-hydra](https://github.com/vanhauser-thc/thc-hydra)
+- Documentation Kali : [https://www.kali.org/tools/hydra/](https://www.kali.org/tools/hydra/)

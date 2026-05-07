@@ -3,11 +3,10 @@ layout: default
 title: gobuster  
 parent: Étapes d'une attaque  
 nav_order: 2  
-has_toc: false  
-
+published: false
 ---
 
-## gobuster  
+# gobuster  
 
 L’outil **gobuster** est un outil de découverte utilisé pour identifier des ressources cachées sur un serveur web. Contrairement à ce qu’un utilisateur normal peut voir dans une interface, une application contient souvent de nombreuses routes, fichiers ou répertoires non exposés directement.
 
@@ -124,15 +123,13 @@ Une commande gobuster suit toujours une logique simple :
 
 ---
 
-## Exemple (Juice Shop)  
-
-```bash
-gobuster dir -u http://<IP>:3000 -w /usr/share/wordlists/dirb/common.txt
-```
-
----
-
 ## Conclusion  
 
 > *Un système n’est pas seulement ce qu’il affiche.*  
-> *C’est aussi ce qu’il cache.*  
+> *C’est aussi ce qu’il cache.* 
+
+---
+
+## Liens utiles
+- Documentation officielle : [https://github.com/OJ/gobuster](https://github.com/OJ/gobuster)
+- Documentation Kali : [https://www.kali.org/tools/gobuster/](https://www.kali.org/tools/gobuster/)

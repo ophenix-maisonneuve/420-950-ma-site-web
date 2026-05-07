@@ -2,7 +2,8 @@
 layout: default  
 title: nmap  
 parent: Étapes d'une attaque  
-nav_order: 1  
+nav_order: 1
+published: false
 ---
 
 # nmap  
@@ -173,43 +174,7 @@ Contre-mesures :
 
 - fermer les ports inutiles  
 - limiter les services exposés  
-- filtrer avec un pare-feu  
-
----
-
-## Exemple (Juice Shop)  
-
-Commande :
-
-```bash
-nmap -sV <IP>
-```
-
-Résultat typique :
-
-```text
-3000/tcp open http
-```
-
----
-
-Cela indique :
-
-- service web présent  
-- port 3000 ouvert  
-
----
-
-Cette information permet ensuite :
-
-- accès navigateur  
-- analyse Burp  
-- exploration gobuster  
-
----
-
-> *Sans nmap, on ne sait pas où commencer.*  
-> *Avec nmap, on sait où regarder.*  
+- filtrer avec un pare-feu    
 
 ---
 
@@ -221,3 +186,10 @@ nmap permet de transformer un système inconnu en un ensemble de points d’entr
 
 > *Un attaquant ne peut exploiter que ce qu’il voit.*  
 > *nmap permet de voir.*
+
+---
+
+## Liens utiles
+- Documentation officielle de nmap : [https://nmap.org/book/man.html](https://nmap.org/book/man.html)
+- Livre officiel *Nmap Network Scanning* : [https://nmap.org/book/](https://nmap.org/book/)
+- Introduction interactive à nmap : [https://tryhackme.com/module/nmap](https://tryhackme.com/module/nmap)

@@ -2,10 +2,11 @@
 layout: default  
 title: whatweb  
 parent: Étapes d'une attaque  
-nav_order: 2    
+nav_order: 2
+published: false  
 ---
 
-## whatweb  
+# whatweb  
 
 L’outil **whatweb** est un outil de reconnaissance utilisé pour identifier les technologies utilisées par une application web. Contrairement à un scan réseau classique, qui permet de voir quels services sont exposés, whatweb cherche à comprendre **comment l’application est construite**.
 
@@ -236,46 +237,6 @@ Pour limiter cela :
 
 ---
 
-## Exemple (Juice Shop)  
-
-Commande :
-
-```bash
-whatweb http://<IP>:3000
-```
-
----
-
-Résultat typique :
-
-```text
-Node.js
-Express
-Angular
-```
-
----
-
-Cela indique que :
-
-- l’application est basée sur Node.js  
-- elle utilise Express  
-- le frontend repose sur Angular  
-
----
-
-👉 Ces informations orientent les tests suivants :
-
-- injection via API REST  
-- manipulation des requêtes HTTP  
-- exploration avec Burp  
-
----
-
-> *Comprendre la technologie, c’est comprendre comment attaquer.*
-
----
-
 ## Conclusion  
 
 whatweb est un outil simple, mais extrêmement utile pour contextualiser une analyse web. Il permet de transformer une application inconnue en un ensemble de technologies identifiables.
@@ -284,3 +245,9 @@ whatweb est un outil simple, mais extrêmement utile pour contextualiser une ana
 
 > *Un attaquant n’attaque pas un système abstrait.*  
 > *Il attaque une technologie concrète.*  
+
+---
+
+## Liens utiles
+- Documentation officielle : [https://github.com/urbanadventurer/WhatWeb](https://github.com/urbanadventurer/WhatWeb)
+- Documentation Kali : [https://www.kali.org/tools/whatweb/](https://www.kali.org/tools/whatweb/)

@@ -2,8 +2,9 @@
 layout: default
 title: Éthique et cadre légal
 parent: Sécurité offensive
-nav_order: 1
+nav_order: 2
 has_toc: false
+published: false
 ---
 
 # Éthique et cadre légal  

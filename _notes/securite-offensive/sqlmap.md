@@ -2,10 +2,11 @@
 layout: default  
 title: sqlmap  
 parent: Étapes d'une attaque  
-nav_order: 3  
+nav_order: 3
+published: false
 ---
 
-## sqlmap  
+# sqlmap  
 
 L’outil **sqlmap** est un outil d’automatisation spécialisé dans la détection et l’exploitation des vulnérabilités d’injection SQL. Là où une injection SQL peut être testée manuellement, sqlmap permet de systématiser, accélérer et étendre ces tests à grande échelle.
 
@@ -299,3 +300,9 @@ Cependant, il doit être utilisé avec discernement.
 
 > *Ce n’est pas sqlmap qui découvre la faille.*  
 > *C’est l’analyste qui la soupçonne.*  
+
+---
+
+## Liens utiles
+- Site officiel : [https://sqlmap.org/](https://sqlmap.org/)
+- Documentation : [https://github.com/sqlmapproject/sqlmap/wiki](https://github.com/sqlmapproject/sqlmap/wiki)

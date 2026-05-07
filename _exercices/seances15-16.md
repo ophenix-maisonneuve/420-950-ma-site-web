@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "Groupe Spectre"
+title: "Bienvenue chez Spectre"
 nav_order: 7
 has_toc: true
 published: false
 ---
 
-# Exercice : Groupe Spectre
-## Exercice — Analyse offensive d’un système exposé
+# Exercice : Bienvenue chez Spectre
+## Exercice - Sécurité offensive
 
 ---
 
@@ -21,11 +21,11 @@ Rien de suffisant pour tirer des conclusions, mais assez pour éveiller la curio
 
 ---
 
-Vous faites partie d’un collectif peu connu, opérant en marge des processus traditionnels.
+Vous avez joint un collectif peu connu, opérant en marge des processus traditionnels.
 
 Un groupe sans mandat ni reconnaissance officielle.
 
-Le groupe **Spectre**.
+Bienvenue chez **Spectre**.
 
 ### Spectre
 
@@ -352,7 +352,7 @@ Observer comment une injection SQL peut être exploitée automatiquement.
 
 ---
 
-## 6. Attaque par force brute (Hydra)
+## 6. Attaque par force brute
 
 En sécurité, le maillon faible est souvent l'utilisateur, et non de nature technique. Un mot de passe facile à deviner est un excellent exemple...
 
@@ -405,6 +405,7 @@ hydra -l admin -P /usr/share/wordlists/rockyou.txt <IP> http-post-form "/rest/us
 Un attaquant expérimenté automatise les étapes complexes.
 
 ### Outils
+
 - Metasploit
 - msfvenom
 
@@ -451,7 +452,15 @@ run
 
 ---
 
-## 8. BONUS : Exploration libre
+## 8. Questions de réflexion finale
+
+1. L'approche de Spectre est-elle éthique à votre avis ? Pourquoi ?
+1. Selon votre réponse à la question précédente, à quel catégorie de *hackers* appartient Spectre ? Pourquoi ?
+1. Quelles seraient les conditions pour que Spectre bascule dans une catégorie différente ?
+
+---
+
+## 9. BONUS : Exploration libre
 
 À ce stade, aucun guide précis n’est fourni.
 

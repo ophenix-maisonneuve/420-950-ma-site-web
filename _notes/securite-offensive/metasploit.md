@@ -3,9 +3,10 @@ layout: default
 title: metasploit  
 parent: Étapes d'une attaque  
 nav_order: 6  
+published: false
 ---
 
-## Metasploit  
+# Metasploit  
 
 **Metasploit** est l’un des frameworks d’exploitation les plus connus et les plus utilisés en cybersécurité offensive. Contrairement aux outils précédents, qui permettent d’observer, tester ou automatiser certaines attaques, Metasploit occupe une place particulière : il permet de **mettre en œuvre une exploitation complète** à partir d’une vulnérabilité identifiée.
 
@@ -310,13 +311,6 @@ run
 
 ---
 
-## Exemple (Juice Shop)  
-
-- upload → contrôle serveur  
-- exécution → reverse shell  
-
----
-
 ## Conclusion  
 
 Metasploit transforme une vulnérabilité en compromission réelle.
@@ -325,4 +319,11 @@ Metasploit transforme une vulnérabilité en compromission réelle.
 
 > *Un outil teste.*  
 > *Un outil automatise.*  
-> *Metasploit exploite.*  
+> *Metasploit exploite.* 
+
+---
+
+## Liens utiles
+- Site officiel : [https://www.metasploit.com/](https://www.metasploit.com/)
+- Documentation complète : [https://docs.metasploit.com/](https://docs.metasploit.com/)
+- msfvenom : [https://docs.metasploit.com/docs/using-metasploit/basics/how-to-use-msfvenom.html](https://docs.metasploit.com/docs/using-metasploit/basics/how-to-use-msfvenom.html)
