@@ -1,7 +1,7 @@
 ---
-layout: default  
-title: whatweb  
-parent: Étapes d'une attaque  
+layout: default
+title: whatweb
+parent: Étapes d'une attaque
 nav_order: 2
 ---
 

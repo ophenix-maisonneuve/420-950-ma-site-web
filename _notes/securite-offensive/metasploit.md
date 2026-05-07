@@ -1,7 +1,7 @@
 ---
-layout: default  
-title: metasploit  
-parent: Étapes d'une attaque  
+layout: default
+title: metasploit
+parent: Étapes d'une attaque
 nav_order: 7
 published: false
 ---

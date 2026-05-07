@@ -1,7 +1,7 @@
 ---
-layout: default  
-title: nmap  
-parent: Étapes d'une attaque  
+layout: default
+title: nmap
+parent: Étapes d'une attaque
 nav_order: 1
 ---
 
