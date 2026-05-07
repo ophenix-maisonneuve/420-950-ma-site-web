@@ -3,11 +3,11 @@ layout: default
 title: "Bienvenue chez Spectre"
 nav_order: 7
 has_toc: true
-published: false
+published: true
 ---
 
 # Exercice : Bienvenue chez Spectre
-## Exercice - Sécurité offensive
+## Sécurité offensive
 
 ---
 
