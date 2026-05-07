@@ -27,6 +27,7 @@ Un groupe sans mandat ni reconnaissance officielle.
 
 Bienvenue chez **Spectre**.
 
+---
 
 ### Spectre
 
@@ -400,6 +401,9 @@ Comprendre comment un attaquant teste automatiquement des mots de passe.
 
 - Pourquoi Hydra a besoin du message d’erreur ?  
 - Quelles mesures pourraient empêcher cette attaque ?  
+
+
+
 
 
 

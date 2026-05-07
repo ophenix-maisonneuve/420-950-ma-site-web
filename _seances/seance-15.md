@@ -18,10 +18,12 @@ published: true
 1. Exercice pratique [Bienvenue chez Spectre](../exercices/seances15-16)
    1. Question 1
    1. Question 2
-   3. Question 3
-   4. Question 4
+   1. Question 3
+   1. Question 4
+   1. Question 5
+   1. Question 6
 
 
 ### Exercices complémentaires
 
-- Terminer les questions 1 à 4 de l'exercice [Bienvenue chez Spectre](../exercices/seances15-16)
+- Terminer les questions 1 à 6 de l'exercice [Bienvenue chez Spectre](../exercices/seances15-16)
