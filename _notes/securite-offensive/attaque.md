@@ -29,15 +29,14 @@ Ces étapes ne sont pas toujours linéaires. Un attaquant peut revenir en arriè
 > Avant de s’intéresser aux outils ou aux techniques, il est essentiel de comprendre la manière dont un attaquant aborde un système. Contrairement à un utilisateur classique, qui cherche à accomplir une tâche de manière efficace et conforme aux attentes, un attaquant adopte une posture différente.
 >
 >Il cherche à comprendre :
-
+>
 >- ce qu’il peut contrôler  
 >- ce que le système suppose  
 >- ce qui n’est pas vérifié  
 >- ce qui peut être détourné  
-
-
+>
 > Un attaquant ne suit pas un scénario prévu par les développeurs. Il explore les scénarios imprévus. Cette approche repose sur une série de questions simples qu'un *hacker* se pose toujours :
-
+>
 >- Que puis-je modifier ici ?  
 >- Cette donnée est-elle réellement validée ?  
 >- Que se passe-t-il si j’envoie quelque chose d’inattendu ?  
