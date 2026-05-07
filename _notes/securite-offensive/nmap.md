@@ -3,26 +3,21 @@ layout: default
 title: nmap  
 parent: Étapes d'une attaque  
 nav_order: 1
-published: false
 ---
 
 # nmap  
 
 L’outil **nmap** (Network Mapper) est l’un des outils les plus fondamentaux en sécurité offensive. Il est utilisé pour découvrir les systèmes présents sur un réseau, identifier les services qu’ils exposent et obtenir des informations techniques sur leur configuration.
 
-Avant même d’interagir avec une application, un attaquant doit comprendre ce qui est accessible. Cette étape, souvent appelée reconnaissance, constitue la base de toute démarche offensive.
+Avant même d’interagir avec une application, un attaquant doit comprendre ce qui est accessible. Cette étape, souvent appelée reconnaissance, constitue la base de toute démarche offensive. 
 
-nmap permet précisément de répondre à cette première question essentielle :
-
-> *Qu’est-ce qui est exposé sur ce système ?*
+nmap permet donc de découvrir les services exposés sur un réseau ainsi que les ports associés.
 
 ---
 
 ## Objectif  
 
-L’objectif principal de nmap est d’identifier la **surface d’attaque réseau** d’une cible.
-
-Concrètement, cela implique de déterminer :
+L’objectif principal de nmap est d’identifier la **surface d’attaque réseau** d’une cible. Concrètement, cela implique de déterminer :
 
 - quels ports sont ouverts  
 - quels services sont accessibles  
@@ -36,9 +31,7 @@ Concrètement, cela implique de déterminer :
 
 ## Quand l’utiliser ?  
 
-nmap est utilisé **en tout début d’une analyse**.
-
-Avant de tester une application, d’intercepter du trafic ou de rechercher des vulnérabilités, il est essentiel de savoir :
+nmap est utilisé en tout début d’une analyse. Avant de tester une application, d’intercepter du trafic ou de rechercher des vulnérabilités, il est essentiel de savoir :
 
 - où se trouve la cible  
 - quels services elle expose  
@@ -50,9 +43,7 @@ Dans le contexte d’une attaque, nmap correspond à la phase : **Observer le sy
 
 ## Fonctionnement  
 
-nmap fonctionne en envoyant différents types de paquets réseau vers une cible et en analysant les réponses obtenues.
-
-En fonction de ces réponses, il est capable de déterminer si un port est :
+nmap fonctionne en envoyant différents types de paquets réseau vers une cible et en analysant les réponses obtenues. En fonction de ces réponses, il est capable de déterminer si un port est :
 
 - ouvert  
 - fermé  
@@ -64,15 +55,15 @@ En fonction de ces réponses, il est capable de déterminer si un port est :
 
 Comme pour la plupart des outils en ligne de commande en sécurité, nmap repose sur une structure composée de plusieurs éléments distincts, chacun ayant un rôle précis.
 
+### Syntaxe générale
+
 Une commande nmap peut être représentée comme suit :
 
 ```text
 nmap [OPTIONS] <CIBLE>
 ```
 
----
-
-### Décomposition de la commande
+### Synopsis
 
 ```text
 nmap
@@ -91,9 +82,7 @@ nmap
     └─ plage d’adresses (ex: 192.168.1.0/24)
 ```
 
----
-
-## Lecture de la structure  
+### Lecture de la structure  
 
 La commande se lit de gauche à droite :
 
@@ -101,29 +90,26 @@ La commande se lit de gauche à droite :
 - on ajoute des **options** pour préciser le type d’analyse  
 - on termine par la **cible**  
 
----
 
-📌 Exemple :
+**Exemple** :
 
 ```bash
 nmap -sV -p- 192.168.1.10
 ```
 
----
-
-Lecture :
+**Lecture** :
 
 - `-sV` → identifier les versions  
 - `-p-` → scanner tous les ports  
 - `192.168.1.10` → cible  
 
+
+{: .highlight}
+> Plus on ajoute d’options, plus l’analyse est complète, mais aussi plus longue et plus visible.
+
 ---
 
-Plus on ajoute d’options, plus l’analyse est complète, mais aussi plus longue et plus visible.
-
----
-
-## Commandes essentielles  
+## Commandes utiles  
 
 ### Scan de base
 
@@ -147,45 +133,25 @@ nmap -p- -sV <IP>
 
 ## Limites  
 
-nmap ne détecte pas directement les vulnérabilités. Il identifie des services, mais ne dit pas s’ils sont sécurisés.
-
-Les résultats peuvent être influencés par :
+nmap ne détecte pas directement les vulnérabilités. Il identifie des services, mais ne dit pas s’ils sont sécurisés. Les résultats peuvent être influencés par :
 
 - les pare-feu  
-- les systèmes de détection  
-- les filtres réseau  
+- les systèmes de détection
+- les filtres réseau
+
+{: .highlight}
+> nmap montre la surface d’attaque; il ne montre pas encore les vulnérabilités.
 
 ---
 
-> *nmap montre la surface d’attaque.*  
-> *Il ne montre pas encore les vulnérabilités.*
+## Comment se protéger
 
----
+L’utilisation de nmap met en évidence que tout ce qui est exposé peut être analysé et décortiqué. Pour se protéger au maximum, le contre-mesures suivantes sont généralement les plus efficaces :
 
-## Défense associée  
-
-L’utilisation de nmap met en évidence un principe fondamental :
-
-> **Tout ce qui est exposé peut être analysé.**
-
----
-
-Contre-mesures :
-
-- fermer les ports inutiles  
-- limiter les services exposés  
-- filtrer avec un pare-feu    
-
----
-
-## Conclusion  
-
-nmap permet de transformer un système inconnu en un ensemble de points d’entrée concrets.
-
----
-
-> *Un attaquant ne peut exploiter que ce qu’il voit.*  
-> *nmap permet de voir.*
+- fermer les ports inutiles
+- limiter les services exposés
+- filtrer avec un pare-feu (préférer `DROP` à `REJECT`)
+- utiliser un système de détection automatisé (ex.: fail2ban)
 
 ---
 
