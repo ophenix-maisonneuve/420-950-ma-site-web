@@ -1,6 +1,6 @@
 ---
 layout: default  
-title: burp suite  
+title: Burp Suite  
 parent: Étapes d'une attaque  
 nav_order: 3
 ---
