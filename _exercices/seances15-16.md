@@ -252,29 +252,28 @@ Découvrir des chemins et endpoints cachés.
   - À quoi cela peut-il servir ?
 
 1. Lancez la commande suivante
-  ```bash
-  gobuster dir -u http://<IP>:3000 -w /usr/share/wordlists/dirb/common.txt
-  ```
+    ```bash
+    gobuster dir -u http://<IP>:3000 -w /usr/share/wordlists/dirb/common.txt
+    ```
 
-  {: .astuce}
-  > Malgré toutes ses vulnérabilités, Juice Shop échappe ici à notre première tentative de *scan*, car il retourne un code 200 même pour les routes qui n'existent pas. C'est ce qui cause l'erreur retournée par **gobuster**. Vous pouvez le tester vous-mêmes dans le navigateur en entrant n'importe quoi après le `:3000/`. Mais **gobuster** n'a pas dit son dernier mot...
+    {: .astuce}
+    > Malgré toutes ses vulnérabilités, Juice Shop échappe ici à notre première tentative de *scan*, car il retourne un code 200 même pour les routes qui n'existent pas. C'est ce qui cause l'erreur retournée par **gobuster**. Vous pouvez le tester vous-mêmes dans le navigateur en entrant n'importe quoi après le `:3000/`. Mais **gobuster** n'a pas dit son dernier mot...
 
 1. Lancez à nouveau la commande, mais en excluant les réponses identiques
-  - Dans l'erreur précédente, **gobuster** vous donne la taille des réponses identiques pour un statut 200. Il est donc possible d'ignorer les réponses de cette taille :
-  ```bash
-  gobuster dir -u http://<IP>:3000 -w /usr/share/wordlists/dirb/common.txt --exclude-length <taille>
-  ```
+    - Dans l'erreur précédente, **gobuster** vous donne la taille des réponses identiques pour un statut 200. Il est donc possible d'ignorer les réponses de cette taille :
+    ```bash
+    gobuster dir -u http://<IP>:3000 -w /usr/share/wordlists/dirb/common.txt --exclude-length <taille>
+    ```
 
 1. Observez...
-
-  - Quels chemins sont trouvés ?  
-  - Quels codes HTTP sont retournés (200, 403, 401, etc) ?
+    - Quels chemins sont trouvés ?  
+    - Quels codes HTTP sont retournés (200, 403, 401, etc) ?
 
 1. Visitez l'une des routes ayant retourné un code 200.
-  - Que remarquez-vous ?
+    - Que remarquez-vous ?
 
 1. Visitez l'une des routes ayant retourné un code 500.
-  - Quelle information supplémentaire cette route fournit-elle à un *hacker* ?
+    - Quelle information supplémentaire cette route fournit-elle à un *hacker* ?
 
 ### Questions de réflexion
 
@@ -336,16 +335,16 @@ Observer comment une injection SQL peut être exploitée automatiquement.
 
 1. Analysez la requête SQL vulnérable capturée précédemment à l'aide de l'outil `sqlmap`  
 
-  ```bash
-  sqlmap -r request.txt --dbs
-  ```
+    ```bash
+    sqlmap -r request.txt --dbs
+    ```
 
 2. Utilisez `sqlmap` pour analyser le schéma de la base de données complet
 
-  ```bash
-  sqlmap -r request.txt --tables
-  sqlmap -r request.txt --dump
-  ```
+    ```bash
+    sqlmap -r request.txt --tables
+    sqlmap -r request.txt --dump
+    ```
 
 ### Questions de réflexion
 
@@ -372,22 +371,22 @@ Comprendre comment un attaquant teste automatiquement des mots de passe.
 
 1. À l'aide de Burp Suite, interceptez une requête de login et identifiez :
 
-  - l’URL exacte (ex.: `/rest/user/login`)  
-  - les paramètres envoyés (`email`, `password`)  
-  - le message d’erreur retourné en cas d’échec  
+    - l’URL exacte (ex.: `/rest/user/login`)  
+    - les paramètres envoyés (`email`, `password`)  
+    - le message d’erreur retourné en cas d’échec  
 
-  Exemple de message :
+    Exemple de message :
 
-  ```text
-  Invalid email or password
-  ```
+    ```text
+    Invalid email or password
+    ```
 
 
 2. Construisez la commande Hydra
 
-```bash
-hydra -l admin -P /usr/share/wordlists/rockyou.txt <IP> http-post-form "/rest/user/login:email=^USER^&password=^PASS^:Invalid"
-```
+  ```bash
+  hydra -l admin -P /usr/share/wordlists/rockyou.txt <IP> http-post-form "/rest/user/login:email=^USER^&password=^PASS^:Invalid"
+  ```
 
 
 3. Lancez la commande et observez :
