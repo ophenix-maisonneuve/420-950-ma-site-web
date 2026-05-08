@@ -4,7 +4,7 @@ title: Éthique et cadre légal
 parent: Sécurité offensive
 nav_order: 2
 has_toc: false
-published: false
+published: true
 ---
 
 # Éthique et cadre légal  
@@ -29,8 +29,8 @@ Une même action peut être :
 - illégale, si elle est réalisée sans consentement sur un système réel  
 
 {: .remarque}
-> *Un test autorisé est une activité de sécurité.*  
-> *Une intrusion non autorisée est une infraction.*  
+> Un test autorisé est une activité de sécurité.
+> Une intrusion non autorisée est une infraction.
 
 ---
 
@@ -43,10 +43,10 @@ L’apprentissage de la sécurité offensive implique également une responsabil
 
 Cette responsabilité s’applique à plusieurs niveaux :
 
-- respecter les lois en vigueur  
-- respecter les systèmes et les données  
-- ne jamais tester une cible sans autorisation explicite  
-- limiter les tests aux environnements prévus à cet effet  
+- respecter les lois en vigueur
+- respecter les systèmes et les données
+- ne jamais tester une cible sans autorisation explicite
+- limiter les tests aux environnements prévus à cet effet
 
 Dans un contexte professionnel, ces principes prennent souvent la forme de contrats, ou, au minimum, de mandats et d'environnements bien définis. Dans un contexte académique, ils reposent sur le respect des consignes et du cadre du cours.
 
@@ -60,10 +60,10 @@ Afin de mieux comprendre les différentes postures possibles en cybersécurité,
 
 Les ***white hat hackers*** (ou *hackers* éthiques) utilisent leurs compétences pour améliorer la sécurité des systèmes. Ils interviennent généralement dans un cadre autorisé, avec un objectif clair : identifier des vulnérabilités afin qu’elles puissent être corrigées. Ils peuvent travailler comme :
 
-- analystes en sécurité  
-- analystes en tests d'intrusion (*pentesters*)  
-- chercheurs en sécurité  
-- participants à des programmes de *bug bounty*  
+- analystes en sécurité
+- analystes en tests d'intrusion (*pentesters*)
+- chercheurs en sécurité
+- participants à des programmes de *bug bounty*
 
 
 ### Black hat  
@@ -81,7 +81,7 @@ Contrairement aux ***white hats***, ils opèrent sans autorisation et sans cadre
 
 Les ***grey hat hackers*** se situent entre les deux extrêmes. Ils peuvent identifier des vulnérabilités sans autorisation préalable, mais sans intention malveillante directe. Dans certains cas, ils divulguent ces failles aux organisations concernées, parfois sans suivre un cadre formel.
 
-Cependant, même en l’absence d’intention malveillante, leurs actions peuvent rester problématiques d’un point de vue légal.
+Cependant, même en l’absence d’intention malveillante, leurs actions peuvent rester problématiques d’un point de vue légal si elles sont effectuées sans autorisation.
 
 
 ### Autres profils  
@@ -89,7 +89,7 @@ Cependant, même en l’absence d’intention malveillante, leurs actions peuven
 Au-delà de cette classification traditionnelle, plusieurs autres types de profils existent :
 
 - ***Script kiddie*** : utilise des outils sans comprendre en profondeur leur fonctionnement  
-- ***Hacktivist*** : agit pour défendre une cause idéologique ou politique  
+- ***Hacktivist*** : agit pour défendre une cause idéologique ou politique (ex.: Anonymous)
 - **Acteur étatique** : opère dans le cadre d’opérations stratégiques, souvent à grande échelle
 
 Ces distinctions permettent de comprendre que la cybersécurité ne repose pas uniquement sur des compétences techniques, mais aussi sur des intentions, des motivations et des contextes variés.
@@ -102,38 +102,32 @@ Dans un contexte professionnel, les activités liées à la sécurité offensive
 
 ### Red Team  
 
-La **Red Team** adopte une posture offensive.
-
-Son objectif est de simuler des attaques réalistes afin d’évaluer la capacité d’un système ou d’une organisation à résister à une intrusion.
+La **Red Team** adopte une posture offensive. Son objectif est de simuler des attaques réalistes afin d’évaluer la capacité d’un système ou d’une organisation à résister à une intrusion.
 
 Les membres d’une Red Team :
 
-- utilisent des techniques offensives réelles  
-- reproduisent le comportement d’un attaquant  
-- cherchent à identifier des failles exploitables  
+- utilisent des techniques offensives réelles
+- reproduisent le comportement d’un attaquant
+- cherchent à identifier des failles exploitables
 
 
 ### Blue Team  
 
-La **Blue Team** se concentre sur la défense.
+La **Blue Team** se concentre sur la défense. Elle est responsable de :
 
-Elle est responsable de :
-
-- détecter les attaques  
-- analyser les incidents  
-- mettre en place des mécanismes de protection  
-- renforcer la sécurité des systèmes  
+- détecter les attaques
+- analyser les incidents
+- mettre en place des mécanismes de protection
+- renforcer la sécurité des systèmes
 
 
 ### Purple Team  
 
-La **Purple Team** vise à faciliter la collaboration entre Red Team et Blue Team.
+La **Purple Team** vise à faciliter la collaboration entre Red Team et Blue Team. Plutôt que de fonctionner en opposition, ces équipes travaillent ensemble afin de :
 
-Plutôt que de fonctionner en opposition, ces équipes travaillent ensemble afin de :
-
-- partager les connaissances  
-- améliorer les défenses  
-- valider les correctifs  
+- partager les connaissances
+- améliorer les défenses
+- valider les correctifs
 
 {: .highlight}
 > Dans le contexte red/blue/purple team en entreprise, attaquer et défendre ne sont pas des rôles opposés, mais complémentaires; on cherche à protéger l'entreprise et ses environnements applicatifs.  
