@@ -449,8 +449,8 @@ node proxy.js
 
 1. Utilisez gobuster pour découvrir de nouveaux *endpoints* potentiels. En particulier, cherchez de routes qui pourraient vous permettre de téléverser (*uploader*) des fichiers et/ou d'exécuter un fichier à distance...
 
-{: .astuce}
-> Certains *endpoints* peuvent ne pas utiliser la méthode HTTP GET, qui est la méthode par défaut utilisée par gobuster. Consultez les notes de cours ou la documentation de gobuster pour plus de détails sur l'utilisation des autres méthodes pour la découverte...
+    {: .astuce}
+    > Certains *endpoints* peuvent ne pas utiliser la méthode HTTP GET, qui est la méthode par défaut utilisée par gobuster. Consultez les notes de cours ou la documentation de gobuster pour plus de détails sur l'utilisation des autres méthodes pour la découverte...
 
 1. Lancez Metasploit
 
