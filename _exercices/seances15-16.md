@@ -478,10 +478,10 @@ run
 
 1. Utilisez le *endpoint* que vous avez découvert dans les étapes précédentes pour téléverser votre *payload* malicieux.
 
+1. Utilisez l'autre *endpoint* découvert pour déclencher l'exécution de votre *payload* malicieux.
+
   {: .highlight}
   > Ce *endpoint* est naïf, et une véritable attaque ne profiterait probablement pas d'un API qui exécute directement du code arbitraire. Cepdendant, on découvre de nouvelles failles de *remote code execution* très fréquemment. Ce genre de faille nous permettrait aussi de déclencher notre *payload* malicieux.
-
-1. Utilisez l'autre *endpoint* découvert pour déclencher l'exécution de votre *payload* malicieux. 
 
 1. Lorsque vous voyez le message suivant...
 ```bash
