@@ -35,7 +35,11 @@ Bisous,
 Le Petit Caneton Polisson
 ```
 
-Affolé(e) à l'idée de devoir travailler ce soir au lieu de regarder le match, vous vous rappelez que vous maîtrisez déjà les outils de sécurité offensive, ce qui vous permettrait d'effectuer un test d'intrusion afin de valider les dires de ce Petit Caneton Polisson (c'est étrange, ce nom évoque un vague souvenir de jeunesse... Ce doit être un pseudonyme.) 
+Affolé(e) à l'idée de devoir travailler ce soir au lieu de regarder le match, vous vous rappelez que vous maîtrisez déjà les outils de sécurité offensive, ce qui vous permettrait d'effectuer un test d'intrusion afin de valider les dires de ce Petit Caneton Polisson.
+
+C'est étrange, ce nom évoque un vague souvenir de jeunesse... Ce doit être un pseudonyme.
+
+Le temps file... À vous de jouer!
 
 ---
 
