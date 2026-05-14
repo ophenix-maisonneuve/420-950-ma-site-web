@@ -120,7 +120,7 @@ Le résumé exécutif est destiné aux gestionnaires et aux décideurs. Il doit 
 Il met en évidence les risques principaux, leur impact potentiel et les décisions à prendre. C’est souvent la seule partie du rapport lue par la direction.
 
 
-{: highlight-title}
+{: .highlight-title}
 > Exemple
 >
 > Le test d’intrusion réalisé sur la plateforme Juice Shop a mis en évidence plusieurs vulnérabilités critiques, notamment
@@ -140,7 +140,7 @@ Il met en évidence les risques principaux, leur impact potentiel et les décisi
 
 La portée du test précise les systèmes évalués, les limites de l’analyse et le contexte du test. Cela permet d’éviter toute ambiguïté sur ce qui a été testé ou non.
 
-{: highlight-title}
+{: .highlight-title}
 > Exemple
 >
 > Le test a été réalisé sur la plateforme Juice Shop selon les paramètres suivants :
@@ -154,7 +154,7 @@ La portée du test précise les systèmes évalués, les limites de l’analyse 
 
 Cette section décrit l’approche utilisée pour réaliser le test. Elle inclut le type de pentest (black, grey ou white box), les étapes suivies et les outils employés. Elle permet de comprendre le contexte des résultats et d’assurer la reproductibilité.
 
-{: highlight-title}
+{: .highlight-title}
 > Exemple
 >
 > **Approche** : boîte noire (aucun accès au code)
@@ -169,7 +169,7 @@ Cette section décrit l’approche utilisée pour réaliser le test. Elle inclut
 
 L’analyse globale offre une vue d’ensemble des résultats. Elle met en évidence les points faibles du système, les tendances observées et les risques majeurs. Elle est plus technique que le résumé exécutif, mais moins détaillée que la prochaine section (résultats détaillés). 
 
-{: highlight-title}
+{: .highlight-title}
 > Exemple
 >
 > Globalement, les principales vulnérabilités observées peuvent être regroupées selon les catégories suivantes :
@@ -183,7 +183,7 @@ L’analyse globale offre une vue d’ensemble des résultats. Elle met en évid
 
 Chaque vulnérabilité identifiée est décrite en détail. Cela inclut la nature de la faille, la manière dont elle a été exploitée, des preuves concrètes et une évaluation de son impact.Cette section est essentielle pour comprendre la gravité des problèmes et prioriser les corrections. Si elle est très longue, cette section peut parfois être scindée en deux : une liste sommaire des vulnérabilités les plus graves directement dans le rapport, et la liste complète en annexe.
 
-{: highlight-title}
+{: .highlight-title}
 > Exemple
 >
 > **1. Injection SQL `/rest/user/login`**
@@ -196,6 +196,7 @@ Chaque vulnérabilité identifiée est décrite en détail. Cela inclut la natur
 
 Les recommandations proposent des solutions concrètes pour corriger les vulnérabilités identifiées. Elles doivent être claires, priorisées et adaptées au contexte.
 
+{: .highlight-title}
 > Exemple
 >
 > 1. Remplacement des requêtes SQL manuelles par l'utilisation d'un ORM et/ou de *prepared statement*
@@ -207,6 +208,7 @@ Les recommandations proposent des solutions concrètes pour corriger les vulnér
 
 La conclusion synthétise l’état de sécurité du système et permet de guider la décision, par exemple pour savoir s’il est prêt à être mis en production ou s’il nécessite des corrections supplémentaires.
 
+{: .highlight-title}
 > Exemple
 >
 > En conclusion, la plateforme contient des vulnérabilités critiques faisant courir un risque élevé à l'organisation et ses clients. En l'état actuel, elle présente un risque technique, légal et réglementaire jugé **très élevé**.
