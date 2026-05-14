@@ -123,7 +123,7 @@ Confirmez maintenant que la route découverte à l'étape précédente est bien 
 ### Questions de réflexion
 
 - Dans quelle(s) circonstance(s) un outil comme **Burp Suite** excelle-t-il ?
-- Quelles sont ses avantages par rapport à un outil d'énumération comme **whatweb**, **gobuster** ou **ZAP**?
+- Quels sont ses avantages par rapport à un outil d'énumération comme **whatweb**, **gobuster** ou **ZAP**?
 - Quels sont ses inconvénients par rapport à un outil d'énumération comme **whatweb**, **gobuster** ou **ZAP**?
 
 ---
