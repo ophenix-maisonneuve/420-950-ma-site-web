@@ -16,7 +16,7 @@ published: true
 
 ## Mise en situation
 
-Vous travaillez pour *La Brocante à Joseph*, une entreprise spécialisée dans l'achat et la revente d'items d'occasion. Pour ses activités en ligne, l'entreprise a récemment adopté la plateforme de e-commerce Juice Shop, qui gagne en popularité. En ce jeudi matin ensoleillé alors que vous rêvassiez à une victoire des Canadiens contre les Sabres de Buffalo, un mystérieux message apparaît dans votre boîte de courriels.
+Vous travaillez pour **La Brocante à Joseph**, une entreprise spécialisée dans l'achat et la revente d'items d'occasion. Pour ses activités en ligne, l'entreprise a récemment adopté la plateforme de e-commerce Juice Shop, qui gagne en popularité. En ce jeudi matin ensoleillé alors que vous rêvassiez à une victoire des Canadiens contre les Sabres de Buffalo, un mystérieux message apparaît dans votre boîte de courriels.
 
 ```
 From : petitcanetonpolisson3432343@gmail.com
