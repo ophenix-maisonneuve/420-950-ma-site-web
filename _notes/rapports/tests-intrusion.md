@@ -3,7 +3,7 @@ layout: default
 title: Rapport de test d'intrusion
 parent: Rapports de sécurité
 nav_order: 1
-has_toc: false  
+has_toc: true  
 ---
 
 # Tests d’intrusion  
@@ -68,13 +68,13 @@ La phase de reconnaissance consiste à collecter un maximum d’informations sur
 
 Le testeur cherche à identifier les adresses IP associées au système, les ports ouverts, les services exposés et les technologies utilisées. Cette information permet de comprendre la surface d’attaque et d’orienter les étapes suivantes.
 
-Des outils comme **nmap** permettent de découvrir les services ouverts, tandis que **whatweb** aide à identifier les technologies utilisées par une application web. Cette phase est essentiellement observationnelle : elle consiste à comprendre avant d’agir.
+Des outils comme **nmap** permettent de découvrir les services ouverts, tandis que **whatweb** aide à identifier les technologies utilisées par une application web. Cette phase en est essentiellement une d'observation : on tente de comprendre avant d'agir.
 
 ### 2. Énumération  
 
 Une fois la reconnaissance terminée, le testeur passe à l’énumération. L’objectif est de découvrir les points d’entrée spécifiques du système, notamment les endpoints, les répertoires cachés et les interfaces internes.
 
-Contrairement à la reconnaissance, qui est globale, l’énumération est ciblée. Elle consiste à explorer activement les ressources accessibles pour identifier ce qui peut être attaqué.
+Contrairement à la reconnaissance, qui est très large, l’énumération est ciblée. Elle consiste à explorer activement les ressources accessibles pour identifier ce qui peut être attaqué.
 
 Des outils comme **gobuster** permettent de découvrir des routes cachées sur une application web. Cette étape est essentielle, car une vulnérabilité ne peut être exploitée que si l’on connaît son point d’accès.
 
@@ -82,7 +82,7 @@ Des outils comme **gobuster** permettent de découvrir des routes cachées sur u
 
 La phase d’analyse vise à comprendre le comportement du système. Le testeur observe les requêtes envoyées, les réponses reçues et la manière dont les données sont traitées.
 
-C’est à ce moment que des outils comme **Burp Suite** deviennent indispensables. Ils permettent d’intercepter les requêtes HTTP, de les modifier et d’observer l’impact de ces modifications. Le testeur identifie les paramètres, teste les validations et cherche des comportements inattendus.
+C’est à ce moment que des outils comme **Burp Suite** deviennent très utiles. Ils permettent d’intercepter les requêtes HTTP, de les modifier et d’observer l’impact de ces modifications. Le testeur identifie les paramètres, teste les validations et cherche des comportements inattendus.
 
 Cette phase marque le passage de l’observation à l’interaction active avec le système.
 
@@ -179,8 +179,6 @@ L’analyse globale offre une vue d’ensemble des résultats. Elle met en évid
 > - **Cryptographie** : 1 vulnérabilité critique ou haute
 > - Plusieurs autres vulnérabilités de niveau moyen ou inférieur
 
----
-
 ### Résultats détaillés  
 
 Chaque vulnérabilité identifiée est décrite en détail. Cela inclut la nature de la faille, la manière dont elle a été exploitée, des preuves concrètes et une évaluation de son impact.Cette section est essentielle pour comprendre la gravité des problèmes et prioriser les corrections. Si elle est très longue, cette section peut parfois être scindée en deux : une liste sommaire des vulnérabilités les plus graves directement dans le rapport, et la liste complète en annexe.
@@ -194,8 +192,6 @@ Chaque vulnérabilité identifiée est décrite en détail. Cela inclut la natur
 > - Résultat : accès administrateur sans authentification
 > - Impact : Critique (compromission complète du système) 
 
----
-
 ### Recommandations  
 
 Les recommandations proposent des solutions concrètes pour corriger les vulnérabilités identifiées. Elles doivent être claires, priorisées et adaptées au contexte.
@@ -206,8 +202,6 @@ Les recommandations proposent des solutions concrètes pour corriger les vulnér
 > 1. Mise en place d'une authentification utilisant JWT avec signature forte
 > 1. Supplémentation de l'authentification avec une 2e source (*multi-factor authentication*)
 > 1. etc.
-
----
 
 ### Conclusion  
 
