@@ -31,7 +31,7 @@ Comme pour tous les rapports, il n'existe pas un format unique et chaque entrepr
 
 Le sommaire exécutif doit fournir suffisamment d'information aux dirigeants pour qu'il puissent prendre une décision éclairée (*go* / *no-go*) tout en étant suffisamment succint pour ne pas les perdre dans les détails techniques. Il contiendra généralement la liste des analyses ayant été effectuées ainsi qu'un résultat sommaire, généralement sous forme d'un résultat chiffré ou d'une métrique de succès ou de risque (faible/moyen/élévé ou rouge/jaune/vert).
 
-{: highlight-title}
+{: .highlight-title}
 > Exemple
 >
 > Le tableau ci-bas résume les différents requis de sécurité ainsi que le niveau de conformité du projet XYZ :
@@ -48,8 +48,8 @@ Le sommaire exécutif doit fournir suffisamment d'information aux dirigeants pou
 > | DAST | ✅ 0 vuln. critique/majeure | Go | Gertrude G. | Voir section ***7. DAST***|
 > | Test d'intrusion | ✅, 0 vuln. critique/majeure | Go | Henri H. | Toutes les recommandations majeures intégrées au code, voir section ***8. Test d'intrusion*** |
 > | Vulnérabilités restantes | 7 moyen, 13 faible | Go | Iris I. | Voir section ***9. Vulnérabilités restantes*** |
-
-> *Un rapport Jira de tous les correctifs de sécurité apportés suite aux découvertes de problèmes de sécurité est également disponible en annexe.*
+>
+>*Un rapport Jira de tous les correctifs de sécurité apportés suite aux découvertes de problèmes de sécurité est également disponible en annexe.*
 
 
 
@@ -62,7 +62,7 @@ Cette section permet de démontrer que l’application respecte les exigences in
 - normes externes (ISO, SOC2, etc.)
 - exigences contractuelles
 
-{: highlight-title}
+{: .highlight-title}
 > Exemple
 >
 > **2. Exigences internes ou réglementaires**
@@ -80,7 +80,7 @@ Cette section permet de démontrer que l’application respecte les exigences in
 
 Cette section vise à démontrer qu'une modélisation de la menace sérieuse a été effectuée et que des contrôles de sécurité permettant de mitiger les risques significatifs identifiés ont été mis en place. On voudra généralement mettre l'accent sur les principales recommandations de conception qui ont été formulées ainsi que sur la manière dont ces recommandations ont été implémentées, puis joindre la modélisation complète en annexe.
 
-{: highlight-title}
+{: .highlight-title}
 > Exemple
 >
 > **3. Modélisation de la menace**
@@ -103,7 +103,7 @@ Dans cette section, on informe le lecteur que des analyses statiques du code ont
 - Principales catégories de vulnérabilités corrigées
 - Vulnérabilités restantes
 
-{: highlight-title}
+{: .highlight-title}
 > Exemple
 >
 > **4. Analyse statique du code (SAST)**
@@ -126,7 +126,7 @@ Dans cette section, on informe le lecteur que des analyses statiques du code ont
 
 Dans cette section, on informe le lecteur que le processus de *build* incluait aussi l'analyse de la chaîne d'approvisionnement à l'aide d'un outil [SCA](../notes/sca). On désire ici démontrer que le logiciel ne contient aucune dépendance vulnérable au-delà d'un certain seuil, souvent mesuré à l'aide du score [CVSS](../notes/cvss).
 
-{: highlight-title}
+{: .highlight-title}
 > Exemple
 >
 > **5. Analyse de la composition logicielle (SCA)**
@@ -147,7 +147,7 @@ Dans cette section, on informe le lecteur que le processus de *build* incluait a
 
 La [nomenclature logicielle (SBOM)](../notes/sbom) est parfois un livrable indépendant du rapport de sécurité. Qu'il soit fourni seul ou à même le rapport de sécurité, il contient généralement une information importante d'un point de vue légal : les différentes licences des composantes utilisées. Cela permet à l'équipe légale de s'assurer que l'entreprise n'est pas à risque d'enfreindre des conditions d'utilisation ou de devoir publier son code source en totalité ou en partie.
 
-{: highlight-title}
+{: .highlight-title}
 > Exemple
 >
 > **6. Nomenclature logicielle (SBOM)**
@@ -170,7 +170,7 @@ Cette section ressemble beaucoup à la section sur le DAST, mais on y informe le
 - Principales catégories de vulnérabilités corrigées
 - Vulnérabilités restantes
 
-{: highlight-title}
+{: .highlight-title}
 > Exemple
 >
 > **7. Analyse dynamique (DAST)**
@@ -192,7 +192,7 @@ Cette section ressemble beaucoup à la section sur le DAST, mais on y informe le
 
 On présente ici les conclusions du rapport de test d'intrusion. Il ne s'agit pas de répéter tout le rapport (qui sera normalement joint en annexe), mais plutôt de démontrer que ses principales recommandations ont été comprises et mises en place. 
 
-{: highlight-title}
+{: .highlight-title}
 > Exemple
 >
 > **8. Test d'intrusion**
