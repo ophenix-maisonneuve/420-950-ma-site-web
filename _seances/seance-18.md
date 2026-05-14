@@ -1,28 +1,22 @@
 ---
 layout: default
-title: "Séance 18"
+title: "2026-05-15"
 nav_order: 18
-published: false
+published: true
 ---
 
-# Séance 18 : Principes de développement (partie 2)
+# Séance 18 : Rapport final de sécurité
 
-## <date>
+## 15 mai 2026
 
 ### Ordre du jour
 
-1. Informations
-1. Récapitulation
-   1. [SRP - Principe de responsabilité unique](../notes/srp)
-   1. [OCP - Principe ouvert/fermé](../notes/ocp)
-1. [Principes SOLID](../notes/solid)
-   1. [LSP - Principe de substitution de Liskov](../notes/lsp)
-   1. [Exercice SOLID - Question 3](../exercices/solid)
-   1. [ISP - Principe de ségrégation des interfaces](../notes/isp)
-   1. [Exercice SOLID - Question 4](../exercices/solid)
-   1. [DIP - Principe d'inversion des dépendances](../notes/dip)
-   1. [Exercice SOLID - Question 5](../exercices/solid)
+1. Retour sur l'exercice pratique [La brocante à Joseph](../exercices/seance17)
+1. [Rapport final de sécurité](../notes/rapport-final)
+   1. Quand et pourquoi ?
+   1. Principales sections
+1. Travail sur le [projet de session](../travaux/projet)
 
+### Lectures recommandées
 
-### Exercices complémentaires
-1. [Identification d'infractions SOLID - Question 6](../exercices/solid)
+- Notes de cours sur le [rapport final de sécurité](../notes/rapport final)

@@ -4,7 +4,7 @@ title: Rapport final
 parent: Rapports de sécurité
 nav_order: 2
 has_toc: false  
-published: false
+published: true
 ---
 
 # Rapport final de sécurité
