@@ -79,7 +79,7 @@ Il s'agit ici d'une étape d'observation passive.
 1. Explorez la plateforme Juice Shop en utilisant ses diverses fonctionnalités et en notant les comportements louches ou intéressants.
 1. Tentez de déterminer si vous pouvez avoir accès à de l'information publique sur l'application (informations sur OWASP, ou même le code source, pourquoi pas? )
 
-## Questions de réflexion
+### Questions de réflexion
 - Quelles informations ou comportements intéressants avez-vous remarqués ?
 - Quel est l'URL du dépôt GitHub de Juice Shop ? Le code source est-il accessible au public ?
 
@@ -114,13 +114,13 @@ Tentez maintenant de découvrir au maximum la surface d'attaque en exposant tous
 
 Confirmez maintenant que la route découverte à l'étape précédente est bien celle utilisée par l'authentification dans Juice Shop.
 
-## Étapes
+### Étapes
 
 1. À l'aide de l'outil Burp Suite, interceptez une requête d'authentification
 1. Sous l'onglet **HTTP history**, faites un clic droit sur la requête d'authentification, puis sélectionnez **Save item**
     - Sauvegardez la requête dans un fichier `requete.txt`
 
-## Questions de réflexion
+### Questions de réflexion
 
 - Dans quelle(s) circonstance(s) un outil comme Burp Suite excelle-t-il ?
 - Quelles sont ses avantages par rapport à un outil d'énumération comme **whatweb**, **gobuster** ou **ZAP**?
@@ -132,7 +132,7 @@ Confirmez maintenant que la route découverte à l'étape précédente est bien 
 
 Vérifiez que la route d'authentification est bel et bien vulnérable aux injections SQL.
 
-## Étapes
+### Étapes
 
 1. À l'aide de l'outil **sqlmap**, validez que la route d'authentification est vulnérable à l'injection SQL.
 
@@ -143,7 +143,7 @@ Vérifiez que la route d'authentification est bel et bien vulnérable aux inject
 > sqlmap -r <requête> --batch --level=5 -p <paramètre vulnérable>
 >```
 
-## Questions de réflexion
+### Questions de réflexion
 - **sqlmap** a-t-il été en mesure de détecter la faille d'injection SQL ? Pourquoi ?
 - **sqlmap** a-t-il été en mesure d'exploiter directement la faille d'injection SQL en devenant administrateur ? Pourquoi ?
 
@@ -152,7 +152,7 @@ Vérifiez que la route d'authentification est bel et bien vulnérable aux inject
 
 On suppose maintenant que l'obtention de l'accès `admin@juice-sh.op` vous a permis d'obtenir une combinaison usager/mot de passe qui est également utilisée comme compte directement sur le serveur. Pour simuler ce cas, on utilisera notre compte `dev/dev`, mais cela fonctionnerait avec tout compte ayant un accès SSH au serveur sur lequel s'exécute Juice Shop.
 
-## Étapes
+### Étapes
 1. Utiliser le module `ssh_login` de Metasploit pour obtenir une session en utilisant les identifiants recueillis
     ```bash
     mfsconsole
@@ -219,7 +219,7 @@ On suppose maintenant que l'obtention de l'accès `admin@juice-sh.op` vous a per
 
 ## 6. Rapport
 
-## Questions
+### Questions
 - Quelle information inclueriez-vous dans la section "Portée" de votre rapport de test d'intrusion ?
 - Quelle information inclueriez-vous dans la section "Méthodologie" de votre rapport de test d'intrusion ?
 - Quelle information inclueriez-vous dans la section "Analyse globale" de votre rapport de test d'intrusion ?
@@ -227,5 +227,3 @@ On suppose maintenant que l'obtention de l'accès `admin@juice-sh.op` vous a per
 - Quelle information inclueriez-vous dans la section "Recommandations" de votre rapport de test d'intrusion ?
 - Quelle information inclueriez-vous dans la section "Conclusion" de votre rapport de test d'intrusion ?
 - En fonction de vos réponses ci-haut, rédigez un bref sommaire exécutif qui pourrait être utilisé par des décideurs suite à votre test d'intrusion.
-
-
