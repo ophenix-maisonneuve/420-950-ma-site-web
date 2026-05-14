@@ -9,6 +9,8 @@ published: true
 # Exercice : La Brocante à Joseph
 ## Test d'intrusion
 
+---
+
 *À la Brocante à Joseph, on achète vos vieilleries, on les renippe, on les revend, on les rachète, pis on ferme au bout de deux semaines.*
 *À la Brocante à Joseph, tous se vend, tout revient et tourlou!*
 
