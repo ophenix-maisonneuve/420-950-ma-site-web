@@ -155,7 +155,7 @@ On suppose maintenant que l'obtention de l'accès `admin@juice-sh.op` vous a per
 ### Étapes
 1. Utilisez le module `ssh_login` de Metasploit pour obtenir une session en utilisant les identifiants recueillis
     ```bash
-    mfsconsole
+    msfconsole
     use auxiliary/scanner/ssh/ssh_login
     set RHOST <IP de votre VM applicative>
     set RPORT 22
