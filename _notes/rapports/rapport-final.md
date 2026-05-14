@@ -179,7 +179,7 @@ Cette section ressemble beaucoup à la section sur le DAST, mais on y informe le
 > 
 > - Problèmes d'authentification (possiblité de contournement)
 > - Présence de routes de déboguage
-
+>
 > Plusieurs vulnérabilités de sévérité moyenne ou inférieure ont aussi été corrigées. Au moment de la production de ce rapport, voici les vulnérabilités restantes identifiées par l'outil SAST : 
 >
 > | Sévérité | Nombre | Notes |
@@ -201,7 +201,7 @@ On présente ici les conclusions du rapport de test d'intrusion. Il ne s'agit pa
 > 
 > - Problèmes d'authentification (possiblité de contournement)
 > - Présence de routes de déboguage
-
+>
 > Plusieurs vulnérabilités de sévérité moyenne ou inférieure ont aussi été corrigées. Au moment de la production de ce rapport, voici les vulnérabilités restantes identifiées par l'outil SAST : 
 >
 > | Recommandation | Mise en place (O/N) ? | Implémentation |
