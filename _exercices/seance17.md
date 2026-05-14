@@ -140,7 +140,7 @@ Vérifiez que la route d'authentification est bel et bien vulnérable aux inject
 > Plutôt que d'utiliser une URL, il sera plus efficace ici d'utiliser la requête vulnérable sauvegardée à l'étape précédente. Une requête du format suivant serait appropriée :
 >
 >```bash
-> sqlmap -r <requête> --batch --level=5 -p <paramètre vulnérable>
+> sqlmap -r <requête> --batch --level=5 --risk=3 -p <paramètre vulnérable dans le json (ex.: username)> 
 >```
 
 ### Questions de réflexion
