@@ -88,7 +88,7 @@ Il s'agit ici d'une étape d'observation passive.
 
 ## 2. Énumération
 
-Tentez maintenant de découvrir au maximum la surface d'attaque en exposant tous les points d'entrée avec l'outil des outils comme **whatweb**, **gobuster** et un **spider** de OWASP ZAP.
+Tentez maintenant de découvrir au maximum la surface d'attaque en exposant tous les points d'entrée avec des outils comme **whatweb**, **gobuster** et un **spider** de OWASP ZAP.
 
 ### Étapes
 
