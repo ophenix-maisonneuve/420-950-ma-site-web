@@ -96,7 +96,7 @@ Tentez maintenant de découvrir au maximum la surface d'attaque en exposant tous
 1. Lancez maintenant une analyse de Juice Shop avec l'outil **gobuster** et notez les résultats.
     - Visitez l'une des routes ayant retourné un code 200.
     - Visitez l'une des routes ayant retourné un code 500.
-1. Lancez maintenant un *spider* OWASP ZAP sur Juice Shop
+1. Lancez maintenant un *spider* OWASP ZAP sur Juice Shop et remarquez les routes découvertes.
 
 ### Questions de réflexion
 - Est-ce que **whatweb** pourrait normalement vous fournir des informations utiles quant à la faille d'injection SQL ?
