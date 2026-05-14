@@ -116,13 +116,13 @@ Confirmez maintenant que la route découverte à l'étape précédente est bien 
 
 ### Étapes
 
-1. À l'aide de l'outil Burp Suite, interceptez une requête d'authentification
+1. À l'aide de l'outil **Burp Suite**, interceptez une requête d'authentification
 1. Sous l'onglet **HTTP history**, faites un clic droit sur la requête d'authentification, puis sélectionnez **Save item**
     - Sauvegardez la requête dans un fichier `requete.txt`
 
 ### Questions de réflexion
 
-- Dans quelle(s) circonstance(s) un outil comme Burp Suite excelle-t-il ?
+- Dans quelle(s) circonstance(s) un outil comme **Burp Suite** excelle-t-il ?
 - Quelles sont ses avantages par rapport à un outil d'énumération comme **whatweb**, **gobuster** ou **ZAP**?
 - Quels sont ses inconvénients par rapport à un outil d'énumération comme **whatweb**, **gobuster** ou **ZAP**?
 
