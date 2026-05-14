@@ -62,41 +62,43 @@ Le test **boîte grise** est particulièrement efficace pour identifier les fail
 
 Un test d'intrusion utilise généralement les mêmes outils vus dans les cours de sécurité offensive, mais les utilise dans une démarche plus structurée et encadrée. Ainsi, même si les *hackers* suivent généralement (consciemment ou non) des étapes officieuses, le testeur s'assure quant à lui que sa démarche est claire, méthodique, documentée et donc reproductible. 
 
-### 1. Reconnaissance  
+### 1. Reconnaissance passive
 
-La phase de reconnaissance consiste à collecter un maximum d’informations sur la cible avant toute tentative d’attaque. Cette étape est souvent sous-estimée, mais elle est cruciale : plus l’information recueillie est précise, plus les attaques ultérieures seront efficaces.
+La phase de reconnaissance consiste à collecter un maximum d’informations sur la cible avant de poser une quelconque action. Cette étape est souvent sous-estimée, mais elle est cruciale : plus l’information recueillie est précise, plus les actions prises ultérieurement seront efficaces.
 
-Le testeur cherche à identifier les adresses IP associées au système, les ports ouverts, les services exposés et les technologies utilisées. Cette information permet de comprendre la surface d’attaque et d’orienter les étapes suivantes.
+Le testeur cherche à identifier les adresses IP et les noms de domaines associées au système, les entrées DNS, les certificats SSL/TLS utilisés, les adresses de courriels, etc. Il consulte généralement aussi les comptes de médias sociaux et/ou les dépôts de code publics (ex.: GitHub) de l'entité sous enquête à la recherche d'indices.
 
-Des outils comme **nmap** permettent de découvrir les services ouverts, tandis que **whatweb** aide à identifier les technologies utilisées par une application web. Cette phase en est essentiellement une d'observation : on tente de comprendre avant d'agir.
+Cette phase en est essentiellement une d'observation : on tente de comprendre avant d'agir.
 
-### 2. Énumération  
+### 2. Énumération active (*scanning*) 
 
-Une fois la reconnaissance terminée, le testeur passe à l’énumération. L’objectif est de découvrir les points d’entrée spécifiques du système, notamment les endpoints, les répertoires cachés et les interfaces internes.
+Une fois la reconnaissance terminée, le testeur passe à l’énumération. L’objectif est de découvrir les points d’entrée spécifiques du système, notamment les routes, les répertoires cachés, les ports et services ouverts et les interfaces internes.
 
-Contrairement à la reconnaissance, qui est très large, l’énumération est ciblée. Elle consiste à explorer activement les ressources accessibles pour identifier ce qui peut être attaqué.
+Contrairement à la reconnaissance, qui est très large et passive, l’énumération est ciblée et active. Elle consiste à explorer dynamiquement les ressources accessibles pour identifier ce qui peut être attaqué.
 
-Des outils comme **gobuster** permettent de découvrir des routes cachées sur une application web. Cette étape est essentielle, car une vulnérabilité ne peut être exploitée que si l’on connaît son point d’accès.
+Des outils comme **gobuster** et **whatweb** permettent de découvrir respectivement des routes cachées et les technologies utilisées par une application web, tandis que des outils comme **nmap** permettent de découvrir les services ouverts sur un serveur.
+
+Cette étape est essentielle, car une vulnérabilité ne peut être exploitée que si l’on connaît son point d’accès.
 
 ### 3. Analyse  
 
-La phase d’analyse vise à comprendre le comportement du système. Le testeur observe les requêtes envoyées, les réponses reçues et la manière dont les données sont traitées.
+La phase d’analyse vise à comprendre le comportement du système. Le testeur commence à interagir, souvent manuellement, avec le système analysé. Il observe les requêtes envoyées, les réponses reçues et la manière dont les données sont traitées.
 
 C’est à ce moment que des outils comme **Burp Suite** deviennent très utiles. Ils permettent d’intercepter les requêtes HTTP, de les modifier et d’observer l’impact de ces modifications. Le testeur identifie les paramètres, teste les validations et cherche des comportements inattendus.
 
-Cette phase marque le passage de l’observation à l’interaction active avec le système.
+C'est au cours de cette phase que le testeur détermine les vecteurs d'attaque les plus prometteurs qu'il tentera d'exploiter.
 
 ### 4. Exploitation  
 
-L’exploitation consiste à tirer parti des vulnérabilités identifiées. Le testeur ne se contente plus d’observer, il agit pour compromettre le système.
+L’exploitation consiste à tirer parti des vulnérabilités identifiées. Le testeur ne se contente plus d’observer ou d'analyser; il agit pour compromettre le système.
 
-Cela peut inclure des injections SQL (avec **sqlmap**), des attaques par brute force (avec **hydra**) ou d’autres techniques permettant d’obtenir un accès.
+Cela peut inclure des injections SQL (avec **sqlmap**), des attaques par brute force (avec **hydra**), de l'injection de scripts (ex.: *cross-site scripting*) ou d’autres techniques permettant d’obtenir un accès ou de compromettre le système.
 
-L’objectif est de démontrer que la vulnérabilité a un impact réel. Par exemple, réussir à contourner une authentification ou accéder à des données sensibles.
+L’objectif est de démontrer que la vulnérabilité a un impact réel. Par exemple, on cherchera à contourner une authentification ou accéder à des données sensibles.
 
 ### 5. Post‑exploitation  
 
-Une fois l’accès obtenu, la phase de post‑exploitation permet de mesurer l’étendue de la compromission. Le testeur cherche à comprendre ce qu’un attaquant pourrait réellement faire une fois à l’intérieur du système.
+Une fois l’accès obtenu, la phase de post‑exploitation permet de mesurer l’étendue de la faille de sécurité. Le testeur cherche à comprendre ce qu’un attaquant pourrait réellement faire une fois à l’intérieur du système.
 
 Cela inclut l’exécution de commandes, l’exploration des fichiers, la récupération d’informations sensibles et, dans certains cas, l’escalade de privilèges.
 
@@ -106,13 +108,13 @@ Des outils comme **Metasploit** permettent d’automatiser cette phase et de dé
 
 La phase finale est la rédaction du rapport. Elle est souvent la plus importante, car c’est elle qui permet de convertir les résultats techniques en information exploitable pour l’organisation.
 
-Un pentest sans rapport n’a aucune valeur. Le rapport est le seul livrable qui permet de comprendre les failles, leur impact et les actions à entreprendre.
+Un test d'intrusion sans rapport n’a aucune valeur. Le rapport est le seul livrable qui permet de comprendre les failles, leur impact et les actions à entreprendre pour les corriger.
 
 ---
 
 ## Rapport de test d’intrusion  
 
-Le rapport de pentest est un document structuré qui doit être compréhensible à la fois par des experts techniques et par des décideurs non techniques. Il constitue la base des actions correctives et des décisions stratégiques. Il existe une multitude de façons de structurer ce rapport; la prochaine section propose une structure suffisamment générique couvrant les sections les plus importantes et pouvant servir de modèle de base.
+Le rapport de test d'intrusion est un document structuré qui doit être compréhensible à la fois par des experts techniques et par des décideurs non techniques. Il constitue la base des actions correctives et des décisions stratégiques. Il existe une multitude de façons de structurer ce rapport; la prochaine section propose une structure suffisamment générique couvrant les sections les plus importantes et pouvant servir de modèle de base.
 
 ### Résumé exécutif  
 
