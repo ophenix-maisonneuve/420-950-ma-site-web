@@ -153,7 +153,7 @@ Vérifiez que la route d'authentification est bel et bien vulnérable aux inject
 On suppose maintenant que l'obtention de l'accès `admin@juice-sh.op` vous a permis d'obtenir une combinaison usager/mot de passe qui est également utilisée comme compte directement sur le serveur. Pour simuler ce cas, on utilisera notre compte `dev/dev`, mais cela fonctionnerait avec tout compte ayant un accès SSH au serveur sur lequel s'exécute Juice Shop.
 
 ### Étapes
-1. Utiliser le module `ssh_login` de Metasploit pour obtenir une session en utilisant les identifiants recueillis
+1. Utilisez le module `ssh_login` de Metasploit pour obtenir une session en utilisant les identifiants recueillis
     ```bash
     mfsconsole
     use auxiliary/scanner/ssh/ssh_login
