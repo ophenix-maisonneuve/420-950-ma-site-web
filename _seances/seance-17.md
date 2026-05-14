@@ -16,3 +16,11 @@ published: true
    1. Principales étapes
    1. Rapport de test d'intrusion
 1. Exercice pratique [La brocante à Joseph](../exercices/seance17)
+
+### Lectures recommandées
+
+- Notes de cours sur les [tests d'intrusion](../notes/tests-intrusion)
+
+### Exercice(s) complémentaire(s)
+
+- [La brocante à Joseph](../exercices/seance17) : Terminer l'exercice
