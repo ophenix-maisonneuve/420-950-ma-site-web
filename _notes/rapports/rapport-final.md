@@ -112,7 +112,7 @@ Dans cette section, on informe le lecteur que des analyses statiques du code ont
 > 
 > - Mauvaise utilisation du matériel cryptographique (principalement utilisation de clés faibles pendant le développement)
 > - Présence de code de déboguage
-
+>
 > Plusieurs vulnérabilités de sévérité moyenne ou inférieure ont aussi été corrigées. Au moment de la production de ce rapport, voici les vulnérabilités restantes identifiées par l'outil SAST : 
 >
 > | Sévérité | Nombre | Notes |
