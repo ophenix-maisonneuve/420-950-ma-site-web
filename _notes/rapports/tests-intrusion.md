@@ -145,10 +145,10 @@ La portée du test précise les systèmes évalués, les limites de l’analyse 
 >
 > Le test a été réalisé sur la plateforme Juice Shop selon les paramètres suivants :
 >
-> **Environnement** : http://pentest.juiceshop.local:3000
-> **Période** : 2026-05-04 au 2026-05-08 (5 jours ouvrables)
-> **Inclusion** : Interface web, services REST exposés
-> **Exclusions** : Applications tierces utilisant la plateforme, attaques provenant de l'interne (hypothèse de périmètre sécuritaire)
+> - **Environnement** : http://pentest.juiceshop.local:3000
+> - **Période** : 2026-05-04 au 2026-05-08 (5 jours ouvrables)
+> - **Inclusion** : Interface web, services REST exposés
+> - **Exclusions** : Applications tierces utilisant la plateforme, attaques provenant de l'interne (hypothèse de périmètre sécuritaire)
 
 ### Méthodologie  
 
@@ -157,13 +157,13 @@ Cette section décrit l’approche utilisée pour réaliser le test. Elle inclut
 {: .highlight-title}
 > Exemple
 >
-> **Approche** : boîte noire (aucun accès au code)
-> **Outils utilisés**:
->   - Reconnaissance : nmap
->   - Énumération : gobuster
->   - Analyse : Burp Suite
->   - Exploitation : sqlmap, hydra, Metasploit
->   - Post-exploitation : Metasploit
+> - **Approche** : boîte noire (aucun accès au code)
+> - **Outils utilisés**:
+>    - Reconnaissance : nmap
+>    - Énumération : gobuster
+>    - Analyse : Burp Suite
+>    - Exploitation : sqlmap, hydra, Metasploit
+>    - Post-exploitation : Metasploit
 
 ### Analyse globale  
 
@@ -186,7 +186,7 @@ Chaque vulnérabilité identifiée est décrite en détail. Cela inclut la natur
 {: .highlight-title}
 > Exemple
 >
-> **1. Injection SQL `/rest/user/login`**
+> **Injection SQL `/rest/user/login`**
 > Le paramètre `email` est vulnérable à une attaque par injection SQL.
 > - Valeur utilisée : ' OR 1=1--
 > - Résultat : accès administrateur sans authentification
