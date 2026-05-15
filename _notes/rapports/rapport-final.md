@@ -93,7 +93,7 @@ Cette section vise à démontrer qu'une modélisation de la menace sérieuse a �
 > | Mise en place de limiteur de requêtes (*rate limiter*) | fail2ban avec bannissement exponentiel pour 3 tentatives ratées | Utilisé pour toutes tentatives d'authentification |
 > | <Recommandation 3> | <Mitigation 3> | <Explications/Notes> |
 >
-> *La modélisation STRIDE complète est disponible à l'annexe X.
+> *La modélisation STRIDE complète est disponible à l'annexe X.*
 
 
 ### 4. SAST
