@@ -152,7 +152,7 @@ Section 8 : Conclusion | 5
     - La nomenclature logicielle (SBOM)
 - Le travail est à remettre sur **Léa (Omnivox)** dans la section **Travaux - Énoncés et remises**
 - Le travail se fait en **équipe de 2 ou 3 personnes** (une remise par équipe)
-- Le travail est à remettre au plus tard le **21 mai 2026** en fin de journée.
+- Le travail est à remettre au plus tard le **24 mai 2026** en fin de journée.
 
 ---
 
