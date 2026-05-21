@@ -33,7 +33,7 @@ Le dirigeant vous supplie de sauver Oups Technologies une dernière fois avant d
 
 ## Directives
 
-- Le dépôt contenant l'énoncé de l'examen et le matériel requis est disponible ici : [lien]
+- Le dépôt contenant l'énoncé de l'examen et le matériel requis est disponible ici : [Dépôt Git](https://github.com/ophenix-420-950-ma-24636/examen-final)
 - La machine virtuelle requise pour l'examen est disponible ici : [Télécharger la machine virtuelle](https://cmaisonneuveqcca-my.sharepoint.com/:u:/r/personal/ophenix_cmaisonneuve_qc_ca/Documents/Cours/420-950-MA%20-%20Cybers%C3%A9curit%C3%A9/Mat%C3%A9riel%20de%20cours/420-950-MA-ExamenFinal.ova?csf=1&web=1&e=aM0jxY)
    - Nom d'utilisateur : employe
    - Mot de passe : employe
