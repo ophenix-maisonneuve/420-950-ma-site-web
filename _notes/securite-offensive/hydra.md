@@ -63,7 +63,7 @@ Hydra détecte un succès lorsqu’une réponse diffère de celle d’un échec.
 ### Syntaxe générale
 
 ```text
-hydra [OPTIONS] <CIBLE> <MODULE>
+hydra [OPTIONS] <CIBLE> <MODULE> "[OPTIONS DU MODULE]"
 ```
 
 ### Synopsis
@@ -87,7 +87,8 @@ hydra
     ├─ ssh
     ├─ ftp
     ├─ http-get
-    └─ http-post-form
+    ├─ http-post-form
+    └─ https-post-form
 ```
 
 ### Lecture de la structure  
@@ -95,12 +96,13 @@ hydra
 Une commande Hydra se construit en combinant :
 
 - un ou plusieurs utilisateurs
-- une liste de mots de passe  
+- un ou plusieurs mots de passe  
 - une cible  
-- un type de service  
+- un type de service  (module)
+- les options spécifiques au module
 
 
-**Exemple** :
+**Exemple : force brute avec dictionnaire sur SSH** :
 
 ```bash
 hydra -l admin -P passwords.txt 192.168.1.10 ssh
@@ -108,14 +110,30 @@ hydra -l admin -P passwords.txt 192.168.1.10 ssh
 
 **Lecture** :
 
-- `-l admin` → utilisateur ciblé  
-- `-P passwords.txt` → liste de mots de passe  
-- `192.168.1.10` → cible  
-- `ssh` → service ciblé  
+- `-l admin` : utilisateur ciblé  
+- `-P passwords.txt` : liste de mots de passe  
+- `192.168.1.10` : cible  
+- `ssh` : service ciblé  
 
+**Exemple : force brute avec dictionnaire sur HTTPS** :
+
+```bash
+hydra -l admin -P passwords.txt secure.monsite.com https-form-post "/login:utilisateur=^USER^&pass=^PASS^:F=Impossible de se connecter"
+```
+
+**Lecture** :
+
+- `-l admin` : utilisateur ciblé  
+- `-P passwords.txt` : liste de mots de passe  
+- `secure.monsite.com` : cible
+- `https-form-post` : service ciblé (l'attaque ciblera automatiquement le port 443 par défaut, puisque c'est le port par défaut de https)
+- `"/login:utilisateur=^USER^&pass=^PASS^:F=Impossible de se connecter"`
+    - `/login` : route utilisée par l'application web pour l'authentification
+    - `:utilisateur=^USER^&pass=^PASS^` : modèle à utiliser pour le contenu à envoyer à la route, avec `^USER^`et `^PASS^` comme marque-places pour l'utilisateur et le mot de passe
+    - `:F=Impossible de se connecter` : réponse négative (i.e.: échec d'authentification) retournée par le serveur; utilisé par hydra pour détecter un mot de passe qui ne fonctionne pas (afin de trouver celui qui fonctionne)
 
 {: .highlight}
-Hydra teste toutes les combinaisons possibles.
+> Hydra teste toutes les combinaisons possibles.
 
 ---
 
