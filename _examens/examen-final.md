@@ -10,7 +10,7 @@ published: true
 
 ## Un dernier Oups!
 
-[!Un dernier Oups!](../assets/images/oups-examen-final.png)
+![Un dernier Oups!](../assets/images/oups-examen-final.png)
 
 Votre stage chez Oups Technologies tire déjà à sa fin. Au-delà des beaux moments passés en compagnie de collègues appréciés (mention spéciale à Gilles Sansoucis qui a appris à ses dépens l'importance de HTTPS), vous retenez surtout l'impact positif que vous avez eu sur les pratiques de sécurité de l'entreprise. C'est donc avec un mélange de nostalgie mais surtout de fierté du devoir accompli que vous vous apprêtez à quitter le bureau pour une dernière fois, non sans apporter avec vous votre trophée remporté pour la *Meilleure modélisation STRIDE - 2026*.
 
