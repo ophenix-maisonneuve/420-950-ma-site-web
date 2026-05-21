@@ -35,7 +35,7 @@ Le dirigeant vous supplie de sauver Oups Technologies une dernière fois avant d
 ## Directives
 
 - Le dépôt contenant l'énoncé de l'examen et le matériel requis est disponible ici : [lien]
-- La machine virtuelle requise pour le travail est disponible ici : [lien]
+- La machine virtuelle requise pour l'examen est disponible ici : [lien]
 
 ---
 
