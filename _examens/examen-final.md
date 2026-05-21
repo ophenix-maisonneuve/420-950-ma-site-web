@@ -35,6 +35,8 @@ Le dirigeant vous supplie de sauver Oups Technologies une dernière fois avant d
 
 - Le dépôt contenant l'énoncé de l'examen et le matériel requis est disponible ici : [lien]
 - La machine virtuelle requise pour l'examen est disponible ici : [lien]
+   - Nom d'utilisateur : employe
+   - Mot de passe : employe
 
 ---
 
