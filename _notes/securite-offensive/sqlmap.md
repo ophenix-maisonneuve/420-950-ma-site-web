@@ -114,8 +114,6 @@ La commande sqlmap se lit comme suit :
 sqlmap -u "http://mon-serveur:45000/rest/api" --dbs
 ```
 
-**Lecture** :
-
 - `-u` → utiliser l'URL spécifiée  
 - `--dbs` → lister les bases de données  
 

@@ -108,8 +108,6 @@ Une commande Hydra se construit en combinant :
 hydra -l admin -P passwords.txt 192.168.1.10 ssh
 ```
 
-**Lecture** :
-
 - `-l admin` : utilisateur ciblé  
 - `-P passwords.txt` : liste de mots de passe  
 - `192.168.1.10` : cible  
@@ -120,8 +118,6 @@ hydra -l admin -P passwords.txt 192.168.1.10 ssh
 ```bash
 hydra -l admin -P passwords.txt secure.monsite.com https-form-post "/login:utilisateur=^USER^&pass=^PASS^:F=Impossible de se connecter"
 ```
-
-**Lecture** :
 
 - `-l admin` : utilisateur ciblé  
 - `-P passwords.txt` : liste de mots de passe  

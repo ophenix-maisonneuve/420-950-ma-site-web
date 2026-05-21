@@ -97,8 +97,6 @@ La commande se lit de gauche à droite :
 nmap -sV -p- 192.168.1.10
 ```
 
-**Lecture** :
-
 - `-sV` → identifier les versions  
 - `-p-` → scanner tous les ports  
 - `192.168.1.10` → cible  

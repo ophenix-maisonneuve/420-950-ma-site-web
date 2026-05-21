@@ -102,8 +102,6 @@ whatweb http://192.168.1.10:3000
 whatweb -a 3 http://192.168.1.10:3000
 ```
 
-**Lecture** :
-
 - `-a 3` → analyse plus agressive  
 - cible → application web  
 
