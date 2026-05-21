@@ -8,10 +8,9 @@ published: true
 
 # Épreuve finale
 
-## Un dernier Oups!
-
 ![Un dernier Oups!](../assets/images/oups-examen-final.png)
 
+## Un dernier Oups!
 Votre stage chez Oups Technologies tire déjà à sa fin. Au-delà des beaux moments passés en compagnie de collègues appréciés (mention spéciale à Gilles Sansoucis qui a appris à ses dépens l'importance de HTTPS), vous retenez surtout l'impact positif que vous avez eu sur les pratiques de sécurité de l'entreprise. C'est donc avec un mélange de nostalgie mais surtout de fierté du devoir accompli que vous vous apprêtez à quitter le bureau pour une dernière fois, non sans apporter avec vous votre trophée remporté pour la *Meilleure modélisation STRIDE - 2026*.
 
 Alors que vous franchissez le seuil de la porte, le vice-président des technologies de l'infomation de la compagnie sort de l'ascenseur en implorant votre nom. Haletant, il vous rattrape enfin, un épais document entre les mains. Il s'agit d'un rapport de test d'intrusion qui a été commandé par l'entreprise pour son plus récent produit appelé *LinkedOut* : un réseau social permettant de remettre sa démission publiquement et où les gens nous félicitent d'avoir quitté notre emploi.
